@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #09090b;
+    color: #f8fafc;
+    font-feature-settings: "ss01" on, "cv01" on;
+  }
+
+  ::selection {
+    background: rgba(139, 92, 246, 0.35);
+    color: #f8fafc;
+  }
+
+  :focus-visible {
+    outline: 2px solid #8b5cf6;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply px-6 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.18em] text-muted;
+  }
+
+  .card-surface {
+    @apply bg-card border border-border rounded-xl2;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-xl2 bg-primary px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-soft;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-xl2 border border-border bg-transparent px-5 py-3 text-sm font-medium text-text transition-colors hover:border-primary/50 hover:bg-primary/5;
+  }
+
+  .chip {
+    @apply font-mono text-xs text-muted border border-border rounded-full px-3 py-1.5 bg-white/[0.02];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
