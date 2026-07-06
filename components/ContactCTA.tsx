@@ -1,13 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, FileText } from "lucide-react";
+import { Mail, Linkedin, Github, FileText, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { portfolioData } from "@/lib/portfolio-data";
 
 const LINKS = [
-  { label: "Email", href: "mailto:hello@shreyadubey.dev", icon: Mail },
-  { label: "LinkedIn", href: "#", icon: Linkedin },
-  { label: "GitHub", href: "#", icon: Github },
-  { label: "Resume", href: "/resume.pdf", icon: FileText },
+  { label: "Email", href: portfolioData.contact.email, icon: Mail },
+  { label: "LinkedIn", href: portfolioData.contact.linkedin, icon: Linkedin },
+  { label: "GitHub", href: portfolioData.contact.github, icon: Github },
+  { label: "Resume", href: portfolioData.contact.resume, icon: FileText },
 ];
 
 export default function ContactCTA() {
@@ -33,6 +35,26 @@ export default function ContactCTA() {
               </a>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mt-6"
+          >
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-primary transition-all duration-200 group"
+            >
+              Browse All Projects
+              <motion.span
+                className="group-hover:translate-x-1 transition-transform duration-200"
+              >
+                <ArrowUpRight size={14} />
+              </motion.span>
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
 

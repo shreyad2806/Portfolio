@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { portfolioData } from "@/lib/portfolio-data";
 
 export default function CurrentFocus() {
   return (
@@ -16,11 +17,10 @@ export default function CurrentFocus() {
           <div>
             <p className="eyebrow mb-3">Currently Building</p>
             <h3 className="text-2xl font-semibold tracking-tight mb-2">
-              ContextOS
+              {portfolioData.currentFocus.title}
             </h3>
             <p className="text-muted max-w-lg leading-relaxed">
-              Building production AI infrastructure for context-aware
-              systems.
+              {portfolioData.currentFocus.description}
             </p>
           </div>
 
@@ -29,7 +29,7 @@ export default function CurrentFocus() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
             </span>
-            <span className="chip">Active Development</span>
+            <span className="chip">{portfolioData.currentFocus.badge}</span>
           </div>
         </motion.div>
       </div>

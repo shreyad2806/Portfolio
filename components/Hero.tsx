@@ -2,9 +2,10 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, Download } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import SystemsGraph from "./SystemsGraph";
-
-const STACK = ["Python", "FastAPI", "RAG", "AI Agents", "LLMs", "React"];
+import { portfolioData } from "@/lib/portfolio-data";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
@@ -16,6 +17,14 @@ const fadeUp = {
 };
 
 export default function Hero() {
+  const pathname = usePathname();
+
+  const handleExploreProjects = () => {
+    if (pathname === "/") {
+      document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="home"
@@ -30,7 +39,7 @@ export default function Hero() {
             custom={0}
             className="eyebrow mb-5"
           >
-            AI Engineer
+            {portfolioData.personal.role}
           </motion.p>
 
           <motion.h1
@@ -40,9 +49,9 @@ export default function Hero() {
             custom={1}
             className="text-4xl sm:text-5xl lg:text-[3.4rem] font-semibold tracking-tight leading-[1.08]"
           >
-            Hi, I&apos;m Shreya Dubey
+            Hi, I&apos;m {portfolioData.personal.name}
             <span className="block text-muted mt-2 text-2xl sm:text-3xl lg:text-[1.9rem] font-medium">
-              AI Engineer building production AI systems.
+              {portfolioData.personal.tagline}
             </span>
           </motion.h1>
 
@@ -53,8 +62,7 @@ export default function Hero() {
             custom={2}
             className="mt-6 text-base sm:text-lg text-muted max-w-xl leading-relaxed"
           >
-            I design and build production-ready AI products using RAG, AI
-            Agents, LLMs and scalable backend systems.
+            {portfolioData.personal.description}
           </motion.p>
 
           <motion.div
@@ -64,11 +72,18 @@ export default function Hero() {
             custom={3}
             className="mt-9 flex flex-wrap items-center gap-4"
           >
-            <a href="#projects" className="btn-primary">
-              Explore Projects
-              <ArrowUpRight size={16} />
-            </a>
-            <a href="/resume.pdf" className="btn-secondary">
+            {pathname === "/" ? (
+              <button onClick={handleExploreProjects} className="btn-primary">
+                Explore Projects
+                <ArrowUpRight size={16} />
+              </button>
+            ) : (
+              <Link href="/#projects" className="btn-primary">
+                Explore Projects
+                <ArrowUpRight size={16} />
+              </Link>
+            )}
+            <a href={portfolioData.personal.resume} className="btn-secondary">
               Download Resume
               <Download size={16} />
             </a>
@@ -81,7 +96,7 @@ export default function Hero() {
             custom={4}
             className="mt-10 flex flex-wrap gap-2.5"
           >
-            {STACK.map((tech) => (
+            {portfolioData.personal.stack.map((tech) => (
               <span key={tech} className="chip">
                 {tech}
               </span>
