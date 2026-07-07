@@ -56,7 +56,7 @@ export default function FeaturedProjects() {
               </div>
               <div className="flex flex-wrap gap-4">
                 <Link
-                  href="/projects"
+                  href={`/projects/${project.id}`}
                   className="btn-primary text-sm"
                 >
                   View Details
