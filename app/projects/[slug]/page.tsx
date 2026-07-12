@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
+import TalentLensPage from "@/components/projects/TalentLensPage";
+import AITechStackRecommenderPage from "@/components/projects/AITechStackRecommenderPage";
 import ProjectDetailHero from "@/components/projects/ProjectDetailHero";
 import ProblemSection from "@/components/projects/ProblemSection";
 import MotivationSection from "@/components/projects/MotivationSection";
@@ -36,27 +38,38 @@ export default function ProjectDetailPage({
     notFound();
   }
 
+  const isTalentLens = params.slug === "talentlens";
+  const isAITechStackRecommender = params.slug === "ai-tech-stack-recommender";
+
   return (
     <>
       <ReadingProgress />
       <Navbar />
-      <StickyNavigation />
+      {!isTalentLens && <StickyNavigation />}
       <main>
-        <ProjectDetailHero data={project} />
-        <ProblemSection data={project} />
-        <MotivationSection data={project} />
-        <ArchitectureSection data={project} />
-        <FeatureShowcase data={project} />
-        <EngineeringDecisions data={project} />
-        <ChallengesSection data={project} />
-        <DevelopmentJourney data={project} />
-        <ScreenshotsGallery data={project} />
-        <DemoSection data={project} />
-        <ResultsSection data={project} />
-        <LearningsSection data={project} />
-        <RoadmapSection data={project} />
-        <GitHubCTA data={project} />
-        <NextProject data={project} />
+        {isTalentLens ? (
+          <TalentLensPage data={project} />
+        ) : isAITechStackRecommender ? (
+          <AITechStackRecommenderPage data={project} />
+        ) : (
+          <>
+            <ProjectDetailHero data={project} />
+            <ProblemSection data={project} />
+            <MotivationSection data={project} />
+            <ArchitectureSection data={project} />
+            <FeatureShowcase data={project} />
+            <EngineeringDecisions data={project} />
+            <ChallengesSection data={project} />
+            <DevelopmentJourney data={project} />
+            <ScreenshotsGallery data={project} />
+            <DemoSection data={project} />
+            <ResultsSection data={project} />
+            <LearningsSection data={project} />
+            <RoadmapSection data={project} />
+            <GitHubCTA data={project} />
+            <NextProject data={project} />
+          </>
+        )}
       </main>
     </>
   );

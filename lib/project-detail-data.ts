@@ -89,11 +89,11 @@ export const talentLensData: ProjectDetailData = {
   slug: "talentlens",
   name: "TalentLens",
   badge: "Production AI Resume Intelligence Platform",
-  oneLiner: "An end-to-end Retrieval-Augmented Generation platform that intelligently ranks resumes using semantic search, hybrid retrieval, reranking and LLM reasoning.",
+  oneLiner: "AI-powered resume screening platform that ranks candidates using semantic search, hybrid retrieval, and LLM reasoning.",
   description: "TalentLens transforms traditional resume screening by leveraging advanced RAG techniques to understand candidate qualifications beyond simple keyword matching.",
   github: "https://github.com/shreyad2806/TalentLens",
-  techStack: ["Python", "FastAPI", "Sentence Transformers", "Pinecone", "OpenAI", "RAG", "Redis", "Docker"],
-  heroImage: "/placeholder-hero.png",
+  techStack: ["FastAPI", "Python", "Sentence Transformers", "Pinecone", "RAG"],
+  heroImage: "/images/talentlens.png",
   
   problem: {
     title: "What problem does TalentLens solve?",
@@ -266,184 +266,139 @@ export const aiTechStackRecommenderData: ProjectDetailData = {
   slug: "ai-tech-stack-recommender",
   name: "AI Tech Stack Recommender",
   badge: "LLM-Powered Technology Recommendation Platform",
-  oneLiner: "An AI-powered application that recommends complete technology stacks, architecture, deployment strategies, and implementation roadmaps from a natural language project idea.",
+  oneLiner: "LLM-powered platform that recommends complete technology stacks, software architecture, deployment strategy and development roadmap from a natural language project idea.",
   description: "This platform uses LLM reasoning to generate complete, practical technology recommendations in seconds, helping developers make informed decisions about their tech stack.",
   github: "https://github.com/shreyad2806/AI-Tech-Stack-Recommender",
-  techStack: ["React", "Vite", "Tailwind CSS", "FastAPI", "Python", "Google Gemini", "PostgreSQL", "SQLAlchemy", "JWT Authentication"],
-  heroImage: "/placeholder-hero.png",
+  techStack: ["FastAPI", "React", "Gemini", "Python", "PostgreSQL", "JWT Authentication", "Google Gemini", "Tailwind CSS"],
+  heroImage: "/images/stackmind.png",
   
   problem: {
     title: "What problem does this solve?",
     points: [
-      "Choosing a technology stack for a new project is difficult and time-consuming.",
-      "Developers often spend hours comparing frameworks, databases, cloud services, authentication methods, and deployment platforms.",
-      "Beginners frequently select incompatible technologies or overcomplicate their architecture.",
-      "Existing solutions don't provide comprehensive, context-aware recommendations.",
-      "This platform uses LLM reasoning to generate complete, practical technology recommendations in seconds."
+      "Developers waste hours researching frameworks, databases and cloud services for every new project.",
+      "Beginners often choose incompatible technologies or over-engineer simple systems.",
+      "Generic tutorials don't account for project-specific requirements or constraints.",
+      "Existing tools only answer one question instead of recommending a complete stack."
     ]
   },
-  
+
   motivations: [
     {
       icon: "🧠",
       title: "Understanding LLM Applications",
-      description: "Deep dive into how LLMs can be used for practical, real-world applications beyond simple chat interfaces."
+      description: "Explore how LLMs can power practical developer tools beyond chat interfaces."
     },
     {
       icon: "⚙️",
-      title: "Learning Full Stack AI Development",
-      description: "Experience building end-to-end AI applications with both frontend and backend components."
+      title: "End-to-End Full Stack Development",
+      description: "Build a complete product with React, FastAPI, PostgreSQL and Gemini working together."
     },
     {
       icon: "🚀",
-      title: "Building an AI Product Beyond Chat Interfaces",
-      description: "Create a practical tool that solves a real developer problem using AI reasoning capabilities."
+      title: "Building Practical Developer Tools",
+      description: "Solve a real problem I face: picking the right tech stack quickly and confidently."
     }
   ],
-  
+
   architecture: {
     steps: [
-      { label: "Project Idea", description: "Natural language project description input" },
-      { label: "Frontend (React)", description: "User interface for project input and visualization" },
-      { label: "FastAPI Backend", description: "High-performance API server handling requests" },
-      { label: "Prompt Engineering", description: "Structured prompts for consistent AI responses" },
-      { label: "Gemini API", description: "Google Gemini LLM for reasoning and recommendations" },
-      { label: "Recommendation Engine", description: "AI-powered technology stack generation" },
-      { label: "Response Formatter", description: "Structured JSON response formatting" },
-      { label: "Frontend Visualization", description: "Beautiful display of recommendations" }
+      { label: "Frontend (React + Tailwind)", description: "Modern responsive UI for project input and recommendations" },
+      { label: "Backend (FastAPI APIs)", description: "High-performance Python API with typed endpoints" },
+      { label: "LLM Engine (Gemini)", description: "Structured prompt engineering for consistent stack recommendations" }
     ]
   },
-  
+
   features: [
-    { icon: "💬", title: "Natural Language Project Input", description: "Describe your project in plain English and get tailored recommendations." },
-    { icon: "🎯", title: "Technology Recommendation", description: "AI suggests optimal frameworks, libraries, and tools for your specific use case." },
-    { icon: "🏗️", title: "Architecture Suggestion", description: "Get system architecture recommendations based on project requirements." },
-    { icon: "⚛️", title: "Frontend & Backend Selection", description: "Complete stack recommendations including both frontend and backend technologies." },
-    { icon: "🗄️", title: "Database Recommendation", description: "SQL vs NoSQL recommendations based on data patterns and scale." },
-    { icon: "🔐", title: "Authentication Strategy", description: "Security-first authentication and authorization recommendations." },
-    { icon: "☁️", title: "Deployment Recommendation", description: "Cloud platform and deployment strategy suggestions." },
-    { icon: "📈", title: "Scalable System Design", description: "Architecture patterns for handling growth and scale." }
+    { icon: "🎯", title: "Technology Recommendation", description: "AI suggests optimal frameworks, libraries and tools for your use case." },
+    { icon: "🏗️", title: "Architecture Suggestions", description: "Get a system design tailored to your project requirements." },
+    { icon: "⚙️", title: "Backend Generation", description: "Receive complete backend technology and API design recommendations." },
+    { icon: "⚛️", title: "Frontend Suggestions", description: "Get matched frontend frameworks and UI libraries." },
+    { icon: "🗄️", title: "Database Selection", description: "Choose the right database based on data patterns and scale." },
+    { icon: "☁️", title: "Deployment Strategy", description: "Receive cloud platform and deployment pipeline recommendations." }
   ],
-  
+
   decisions: [
     {
       problem: "Frontend framework?",
-      decision: "React + Vite",
-      why: "Fast development, modular architecture, and excellent ecosystem for modern web applications."
+      decision: "React",
+      why: "Component-based architecture with a mature ecosystem for building responsive dashboards."
     },
     {
       problem: "Backend framework?",
       decision: "FastAPI",
-      why: "High-performance Python APIs with async support, automatic documentation, and type hints."
+      why: "Async Python APIs with automatic docs, type safety and excellent LLM integration."
+    },
+    {
+      problem: "LLM provider?",
+      decision: "Gemini",
+      why: "Strong reasoning for structured recommendations with a cost-effective API."
     },
     {
       problem: "Database choice?",
       decision: "PostgreSQL",
-      why: "Reliable relational database with advanced features and strong data integrity."
-    },
-    {
-      problem: "Authentication method?",
-      decision: "JWT",
-      why: "Secure, stateless authentication that scales well for modern web applications."
-    },
-    {
-      problem: "LLM provider?",
-      decision: "Google Gemini",
-      why: "Natural language reasoning capabilities with strong performance and cost-effectiveness."
-    },
-    {
-      problem: "ORM choice?",
-      decision: "SQLAlchemy",
-      why: "Clean database abstraction with excellent Python integration and type safety."
-    },
-    {
-      problem: "Deployment strategy?",
-      decision: "Render + Vercel",
-      why: "Simple production deployment with managed services and excellent developer experience."
+      why: "Reliable relational storage for users, projects and structured recommendation data."
     }
   ],
-  
+
   challenges: [
     {
       problem: "Prompt Engineering",
-      solution: "Developed structured prompts with few-shot examples to ensure consistent, high-quality recommendations.",
-      learning: "Prompt engineering is critical; structure and examples significantly improve LLM output quality."
+      solution: "Structured prompts with few-shot examples produced consistent JSON outputs.",
+      learning: "Clear schemas and examples dramatically improve LLM reliability."
     },
     {
-      problem: "Maintaining recommendation consistency",
-      solution: "Implemented response validation and standardized output formats for predictable results.",
-      learning: "LLMs need guardrails; always validate and structure outputs for production use."
+      problem: "Recommendation Consistency",
+      solution: "Added response validation and fallback handling for malformed outputs.",
+      learning: "Always validate LLM outputs before showing them to users."
     },
     {
-      problem: "Handling incomplete user inputs",
-      solution: "Built intelligent fallback mechanisms and follow-up questions to gather missing information.",
-      learning: "User experience matters; handle edge cases gracefully and guide users to better inputs."
+      problem: "API Latency",
+      solution: "Optimized prompts and added caching for common project types.",
+      learning: "Caching and prompt tuning matter as much as model choice."
     },
     {
-      problem: "Designing structured AI responses",
-      solution: "Created JSON schemas and validation to ensure AI responses match expected format.",
-      learning: "Structured outputs require careful design; schemas and validation are essential."
-    },
-    {
-      problem: "Managing API latency",
-      solution: "Implemented caching strategies and optimized prompt design to reduce response times.",
-      learning: "Performance optimization is key; cache aggressively and optimize prompts."
-    },
-    {
-      problem: "Improving frontend responsiveness",
-      solution: "Added loading states, optimistic UI updates, and smooth animations for better UX.",
-      learning: "Perceived performance matters; loading states and animations improve user experience."
+      problem: "Structured Responses",
+      solution: "Defined strict JSON schemas that the LLM populates every time.",
+      learning: "Schemas act as guardrails for production LLM features."
     }
   ],
-  
+
   journey: [
-    { phase: "Idea", description: "Identified the problem with tech stack selection and researched LLM-based solutions." },
-    { phase: "Prototype", description: "Built initial MVP with basic LLM integration and simple recommendations." },
-    { phase: "Frontend Design", description: "Designed and implemented React frontend with modern UI and animations." },
-    { phase: "Backend APIs", description: "Built FastAPI backend with authentication and database integration." },
-    { phase: "Gemini Integration", description: "Integrated Google Gemini API with structured prompt engineering." },
-    { phase: "Authentication", description: "Implemented JWT-based authentication for secure user access." },
-    { phase: "Database Integration", description: "Added PostgreSQL with SQLAlchemy for data persistence." },
-    { phase: "Production Deployment", description: "Deployed to Render and Vercel with CI/CD pipeline." }
+    { phase: "Idea", description: "Defined the problem of time-consuming tech stack decisions." },
+    { phase: "Prototype", description: "Built a minimal LLM prompt pipeline that returned JSON stacks." },
+    { phase: "Frontend", description: "Implemented the React dashboard and recommendation views." },
+    { phase: "Backend", description: "Built FastAPI endpoints with validation and JWT auth." },
+    { phase: "LLM", description: "Integrated Gemini with structured prompt engineering." },
+    { phase: "Deploy", description: "Deployed the full stack to production with CI/CD." }
   ],
-  
+
   results: [
-    { label: "AI Recommendations Generated", value: "1000+", description: "Technology stack recommendations provided" },
-    { label: "Technology Categories Covered", value: "50+", description: "Different technologies and frameworks" },
-    { label: "Response Time", value: "< 3s", description: "Average recommendation generation time" },
-    { label: "Production Ready Architecture", value: "Complete", description: "Full-stack deployment ready" },
-    { label: "Modern Full Stack Design", value: "Premium", description: "Beautiful, responsive UI" }
+    { label: "Natural Language Input", value: "Yes", description: "Describe a project idea in plain English" },
+    { label: "Complete Stack", value: "Full", description: "Frontend, backend, database and deployment recommendations" },
+    { label: "Architecture", value: "Ready", description: "Production-ready architecture suggestions" },
+    { label: "Dashboard", value: "Responsive", description: "Works across desktop and mobile devices" }
   ],
-  
+
   learnings: [
     {
       title: "Prompt Engineering",
-      description: "Effective prompt engineering is the foundation of building reliable LLM applications."
+      description: "Structured prompts with clear schemas are essential for reliable LLM outputs."
     },
     {
       title: "LLM Integration",
-      description: "Integrating LLMs into products requires careful consideration of latency, cost, and quality."
+      description: "Integrating an LLM means balancing latency, cost, response quality and validation."
     },
     {
-      title: "Full Stack Development",
-      description: "Building complete full-stack applications requires understanding both frontend and backend concerns."
+      title: "FastAPI",
+      description: "Type hints and automatic docs make Python backends fast to build and maintain."
     },
     {
-      title: "Production Deployment",
-      description: "Production deployment involves CI/CD, monitoring, and handling real-world edge cases."
+      title: "React Architecture",
+      description: "Component composition and state management keep complex UIs maintainable."
     }
   ],
-  
-  roadmap: [
-    { feature: "Multiple LLM Support", status: "planned" },
-    { feature: "OpenAI Integration", status: "planned" },
-    { feature: "Claude Integration", status: "planned" },
-    { feature: "Architecture Diagrams", status: "planned" },
-    { feature: "Cost Estimation", status: "planned" },
-    { feature: "Team Collaboration", status: "planned" },
-    { feature: "Cloud Architecture Generator", status: "planned" },
-    { feature: "Export to PDF", status: "planned" }
-  ],
+
+  roadmap: [],
   
   nextProject: {
     name: "LawGPT CRM",
