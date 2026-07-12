@@ -23,9 +23,12 @@ export default function ContactCTA() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-8">
-            Let&apos;s build intelligent AI products.
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
+            Let&apos;s Build Something Great.
           </h2>
+          <p className="text-muted max-w-xl mx-auto mb-8 leading-relaxed">
+            Whether it&apos;s software engineering, backend development, AI applications, or open-source collaboration, I&apos;m always excited to connect with builders.
+          </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3">
             {LINKS.map((link) => (

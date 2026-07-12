@@ -41,9 +41,16 @@ export default function FeaturedProjects() {
               transition={{ duration: 0.5, delay: index * 0.08 }}
               className="card-surface p-8"
             >
-              <h3 className="text-xl font-semibold tracking-tight mb-3">
-                {project.name}
-              </h3>
+              <div className="flex items-start justify-between gap-4 mb-3">
+                <h3 className="text-xl font-semibold tracking-tight">
+                  {project.name}
+                </h3>
+                {project.status && (
+                  <span className="text-xs px-2.5 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary">
+                    {project.status}
+                  </span>
+                )}
+              </div>
               <p className="text-muted leading-relaxed mb-4">
                 {project.description}
               </p>

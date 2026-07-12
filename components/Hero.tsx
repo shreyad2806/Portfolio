@@ -1,10 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Download } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import SystemsGraph from "./SystemsGraph";
+import { useState, useEffect } from "react";
+import ArchitectureFlow from "./ArchitectureFlow";
 import { portfolioData } from "@/lib/portfolio-data";
 
 const fadeUp = {
@@ -18,6 +19,22 @@ const fadeUp = {
 
 export default function Hero() {
   const pathname = usePathname();
+  const [tagIndex, setTagIndex] = useState(0);
+  const tagsPerView = 6;
+  const shiftBy = 3;
+  const allTags = portfolioData.personal.stack;
+
+  useEffect(() => {
+    if (allTags.length <= tagsPerView) return;
+    const interval = setInterval(() => {
+      setTagIndex((prev) => (prev + shiftBy) % allTags.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [allTags.length]);
+
+  const visibleTags = Array.from({ length: tagsPerView }, (_, i) =>
+    allTags[(tagIndex + i) % allTags.length]
+  );
 
   const handleExploreProjects = () => {
     if (pathname === "/") {
@@ -50,7 +67,10 @@ export default function Hero() {
             className="text-4xl sm:text-5xl lg:text-[3.4rem] font-semibold tracking-tight leading-[1.08]"
           >
             Hi, I&apos;m {portfolioData.personal.name}
-            <span className="block text-muted mt-2 text-2xl sm:text-3xl lg:text-[1.9rem] font-medium">
+            <span className="block text-primary mt-2 text-sm sm:text-base font-medium tracking-wide">
+              {portfolioData.personal.subtitle}
+            </span>
+            <span className="block text-muted mt-3 text-2xl sm:text-3xl lg:text-[1.9rem] font-medium">
               {portfolioData.personal.tagline}
             </span>
           </motion.h1>
@@ -94,13 +114,22 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={4}
-            className="mt-10 flex flex-wrap gap-2.5"
+            className="mt-10 flex flex-wrap gap-2.5 min-h-[40px]"
           >
-            {portfolioData.personal.stack.map((tech) => (
-              <span key={tech} className="chip">
-                {tech}
-              </span>
-            ))}
+            <AnimatePresence mode="wait">
+              {visibleTags.map((tech) => (
+                <motion.span
+                  key={tech}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.35 }}
+                  className="chip"
+                >
+                  {tech}
+                </motion.span>
+              ))}
+            </AnimatePresence>
           </motion.div>
         </div>
 
@@ -110,7 +139,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
           className="relative"
         >
-          <SystemsGraph />
+          <ArchitectureFlow />
         </motion.div>
       </div>
     </section>

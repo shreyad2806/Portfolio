@@ -1,14 +1,26 @@
 export const portfolioData = {
   personal: {
     name: "Shreya Dubey",
-    role: "AI Engineer",
-    tagline: "Building production-ready AI systems with RAG, AI Agents and LLMs.",
-    description: "I build production-ready AI applications using Retrieval-Augmented Generation (RAG), AI Agents, FastAPI, vector databases, and modern LLM workflows. My focus is designing scalable backend systems that solve real-world problems.",
+    role: "Software Engineer",
+    subtitle: "Backend • AI • Developer Tools",
+    tagline: "Building scalable software, intelligent applications, and production-ready backend systems.",
+    description: "I enjoy building practical software—from backend services and developer tools to intelligent applications powered by modern AI. My interests include backend engineering, system design, AI infrastructure, developer tooling, and building products that solve real-world problems.",
     email: "dubeyshreya2507@gmail.com",
     linkedin: "https://www.linkedin.com/in/shreya-dubey-544874289/",
     github: "https://github.com/shreyad2806",
     resume: "/resume.pdf",
-    stack: ["Python", "FastAPI", "RAG", "AI Agents", "LLMs", "React"],
+    stack: [
+      "Backend Engineering",
+      "System Design",
+      "FastAPI",
+      "GraphRAG",
+      "MCP",
+      "Inference",
+      "AI Infrastructure",
+      "Context Engineering",
+      "Developer Tools",
+      "Open Source",
+    ],
   },
 
   contact: {
@@ -18,6 +30,56 @@ export const portfolioData = {
     resume: "/resume.pdf",
   },
 
+  metrics: [
+    {
+      value: "6+",
+      label: "Individual Software Projects",
+      caption: "AI • Backend • Full Stack",
+      icon: "Layers",
+    },
+    {
+      value: "4+",
+      label: "Production-Style Systems",
+      caption: "Scalable architectures & developer tools",
+      icon: "Boxes",
+    },
+    {
+      value: "20+",
+      label: "Technologies Explored",
+      caption: "Frameworks, Cloud & AI",
+      icon: "Wrench",
+    },
+    {
+      value: "Hackathons",
+      label: "SIH Runner-up",
+      caption: "ET GenAI Finalist • NandaHack Participant",
+      icon: "Trophy",
+    },
+  ],
+
+  hackathons: [
+    {
+      icon: "Trophy",
+      title: "Smart India Hackathon",
+      subtitle: "Runner-up",
+    },
+    {
+      icon: "Rocket",
+      title: "ET GenAI Hackathon",
+      subtitle: "Finalist",
+    },
+    {
+      icon: "Globe",
+      title: "NandaHack",
+      subtitle: "AI Infrastructure Exploration",
+    },
+    {
+      icon: "Github",
+      title: "Open Source",
+      subtitle: "Contributor",
+    },
+  ],
+
   projects: [
     {
       id: "talentlens",
@@ -25,16 +87,26 @@ export const portfolioData = {
       description: "AI-powered resume intelligence platform using RAG, semantic search, Sentence Transformers, and Pinecone to intelligently rank candidates.",
       tech: ["RAG", "FastAPI", "Sentence Transformers", "Pinecone"],
       github: "https://github.com/shreyad2806/TalentLens",
-      caseStudy: null, // Disabled - page doesn't exist yet
+      caseStudy: null,
       featured: true,
     },
     {
-      id: "ai-tech-stack-recommender",
-      name: "AI Tech Stack Recommender",
-      description: "LLM-powered application that recommends complete technology stacks, architecture, and deployment strategies from a project idea.",
-      tech: ["FastAPI", "Gemini", "React"],
-      github: "https://github.com/shreyad2806/Ai-tech-stack-recommender",
-      caseStudy: null, // Disabled - page doesn't exist yet
+      id: "architectiq",
+      name: "ArchitectIQ",
+      description: "AI-powered platform that reviews software repositories, analyzes architecture, detects design issues, and generates actionable engineering insights.",
+      tech: ["FastAPI", "Python", "OpenAI", "System Design"],
+      github: "https://github.com/shreyad2806/ArchitectIQ",
+      caseStudy: null,
+      featured: true,
+      status: "In Progress",
+    },
+    {
+      id: "complytai",
+      name: "ComplytAI",
+      description: "AI-powered financial compliance and risk intelligence platform using RAG pipelines, workflow orchestration, and vector search.",
+      tech: ["TypeScript", "Next.js", "RAG", "Pinecone"],
+      github: "https://github.com/shreyad2806/ComplytAI",
+      caseStudy: null,
       featured: true,
     },
     {
@@ -43,29 +115,155 @@ export const portfolioData = {
       description: "AI-powered CRM and marketing automation platform with intelligent lead management and workflow automation.",
       tech: ["Next.js", "PostgreSQL", "OpenAI"],
       github: "https://github.com/shreyad2806/LawGPT-CRM",
-      caseStudy: null, // Disabled - page doesn't exist yet
+      caseStudy: null,
       featured: true,
     },
     {
-      id: "complytai",
-      name: "ComplytAI",
-      description: "AI-powered financial compliance and risk intelligence platform using RAG pipelines, workflow orchestration, and vector search.",
-      tech: ["TypeScript", "Next.js", "RAG", "Pinecone"],
-      github: "https://github.com/shreyad2806/ComplytAI",
-      caseStudy: null, // Disabled - page doesn't exist yet
-      featured: true,
+      id: "ai-tech-stack-recommender",
+      name: "AI Tech Stack Recommender",
+      description: "LLM-powered application that recommends complete technology stacks, architecture, and deployment strategies from a project idea.",
+      tech: ["FastAPI", "Gemini", "React"],
+      github: "https://github.com/shreyad2806/Ai-tech-stack-recommender",
+      caseStudy: null,
+      featured: false,
+    },
+    {
+      id: "kodexa",
+      name: "Kodexa",
+      description: "Workflow automation platform that connects services, automates repetitive tasks, and reduces manual business operations.",
+      tech: ["Python", "FastAPI", "PostgreSQL", "Docker"],
+      github: "https://github.com/shreyad2806/Kodexa",
+      caseStudy: null,
+      featured: false,
+    },
+    {
+      id: "reflex-ninja",
+      name: "Reflex Ninja",
+      description: "A fast-paced reflex game built while learning native Android development with Kotlin and XML layouts.",
+      tech: ["Kotlin", "Android Studio", "XML Layouts"],
+      github: "https://github.com/shreyad2806/Reflex-Ninja",
+      caseStudy: null,
+      featured: false,
     },
   ],
 
   currentFocus: {
-    title: "Production AI Infrastructure",
-    description: "Building scalable AI systems focused on RAG pipelines, AI Agents, evaluation workflows, retrieval optimization, and modern AI backend engineering.",
+    title: "ArchitectIQ",
+    subtitle: "AI Architecture Review Platform",
+    description: "Building an AI-powered platform that reviews software repositories, analyzes architecture, detects design issues, and generates actionable engineering insights.",
     badge: "Active Development",
   },
 
-  blog: {
-    title: "Cross Encoder Reranking in Production RAG",
-    readingTime: "5 min",
-    href: null, // Disabled - page doesn't exist yet
+  upcomingFocus: {
+    title: "ContextOS",
+    subtitle: "Upcoming",
+    description: "Memory infrastructure for context-aware AI systems.",
   },
+
+  currentlyExploring: [
+    "Backend Engineering",
+    "AI Infrastructure",
+    "System Design",
+    "Developer Tools",
+    "Open Source",
+    "Modern Web Technologies",
+  ],
+
+  developerJournal: {
+    title: "Articles Coming Soon",
+    articles: [
+      { title: "Building TalentLens", category: "Case Study", readTime: "12 min" },
+      { title: "AI Architecture Review", category: "Engineering", readTime: "8 min" },
+      { title: "Understanding AI Infrastructure", category: "Architecture", readTime: "10 min" },
+      { title: "Lessons from NandaHack", category: "Hackathon", readTime: "6 min" },
+    ],
+    note: "Documenting my learning journey as I build production software and intelligent systems.",
+  },
+
+  blog: {
+    title: "Developer Journal",
+    readingTime: "",
+    href: null,
+  },
+
+  technicalExpertise: [
+    {
+      icon: "Cpu",
+      category: "Core CS",
+      skills: [
+        "Data Structures & Algorithms",
+        "OOP",
+        "DBMS",
+        "Operating Systems",
+        "System Design",
+        "Computer Networks",
+      ],
+    },
+    {
+      icon: "Brain",
+      category: "AI & Intelligent Systems",
+      skills: [
+        "LLMs",
+        "RAG",
+        "GraphRAG",
+        "MCP",
+        "AI Agents",
+        "Multi-Agent Systems",
+        "Context Engineering",
+        "Inference",
+        "Prompt Engineering",
+        "Tool Calling",
+        "Structured Outputs",
+        "Embeddings",
+        "Semantic Search",
+      ],
+    },
+    {
+      icon: "Server",
+      category: "Backend",
+      skills: [
+        "Python",
+        "FastAPI",
+        "Flask",
+        "Node.js",
+        "REST APIs",
+        "Authentication",
+        "Workflow Orchestration",
+      ],
+    },
+    {
+      icon: "Layout",
+      category: "Frontend",
+      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    },
+    {
+      icon: "Database",
+      category: "Databases & Infrastructure",
+      skills: [
+        "PostgreSQL",
+        "Supabase",
+        "SQLite",
+        "Pinecone",
+        "Docker",
+        "Linux",
+        "Git",
+        "GitHub",
+        "n8n",
+      ],
+    },
+    {
+      icon: "Telescope",
+      category: "Currently Exploring",
+      skills: [
+        "Loop Engineering",
+        "AI Infrastructure",
+        "Inference Optimization",
+        "Context Engineering",
+        "Agent Memory",
+        "Repository Intelligence",
+        "Developer Tools",
+        "Evaluation Pipelines",
+      ],
+    },
+  ],
 };
