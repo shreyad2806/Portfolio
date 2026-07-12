@@ -4,10 +4,9 @@ export interface Project {
   description: string;
   tech: string[];
   thumbnail?: string;
-  badge?: "Featured" | "In Progress";
   github?: string;
   externalLink?: string;
-  status: "done" | "upcoming";
+  status: "completed" | "in-progress" | "upcoming";
   slug: string;
 }
 
