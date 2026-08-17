@@ -7,7 +7,7 @@ import {
   Server,
   Layout,
   Database,
-  Telescope,
+  Code,
   LucideIcon,
 } from "lucide-react";
 import { portfolioData } from "@/lib/portfolio-data";
@@ -18,7 +18,7 @@ const iconMap: Record<string, LucideIcon> = {
   Server,
   Layout,
   Database,
-  Telescope,
+  Code,
 };
 
 export default function TechnicalExpertise() {

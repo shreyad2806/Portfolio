@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 const STEPS = [
   { id: "user", label: "User", y: 0 },
   { id: "frontend", label: "Frontend", y: 56 },
-  { id: "fastapi", label: "FastAPI Backend", y: 112 },
+  { id: "backend", label: "Backend API", y: 112 },
   { id: "business", label: "Business Logic", y: 168 },
-  { id: "rag", label: "RAG Pipeline", y: 224 },
-  { id: "vector", label: "Vector Database", y: 280 },
-  { id: "llm", label: "LLM", y: 336 },
+  { id: "ai", label: "AI/ML Pipeline", y: 224 },
+  { id: "data", label: "Data Layer", y: 280 },
+  { id: "model", label: "AI Model", y: 336 },
   { id: "response", label: "Response", y: 392 },
 ];
 

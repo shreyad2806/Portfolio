@@ -6,7 +6,6 @@ import HackathonStrip from "@/components/HackathonStrip";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import CurrentFocus from "@/components/CurrentFocus";
 import LatestBlog from "@/components/LatestBlog";
-import CurrentlyExploring from "@/components/CurrentlyExploring";
 import ContactCTA from "@/components/ContactCTA";
 
 export default function Home() {
@@ -21,7 +20,6 @@ export default function Home() {
         <FeaturedProjects />
         <CurrentFocus />
         <LatestBlog />
-        <CurrentlyExploring />
         <ContactCTA />
       </main>
     </>
