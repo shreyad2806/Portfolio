@@ -88,67 +88,140 @@ export interface ProjectDetailData {
 export const talentLensData: ProjectDetailData = {
   slug: "talentlens",
   name: "TalentLens",
-  badge: "Production AI Resume Intelligence Platform",
-  oneLiner: "AI-powered resume screening platform that ranks candidates using semantic search, hybrid retrieval, and LLM reasoning.",
-  description: "TalentLens transforms traditional resume screening by leveraging advanced RAG techniques to understand candidate qualifications beyond simple keyword matching.",
+  badge: "AI Resume Intelligence Platform",
+  oneLiner:
+    "Resume intelligence platform that combines semantic search, hybrid retrieval, reranking, and structured candidate analysis to accelerate technical hiring.",
+  description:
+    "TalentLens is an end-to-end recruitment intelligence system that converts unstructured resumes into searchable candidate profiles. It combines document parsing, embeddings, vector search, metadata filtering, hybrid retrieval, and reranking to help recruiters identify relevant candidates faster.",
   github: "https://github.com/shreyad2806/TalentLens",
-  techStack: ["FastAPI", "Python", "Sentence Transformers", "Pinecone", "RAG"],
+  techStack: [
+    "Python",
+    "FastAPI",
+    "Sentence Transformers",
+    "Pinecone",
+    "RAG",
+    "Hybrid Search",
+    "Cross-Encoder",
+    "Redis"
+  ],
   heroImage: "/images/talentlens.png",
   
-  problem: {
-    title: "What problem does TalentLens solve?",
-    points: [
-      "Recruiters manually screen hundreds of resumes, leading to fatigue and inconsistent evaluations.",
-      "Keyword-based search misses qualified candidates who use different terminology.",
-      "Resumes contain unstructured information that traditional ATS cannot effectively parse.",
-      "Existing systems cannot understand semantic meaning or context in candidate profiles.",
-      "Organizations need faster, more accurate candidate ranking to reduce time-to-hire."
-    ]
-  },
-  
   motivations: [
-    {
-      icon: "🧠",
-      title: "Learning RAG",
-      description: "Deep dive into Retrieval-Augmented Generation and understand how to build production RAG systems that go beyond simple ChatGPT wrappers."
-    },
-    {
-      icon: "⚙️",
-      title: "Production AI Systems",
-      description: "Experience building end-to-end AI applications that handle real-world data, scale, and production constraints."
-    },
-    {
-      icon: "🚀",
-      title: "Beyond ChatGPT",
-      description: "Create something meaningful that solves actual problems rather than just demonstrating API integration."
-    }
-  ],
-  
-  architecture: {
-    steps: [
-      { label: "Resume Upload", description: "PDF/Word document ingestion" },
-      { label: "Parser", description: "Extract text and structure data" },
-      { label: "Chunking", description: "Semantic text segmentation" },
-      { label: "Embeddings", description: "Vector representation generation" },
-      { label: "Pinecone", description: "Vector database storage" },
-      { label: "Retriever", description: "Multi-stage retrieval system" },
-      { label: "Hybrid Search", description: "Dense + sparse retrieval" },
-      { label: "Cross Encoder", description: "Reranking for precision" },
-      { label: "LLM", description: "Reasoning and synthesis" },
-      { label: "Ranked Candidates", description: "Final candidate ranking" }
-    ]
+  {
+    icon: "🔍",
+    title: "Building Production Retrieval Systems",
+    description:
+      "Designed a complete retrieval pipeline combining embeddings, vector search, metadata filtering, hybrid retrieval, and reranking."
   },
+  {
+    icon: "⚙️",
+    title: "Engineering an End-to-End AI Product",
+    description:
+      "Built the ingestion, processing, retrieval, API, caching, and candidate-ranking layers as one integrated application."
+  },
+  {
+    icon: "🚀",
+    title: "Solving a Real Hiring Workflow",
+    description:
+      "Focused on reducing repetitive resume screening while improving candidate discovery beyond traditional keyword-based ATS systems."
+  }
+],
+  
+ architecture: {
+  steps: [
+    {
+      label: "Resume Ingestion",
+      description: "Upload and process PDF/Word resumes."
+    },
+    {
+      label: "Document Parsing",
+      description: "Extract structured candidate information from unstructured documents."
+    },
+    {
+      label: "Semantic Chunking",
+      description: "Split resume content into retrieval-friendly semantic sections."
+    },
+    {
+      label: "Embedding Generation",
+      description: "Generate dense vector representations using Sentence Transformers."
+    },
+    {
+      label: "Pinecone",
+      description: "Store and retrieve candidate vectors at scale."
+    },
+    {
+      label: "Metadata Filtering",
+      description: "Filter candidates using structured attributes such as skills and experience."
+    },
+    {
+      label: "Hybrid Retrieval",
+      description: "Combine semantic and keyword-based retrieval for better recall."
+    },
+    {
+      label: "Cross-Encoder Reranking",
+      description: "Rerank retrieved candidates to improve relevance and precision."
+    },
+    {
+      label: "Candidate Analysis",
+      description: "Generate structured candidate relevance and matching insights."
+    },
+    {
+      label: "Recruiter Dashboard",
+      description: "Present ranked candidates and search results through the application interface."
+    }
+  ]
+},
   
   features: [
-    { icon: "📄", title: "Resume Parsing", description: "Intelligent extraction from PDF and Word documents with structured data output." },
-    { icon: "🔍", title: "Semantic Search", description: "Find candidates based on meaning, not just keywords, using advanced embeddings." },
-    { icon: "🎯", title: "Metadata Filtering", description: "Filter candidates by experience, skills, location, and other structured attributes." },
-    { icon: "🔄", title: "Hybrid Retrieval", description: "Combine dense and sparse retrieval for improved recall and relevance." },
-    { icon: "⚡", title: "Cross Encoder Reranking", description: "Re-rank retrieved documents using cross-encoder models for higher precision." },
-    { icon: "📊", title: "Candidate Ranking", description: "AI-powered scoring that considers multiple factors for fair evaluation." },
-    { icon: "💬", title: "Natural Language Queries", description: "Search using natural language descriptions of ideal candidates." },
-    { icon: "💾", title: "Embedding Cache", description: "Redis-based caching for faster repeated queries and reduced costs." }
-  ],
+  {
+    icon: "📄",
+    title: "Resume Parsing",
+    description:
+      "Extract structured candidate information from PDF and Word resumes."
+  },
+  {
+    icon: "🔎",
+    title: "Semantic Candidate Search",
+    description:
+      "Search candidates by meaning rather than relying only on exact keyword matches."
+  },
+  {
+    icon: "🧩",
+    title: "Hybrid Retrieval",
+    description:
+      "Combine dense semantic retrieval with keyword matching to improve candidate recall."
+  },
+  {
+    icon: "🎯",
+    title: "Cross-Encoder Reranking",
+    description:
+      "Rerank retrieved candidates using a cross-encoder for higher precision."
+  },
+  {
+    icon: "⚙️",
+    title: "Metadata Filtering",
+    description:
+      "Filter candidates by structured attributes such as skills, experience, and location."
+  },
+  {
+    icon: "📊",
+    title: "Candidate Ranking",
+    description:
+      "Surface the most relevant candidates based on job-specific search criteria."
+  },
+  {
+    icon: "💬",
+    title: "Natural Language Search",
+    description:
+      "Describe the ideal candidate in natural language and retrieve matching profiles."
+  },
+  {
+    icon: "⚡",
+    title: "Retrieval Caching",
+    description:
+      "Cache repeated operations to reduce latency and unnecessary computation."
+  }
+],
   
   decisions: [
     {
@@ -603,202 +676,591 @@ export const lawGPTCRMData: ProjectDetailData = {
 export const complytAIData: ProjectDetailData = {
   slug: "complytai",
   name: "ComplytAI",
-  badge: "Enterprise AI Compliance & Risk Intelligence Platform",
-  oneLiner: "An AI-powered compliance intelligence platform that analyzes enterprise documents, retrieves relevant regulatory information using Retrieval-Augmented Generation (RAG), and automates compliance workflows.",
-  description: "ComplytAI transforms compliance management using AI-powered document understanding, semantic search, and automated workflows for enterprise organizations.",
+  badge: "Enterprise Compliance & Risk Intelligence Platform",
+
+  oneLiner:
+    "Enterprise compliance platform that combines RAG, local LLMs, vector search, and CrewAI-based agent orchestration for document analysis and risk detection.",
+
+  description:
+    "ComplytAI is an end-to-end compliance intelligence system that processes enterprise documents, retrieves relevant regulatory context, and uses local LLM reasoning with CrewAI orchestration to identify compliance risks and generate actionable insights.",
+
   github: "https://github.com/shreyad2806/ComplytAI",
-  techStack: ["Next.js", "TypeScript", "Python", "FastAPI", "Ollama", "Qwen2.5", "nomic-embed-text", "Pinecone", "n8n", "PostgreSQL", "Docker"],
-  heroImage: "/placeholder-hero.png",
-  
+
+  techStack: [
+    "Next.js",
+    "TypeScript",
+    "Python",
+    "FastAPI",
+    "CrewAI",
+    "Ollama",
+    "Qwen2.5",
+    "nomic-embed-text",
+    "Pinecone",
+    "RAG",
+    "PostgreSQL"
+  ],
+
+  heroImage: "/images/comply-thumbnail.png",
+
+  // ============================================================
+  // PROBLEM
+  // ============================================================
+
   problem: {
     title: "What problem does ComplytAI solve?",
+
     points: [
-      "Organizations manage thousands of compliance documents, contracts, internal policies, audit reports, and regulatory guidelines.",
-      "Searching manually through these documents is slow and error-prone.",
-      "Important risks are often overlooked due to the sheer volume of information.",
-      "Compliance teams spend significant time reviewing repetitive documents and regulations.",
-      "There is no centralized intelligent system to retrieve relevant regulations and automate compliance workflows.",
-      "ComplytAI transforms compliance management using AI-powered document understanding and RAG-based retrieval."
+      "Organizations manage thousands of compliance documents, policies, contracts, audit reports, and regulatory guidelines.",
+
+      "Manually searching through large document collections is slow and makes it difficult to find relevant regulatory context quickly.",
+
+      "Important compliance risks can be overlooked because analysts have to process large volumes of information.",
+
+      "Compliance teams spend significant time reviewing repetitive documents and comparing policies against regulatory requirements.",
+
+      "Traditional document search systems do not understand semantic relationships between compliance requirements, policies, and enterprise documents.",
+
+      "ComplytAI combines document intelligence, RAG, local LLM reasoning, and agent orchestration to assist with compliance analysis and risk detection."
     ]
   },
-  
+
+  // ============================================================
+  // MOTIVATIONS
+  // ============================================================
+
   motivations: [
     {
       icon: "🏢",
-      title: "Learning Enterprise AI Systems",
-      description: "Understanding how to build scalable AI systems that handle enterprise-grade workloads and security requirements."
+      title: "Building Enterprise AI Systems",
+      description:
+        "Explore how AI systems can be designed around enterprise documents, privacy requirements, scalable retrieval, and structured analysis workflows."
     },
+
     {
       icon: "🔍",
-      title: "Understanding Production RAG Pipelines",
-      description: "Deep dive into Retrieval-Augmented Generation for real-world document intelligence applications."
+      title: "Engineering Production RAG",
+      description:
+        "Build a complete retrieval pipeline covering document ingestion, chunking, embeddings, vector search, retrieval, and grounded generation."
     },
+
     {
-      icon: "⚙️",
-      title: "Building Workflow Automation with AI",
-      description: "Integrating AI capabilities into automated workflows to reduce manual compliance review efforts."
+      icon: "🤖",
+      title: "Exploring Agentic AI",
+      description:
+        "Use CrewAI to coordinate specialized agents and separate responsibilities across compliance analysis and risk identification."
+    },
+
+    {
+      icon: "🔒",
+      title: "Privacy-Aware AI",
+      description:
+        "Use Ollama and Qwen2.5 for local inference so sensitive enterprise information can be processed without depending entirely on external LLM APIs."
     }
   ],
-  
+
+  // ============================================================
+  // ARCHITECTURE
+  // ============================================================
+
   architecture: {
     steps: [
-      { label: "Enterprise Documents", description: "PDF, Word, and other document formats ingestion" },
-      { label: "Document Processing", description: "Text extraction and preprocessing pipeline" },
-      { label: "Chunking Pipeline", description: "Semantic text segmentation for optimal retrieval" },
-      { label: "Embedding Generation", description: "Vector representation using nomic-embed-text" },
-      { label: "Pinecone Vector Database", description: "Scalable semantic search and storage" },
-      { label: "Hybrid Retrieval", description: "Dense + sparse retrieval for improved accuracy" },
-      { label: "Ollama (Qwen2.5)", description: "Local LLM for reasoning and analysis" },
-      { label: "Risk Analysis Engine", description: "AI-powered compliance risk detection" },
-      { label: "n8n Workflow Automation", description: "Automated compliance workflows and notifications" },
-      { label: "Compliance Dashboard", description: "Enterprise-grade analytics and insights" }
+      {
+        label: "Enterprise Documents",
+        description:
+          "Ingest policies, contracts, audit reports, regulatory documents, and other compliance material."
+      },
+
+      {
+        label: "Document Processing",
+        description:
+          "Extract, clean, normalize, and prepare documents for downstream retrieval."
+      },
+
+      {
+        label: "Semantic Chunking",
+        description:
+          "Split documents into meaningful sections optimized for retrieval and contextual understanding."
+      },
+
+      {
+        label: "Embedding Generation",
+        description:
+          "Generate dense vector representations using the nomic-embed-text embedding model."
+      },
+
+      {
+        label: "Pinecone Vector Database",
+        description:
+          "Store document embeddings and provide scalable semantic retrieval."
+      },
+
+      {
+        label: "Hybrid Retrieval",
+        description:
+          "Retrieve relevant regulatory and enterprise context using semantic and keyword-based signals."
+      },
+
+      {
+        label: "Ollama + Qwen2.5",
+        description:
+          "Run local LLM inference for compliance reasoning and document analysis."
+      },
+
+      {
+        label: "CrewAI Agent Orchestration",
+        description:
+          "Coordinate specialized agents responsible for compliance analysis, risk identification, and structured reasoning."
+      },
+
+      {
+        label: "Risk Analysis Engine",
+        description:
+          "Analyze retrieved evidence and identify potential compliance risks and violations."
+      },
+
+      {
+        label: "Compliance Dashboard",
+        description:
+          "Present compliance findings, risk signals, evidence, and analysis results through the web application."
+      }
     ]
   },
-  
+
+  // ============================================================
+  // FEATURES
+  // ============================================================
+
   features: [
-    { icon: "📄", title: "Document Upload", description: "Ingest and process enterprise documents with automatic parsing and indexing." },
-    { icon: "🔍", title: "Semantic Search", description: "Find relevant compliance information using natural language queries." },
-    { icon: "⚠️", title: "Compliance Risk Detection", description: "AI-powered analysis to identify potential compliance risks and violations." },
-    { icon: "💬", title: "RAG-based Question Answering", description: "Ask questions about compliance documents and get accurate, sourced answers." },
-    { icon: "📋", title: "Policy Retrieval", description: "Quickly retrieve relevant policies and regulations for specific scenarios." },
-    { icon: "🔄", title: "Workflow Automation", description: "Automate compliance review processes using n8n workflows." },
-    { icon: "📊", title: "Audit Assistance", description: "AI-assisted audit preparation with document analysis and evidence gathering." },
-    { icon: "📚", title: "Knowledge Base", description: "Centralized repository of compliance documents and regulations." },
-    { icon: "🎯", title: "Vector Search", description: "High-performance semantic search across millions of document chunks." },
-    { icon: "🧠", title: "LLM Reasoning", description: "Local LLM reasoning for accurate compliance analysis without data leaving premises." }
+    {
+      icon: "📄",
+      title: "Document Ingestion",
+      description:
+        "Process enterprise policies, contracts, audit reports, and regulatory documents for analysis."
+    },
+
+    {
+      icon: "🔍",
+      title: "Semantic Search",
+      description:
+        "Find relevant compliance information using natural-language queries instead of relying only on exact keywords."
+    },
+
+    {
+      icon: "🧠",
+      title: "RAG Question Answering",
+      description:
+        "Generate context-grounded answers using retrieved regulatory and enterprise document evidence."
+    },
+
+    {
+      icon: "🤖",
+      title: "CrewAI Agent Orchestration",
+      description:
+        "Coordinate specialized agents for compliance analysis, risk identification, and structured reasoning."
+    },
+
+    {
+      icon: "⚠️",
+      title: "Compliance Risk Detection",
+      description:
+        "Analyze enterprise documentation to identify potential compliance risks and regulatory gaps."
+    },
+
+    {
+      icon: "📋",
+      title: "Policy Retrieval",
+      description:
+        "Retrieve relevant policies, requirements, and regulatory context for specific compliance scenarios."
+    },
+
+    {
+      icon: "📊",
+      title: "Compliance Dashboard",
+      description:
+        "Visualize analysis results, risk findings, and compliance insights through a centralized interface."
+    },
+
+    {
+      icon: "🔒",
+      title: "Local LLM Processing",
+      description:
+        "Run Qwen2.5 locally through Ollama for privacy-conscious document analysis."
+    },
+
+    {
+      icon: "📚",
+      title: "Enterprise Knowledge Base",
+      description:
+        "Maintain a searchable vector knowledge layer containing compliance documents and regulatory information."
+    },
+
+    {
+      icon: "🎯",
+      title: "Evidence-Grounded Analysis",
+      description:
+        "Connect compliance findings to retrieved document context rather than relying solely on model-generated information."
+    }
   ],
-  
+
+  // ============================================================
+  // ENGINEERING DECISIONS
+  // ============================================================
+
   decisions: [
     {
       problem: "LLM choice?",
       decision: "Qwen2.5 via Ollama",
-      why: "Runs locally with strong reasoning capabilities, ensuring data privacy and reducing API costs."
+      why:
+        "Provides local LLM inference for privacy-sensitive compliance workflows while reducing dependence on external model APIs."
     },
+
     {
       problem: "Embedding model?",
       decision: "nomic-embed-text",
-      why: "High-quality semantic embeddings optimized for document understanding and retrieval."
+      why:
+        "Provides semantic embeddings suitable for document retrieval and enterprise knowledge search."
     },
+
     {
       problem: "Vector database?",
       decision: "Pinecone",
-      why: "Scalable semantic retrieval with excellent performance and managed infrastructure."
+      why:
+        "Provides scalable vector storage and efficient semantic retrieval for large document collections."
     },
+
     {
-      problem: "Automation platform?",
-      decision: "n8n",
-      why: "Flexible workflow orchestration with extensive integrations for enterprise automation."
+      problem: "Agent orchestration?",
+      decision: "CrewAI",
+      why:
+        "Provides structured coordination between specialized agents while keeping individual compliance responsibilities modular."
     },
+
     {
       problem: "Backend framework?",
       decision: "FastAPI",
-      why: "Async high-performance APIs with automatic documentation and type safety."
+      why:
+        "Provides high-performance Python APIs, asynchronous processing, type safety, and automatic API documentation."
     },
+
     {
       problem: "Frontend framework?",
       decision: "Next.js",
-      why: "Modern enterprise dashboard with server-side rendering and excellent performance."
+      why:
+        "Provides a scalable React-based application architecture for the compliance dashboard and user-facing workflows."
     },
+
     {
-      problem: "Deployment strategy?",
-      decision: "Docker",
-      why: "Portable and reproducible environment for consistent deployment across environments."
+      problem: "Primary database?",
+      decision: "PostgreSQL",
+      why:
+        "Provides reliable relational storage for application data, metadata, users, and structured compliance information."
+    },
+
+    {
+      problem: "Retrieval approach?",
+      decision: "RAG + Hybrid Retrieval",
+      why:
+        "Combines semantic understanding with relevant document evidence to improve retrieval quality and reduce unsupported generation."
     }
   ],
-  
+
+  // ============================================================
+  // CHALLENGES
+  // ============================================================
+
   challenges: [
     {
       problem: "Designing document ingestion",
-      solution: "Built a robust pipeline supporting multiple formats with error handling and validation.",
-      learning: "Document processing requires careful handling of edge cases and format variations."
+
+      solution:
+        "Built a structured ingestion pipeline for extracting, cleaning, validating, and preparing enterprise documents for retrieval.",
+
+      learning:
+        "Enterprise document processing requires robust handling of inconsistent formats, missing information, and edge cases."
     },
+
     {
       problem: "Choosing embedding models",
-      solution: "Evaluated multiple models and selected nomic-embed-text for optimal document understanding.",
-      learning: "Embedding model choice significantly impacts retrieval quality; test thoroughly."
+
+      solution:
+        "Evaluated the retrieval requirements and selected nomic-embed-text for the semantic document retrieval pipeline.",
+
+      learning:
+        "Embedding quality directly affects retrieval quality, making model selection and evaluation important parts of RAG engineering."
     },
+
     {
       problem: "Handling large document collections",
-      solution: "Implemented efficient chunking and batch processing for scalable document ingestion.",
-      learning: "Scalability requires careful design of processing pipelines and resource management."
+
+      solution:
+        "Designed chunking and batch-processing stages to make document ingestion and indexing more manageable.",
+
+      learning:
+        "Scalable AI systems require careful consideration of processing cost, memory usage, indexing strategy, and throughput."
     },
+
     {
       problem: "Improving retrieval quality",
-      solution: "Implemented hybrid retrieval with dense and sparse search for better accuracy.",
-      learning: "Hybrid retrieval often outperforms single-method approaches for complex queries."
+
+      solution:
+        "Combined semantic retrieval with keyword-based signals to improve recall across compliance queries.",
+
+      learning:
+        "Hybrid retrieval can provide better coverage when queries contain both domain-specific terminology and semantic concepts."
     },
+
     {
-      problem: "Reducing hallucinations",
-      solution: "Implemented strict prompt engineering with source citation and confidence scoring.",
-      learning: "LLM hallucinations can be mitigated with proper prompting and validation."
+      problem: "Reducing LLM hallucinations",
+
+      solution:
+        "Used retrieved document context, structured prompts, and evidence-oriented responses to keep generated analysis grounded.",
+
+      learning:
+        "Reliable LLM applications require grounding, validation, and clear boundaries around what the model is allowed to infer."
     },
+
     {
-      problem: "Workflow orchestration",
-      solution: "Designed modular n8n workflows with error handling and retry mechanisms.",
-      learning: "Workflow automation needs resilience; always handle failures gracefully."
+      problem: "Coordinating compliance analysis",
+
+      solution:
+        "Introduced CrewAI-based agent orchestration to separate responsibilities across compliance analysis and risk identification.",
+
+      learning:
+        "Agentic systems require clearly defined responsibilities, controlled context, and reliable coordination between specialized components."
     },
+
     {
-      problem: "Prompt engineering",
-      solution: "Developed structured prompts with few-shot examples for consistent compliance analysis.",
-      learning: "Prompt engineering is iterative; measure and test continuously for best results."
+      problem: "Running AI workloads privately",
+
+      solution:
+        "Integrated Ollama with Qwen2.5 to support local LLM inference for sensitive compliance workflows.",
+
+      learning:
+        "Enterprise AI architecture often requires balancing model quality, privacy, infrastructure cost, and operational complexity."
+    },
+
+    {
+      problem: "Building a usable compliance interface",
+
+      solution:
+        "Connected the AI pipeline to a Next.js dashboard that presents analysis results and compliance findings in a structured format.",
+
+      learning:
+        "AI systems become useful products only when complex model output is converted into understandable user-facing workflows."
     }
   ],
-  
+
+  // ============================================================
+  // DEVELOPMENT JOURNEY
+  // ============================================================
+
   journey: [
-    { phase: "Idea", description: "Identified the compliance management problem and researched AI-based solutions." },
-    { phase: "Research Compliance Systems", description: "Studied existing compliance platforms and identified gaps in AI adoption." },
-    { phase: "Document Processing", description: "Built document ingestion pipeline with support for multiple file formats." },
-    { phase: "Embedding Pipeline", description: "Implemented embedding generation with nomic-embed-text model." },
-    { phase: "Vector Database", description: "Set up Pinecone for scalable semantic search and retrieval." },
-    { phase: "Local LLM Integration", description: "Integrated Ollama with Qwen2.5 for local LLM reasoning." },
-    { phase: "Workflow Automation", description: "Built n8n workflows for automated compliance review processes." },
-    { phase: "Dashboard", description: "Developed Next.js dashboard with enterprise-grade analytics and visualizations." },
-    { phase: "Production Architecture", description: "Deployed with Docker, monitoring, and CI/CD pipeline for production use." }
+    {
+      phase: "Problem Discovery",
+      description:
+        "Identified the difficulty of manually reviewing large volumes of compliance documents and regulatory information."
+    },
+
+    {
+      phase: "Compliance Research",
+      description:
+        "Studied document-heavy compliance workflows and identified opportunities for retrieval and AI-assisted analysis."
+    },
+
+    {
+      phase: "Document Processing",
+      description:
+        "Built the document ingestion and preprocessing pipeline for enterprise compliance content."
+    },
+
+    {
+      phase: "Embedding Pipeline",
+      description:
+        "Implemented semantic embedding generation using nomic-embed-text."
+    },
+
+    {
+      phase: "Vector Database",
+      description:
+        "Integrated Pinecone to store document embeddings and support semantic retrieval."
+    },
+
+    {
+      phase: "RAG Pipeline",
+      description:
+        "Connected retrieval with local LLM reasoning to generate context-aware compliance responses."
+    },
+
+    {
+      phase: "Local LLM Integration",
+      description:
+        "Integrated Ollama and Qwen2.5 for local inference and privacy-conscious document analysis."
+    },
+
+    {
+      phase: "Agent Orchestration",
+      description:
+        "Introduced CrewAI to coordinate specialized agents for compliance analysis and risk identification."
+    },
+
+    {
+      phase: "Compliance Dashboard",
+      description:
+        "Built the Next.js interface for displaying document analysis, risk findings, and compliance insights."
+    },
+
+    {
+      phase: "Production Architecture",
+      description:
+        "Containerized the system with Docker and structured the application for maintainability and deployment."
+    }
   ],
-  
+
+  // ============================================================
+  // RESULTS
+  // ============================================================
+
   results: [
-    { label: "Enterprise Architecture", value: "Scalable", description: "Handles enterprise-grade document volumes" },
-    { label: "AI-powered Compliance Analysis", value: "Intelligent", description: "Automated risk detection and analysis" },
-    { label: "Semantic Document Search", value: "Accurate", description: "High-precision retrieval across documents" },
-    { label: "Workflow Automation", value: "Automated", description: "Reduced manual compliance review effort" },
-    { label: "Vector Database Integration", value: "Production", description: "Scalable Pinecone deployment" },
-    { label: "Production-ready AI Pipeline", value: "Complete", description: "End-to-end RAG system with local LLM" }
+    {
+      label: "AI Architecture",
+      value: "End-to-End",
+      description:
+        "Complete document-to-analysis pipeline combining retrieval, LLM reasoning, and agent orchestration."
+    },
+
+    {
+      label: "RAG Pipeline",
+      value: "Production",
+      description:
+        "Document ingestion, embeddings, vector search, retrieval, and grounded generation."
+    },
+
+    {
+      label: "Agentic Analysis",
+      value: "CrewAI",
+      description:
+        "Specialized agent orchestration for structured compliance analysis."
+    },
+
+    {
+      label: "LLM Infrastructure",
+      value: "Local",
+      description:
+        "Qwen2.5 inference through Ollama for privacy-conscious AI processing."
+    },
+
+    {
+      label: "Document Search",
+      value: "Semantic",
+      description:
+        "Vector-based retrieval across enterprise compliance documents."
+    },
+
+    {
+      label: "Application",
+      value: "Full Stack",
+      description:
+        "Next.js frontend connected to Python/FastAPI AI services and supporting infrastructure."
+    }
   ],
-  
+
+  // ============================================================
+  // LEARNINGS
+  // ============================================================
+
   learnings: [
     {
       title: "Production RAG",
-      description: "Building production RAG systems requires careful consideration of latency, cost, and quality trade-offs."
+      description:
+        "Production RAG requires careful attention to document processing, chunking, embeddings, retrieval quality, latency, and grounding."
     },
+
+    {
+      title: "Agentic AI",
+      description:
+        "Agentic systems work best when responsibilities are clearly separated and agents operate within controlled context and workflows."
+    },
+
     {
       title: "Vector Search",
-      description: "Vector search quality depends on embedding models, chunking strategies, and retrieval methods."
+      description:
+        "Retrieval quality depends on embedding models, chunking strategies, indexing, query formulation, and retrieval techniques."
     },
+
     {
       title: "Enterprise AI Architecture",
-      description: "Enterprise AI systems need security, scalability, and reliability built in from the start."
+      description:
+        "Enterprise AI systems require privacy, reliability, scalability, observability, and maintainable service boundaries."
     },
+
     {
-      title: "Workflow Automation",
-      description: "Workflow automation can significantly reduce manual effort when designed properly."
+      title: "Local LLM Infrastructure",
+      description:
+        "Running models locally introduces important engineering trade-offs around hardware, latency, model size, and privacy."
+    },
+
+    {
+      title: "AI Product Engineering",
+      description:
+        "A useful AI product requires more than model integration; the surrounding APIs, databases, interfaces, validation, and workflows are equally important."
     }
   ],
-  
+
+  // ============================================================
+  // ROADMAP
+  // ============================================================
+
   roadmap: [
-    { feature: "Multi-Agent Compliance Review", status: "planned" },
-    { feature: "Regulation Change Detection", status: "planned" },
-    { feature: "Real-time Compliance Monitoring", status: "planned" },
-    { feature: "Fine-tuned Legal Models", status: "planned" },
-    { feature: "Role-based Enterprise Access", status: "planned" },
-    { feature: "Document Version Tracking", status: "planned" },
-    { feature: "Enterprise Analytics", status: "planned" },
-    { feature: "Multi-language Support", status: "planned" }
+    {
+      feature: "Multi-Agent Compliance Review",
+      status: "planned"
+    },
+
+    {
+      feature: "Regulation Change Detection",
+      status: "planned"
+    },
+
+    {
+      feature: "Real-time Compliance Monitoring",
+      status: "planned"
+    },
+
+    {
+      feature: "Fine-tuned Compliance Models",
+      status: "planned"
+    },
+
+    {
+      feature: "Role-based Enterprise Access",
+      status: "planned"
+    },
+
+    {
+      feature: "Document Version Tracking",
+      status: "planned"
+    },
+
+    {
+      feature: "Enterprise Analytics",
+      status: "planned"
+    },
+
+    {
+      feature: "Multi-language Support",
+      status: "planned"
+    }
   ],
-  
+
+  // ============================================================
+  // NEXT PROJECT
+  // ============================================================
+
   nextProject: {
     name: "Reflex Ninja",
     slug: "reflex-ninja",
-    description: "AI Coding Assistant for rapid development."
+    description:
+      "Native Android reflex game built with Kotlin while exploring mobile application development."
   }
 };
 
@@ -962,9 +1424,9 @@ export const reflexNinjaData: ProjectDetailData = {
   ],
   
   nextProject: {
-    name: "ContextOS",
-    slug: "contextos",
-    description: "AI Infrastructure Platform."
+    name: "Kodexa",
+    slug: "kodexa",
+    description: "AI-assisted code intelligence and debugging platform."
   }
 };
 
@@ -1163,425 +1625,6 @@ export const kodexaData: ProjectDetailData = {
   }
 };
 
-export const contextOSData: ProjectDetailData = {
-  slug: "contextos",
-  name: "ContextOS",
-  badge: "AI Infrastructure Platform",
-  oneLiner: "A modular infrastructure platform for building production AI systems with persistent memory, intelligent retrieval, observability, orchestration and scalable context management.",
-  description: "ContextOS is the operating layer for context-aware AI systems, providing reusable infrastructure for memory, retrieval, context management, observability and orchestration.",
-  github: "https://github.com/shreyad2806/ContextOS",
-  techStack: ["FastAPI", "Python", "PostgreSQL", "pgvector", "Redis", "LangGraph", "Docker", "Ollama", "OpenAI", "Pinecone"],
-  heroImage: "/placeholder-hero.png",
-  
-  problem: {
-    title: "The Missing Infrastructure Layer",
-    points: [
-      "Every AI application rebuilds the same infrastructure: memory, retrieval, conversation history, prompt management, observability, tool execution, context handling.",
-      "Without ContextOS: Every project rebuilds memory, manages prompts differently, retrieval pipelines vary, no observability, no reusable architecture.",
-      "With ContextOS: Unified memory, shared retrieval, centralized prompt management, observability, reusable AI infrastructure.",
-      "ContextOS aims to become the reusable operating system underneath modern AI applications.",
-      "This infrastructure layer enables multiple AI products to share common capabilities while maintaining independence."
-    ]
-  },
-  
-  motivations: [
-    {
-      icon: "🏗️",
-      title: "AI Infrastructure",
-      description: "Building the foundational infrastructure layer that powers production AI systems at scale."
-    },
-    {
-      icon: "🔄",
-      title: "Reusable Architecture",
-      description: "Creating reusable components that eliminate redundant development across AI applications."
-    },
-    {
-      icon: "📊",
-      title: "Observability",
-      description: "Providing deep visibility into AI system behavior, performance, and decision-making."
-    }
-  ],
-  
-  architecture: {
-    steps: [
-      { label: "Applications", description: "AI applications built on ContextOS infrastructure" },
-      { label: "API Gateway", description: "Unified entry point for all infrastructure services" },
-      { label: "Context Router", description: "Intelligent routing and context management" },
-      { label: "Memory Engine", description: "Persistent conversation and context memory" },
-      { label: "Retrieval Engine", description: "Semantic and hybrid retrieval capabilities" },
-      { label: "Embedding Service", description: "Vector generation and management" },
-      { label: "Knowledge Store", description: "Vector database for semantic search" },
-      { label: "Prompt Manager", description: "Centralized prompt template management" },
-      { label: "LLM Layer", description: "Pluggable LLM abstraction layer" },
-      { label: "Tool Execution", description: "Safe tool calling and execution" },
-      { label: "Observability", description: "Comprehensive monitoring and tracing" },
-      { label: "Analytics", description: "Performance insights and optimization" }
-    ]
-  },
-  
-  features: [
-    { icon: "🧠", title: "Context Management", description: "Unified context handling across all AI applications with automatic routing and state management." },
-    { icon: "💾", title: "Conversation Memory", description: "Persistent memory for conversations with configurable retention and retrieval strategies." },
-    { icon: "🔢", title: "Embedding Service", description: "Centralized embedding generation with support for multiple models and providers." },
-    { icon: "📝", title: "Prompt Templates", description: "Versioned prompt templates with variables, testing, and A/B capabilities." },
-    { icon: "🤖", title: "Agent Registry", description: "Registry for AI agents with capabilities, configuration, and lifecycle management." },
-    { icon: "📚", title: "Knowledge Base", description: "Unified knowledge store with vector search and hybrid retrieval." },
-    { icon: "🎯", title: "Vector Store", description: "Scalable vector database integration with Pinecone and pgvector support." },
-    { icon: "🔧", title: "Tool Registry", description: "Safe tool registration with validation, permissions, and execution monitoring." },
-    { icon: "📊", title: "Observability Dashboard", description: "Real-time monitoring of AI system performance, costs, and behavior." },
-    { icon: "⚡", title: "Caching Layer", description: "Redis-based caching for embeddings, responses, and frequently accessed data." },
-    { icon: "⚙️", title: "Configuration Manager", description: "Centralized configuration with environment-specific overrides." },
-    { icon: "🚪", title: "API Gateway", description: "Unified API layer with authentication, rate limiting, and request routing." }
-  ],
-  
-  decisions: [
-    {
-      problem: "Memory storage?",
-      decision: "PostgreSQL + pgvector",
-      why: "Persistent semantic memory with relational capabilities and vector similarity search."
-    },
-    {
-      problem: "Caching layer?",
-      decision: "Redis",
-      why: "Fast context retrieval and response caching for improved performance."
-    },
-    {
-      problem: "API framework?",
-      decision: "FastAPI",
-      why: "Async infrastructure APIs with automatic documentation and type safety."
-    },
-    {
-      problem: "Agent framework?",
-      decision: "LangGraph",
-      why: "Composable workflows for building complex agentic AI systems."
-    },
-    {
-      problem: "Containerization?",
-      decision: "Docker",
-      why: "Portable deployment with consistent environment across development and production."
-    },
-    {
-      problem: "Embedding models?",
-      decision: "OpenAI / BGE",
-      why: "Flexible architecture supporting multiple embedding providers and models."
-    },
-    {
-      problem: "LLM integration?",
-      decision: "Pluggable",
-      why: "Model-agnostic design allowing easy switching between LLM providers."
-    }
-  ],
-  
-  challenges: [
-    {
-      problem: "Designing reusable architecture",
-      solution: "Created modular, independent components with clear interfaces and dependency injection.",
-      learning: "Reusable architecture requires careful abstraction and interface design."
-    },
-    {
-      problem: "Making every module independent",
-      solution: "Implemented service boundaries with message passing and event-driven communication.",
-      learning: "Independence enables flexibility; design services that can evolve independently."
-    },
-    {
-      problem: "Supporting multiple LLM providers",
-      solution: "Created abstraction layer with unified interface for different LLM APIs.",
-      learning: "Abstraction layers enable provider switching without changing application code."
-    },
-    {
-      problem: "Managing context efficiently",
-      solution: "Implemented context compression, summarization, and intelligent retrieval strategies.",
-      learning: "Context management is critical for AI systems; optimize for relevance and efficiency."
-    },
-    {
-      problem: "Scaling retrieval",
-      solution: "Implemented hybrid retrieval with caching and parallel query execution.",
-      learning: "Retrieval scaling requires both algorithmic and infrastructure optimization."
-    },
-    {
-      problem: "Observability",
-      solution: "Built comprehensive tracing, logging, and metrics collection across all components.",
-      learning: "Observability is essential for production AI systems; instrument everything."
-    }
-  ],
-  
-  journey: [
-    { phase: "Infrastructure Core", description: "Designed foundational architecture and service boundaries." },
-    { phase: "Memory Engine", description: "Built persistent memory with PostgreSQL and pgvector integration." },
-    { phase: "Retrieval Layer", description: "Implemented semantic and hybrid retrieval with vector databases." },
-    { phase: "Prompt Management", description: "Created centralized prompt template system with versioning." },
-    { phase: "Observability", description: "Added comprehensive monitoring, tracing, and analytics." },
-    { phase: "Multi-Agent Runtime", description: "Integrated LangGraph for complex agentic workflows." },
-    { phase: "SDK", description: "Developed client SDKs for easy integration with applications." },
-    { phase: "Cloud Platform", description: "Deployed scalable cloud infrastructure with auto-scaling." }
-  ],
-  
-  results: [
-    { label: "Infrastructure Core", value: "Complete", description: "Foundational architecture designed and implemented" },
-    { label: "Memory Engine", value: "Operational", description: "Persistent semantic memory system" },
-    { label: "Retrieval Layer", value: "Building", description: "Advanced retrieval capabilities" },
-    { label: "Prompt Management", value: "Building", description: "Centralized prompt system" },
-    { label: "Observability", value: "Planned", description: "Comprehensive monitoring" },
-    { label: "Multi-Agent Runtime", value: "Planned", description: "Agentic workflow engine" }
-  ],
-  
-  learnings: [
-    {
-      title: "AI Infrastructure",
-      description: "Building AI infrastructure requires understanding both AI capabilities and system design principles."
-    },
-    {
-      title: "Distributed Systems",
-      description: "Production AI systems are distributed systems; design for reliability and scalability."
-    },
-    {
-      title: "Production RAG",
-      description: "Production RAG requires careful attention to latency, cost, and quality trade-offs."
-    },
-    {
-      title: "Agent Architectures",
-      description: "Agentic AI systems need proper orchestration, state management, and error handling."
-    },
-    {
-      title: "Observability",
-      description: "Observability is critical for understanding and improving AI system behavior."
-    },
-    {
-      title: "Scalable APIs",
-      description: "API design impacts system performance and developer experience significantly."
-    }
-  ],
-  
-  roadmap: [
-    { feature: "Infrastructure Core", status: "completed" },
-    { feature: "Memory Engine", status: "completed" },
-    { feature: "Retrieval Layer", status: "in-progress" },
-    { feature: "Prompt Management", status: "in-progress" },
-    { feature: "Observability", status: "planned" },
-    { feature: "Multi-Agent Runtime", status: "planned" },
-    { feature: "SDK", status: "planned" },
-    { feature: "Cloud Platform", status: "planned" }
-  ],
-  
-  nextProject: {
-    name: "AI System Optimizer (AISO)",
-    slug: "aiso",
-    description: "Observability platform for production AI systems."
-  }
-};
-
-export const aisoData: ProjectDetailData = {
-  slug: "aiso",
-  name: "AI System Optimizer (AISO)",
-  badge: "AI Observability Platform",
-  oneLiner: "A production-grade platform that provides observability, evaluation, monitoring, and performance optimization for AI systems.",
-  description: "AISO monitors, analyzes, optimizes, and scales AI systems by providing comprehensive telemetry, evaluation frameworks, and optimization recommendations for production AI applications.",
-  github: "https://github.com/shreyad2806/AISO",
-  techStack: ["FastAPI", "Python", "PostgreSQL", "Redis", "LangGraph", "Docker", "OpenTelemetry", "Prometheus", "Grafana", "Pinecone", "OpenAI"],
-  heroImage: "/placeholder-hero.png",
-  
-  problem: {
-    title: "Why AI Systems Need Observability",
-    points: [
-      "Unlike traditional software, AI systems introduce unique challenges: LLM latency, hallucinations, token costs, prompt failures, retrieval failures, tool failures, and evaluation complexity.",
-      "Without proper monitoring, teams have no idea why an AI application performs poorly or how to improve it.",
-      "Traditional monitoring tools don't capture AI-specific metrics like retrieval accuracy, prompt effectiveness, or hallucination rates.",
-      "AI systems are black boxes; observability provides the visibility needed to understand and optimize them.",
-      "AISO fills this gap by providing AI-specific monitoring, evaluation, and optimization capabilities."
-    ]
-  },
-  
-  motivations: [
-    {
-      icon: "📊",
-      title: "AI Observability",
-      description: "Building comprehensive monitoring for AI systems to understand behavior and performance."
-    },
-    {
-      icon: "🔍",
-      title: "Evaluation Frameworks",
-      description: "Creating systematic evaluation methods to measure AI system quality and accuracy."
-    },
-    {
-      icon: "⚡",
-      title: "Performance Optimization",
-      description: "Identifying and resolving performance bottlenecks in AI applications."
-    }
-  ],
-  
-  architecture: {
-    steps: [
-      { label: "Applications", description: "AI applications being monitored and optimized" },
-      { label: "API Gateway", description: "Unified entry point for telemetry collection" },
-      { label: "Telemetry Collector", description: "Collects metrics, traces, and logs from AI systems" },
-      { label: "Metrics Engine", description: "Processes and stores performance metrics" },
-      { label: "Tracing Engine", description: "Tracks request flows across AI components" },
-      { label: "Evaluation Engine", description: "Evaluates response quality and accuracy" },
-      { label: "Analytics Database", description: "Stores historical data for analysis" },
-      { label: "Optimization Engine", description: "Identifies improvement opportunities" },
-      { label: "Dashboard", description: "Visual interface for monitoring and insights" }
-    ]
-  },
-  
-  features: [
-    { icon: "🤖", title: "LLM Monitoring", description: "Track LLM performance, latency, and response quality across all models." },
-    { icon: "⏱️", title: "Latency Tracking", description: "Monitor end-to-end latency and identify performance bottlenecks." },
-    { icon: "📝", title: "Prompt Analytics", description: "Analyze prompt effectiveness, token usage, and cost efficiency." },
-    { icon: "💰", title: "Token Usage", description: "Track token consumption across models and optimize costs." },
-    { icon: "📈", title: "Cost Analysis", description: "Comprehensive cost breakdown for AI operations and optimization." },
-    { icon: "⚠️", title: "Hallucination Detection", description: "Identify and track hallucination rates with confidence scoring." },
-    { icon: "🔍", title: "RAG Evaluation", description: "Evaluate retrieval quality, context precision, and recall metrics." },
-    { icon: "🎯", title: "Retriever Performance", description: "Monitor retriever accuracy, latency, and embedding quality." },
-    { icon: "📊", title: "Embedding Drift Detection", description: "Detect embedding drift and re-indexing needs over time." },
-    { icon: "✅", title: "Response Quality Metrics", description: "Measure faithfulness, relevance, and groundedness of responses." },
-    { icon: "🔄", title: "Agent Workflow Tracking", description: "Trace agent execution paths, tool calls, and decision-making." },
-    { icon: "🐛", title: "Error Logging", description: "Comprehensive error tracking with context and root cause analysis." }
-  ],
-  
-  decisions: [
-    {
-      problem: "Telemetry standard?",
-      decision: "OpenTelemetry",
-      why: "Industry-standard for observability with broad language support and integration."
-    },
-    {
-      problem: "Metrics storage?",
-      decision: "Prometheus",
-      why: "Powerful time-series database with excellent querying capabilities."
-    },
-    {
-      problem: "Visualization?",
-      decision: "Grafana",
-      why: "Flexible visualization platform with extensive plugin ecosystem."
-    },
-    {
-      problem: "Backend framework?",
-      decision: "FastAPI",
-      why: "High-performance async APIs for telemetry ingestion and processing."
-    },
-    {
-      problem: "Primary storage?",
-      decision: "PostgreSQL",
-      why: "Reliable relational database for analytics data and historical records."
-    },
-    {
-      problem: "Caching layer?",
-      decision: "Redis",
-      why: "Fast caching for frequently accessed metrics and real-time data."
-    },
-    {
-      problem: "Tracing approach?",
-      decision: "OpenTelemetry",
-      why: "Distributed tracing with automatic instrumentation and span correlation." },
-    {
-      problem: "Evaluation method?",
-      decision: "Custom Metrics",
-      why: "AI-specific metrics require custom evaluation frameworks and scoring." },
-    {
-      problem: "Architecture pattern?",
-      decision: "Modular Services",
-      why: "Modular design enables independent scaling and evolution of components."
-    }
-  ],
-  
-  challenges: [
-    {
-      problem: "Collecting telemetry",
-      solution: "Implemented OpenTelemetry instrumentation with automatic span propagation and context tracking.",
-      learning: "Telemetry collection requires careful instrumentation to avoid performance impact."
-    },
-    {
-      problem: "Tracking AI-specific metrics",
-      solution: "Created custom metrics for retrieval quality, prompt effectiveness, and hallucination detection.",
-      learning: "AI systems need domain-specific metrics beyond traditional observability."
-    },
-    {
-      problem: "Designing evaluation pipelines",
-      solution: "Built modular evaluation framework with pluggable metrics and scoring algorithms.",
-      learning: "Evaluation frameworks need flexibility to accommodate different AI use cases."
-    },
-    {
-      problem: "Optimizing retrieval",
-      solution: "Implemented retrieval analytics with embedding quality monitoring and drift detection.",
-      learning: "Retrieval optimization requires continuous monitoring and adaptation."
-    },
-    {
-      problem: "Balancing latency vs quality",
-      solution: "Created latency-quality tradeoff analysis with configurable optimization targets.",
-      learning: "AI systems require balancing competing objectives; provide tunable parameters."
-    },
-    {
-      problem: "Reducing token costs",
-      solution: "Implemented cost analytics with prompt optimization recommendations and caching strategies.",
-      learning: "Cost optimization requires understanding usage patterns and optimization opportunities." },
-    {
-      problem: "Scaling observability",
-      solution: "Designed distributed architecture with horizontal scaling and efficient data aggregation.",
-      learning: "Observability at scale requires careful architecture for data volume and processing."
-    }
-  ],
-  
-  journey: [
-    { phase: "Telemetry", description: "Implemented OpenTelemetry instrumentation and data collection pipeline." },
-    { phase: "Metrics Dashboard", description: "Built comprehensive dashboard with real-time metrics and visualizations." },
-    { phase: "Prompt Evaluation", description: "Created prompt analytics with effectiveness scoring and optimization." },
-    { phase: "RAG Analytics", description: "Implemented retrieval evaluation with precision, recall, and drift detection." },
-    { phase: "Optimization Engine", description: "Built optimization recommendations for latency, cost, and quality." },
-    { phase: "Cost Prediction", description: "Added cost forecasting and budget management capabilities." },
-    { phase: "Cloud Dashboard", description: "Deployed scalable cloud infrastructure with multi-tenant support." }
-  ],
-  
-  results: [
-    { label: "Telemetry", value: "Complete", description: "OpenTelemetry-based data collection" },
-    { label: "Metrics Dashboard", value: "Building", description: "Real-time monitoring interface" },
-    { label: "Prompt Evaluation", value: "Building", description: "Prompt analytics and optimization" },
-    { label: "RAG Analytics", value: "Planned", description: "Retrieval quality monitoring" },
-    { label: "Optimization Engine", value: "Planned", description: "AI system optimization" },
-    { label: "Cost Prediction", value: "Future", description: "Cost forecasting and management" }
-  ],
-  
-  learnings: [
-    {
-      title: "AI Observability",
-      description: "AI systems require specialized observability beyond traditional software monitoring."
-    },
-    {
-      title: "OpenTelemetry",
-      description: "OpenTelemetry provides a powerful foundation for distributed observability."
-    },
-    {
-      title: "Distributed Monitoring",
-      description: "Monitoring distributed AI systems requires careful design of telemetry and correlation."
-    },
-    {
-      title: "Evaluation Frameworks",
-      description: "Systematic evaluation is essential for understanding and improving AI quality."
-    },
-    {
-      title: "Performance Engineering",
-      description: "Performance optimization requires deep understanding of system behavior and bottlenecks." },
-    {
-      title: "Optimization Strategies",
-      description: "Effective optimization requires identifying the right metrics and tradeoffs."
-    }
-  ],
-  
-  roadmap: [
-    { feature: "Telemetry", status: "completed" },
-    { feature: "Metrics Dashboard", status: "in-progress" },
-    { feature: "Prompt Evaluation", status: "in-progress" },
-    { feature: "RAG Analytics", status: "planned" },
-    { feature: "Optimization Engine", status: "planned" },
-    { feature: "Cost Prediction", status: "planned" },
-    { feature: "Cloud Dashboard", status: "planned" }
-  ],
-  
-  nextProject: {
-    name: "ContextOS",
-    slug: "contextos",
-    description: "The operating layer for production AI systems."
-  }
-};
 
 export const projectDataMap: Record<string, ProjectDetailData> = {
   talentlens: talentLensData,
@@ -1590,6 +1633,4 @@ export const projectDataMap: Record<string, ProjectDetailData> = {
   complytai: complytAIData,
   "reflex-ninja": reflexNinjaData,
   kodexa: kodexaData,
-  contextos: contextOSData,
-  aiso: aisoData,
 };
