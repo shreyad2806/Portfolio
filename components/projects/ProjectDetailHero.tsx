@@ -1,177 +1,195 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowUpRight, Github, Play } from "lucide-react";
-import Link from "next/link";
+import Image from "next/image";
 import { ProjectDetailData } from "@/lib/project-detail-data";
 
 interface ProjectDetailHeroProps {
   data: ProjectDetailData;
 }
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
+const HERO_IMAGE_SLUGS = new Set([
+  "architectiq",
+  "devforge",
+  "lawgpt-crm",
+  "reflex-ninja",
+]);
 
-const floatAnimation = {
-  animate: {
-    y: [0, -10, 0],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  },
-};
+export default function ProjectDetailHero({
+  data,
+}: ProjectDetailHeroProps) {
+  const showHeroImage = HERO_IMAGE_SLUGS.has(data.slug);
 
-export default function ProjectDetailHero({ data }: ProjectDetailHeroProps) {
+  const getTopLabel = () => {
+    switch (data.slug) {
+      case "architectiq":
+        return "AI Architecture Analysis";
+
+      case "devforge":
+        return "Full-Stack SaaS";
+
+      case "lawgpt-crm":
+        return "Marketing Automation";
+
+      case "reflex-ninja":
+        return "Native Android";
+
+      default:
+        return "Production Ready";
+    }
+  };
+
+  const getBottomLabel = () => {
+    switch (data.slug) {
+      case "architectiq":
+        return "Repository Intelligence";
+
+      case "devforge":
+        return "Developer Platform";
+
+      case "lawgpt-crm":
+        return "CRM Dashboard";
+
+      case "reflex-ninja":
+        return "Kotlin • Android";
+
+      default:
+        return "Project";
+    }
+  };
+
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
-      <div className="container-px mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial="hidden"
-            animate="show"
-            variants={fadeUp}
-            className="space-y-6"
-          >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block"
-            >
-              <span className="chip">{data.badge}</span>
-            </motion.div>
+    <section className="relative overflow-visible px-6 pb-20 pt-16 md:pb-28 md:pt-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-center gap-14 lg:grid-cols-[48%_52%] lg:gap-8">
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1]"
-            >
+          {/* =====================================================
+              LEFT — PROJECT INFORMATION
+          ===================================================== */}
+          <div className="relative z-20">
+
+            {/* Badge */}
+            <div className="mb-7 inline-flex rounded-full border border-white/10 bg-white/[0.02] px-4 py-2">
+              <span className="font-mono text-sm text-blue-300">
+                {data.badge}
+              </span>
+            </div>
+
+            {/* Title */}
+            <h1 className="text-5xl font-semibold tracking-tight text-white md:text-6xl lg:text-7xl">
               {data.name}
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-lg sm:text-xl text-muted leading-relaxed max-w-2xl"
-            >
+            {/* Description */}
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-blue-200/80 md:text-xl">
               {data.oneLiner}
-            </motion.p>
+            </p>
 
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-wrap gap-4"
-            >
+            {/* Buttons */}
+            <div className="mt-8 flex flex-wrap gap-4">
               {data.liveDemo && (
                 <a
                   href={data.liveDemo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary"
+                  className="inline-flex items-center gap-2 rounded-xl bg-purple-500 px-6 py-3 font-medium text-white transition hover:bg-purple-400"
                 >
-                  <Play size={16} />
+                  <span>▷</span>
                   Live Demo
                 </a>
               )}
-              <a
-                href={data.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary"
-              >
-                <Github size={16} />
-                GitHub
-              </a>
-              {data.caseStudyPdf && (
+
+              {data.github && (
                 <a
-                  href={data.caseStudyPdf}
-                  className="btn-secondary"
+                  href={data.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 px-6 py-3 font-medium text-white transition hover:bg-white/5"
                 >
-                  <ArrowUpRight size={16} />
-                  Case Study PDF
+                  <span>⌘</span>
+                  GitHub
                 </a>
               )}
-            </motion.div>
+            </div>
 
-            {/* Tech Stack */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-2"
-            >
+            {/* Tech stack */}
+            <div className="mt-8 flex max-w-2xl flex-wrap gap-2">
               {data.techStack.map((tech) => (
-                <span key={tech} className="chip text-sm">
+                <span
+                  key={tech}
+                  className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 font-mono text-sm text-blue-200/80"
+                >
                   {tech}
                 </span>
               ))}
-            </motion.div>
-          </motion.div>
-
-          {/* Right - Project Mockup */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="relative"
-          >
-            {/* Main Mockup */}
-            <div className="relative aspect-video rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-border/50 overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center text-muted/40">
-                <div className="text-center">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-lg bg-muted/20 flex items-center justify-center">
-                    <span className="text-4xl">💻</span>
-                  </div>
-                  <p className="text-sm font-mono">Project Screenshot</p>
-                </div>
-              </div>
             </div>
+          </div>
 
-            {/* Floating Glass Cards */}
-            <motion.div
-              {...floatAnimation}
-              className="absolute -top-4 -right-4 glass-card p-4 rounded-xl border border-border/50"
-            >
-              <p className="text-sm font-medium text-primary">Hybrid Retrieval</p>
-            </motion.div>
+          {/* =====================================================
+              RIGHT — HERO IMAGE
+          ===================================================== */}
+          <div className="relative flex w-full items-center justify-center lg:pl-4">
 
-            <motion.div
-              {...floatAnimation}
-              transition={{ delay: 0.5 }}
-              className="absolute -bottom-4 -left-4 glass-card p-4 rounded-xl border border-border/50"
-            >
-              <p className="text-sm font-medium text-primary">Cross Encoder</p>
-            </motion.div>
+            <div className="relative w-full max-w-[680px]">
 
-            <motion.div
-              {...floatAnimation}
-              transition={{ delay: 1 }}
-              className="absolute top-1/2 -right-8 glass-card p-4 rounded-xl border border-border/50"
-            >
-              <p className="text-sm font-medium text-primary">Semantic Search</p>
-            </motion.div>
+              {/* Glow */}
+              {showHeroImage && (
+                <div className="absolute -inset-8 rounded-[40px] bg-purple-500/10 blur-3xl" />
+              )}
 
-            <motion.div
-              {...floatAnimation}
-              transition={{ delay: 1.5 }}
-              className="absolute top-1/3 -left-8 glass-card p-4 rounded-xl border border-border/50"
-            >
-              <p className="text-sm font-medium text-primary">Production Ready</p>
-            </motion.div>
-          </motion.div>
+              {/* Main visual */}
+              <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111118] shadow-2xl shadow-purple-500/10">
+
+                {showHeroImage ? (
+                  <>
+                    {/* Gradient overlay */}
+                    <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10" />
+
+                    <div className="relative aspect-[16/10] w-full">
+                      <Image
+                        src={data.heroImage}
+                        alt={`${data.name} project screenshot`}
+                        fill
+                        priority
+                        sizes="(max-width: 1024px) 100vw, 52vw"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                      />
+                    </div>
+
+                    {/* Bottom gradient */}
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-28 bg-gradient-to-t from-black/50 to-transparent" />
+                  </>
+                ) : (
+                  /* Keep existing placeholder behavior for other projects */
+                  <div className="flex aspect-[16/10] items-center justify-center">
+                    <div className="text-center">
+                      <div className="mb-4 text-5xl">💻</div>
+                      <p className="font-mono text-sm text-white/30">
+                        Project Screenshot
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Top-right floating label */}
+              {showHeroImage && (
+                <div className="absolute -right-5 -top-5 z-30 rounded-xl border border-white/10 bg-black/75 px-4 py-3 shadow-xl backdrop-blur-xl">
+                  <span className="font-mono text-sm font-medium text-purple-400">
+                    {getTopLabel()}
+                  </span>
+                </div>
+              )}
+
+              {/* Bottom-left floating label */}
+              {showHeroImage && (
+                <div className="absolute -bottom-5 -left-5 z-30 rounded-xl border border-white/10 bg-black/75 px-4 py-3 shadow-xl backdrop-blur-xl">
+                  <span className="font-mono text-sm font-medium text-purple-400">
+                    {getBottomLabel()}
+                  </span>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </section>

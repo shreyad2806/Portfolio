@@ -1094,6 +1094,17 @@ export const reflexNinjaData: ProjectDetailData = {
   techStack: ["Kotlin", "Android Studio", "Jetpack", "XML Layouts", "Gradle"],
   heroImage: "/images/reflex1.jpeg",
   
+  screenshots: [
+  {
+    src: "/images/reflex1.jpeg",
+    caption: "Reflex Ninja Gameplay",
+  },
+  {
+    src: "/images/reflex2.jpeg",
+    caption: "Game Interface",
+  },
+],
+
   problem: {
     title: "What is Reflex Ninja?",
     points: [
@@ -1445,6 +1456,29 @@ export const devForgeData: ProjectDetailData = {
   github: "https://github.com/shreyad2806/DevForge",
   techStack: ["Next.js", "TypeScript", "React", "Supabase", "PostgreSQL", "Tailwind CSS", "Authentication", "Subscriptions", "SaaS"],
   heroImage: "/images/devforge.png",
+
+  screenshots: [
+  {
+    src: "/images/dev1.png",
+    caption: "DevForge Dashboard",
+  },
+  {
+    src: "/images/dev2.png",
+    caption: "Developer Kit Discovery",
+  },
+  {
+    src: "/images/dev3.png",
+    caption: "Kit Workspace",
+  },
+  {
+    src: "/images/dev4.png",
+    caption: "Subscription & Billing",
+  },
+  {
+    src: "/images/dev5.png",
+    caption: "Developer Platform",
+  },
+],
   
   problem: {
     title: "What problem does DevForge solve?",
@@ -1816,6 +1850,24 @@ export const architectIQData: ProjectDetailData = {
   github: "https://github.com/shreyad2806/ArchitectIQ",
   techStack: ["Python", "FastAPI", "PostgreSQL", "React", "TypeScript", "OpenAI", "Repository Analysis", "System Design", "Code Intelligence"],
   heroImage: "/images/architectiq.png",
+  screenshots: [
+  {
+    src: "/images/archi1.png",
+    caption: "Architecture Analysis Dashboard",
+  },
+  {
+    src: "/images/archi2.png",
+    caption: "Repository Analysis",
+  },
+  {
+    src: "/images/archi3.png",
+    caption: "AI Engineering Insights",
+  },
+  {
+    src: "/images/archi4.png",
+    caption: "Architecture Review Report",
+  },
+],
   
   problem: {
     title: "What problem does ArchitectIQ solve?",
