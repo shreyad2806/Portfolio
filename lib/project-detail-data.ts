@@ -1093,18 +1093,16 @@ export const reflexNinjaData: ProjectDetailData = {
   github: "https://github.com/shreyad2806/Reflex-Ninja",
   techStack: ["Kotlin", "Android Studio", "Jetpack", "XML Layouts", "Gradle"],
   heroImage: "/images/reflex1.jpeg",
-  
   screenshots: [
   {
-    src: "/images/reflex1.jpeg",
-    caption: "Reflex Ninja Gameplay",
+    src: "/images/reflex1.png",
+    caption: "",
   },
   {
-    src: "/images/reflex2.jpeg",
-    caption: "Game Interface",
+    src: "/images/reflex2.png",
+    caption: "",
   },
 ],
-
   problem: {
     title: "What is Reflex Ninja?",
     points: [
@@ -1913,24 +1911,6 @@ export const architectIQData: ProjectDetailData = {
     ]
   },
 
-  screenshots: [
-  {
-    src: "/images/archi1.png",
-    caption: "Architecture Analysis Dashboard",
-  },
-  {
-    src: "/images/archi2.png",
-    caption: "Repository Analysis",
-  },
-  {
-    src: "/images/archi3.png",
-    caption: "AI-Generated Engineering Insights",
-  },
-  {
-    src: "/images/archi4.png",
-    caption: "Architecture Review Report",
-  },
-],
   
   features: [
     { icon: "📁", title: "Repository Analysis", description: "Analyze entire codebases for architectural issues." },

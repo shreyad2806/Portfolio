@@ -3,9 +3,7 @@
 import { motion } from "framer-motion";
 import {
   Github,
-  Award,
   Trophy,
-  FolderKanban,
   Target,
   Rocket,
   Briefcase,
@@ -13,11 +11,12 @@ import {
   Users,
   Network,
   FolderGit2,
+  type LucideIcon,
 } from "lucide-react";
 import TimelineItem from "./TimelineItem";
 import { experienceData } from "@/data/experience";
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, LucideIcon> = {
   Rocket,
   Briefcase,
   Github,
@@ -47,7 +46,7 @@ export default function ExperienceTimeline({
       >
         <h2 className="text-2xl font-bold text-text mb-2">My Journey</h2>
         <p className="text-sm text-muted">
-          A timeline of my growth, leadership, achievements and the impact I've
+          A timeline of my growth, leadership, achievements and the impact I&apos;ve
           created.
         </p>
       </motion.div>

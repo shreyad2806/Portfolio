@@ -22,7 +22,7 @@ export default function QuickConnect() {
               Prefer a quick conversation?
             </h3>
             <p className="text-sm text-muted">
-              Feel free to reach out through any platform above. I'm always happy to connect.
+              Feel free to reach out through any platform above. I&apos;m always happy to connect.
             </p>
           </div>
         </div>
@@ -30,7 +30,7 @@ export default function QuickConnect() {
           href={`mailto:${contactData.email}`}
           className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors whitespace-nowrap"
         >
-          Let's Connect
+          Let&apos;s Connect
         </a>
       </div>
     </motion.div>

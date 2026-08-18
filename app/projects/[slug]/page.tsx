@@ -28,20 +28,23 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProjectDetailPage({
+export default async function ProjectDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const project = projectDataMap[params.slug];
+  const { slug } = await params;
+
+  const project = projectDataMap[slug];
 
   if (!project) {
     notFound();
   }
 
-  const isTalentLens = params.slug === "talentlens";
-  const isAITechStackRecommender = params.slug === "ai-tech-stack-recommender";
-  const isComplytai = params.slug === "complytai";
+  const isTalentLens = slug === "talentlens";
+  const isAITechStackRecommender =
+    slug === "ai-tech-stack-recommender";
+  const isComplytai = slug === "complytai";
 
   return (
     <>

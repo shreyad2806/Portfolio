@@ -14,7 +14,7 @@ export default function QuoteCard() {
       <div className="p-8 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 text-center">
         <Quote size={32} className="text-primary/50 mx-auto mb-4" />
         <p className="text-base text-text leading-relaxed mb-4">
-          "The best way to learn is to build. The best way to remember is to document."
+          &apos; The best way to learn is to build. The best way to remember is to document. &apos;
         </p>
         <p className="text-sm text-muted">— Shreya Dubey</p>
       </div>

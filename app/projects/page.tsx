@@ -32,7 +32,7 @@ export default function ProjectsPage() {
               Projects
             </h1>
             <p className="text-lg text-muted max-w-2xl">
-              A collection of AI systems, developer tools, and production-ready applications I've built.
+              A collection of AI systems, developer tools, and production-ready applications I&apos;ve built.
             </p>
           </motion.div>
 

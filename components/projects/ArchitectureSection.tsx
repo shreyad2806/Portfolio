@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, ArrowUpRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { ProjectDetailData } from "@/lib/project-detail-data";
 import { useState } from "react";
 import Image from "next/image";

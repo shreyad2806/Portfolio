@@ -13,8 +13,6 @@ const STEPS = [
   { id: "response", label: "Response", y: 392 },
 ];
 
-const X = 70;
-
 export default function ArchitectureFlow() {
   return (
     <div className="relative w-full max-w-[180px] mx-auto">

@@ -170,10 +170,19 @@ export const portfolioData = {
     },
   ],
 
+  currentlyExploring: [
+  "Generative AI",
+  "Agentic AI",
+  "RAG Systems",
+  "System Design",
+  "Full-Stack Engineering",
+  "Developer Tools",
+],
+
   currentFocus: {
     title: "Kodexa",
     subtitle: "AI-Powered Developer Tool",
-    description: "Building an AI-powered developer tool for repository intelligence, debugging, code comprehension, and context-aware engineering workflows.",
+    description: "The Inference Engine for AI-Generated Software. Bridging the gap between AI code generation and production-ready engineering.",
     badge: "Active Development",
   },
 

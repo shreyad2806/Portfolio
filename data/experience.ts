@@ -21,7 +21,7 @@ export const experienceData: ExperienceItem[] = [
   {
     id: "current",
     year: "Current",
-    title: "What I'm Building",
+    title: "What I&apos;m Building",
     subtitle: "Building production AI systems and developer tools.",
     icon: "Rocket",
     description: "Currently working on AI infrastructure, RAG systems, agentic workflows, portfolio improvements, and production AI engineering.",
