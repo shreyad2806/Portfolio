@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowUpRight } from "lucide-react";
 import { ProjectDetailData } from "@/lib/project-detail-data";
 import { useState } from "react";
+import Image from "next/image";
 
 interface ArchitectureSectionProps {
   data: ProjectDetailData;
@@ -36,6 +37,27 @@ export default function ArchitectureSection({ data }: ArchitectureSectionProps) 
             System Architecture
           </h2>
         </motion.div>
+
+        {/* Architecture Image */}
+        {data.architectureImage && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="mb-16 max-w-5xl mx-auto"
+          >
+            <div className="relative group cursor-pointer rounded-xl overflow-hidden border border-border/50">
+              <Image
+                src={data.architectureImage}
+                alt="System Architecture"
+                width={1600}
+                height={900}
+                className="w-full h-auto object-contain"
+              />
+              <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+          </motion.div>
+        )}
 
         <div className="relative">
           {/* Architecture Flow */}
