@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { CSSProperties } from "react";
 import { ArrowUpRight, Compass, Cpu, FlaskConical, Map, RadioTower, Telescope } from "lucide-react";
 
 const destinations = [
@@ -45,7 +46,7 @@ export default function WorldAtlas() {
                 whileHover={{ y: -6 }}
                 whileTap={{ scale: .985 }}
                 className={`world-destination world-destination--${destination.terrain} group relative flex min-h-[230px] flex-col overflow-hidden rounded-2xl border p-5 text-left transition-colors duration-300`}
-                style={{ "--destination-color": destination.color, "--destination-glow": destination.glow } as React.CSSProperties}
+                style={{ "--destination-color": destination.color, "--destination-glow": destination.glow } as CSSProperties}
               >
                 <div className="destination-orbit" aria-hidden="true" />
                 <div className="relative z-10 flex w-full items-center justify-between">
