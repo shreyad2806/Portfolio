@@ -2,7 +2,8 @@
 
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, Compass, FlaskConical, Map, RadioTower, Telescope, Send, X, RotateCcw } from "lucide-react";
+import { ArrowUpRight, Compass, FlaskConical, Map, RadioTower, Telescope, X, RotateCcw } from "lucide-react";
+import NovaSidekick from "@/components/NovaSidekick";
 
 type Destination = {
   id: string; number: string; name: string; short: string; description: string;
@@ -34,7 +35,6 @@ export default function WorldCanvas() {
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
   }, []);
-  const [novaOpen, setNovaOpen] = useState(true);
   const [draft, setDraft] = useState("");
   const [novaReply, setNovaReply] = useState("Hi, Explorer. I'm Nova. I can guide you around Shreya's world. Pick a destination or ask me where to go.");
   const selected = destinations.find((item) => item.id === selectedId) ?? null;
@@ -72,8 +72,8 @@ export default function WorldCanvas() {
   };
 
   const camera = selected
-    ? { x:selected.cameraX * (compact ? .48 : 1), y:selected.cameraY * (compact ? .48 : 1), scale:compact ? .78 : 1.22 }
-    : { x:0, y:0, scale:compact ? .34 : 1 };
+    ? { x:selected.cameraX * (compact ? .42 : .72), y:selected.cameraY * (compact ? .42 : .72), scale:compact ? .58 : .92 }
+    : { x:0, y:0, scale:compact ? .32 : .72 };
   const stars = useMemo(() => Array.from({length:48}, (_,i) => ({ left:(i*73)%100, top:(i*47)%100, delay:(i%9)*.35 })), []);
 
   return (
@@ -89,7 +89,7 @@ export default function WorldCanvas() {
           <button type="button" onClick={() => {setSelectedId(null);setNovaReply("Map reset. All five destinations are in view. Where would you like to go?");}} className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[.035] px-4 py-2 text-xs text-slate-300 transition hover:border-cyan-200/30 hover:text-white"><RotateCcw size={13}/> Reset view</button>
         </div>
 
-        <div className={`world-stage relative ${compact ? "world-stage--compact" : ""}`}>
+        <div className="world-explorer-grid">\n        <div className="world-map-column">\n        <div className={`world-stage relative ${compact ? "world-stage--compact" : ""}`}>
           <div className="world-stage-stars" aria-hidden="true">
             {stars.map((star,i)=><i key={i} style={{left:star.left+"%",top:star.top+"%",animationDelay:star.delay+"s"}}/>)}
           </div>
@@ -139,7 +139,7 @@ export default function WorldCanvas() {
           </AnimatePresence>
         </div>
 
-        <div className="mt-5 grid gap-2 sm:grid-cols-5">
+        <div className="mt-5 grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
           {destinations.map((destination)=>(
             <button key={destination.id} onClick={()=>choose(destination.id)} className={`world-destination-tab ${selectedId===destination.id?"is-active":""}`} style={{"--landmark-color":destination.color} as React.CSSProperties}>
               <span className="font-mono text-[9px] opacity-50">{destination.number}</span>
@@ -148,21 +148,9 @@ export default function WorldCanvas() {
             </button>
           ))}
         </div>
-
-        <div className="nova-console mt-8">
-          <div className="nova-console-avatar"><img src="/images/nova-guide.svg" alt="Nova guide character"/></div>
-          <div className="min-w-0 flex-1">
-            <div className="mb-1 flex flex-wrap items-center gap-2"><span className="text-sm font-semibold text-white">Nova</span><span className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-2 py-0.5 font-mono text-[9px] text-emerald-200">GUIDE ONLINE</span><span className="font-mono text-[9px] uppercase tracking-wider text-slate-600">Portfolio navigation assistant</span></div>
-            <p className="max-w-3xl text-xs leading-6 text-slate-300/90">{novaReply}</p>
-            {novaOpen && <div className="mt-3 flex flex-wrap gap-2">{quickQuestions.map((item)=><button key={item.id} onClick={()=>{choose(item.id);setNovaReply(destinations.find(d=>d.id===item.id)?.nova ?? item.text);}} className="rounded-full border border-white/10 bg-white/[.035] px-3 py-1.5 text-[10px] text-slate-300 transition hover:border-cyan-200/30 hover:text-white">{item.label}</button>)}</div>}
-            <form onSubmit={askNova} className="nova-input-row mt-3">
-              <input value={draft} onChange={(event)=>setDraft(event.target.value)} placeholder="Ask Nova where to go…" aria-label="Ask Nova where to go"/>
-              <button type="submit" aria-label="Send question to Nova" disabled={!draft.trim()}><Send size={14}/></button>
-            </form>
-          </div>
-          <button onClick={()=>setNovaOpen(!novaOpen)} className="nova-collapse" aria-label={novaOpen?"Collapse Nova suggestions":"Expand Nova suggestions"}>{novaOpen?"−":"+"}</button>
         </div>
-        <p className="mt-3 text-center font-mono text-[9px] uppercase tracking-[.14em] text-slate-600">Nova uses a small local navigation guide in this version · No chat data is sent to a server</p>
+        <NovaSidekick reply={novaReply} selectedId={selectedId} onChoose={choose} draft={draft} onDraftChange={setDraft} onSubmit={askNova}/>
+        </div>
       </div>
     </section>
   );
