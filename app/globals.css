@@ -2050,3 +2050,260 @@ html { scroll-padding-top: 5.75rem; }
     animation: none !important;
   }
 }
+
+
+/* PR6 — cinematic sky, scene-backed floating islands, and hero fold correction */
+.cinematic-hero {
+  min-height: 100svh;
+  padding-top: 64px;
+  background:
+    radial-gradient(ellipse at 48% 42%, rgba(49, 73, 145, .2), transparent 42%),
+    linear-gradient(180deg, #050a18 0%, #0a1026 54%, #090d1c 100%);
+}
+
+.cinematic-bg {
+  background:
+    radial-gradient(ellipse at 8% 72%, rgba(114, 69, 211, .28), transparent 35%),
+    radial-gradient(ellipse at 92% 68%, rgba(29, 162, 190, .2), transparent 34%),
+    linear-gradient(180deg, #060b1b 0%, #101637 58%, #11132c 100%);
+}
+
+.cinematic-bg::before,
+.cinematic-bg::after {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  pointer-events: none;
+}
+
+.cinematic-bg::before {
+  opacity: .58;
+  background:
+    radial-gradient(ellipse at 14% 78%, rgba(123, 84, 220, .38), transparent 22%),
+    radial-gradient(ellipse at 38% 96%, rgba(65, 111, 205, .3), transparent 25%),
+    radial-gradient(ellipse at 78% 82%, rgba(26, 180, 190, .24), transparent 23%),
+    radial-gradient(ellipse at 96% 58%, rgba(119, 76, 202, .25), transparent 24%);
+  filter: blur(38px);
+  animation: sky-cloud-drift 24s ease-in-out infinite alternate;
+}
+
+.cinematic-bg::after {
+  opacity: .22;
+  background:
+    linear-gradient(112deg, transparent 0 16%, rgba(113, 81, 236, .2) 23%, transparent 32%),
+    linear-gradient(68deg, transparent 0 54%, rgba(47, 214, 224, .16) 63%, transparent 73%);
+  filter: blur(42px);
+}
+
+@keyframes sky-cloud-drift {
+  from { transform: translate3d(-1.2%, 0, 0) scale(1); }
+  to { transform: translate3d(1.2%, -1%, 0) scale(1.06); }
+}
+
+.cinematic-stars {
+  opacity: .52;
+  background-size: 330px 280px;
+}
+
+.cinematic-nebula {
+  background:
+    radial-gradient(ellipse at 20% 42%, rgba(143, 93, 255, .2), transparent 43%),
+    radial-gradient(ellipse at 80% 38%, rgba(61, 205, 238, .15), transparent 39%),
+    radial-gradient(ellipse at 54% 82%, rgba(229, 93, 197, .12), transparent 34%);
+  filter: blur(52px);
+}
+
+@media (min-width: 1024px) {
+  .cinematic-hero > .relative.z-10.mx-auto.grid {
+    min-height: calc(100svh - 64px) !important;
+    padding-top: clamp(8px, 1.1vh, 14px) !important;
+    padding-bottom: 14px !important;
+    align-content: stretch;
+    align-items: center;
+    grid-template-rows: minmax(0, 1fr) auto;
+    row-gap: clamp(10px, 1.5vh, 18px) !important;
+  }
+
+  .cinematic-hero > .relative.z-10.mx-auto.grid > div:first-child {
+    align-self: center;
+    transform: translateY(-2px);
+  }
+
+  .cinematic-hero > .relative.z-10.mx-auto.grid > div:nth-child(2) {
+    min-height: clamp(470px, 55svh, 610px) !important;
+    height: clamp(470px, 55svh, 610px);
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 28px;
+  }
+
+  .cinematic-hero .nova-panel.cinematic-nova {
+    align-self: center;
+    max-height: min(650px, calc(100svh - 104px));
+  }
+
+  .cinematic-hero .nova-character-section-cinematic {
+    min-height: clamp(150px, 18svh, 190px);
+  }
+
+  .cinematic-hero .nova-character-stage-cinematic {
+    height: clamp(140px, 17svh, 176px);
+  }
+
+  .cinematic-hero .statistics-strip {
+    margin-top: 0 !important;
+  }
+}
+
+/* The existing illustrated world is used as the actual island environment.
+   The clickable island buttons become accessible destination labels on top. */
+.floating-world-container {
+  overflow: hidden;
+  border-radius: 28px;
+  background:
+    radial-gradient(ellipse at 50% 54%, rgba(83, 115, 205, .16), transparent 58%),
+    linear-gradient(180deg, rgba(7, 12, 28, .1), rgba(7, 12, 28, .28));
+}
+
+.floating-world-container::before {
+  content: "";
+  position: absolute;
+  inset: -1%;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(180deg, rgba(5, 9, 20, .06), rgba(5, 9, 20, .12)),
+    url("/images/explorer-world.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: .96;
+  filter: saturate(1.12) contrast(1.04);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 48%, #000 58%, rgba(0,0,0,.86) 76%, transparent 100%);
+  mask-image: radial-gradient(ellipse at 50% 48%, #000 58%, rgba(0,0,0,.86) 76%, transparent 100%);
+}
+
+.floating-island {
+  z-index: 2;
+  width: clamp(118px, 25%, 158px);
+  height: 155px;
+  animation-duration: 7.5s;
+}
+
+.floating-island::before {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 32%;
+  height: 58%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, color-mix(in srgb, var(--island-color) 26%, transparent), transparent 70%);
+  filter: blur(15px);
+  opacity: .7;
+  pointer-events: none;
+}
+
+.floating-island .island-rock,
+.floating-island .island-top,
+.floating-island .island-structure {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.floating-island--basecamp {
+  left: 32% !important;
+  top: 8% !important;
+}
+
+.floating-island--buildlab {
+  left: 1% !important;
+  top: 34% !important;
+}
+
+.floating-island--journey {
+  left: 30% !important;
+  top: 51% !important;
+}
+
+.floating-island--frontier {
+  right: -1% !important;
+  left: auto !important;
+  top: 32% !important;
+}
+
+.floating-island--connection {
+  left: -5% !important;
+  right: auto !important;
+  top: 54% !important;
+  bottom: auto !important;
+}
+
+.island-label {
+  top: 70%;
+  max-width: 190px;
+  padding: 9px 13px;
+  font-size: clamp(9px, .62vw, 11px);
+  background: linear-gradient(145deg, rgba(5, 10, 24, .96), rgba(9, 17, 38, .91));
+  border-width: 1.5px;
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.42),
+    0 0 30px color-mix(in srgb, var(--island-color) 38%, transparent),
+    inset 0 1px rgba(255,255,255,.1);
+}
+
+.floating-island:hover {
+  filter: brightness(1.18) drop-shadow(0 0 18px var(--island-glow));
+}
+
+.luminous-pathways {
+  opacity: .12;
+  z-index: 1;
+}
+
+@media (max-width: 1023px) {
+  .cinematic-hero {
+    padding-top: 64px;
+  }
+
+  .cinematic-hero > .relative.z-10.mx-auto.grid {
+    padding-top: 10px !important;
+  }
+
+  .floating-world-container {
+    min-height: 540px;
+    border-radius: 22px;
+  }
+
+  .floating-world-container::before {
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .floating-island--basecamp { left: 32% !important; top: 6% !important; }
+  .floating-island--buildlab { left: 0 !important; top: 34% !important; }
+  .floating-island--journey { left: 30% !important; top: 57% !important; }
+  .floating-island--frontier { right: 0 !important; left: auto !important; top: 33% !important; }
+  .floating-island--connection { left: 0 !important; top: 61% !important; }
+}
+
+@media (max-width: 767px) {
+  .floating-world-container {
+    min-height: 440px;
+  }
+
+  .floating-island {
+    width: clamp(106px, 29vw, 132px);
+    height: 128px;
+  }
+
+  .floating-island--basecamp { left: 31% !important; top: 4% !important; }
+  .floating-island--buildlab { left: -3% !important; top: 32% !important; }
+  .floating-island--journey { left: 30% !important; top: 57% !important; }
+  .floating-island--frontier { right: -3% !important; left: auto !important; top: 32% !important; }
+  .floating-island--connection { left: -3% !important; top: 61% !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-bg::before { animation: none !important; }
+}
