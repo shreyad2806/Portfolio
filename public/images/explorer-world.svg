@@ -20,8 +20,8 @@
 <circle cx="900" cy="440" r="680" fill="url(#nebula)"/><circle cx="1450" cy="220" r="300" fill="url(#nebula)"/>
 <circle cx="1490" cy="190" r="68" fill="url(#moon)" opacity=".86"/><circle cx="1515" cy="170" r="61" fill="#101633" opacity=".22"/>
 <g fill="#DDEBFF" opacity=".8"><circle cx="120" cy="125" r="2"/><circle cx="255" cy="225" r="1.5"/><circle cx="405" cy="90" r="2"/><circle cx="560" cy="180" r="1.4"/><circle cx="720" cy="70" r="2"/><circle cx="1010" cy="120" r="1.7"/><circle cx="1210" cy="80" r="2"/><circle cx="1650" cy="280" r="1.5"/><circle cx="1710" cy="120" r="2"/><circle cx="330" cy="400" r="1.5"/><circle cx="840" cy="250" r="1.4"/><circle cx="1350" cy="360" r="2"/></g>
-<path d="M0 710 150 535 270 610 430 425 570 600 710 380 860 610 1010 420 1170 625 1330 405 1490 590 1650 445 1800 600V1100H0Z" fill="#1A274A" opacity=".82"/>
-<path d="m0 790 190-170 135 100 190-230 150 240 180-200 170 195 190-225 170 215 190-205 235 210v380H0Z" fill="#101A35"/>
+
+
 <g opacity=".3" stroke="#A9BFFF" stroke-width="2"><path d="M220 115v-30m-8 10 8-10 8 10"/><path d="M520 270v-22m-6 8 6-8 6 8"/><path d="M1170 180v-34m-8 12 8-12 8 12"/></g>
 <!-- distant atmospheric cloud bands -->
 <path d="M0 430Q260 360 510 440T1020 430T1800 410" stroke="#8394D9" stroke-opacity=".12" stroke-width="54" filter="url(#softGlow)"/>
