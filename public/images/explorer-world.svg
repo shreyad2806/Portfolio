@@ -16,7 +16,7 @@
  <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="11"/></filter>
  <filter id="texture" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="3" seed="9" result="noise"/><feColorMatrix in="noise" type="saturate" values="0" result="mono"/><feComponentTransfer in="mono" result="grain"><feFuncA type="table" tableValues="0 .13"/></feComponentTransfer><feBlend in="SourceGraphic" in2="grain" mode="soft-light"/></filter>
 </defs>
-<rect width="1800" height="1100" fill="url(#sky)"/>
+<!-- Transparent scene: the hero page supplies the continuous midnight sky. -->
 <circle cx="900" cy="440" r="680" fill="url(#nebula)"/><circle cx="1450" cy="220" r="300" fill="url(#nebula)"/>
 <circle cx="1490" cy="190" r="68" fill="url(#moon)" opacity=".86"/><circle cx="1515" cy="170" r="61" fill="#101633" opacity=".22"/>
 <g fill="#DDEBFF" opacity=".8"><circle cx="120" cy="125" r="2"/><circle cx="255" cy="225" r="1.5"/><circle cx="405" cy="90" r="2"/><circle cx="560" cy="180" r="1.4"/><circle cx="720" cy="70" r="2"/><circle cx="1010" cy="120" r="1.7"/><circle cx="1210" cy="80" r="2"/><circle cx="1650" cy="280" r="1.5"/><circle cx="1710" cy="120" r="2"/><circle cx="330" cy="400" r="1.5"/><circle cx="840" cy="250" r="1.4"/><circle cx="1350" cy="360" r="2"/></g>
