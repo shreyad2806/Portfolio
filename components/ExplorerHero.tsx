@@ -88,7 +88,7 @@ export default function ExplorerHero() {
           </div>
 
           {/* Currently Exploring */}
-          <div className="mt-10">
+          <div className="mt-6">
             <p className="mb-3.5 text-[9px] font-mono uppercase tracking-[0.22em] text-slate-400">CURRENTLY EXPLORING</p>
             <div className="flex flex-wrap gap-2.5">
               {["Agentic AI", "System Design", "AI Infra"].map((x,i)=>
