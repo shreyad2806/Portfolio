@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Compass, Download, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { portfolioData } from "@/lib/portfolio-data";
-import WorldCanvas from "@/components/WorldCanvas";
 
 export default function ExplorerHero() {
   const [greetingOpen, setGreetingOpen] = useState(true);
@@ -16,7 +15,6 @@ export default function ExplorerHero() {
   return (
     <section id="home" className="explorer-hero relative isolate min-h-[calc(100svh-4rem)] overflow-hidden">
       <div className="explorer-world" aria-hidden="true" />
-      <WorldCanvas />
       <div className="explorer-vignette" aria-hidden="true" />
       <div className="explorer-stars" aria-hidden="true" />
 
