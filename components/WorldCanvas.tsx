@@ -20,12 +20,6 @@ const destinations: Destination[] = [
   { id:"connection", number:"05", name:"The Connection Hub", short:"CONTACT", description:"Have a problem worth solving? Start a conversation or find Shreya elsewhere.", target:"contact", color:"#ff9acb", x:970, y:275, cameraX:-700, cameraY:-95, structure:"connection", icon:RadioTower, nova:"The Connection Hub is the fastest route to Shreya's email, GitHub and LinkedIn. I'd be happy to help you find the right link." },
 ];
 
-const quickQuestions = [
-  { label:"Show me her projects", text:"Take me to the Build Lab", id:"buildlab" },
-  { label:"Where has she worked?", text:"Tell me about her experience", id:"journey" },
-  { label:"What is she exploring?", text:"What is she learning now?", id:"frontier" },
-];
-
 export default function WorldCanvas() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [compact, setCompact] = useState(false);
