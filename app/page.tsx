@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import ExplorerHero from "@/components/ExplorerHero";
 import EngineeringSnapshot from "@/components/EngineeringSnapshot";
 import TechnicalExpertise from "@/components/TechnicalExpertise";
 import HackathonStrip from "@/components/HackathonStrip";
@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <Navbar />
       <main>
-        <Hero />
+        <ExplorerHero />
         <EngineeringSnapshot />
         <TechnicalExpertise />
         <HackathonStrip />
