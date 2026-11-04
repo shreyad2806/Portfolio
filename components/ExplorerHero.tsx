@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Download, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Compass, Download, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { portfolioData } from "@/lib/portfolio-data";
 import WorldCanvas from "@/components/WorldCanvas";
@@ -43,6 +43,7 @@ export default function ExplorerHero() {
               <a href={portfolioData.personal.resume} className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-slate-950/35 px-5 py-3.5 text-sm font-medium text-white backdrop-blur-md transition hover:border-cyan-200/50 hover:bg-white/10">
                 Resume <Download size={15} />
               </a>
+              <button onClick={() => document.getElementById("world-atlas")?.scrollIntoView({ behavior: "smooth" })} className="inline-flex items-center gap-2 rounded-full px-4 py-3.5 text-sm font-medium text-cyan-100/85 transition hover:bg-white/5 hover:text-white"><Compass size={15}/> Choose a destination</button>
             </div>
             <div className="mt-9 flex flex-wrap gap-2">
               {["Agentic AI", "Backend systems", "Developer infrastructure", "Open source"].map((item) => (
