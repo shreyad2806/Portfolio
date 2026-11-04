@@ -18,7 +18,7 @@ export default function NovaAssistant({destinations,onNavigate}:Props){
   const next=[...messages,{id:crypto.randomUUID(),role:"user" as const,content:question}];
   setMessages(next);setDraft("");setBusy(true);setNotice("");
   try{
-   const response=await fetch("/api/nova",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question,history:next.slice(-7).map(({role,content})=>({role,content}))})});
+   const response=await fetch("/api/nova",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question,history:next.slice(0,-1).slice(-6).map(({role,content})=>({role,content}))})});
    if(!response.ok)throw new Error("Nova could not reach her knowledge base.");
    const data=await response.json() as {reply:string;mode?:string};
    setMessages(current=>[...current,{id:crypto.randomUUID(),role:"assistant",content:data.reply}]);
