@@ -113,28 +113,6 @@
 </g>
 
 
-<!-- Uneven ground cover, winding paths and natural ridgelines make each crown read as terrain. -->
-<g fill="none" stroke-linecap="round" stroke-linejoin="round">
- <g stroke="#C9D5E9" stroke-opacity=".28" stroke-width="3">
-  <path d="M780 292Q818 278 845 286T902 282M940 286Q980 276 1028 298M304 555Q355 535 394 545T466 539M502 550Q565 535 615 559"/>
-  <path d="M1152 550Q1200 526 1245 540T1318 529M1365 534Q1431 519 1483 548M671 786Q724 757 770 771T850 759M905 766Q973 751 1034 785"/>
- </g>
- <g stroke="#D9E7C7" stroke-opacity=".58" stroke-width="4">
-  <path d="M800 306q18-15 32-3m-17 3 4-17m-4 17-12-10M1009 298q15-18 29-6m-14 6 4-18m-4 18-12-9"/>
-  <path d="M319 566q16-17 29-5m-13 5 3-17m-3 17-11-9M590 560q17-19 31-7m-15 7 4-18m-4 18-12-9"/>
-  <path d="M685 797q18-20 34-7m-17 7 4-19m-4 19-13-10M1010 792q18-20 34-7m-17 7 4-19m-4 19-13-10"/>
-  <path d="M1160 569q16-17 29-5m-13 5 3-17m-3 17-11-9M1470 557q16-17 29-5m-13 5 3-17m-3 17-11-9"/>
- </g>
- <g stroke="#E8C58A" stroke-opacity=".55" stroke-width="4"><path d="M770 312Q812 327 849 310T917 314M710 802Q760 820 804 800T876 807"/></g>
- <g stroke="#A4EBD2" stroke-opacity=".5" stroke-width="4"><path d="M1160 569Q1205 584 1245 565T1320 568M1390 565Q1440 580 1482 558"/></g>
-</g>
-<g fill="#8FB69B" opacity=".72">
- <circle cx="780" cy="282" r="11"/><circle cx="798" cy="275" r="8"/><circle cx="1020" cy="286" r="12"/><circle cx="1040" cy="279" r="8"/>
- <circle cx="319" cy="544" r="12"/><circle cx="337" cy="535" r="8"/><circle cx="608" cy="548" r="12"/><circle cx="626" cy="540" r="8"/>
- <circle cx="696" cy="768" r="13"/><circle cx="716" cy="756" r="9"/><circle cx="1010" cy="775" r="14"/><circle cx="1030" cy="761" r="9"/>
- <circle cx="1160" cy="539" r="13"/><circle cx="1180" cy="529" r="9"/><circle cx="1477" cy="539" r="13"/><circle cx="1496" cy="528" r="9"/>
-</g>
-
 <!-- broken mineral veins and natural waterfalls; subtle, secondary to the rock silhouettes -->
 <g fill="none" stroke-linecap="round" stroke-linejoin="round">
  <g stroke="#B8C9F0" stroke-opacity=".28" stroke-width="3"><path d="m711 365 47 28 17 49m46-55 42 23 18 49m55-85 48-18 29 40"/><path d="m285 597 55 25 20 53m54-50 48 22 18 54m68-74 52-18 25 43"/><path d="m676 823 55 24 21 58m60-54 50 23 20 57m72-70 54-22 28 47"/></g>
