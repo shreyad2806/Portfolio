@@ -32,7 +32,7 @@ export default function ExplorerHero() {
               <span className="mt-2 block">into reality.</span>
             </h1>
             <p className="mt-7 max-w-xl text-base leading-8 text-slate-200/80 sm:text-lg">
-              I'm Shreya — exploring agentic AI, backend engineering, and the infrastructure behind intelligent software. I like taking complex ideas apart, understanding how they work, and building things that hold up in the real world.
+              I&apos;m Shreya — exploring agentic AI, backend engineering, and the infrastructure behind intelligent software. I like taking complex ideas apart, understanding how they work, and building things that hold up in the real world.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <button onClick={explore} className="group inline-flex items-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-[0_0_45px_rgba(135,120,255,.28)] transition hover:-translate-y-0.5 hover:bg-cyan-100">
@@ -64,11 +64,11 @@ export default function ExplorerHero() {
           {greetingOpen ? (
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="absolute -bottom-3 left-0 right-0 rounded-2xl border border-white/15 bg-[#0b1122]/85 p-4 shadow-2xl backdrop-blur-xl sm:-left-8 sm:right-4">
               <div className="mb-2 flex items-center justify-between">
-                <div className="flex items-center gap-2 text-xs font-semibold tracking-wide text-white"><Sparkles size={14} className="text-violet-300" /> NOVA <span className="font-normal text-slate-400">· Shreya's AI companion</span></div>
+                <div className="flex items-center gap-2 text-xs font-semibold tracking-wide text-white"><Sparkles size={14} className="text-violet-300" /> NOVA <span className="font-normal text-slate-400">· Shreya&apos;s AI companion</span></div>
                 <button aria-label="Minimize Nova greeting" onClick={() => setGreetingOpen(false)} className="rounded-md px-2 py-1 text-xs text-slate-400 hover:bg-white/10 hover:text-white">−</button>
               </div>
-              <p className="text-sm leading-6 text-slate-200/90">Hey, Explorer. I'm Nova. Shreya builds intelligent systems, investigates how they work, and turns ambitious ideas into software. Want to see what she's been building?</p>
-              <button onClick={explore} className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-cyan-200 transition hover:text-white">Let's explore <ArrowUpRight size={13}/></button>
+              <p className="text-sm leading-6 text-slate-200/90">Hey, Explorer. I&apos;m Nova. Shreya builds intelligent systems, investigates how they work, and turns ambitious ideas into software. Want to see what she&apos;s been building?</p>
+              <button onClick={explore} className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-cyan-200 transition hover:text-white">Let&apos;s explore <ArrowUpRight size={13}/></button>
             </motion.div>
           ) : (
             <button onClick={() => setGreetingOpen(true)} className="absolute bottom-0 right-0 inline-flex items-center gap-2 rounded-full border border-white/20 bg-slate-950/70 px-4 py-2 text-xs text-white backdrop-blur-lg"><Sparkles size={13}/> Talk to Nova</button>

@@ -84,7 +84,7 @@ export default function WorldCanvas() {
           <div>
             <p className="mb-3 font-mono text-[10px] uppercase tracking-[.26em] text-cyan-200/70">SHREYA.EXE · INTERACTIVE WORLD MAP</p>
             <h2 className="text-3xl font-semibold tracking-[-.045em] text-white sm:text-4xl">One world. Five places to explore.</h2>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-400">Travel between connected locations. Select a landmark to move the camera, meet Nova's guide notes, then enter that part of the portfolio.</p>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-400">Travel between connected locations. Select a landmark to move the camera, meet Nova&apos;s guide notes, then enter that part of the portfolio.</p>
           </div>
           <button type="button" onClick={() => {setSelectedId(null);setNovaReply("Map reset. All five destinations are in view. Where would you like to go?");}} className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[.035] px-4 py-2 text-xs text-slate-300 transition hover:border-cyan-200/30 hover:text-white"><RotateCcw size={13}/> Reset view</button>
         </div>
