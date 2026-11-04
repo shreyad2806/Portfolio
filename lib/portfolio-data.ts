@@ -48,7 +48,7 @@ export const portfolioData = {
     {
       id: "complytai", name: "ComplytAI", description: "Financial compliance and risk intelligence platform using document processing, retrieval-augmented generation and a five-agent CrewAI workflow for evidence-backed findings.",
       tech: ["Python", "FastAPI", "CrewAI", "RAG", "Pinecone", "Qwen2.5"],
-      github: "https://github.com/shreyad2806/ComplytAI", caseStudy: null, featured: true, status: "Completed",
+      github: "https://github.com/shreyad2806/ComplytAI", caseStudy: null, featured: false, status: "Completed",
     },
     {
       id: "talentlens", name: "TalentLens", description: "Resume intelligence and candidate discovery platform using semantic search, embeddings, vector retrieval and candidate ranking.",
