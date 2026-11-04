@@ -2307,3 +2307,70 @@ html { scroll-padding-top: 5.75rem; }
 @media (prefers-reduced-motion: reduce) {
   .cinematic-bg::before { animation: none !important; }
 }
+
+
+/* PR6 visual pass — atmospheric depth, dimensional island lighting and cleaner spacing */
+.cinematic-hero .floating-world-container {
+  position: absolute; inset: 0; overflow: hidden; border: 1px solid rgba(159,184,255,.12);
+  border-radius: 30px; perspective: 1500px; transform-style: preserve-3d;
+  background: radial-gradient(ellipse at 50% 46%,rgba(91,121,220,.18),transparent 58%),linear-gradient(180deg,rgba(7,12,28,.12),rgba(5,9,22,.3));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07),inset 0 -35px 65px rgba(4,8,20,.26),0 30px 80px rgba(0,0,0,.22);
+}
+.cinematic-hero .floating-world-container::before {
+  inset: -2%; background-image: linear-gradient(180deg,rgba(4,8,20,.02),rgba(4,8,20,.1)),url("/images/explorer-world.svg");
+  background-size: cover; background-position: center; opacity: .98; filter: saturate(1.24) contrast(1.1) brightness(1.04);
+  transform: scale(1.015); animation: island-scene-drift 28s ease-in-out infinite alternate;
+}
+.cinematic-hero .floating-world-container::after {
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background: radial-gradient(ellipse at 49% 22%,rgba(188,157,255,.2),transparent 24%),radial-gradient(ellipse at 18% 49%,rgba(57,224,255,.17),transparent 22%),radial-gradient(ellipse at 82% 48%,rgba(103,255,201,.14),transparent 23%),radial-gradient(ellipse at 48% 79%,rgba(255,198,105,.14),transparent 22%),radial-gradient(ellipse at 13% 78%,rgba(255,105,192,.15),transparent 20%),linear-gradient(180deg,transparent 58%,rgba(8,13,31,.24));
+  mix-blend-mode:screen; opacity:.82; animation:island-atmosphere-breathe 9s ease-in-out infinite alternate;
+}
+@keyframes island-scene-drift { from{transform:scale(1.015) translate3d(0,0,0)} to{transform:scale(1.055) translate3d(-.6%,-.35%,0)} }
+@keyframes island-atmosphere-breathe { from{opacity:.55;filter:blur(0)} to{opacity:.92;filter:blur(2px)} }
+
+/* Layered rim light and depth shadows reinforce the island silhouettes in the scene artwork. */
+.cinematic-hero .floating-island {
+  transform-style:preserve-3d; backface-visibility:hidden;
+  filter:drop-shadow(0 20px 17px rgba(0,0,0,.42)) drop-shadow(0 0 13px color-mix(in srgb,var(--island-glow) 58%,transparent));
+  transition:filter .35s ease,transform .35s ease;
+}
+.cinematic-hero .floating-island::before {
+  content:""; position:absolute; z-index:0; left:5%; top:36%; width:90%; height:39%; border-radius:50%; pointer-events:none;
+  background:radial-gradient(ellipse at 50% 34%,color-mix(in srgb,var(--island-color) 42%,transparent),transparent 67%),radial-gradient(ellipse at 50% 100%,rgba(0,0,0,.54),transparent 68%);
+  filter:blur(13px); opacity:.92; transform:translateZ(-22px) scaleY(.82);
+}
+.cinematic-hero .floating-island::after {
+  content:""; position:absolute; z-index:1; left:8%; top:34%; width:84%; height:31%; border:1px solid color-mix(in srgb,var(--island-color) 48%,rgba(255,255,255,.25));
+  border-radius:50%; pointer-events:none;
+  background:radial-gradient(ellipse at 34% 18%,rgba(255,255,255,.24),transparent 34%),linear-gradient(180deg,color-mix(in srgb,var(--island-color) 20%,transparent),rgba(6,12,28,.04) 72%);
+  box-shadow:inset 0 2px 9px rgba(255,255,255,.2),inset 0 -9px 15px rgba(4,9,24,.34),0 0 18px color-mix(in srgb,var(--island-color) 38%,transparent);
+  transform:rotateX(54deg) translateZ(8px); opacity:.72;
+}
+.cinematic-hero .floating-island:hover {
+  filter:brightness(1.12) drop-shadow(0 26px 19px rgba(0,0,0,.48)) drop-shadow(0 0 24px var(--island-glow));
+}
+.cinematic-hero .floating-island:hover::after {
+  opacity:1; box-shadow:inset 0 2px 12px rgba(255,255,255,.28),inset 0 -9px 15px rgba(4,9,24,.34),0 0 30px var(--island-glow);
+}
+.cinematic-hero .island-label {
+  z-index:5; top:70%; border-color:color-mix(in srgb,var(--island-color) 78%,rgba(255,255,255,.2));
+  box-shadow:0 13px 32px rgba(0,0,0,.48),0 0 22px color-mix(in srgb,var(--island-color) 36%,transparent),inset 0 1px 0 rgba(255,255,255,.16);
+}
+.cinematic-hero .luminous-pathways {
+  z-index:2; opacity:.42; filter:drop-shadow(0 0 5px rgba(108,218,255,.55)) drop-shadow(0 0 15px rgba(157,111,255,.26));
+}
+.cinematic-hero .luminous-pathways path { animation:energy-route-flow 18s linear infinite; }
+@keyframes energy-route-flow { to{stroke-dashoffset:-80} }
+.cinematic-hero .floating-island--connection { left:1% !important; right:auto !important; top:56% !important; }
+
+@media (min-width:1024px) {
+  .cinematic-hero .floating-world-container { border-color:rgba(160,184,255,.08); box-shadow:inset 0 1px 0 rgba(255,255,255,.055),inset 0 -42px 70px rgba(4,8,20,.3),0 32px 90px rgba(0,0,0,.24); }
+}
+@media (max-width:1023px) {
+  .cinematic-hero .floating-world-container { position:relative; min-height:540px; }
+  .cinematic-hero .floating-island--connection { left:1% !important; top:62% !important; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .cinematic-hero .floating-world-container::before,.cinematic-hero .floating-world-container::after,.cinematic-hero .luminous-pathways path { animation:none !important; }
+}
