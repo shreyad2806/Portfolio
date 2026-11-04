@@ -5,7 +5,7 @@ import { portfolioData } from "@/lib/portfolio-data";
 
 export default function CurrentFocus() {
   return (
-    <section className="py-16 lg:py-20">
+    <section id="focus" className="py-16 lg:py-20">
       <div className="container-px mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 14 }}

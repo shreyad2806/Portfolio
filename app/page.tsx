@@ -1,9 +1,10 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import ExplorerHero from "@/components/ExplorerHero";
+import WorldCanvas from "@/components/WorldCanvas";
 import EngineeringSnapshot from "@/components/EngineeringSnapshot";
 import TechnicalExpertise from "@/components/TechnicalExpertise";
-import HackathonStrip from "@/components/HackathonStrip";
 import FeaturedProjects from "@/components/FeaturedProjects";
+import JourneySection from "@/components/JourneySection";
 import CurrentFocus from "@/components/CurrentFocus";
 import LatestBlog from "@/components/LatestBlog";
 import ContactCTA from "@/components/ContactCTA";
@@ -13,11 +14,12 @@ export default function Home() {
     <>
       <Navbar />
       <main>
-        <Hero />
+        <ExplorerHero />
+        <WorldCanvas />
         <EngineeringSnapshot />
         <TechnicalExpertise />
-        <HackathonStrip />
         <FeaturedProjects />
+        <JourneySection />
         <CurrentFocus />
         <LatestBlog />
         <ContactCTA />
