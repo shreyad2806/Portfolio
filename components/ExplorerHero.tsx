@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowDown, ArrowRight, Compass, Download, FlaskConical, Map, RadioTower, Send, Sparkles, Telescope, Trophy, Layers3, Boxes, Code2 } from "lucide-react";
 import { portfolioData } from "@/lib/portfolio-data";
 

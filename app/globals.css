@@ -645,19 +645,19 @@ html { scroll-padding-top: 5.75rem; }
 .hero-nova-panel .space-y-1\.5 > button > span:nth-child(2) > span:last-child {font-size:9px;}
 .hero-nova-panel .nova-input-row {margin-top:10px!important;}
 .hero-proof-strip {max-width:1120px!important;margin-top:0!important;}
-.skills-card {min-height:156px;display:flex;flex-direction:column;justify-content:flex-start;}
+.skills-card {min-height:176px;display:flex;flex-direction:column;justify-content:flex-start;}
 .skills-card .flex.flex-wrap {gap:6px;}
 .skills-chip {padding:5px 9px;line-height:1.25;}
 .journey-section {background:radial-gradient(ellipse at 10% 30%,rgba(246,199,121,.08),transparent 42%),radial-gradient(ellipse at 88% 72%,rgba(103,232,249,.045),transparent 38%),#090d18;}
 .journey-recognition {min-height:82px;}
 .featured-build-art-footer span:last-child {color:rgba(225,238,255,.42);}
 @media(min-width:1280px) {
- .explorer-hero .relative.z-10.mx-auto.grid {padding-top:5rem;padding-bottom:1.25rem;}
+ .explorer-hero .relative.z-10.mx-auto.grid {padding-top:6.5rem;padding-bottom:1.25rem;}
  .explorer-hero .relative.z-10.mx-auto.grid > .relative.min-h-\[340px\] {min-height:550px;}
  .hero-nova-panel {max-width:470px;}
 }
 @media(max-width:1279px) and (min-width:1024px) {
- .explorer-hero .relative.z-10.mx-auto.grid {padding-top:5rem;padding-bottom:1rem;grid-template-columns:minmax(250px,.82fr) minmax(330px,1.15fr) minmax(275px,.9fr);}
+ .explorer-hero .relative.z-10.mx-auto.grid {padding-top:6rem;padding-bottom:1rem;grid-template-columns:minmax(250px,.82fr) minmax(330px,1.15fr) minmax(275px,.9fr);}
  .explorer-hero .relative.z-10.mx-auto.grid > .relative.min-h-\[340px\] {min-height:510px;}
  .hero-island {width:clamp(112px,13vw,168px);height:155px;}
  .hero-nova-panel {padding:13px!important;}

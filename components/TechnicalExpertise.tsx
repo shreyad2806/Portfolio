@@ -32,7 +32,7 @@ export default function TechnicalExpertise() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {portfolioData.technicalExpertise.map((area, i) => {
             const Icon = iconMap[area.icon] || Cpu;
             return (
@@ -43,13 +43,13 @@ export default function TechnicalExpertise() {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
                 whileHover={{ y: -4 }}
-                className="skills-card card-surface p-4 transition-all duration-300 hover:border-primary/30"
+                className="skills-card card-surface p-6 transition-all duration-300 hover:border-primary/30"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 rounded-lg bg-primary/10">
-                    <Icon size={16} className="text-primary" />
+                    <Icon size={18} className="text-primary" />
                   </div>
-                  <h3 className="text-[13px] font-semibold leading-snug text-text">
+                  <h3 className="text-base font-semibold text-text">
                     {area.category}
                   </h3>
                 </div>
@@ -58,7 +58,7 @@ export default function TechnicalExpertise() {
                   {area.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="skills-chip chip text-[10px]"
+                      className="chip text-xs"
                     >
                       {skill}
                     </span>
