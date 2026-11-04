@@ -2476,3 +2476,98 @@ html { scroll-padding-top: 5.75rem; }
     mask-image: radial-gradient(ellipse 88% 80% at 50% 50%, #000 46%, transparent 100%) !important;
   }
 }
+
+
+/* Composition refinement: let the artwork breathe in the hero instead of
+   behaving like a rectangular poster. Preserve the SVG's native aspect ratio. */
+.cinematic-hero .floating-world-stage {
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 1.48 / 1;
+  align-self: center;
+  position: relative;
+}
+.cinematic-hero .floating-world-container {
+  inset: 0 !important;
+  overflow: visible !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background:
+    radial-gradient(ellipse 70% 58% at 51% 56%, rgba(95, 107, 190, .13), transparent 76%),
+    radial-gradient(ellipse 90% 82% at 50% 52%, rgba(10, 17, 43, .08), transparent 100%) !important;
+  box-shadow: none !important;
+}
+.cinematic-hero .floating-world-container::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: -3% -4% -5% !important;
+  z-index: 0 !important;
+  background-image: url("/images/explorer-world.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: contain !important;
+  opacity: .86 !important;
+  filter: saturate(.88) contrast(1.03) brightness(.96) !important;
+  -webkit-mask-image: radial-gradient(ellipse 78% 80% at 50% 49%, #000 48%, rgba(0,0,0,.94) 65%, rgba(0,0,0,.48) 83%, transparent 100%) !important;
+  mask-image: radial-gradient(ellipse 78% 80% at 50% 49%, #000 48%, rgba(0,0,0,.94) 65%, rgba(0,0,0,.48) 83%, transparent 100%) !important;
+}
+.cinematic-hero .floating-world-container::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(ellipse 34% 24% at 50% 43%, rgba(142, 127, 221, .11), transparent 100%),
+    radial-gradient(ellipse 30% 24% at 19% 53%, rgba(75, 187, 217, .08), transparent 100%),
+    radial-gradient(ellipse 30% 24% at 81% 54%, rgba(101, 205, 165, .07), transparent 100%),
+    linear-gradient(180deg, transparent 72%, rgba(5, 9, 24, .12));
+  mix-blend-mode: screen;
+  opacity: .72;
+}
+.cinematic-hero .floating-island {
+  width: clamp(112px, 23%, 154px);
+  height: 150px;
+  animation: none !important;
+  background: transparent !important;
+  filter: none !important;
+}
+.cinematic-hero .floating-island:hover {
+  transform: translateY(-3px) !important;
+  filter: none !important;
+}
+.cinematic-hero .island-label {
+  padding: 9px 12px;
+  background: rgba(7, 13, 30, .84) !important;
+  border-width: 1px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.08) !important;
+  backdrop-filter: blur(9px);
+  font-size: clamp(8px, .58vw, 10px);
+}
+.cinematic-hero .floating-island:hover .island-label {
+  box-shadow: 0 7px 18px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.1) !important;
+}
+.cinematic-hero .luminous-pathways { opacity: .2 !important; filter: none !important; }
+.cinematic-hero .luminous-pathways path { animation: none !important; }
+@media (max-width: 1279px) and (min-width: 1024px) {
+  .cinematic-hero .floating-world-stage { aspect-ratio: 1.32 / 1; }
+}
+@media (max-width: 1023px) {
+  .cinematic-hero .floating-world-stage {
+    aspect-ratio: 1.42 / 1;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+  .cinematic-hero .floating-world-container { overflow: visible !important; }
+  .cinematic-hero .floating-world-container::before { inset: -2% !important; }
+}
+@media (max-width: 767px) {
+  .cinematic-hero .floating-world-stage { aspect-ratio: 1.12 / 1; }
+  .cinematic-hero .floating-world-container::before {
+    background-size: contain !important;
+    -webkit-mask-image: radial-gradient(ellipse 88% 82% at 50% 50%, #000 52%, transparent 100%) !important;
+    mask-image: radial-gradient(ellipse 88% 82% at 50% 50%, #000 52%, transparent 100%) !important;
+  }
+}
