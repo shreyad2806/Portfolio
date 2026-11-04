@@ -24,7 +24,7 @@ export default function WorldCanvas() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [compact, setCompact] = useState(false);
   useEffect(() => {
-    const update = () => setCompact(window.innerWidth < 760);
+    const update = () => setCompact(window.innerWidth < 480);
     update();
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
