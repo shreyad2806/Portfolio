@@ -2723,3 +2723,17 @@ html { scroll-padding-top: 5.75rem; }
   .cinematic-hero .island-art--frontier { left: 58%; top: 30%; width: 32%; }
   .cinematic-hero .island-art--connection { left: 63%; top: 59%; width: 27%; }
 }
+
+
+/* The SVG artwork supplies all terrain; buttons are transparent hit targets
+   with only the destination pill visible. Motion phase is synchronized. */
+.cinematic-hero .floating-island > .island-rock,
+.cinematic-hero .floating-island > .island-top,
+.cinematic-hero .floating-island > .island-structure {
+  display: none !important;
+}
+.cinematic-hero .island-art--basecamp { animation-delay: -1.1s, -1.1s; }
+.cinematic-hero .island-art--buildlab { animation-delay: -2.8s, -2.8s; }
+.cinematic-hero .island-art--journey { animation-delay: -1.7s, -1.7s; }
+.cinematic-hero .island-art--frontier { animation-delay: -3.4s, -3.4s; }
+.cinematic-hero .island-art--connection { animation-delay: -4.2s, -4.2s; }
