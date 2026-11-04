@@ -723,3 +723,12 @@ html { scroll-padding-top: 5.75rem; }
 @media(max-width:1023px){.hero-landscape{top:0;height:100%;background-position:center 48%;opacity:.82;}.hero-island-world{height:580px;top:0;}.hero-island:nth-child(1){left:43%;top:0}.hero-island:nth-child(2){left:12%;top:28%}.hero-island:nth-child(3){left:42%;top:54%}.hero-island:nth-child(4){right:8%;top:27%}.hero-island:nth-child(5){right:2%;bottom:-2%;}}
 @media(max-width:767px){.explorer-hero .relative.z-10.mx-auto.grid{padding-top:5.5rem;padding-bottom:3rem;}.hero-landscape{background-size:auto 100%;background-position:55% center;opacity:.68;}.hero-island-world{height:420px;}.hero-island{width:120px;height:130px;}.hero-island:nth-child(1){left:40%;top:0}.hero-island:nth-child(2){left:1%;top:26%}.hero-island:nth-child(3){left:39%;top:50%}.hero-island:nth-child(4){right:1%;top:25%}.hero-island:nth-child(5){display:none}.hero-island-label{font-size:8px;padding:6px 8px;top:68%;}.hero-nova-panel{max-width:520px;}.hero-proof-strip{margin-top:8px!important;}}
 @media(prefers-reduced-motion:reduce){.hero-island{animation:none!important;}}
+
+/* Layer order: full-bleed art behind readable, interactive UI */
+.explorer-hero-scene {z-index:0;}
+.explorer-hero-scene::before {z-index:1;}
+.hero-landscape {background-size:100% 100%;background-position:center;isolation:isolate;}
+.hero-island-world {isolation:isolate;}
+.explorer-hero .relative.z-10.mx-auto.grid > div:nth-child(2) {min-height:540px;}
+@media(max-width:1023px){.explorer-hero .relative.z-10.mx-auto.grid > div:nth-child(2){min-height:520px;}}
+@media(max-width:767px){.explorer-hero .relative.z-10.mx-auto.grid > div:nth-child(2){min-height:390px;}}
