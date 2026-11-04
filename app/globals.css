@@ -2427,3 +2427,52 @@ html { scroll-padding-top: 5.75rem; }
 .cinematic-hero .floating-world-container::before {
   filter: saturate(1.12) contrast(1.12) brightness(1.04);
 }
+
+/* Seamless hero-world composition: no inset picture/card around the islands. */
+.cinematic-hero .floating-world-container {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible;
+  isolation: isolate;
+}
+.cinematic-hero .floating-world-container::before {
+  inset: -5% -8% -7% !important;
+  background-image: url("/images/explorer-world.svg") !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  opacity: .9 !important;
+  transform: none !important;
+  filter: saturate(.94) contrast(1.04) !important;
+  -webkit-mask-image: radial-gradient(ellipse 74% 74% at 50% 50%, #000 47%, rgba(0,0,0,.94) 64%, rgba(0,0,0,.45) 82%, transparent 100%) !important;
+  mask-image: radial-gradient(ellipse 74% 74% at 50% 50%, #000 47%, rgba(0,0,0,.94) 64%, rgba(0,0,0,.45) 82%, transparent 100%) !important;
+}
+.cinematic-hero .floating-world-container::after {
+  display: none !important;
+}
+.cinematic-hero .floating-island {
+  filter: none !important;
+}
+.cinematic-hero .island-label {
+  box-shadow: 0 7px 19px rgba(2,5,20,.36), inset 0 1px 0 rgba(255,255,255,.09) !important;
+}
+/* Labels follow the artwork, with comfortable separation from the surrounding copy. */
+.cinematic-hero .floating-island--basecamp { left: 32% !important; top: 9% !important; }
+.cinematic-hero .floating-island--buildlab { left: 1% !important; top: 34% !important; }
+.cinematic-hero .floating-island--journey { left: 30% !important; top: 53% !important; }
+.cinematic-hero .floating-island--frontier { right: -1% !important; left: auto !important; top: 33% !important; }
+.cinematic-hero .floating-island--connection { right: -1% !important; left: auto !important; top: 57% !important; }
+@media (max-width: 1023px) {
+  .cinematic-hero .floating-world-container { overflow: hidden; }
+  .cinematic-hero .floating-world-container::before { inset: 0 !important; }
+  .cinematic-hero .floating-island--connection { right: 0 !important; top: 62% !important; }
+}
+@media (max-width: 767px) {
+  .cinematic-hero .floating-world-container::before {
+    background-size: cover !important;
+    -webkit-mask-image: radial-gradient(ellipse 88% 80% at 50% 50%, #000 46%, transparent 100%) !important;
+    mask-image: radial-gradient(ellipse 88% 80% at 50% 50%, #000 46%, transparent 100%) !important;
+  }
+}
