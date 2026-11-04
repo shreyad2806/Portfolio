@@ -111,6 +111,54 @@
 </g>
 
 
+
+<!-- Small built-environment details: paths, lookout shelters, windows and wayfinding lights. -->
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+ <g stroke="#E7D8FF" stroke-opacity=".72" stroke-width="3">
+  <path d="M812 327Q852 344 900 329T972 322" />
+  <path d="M390 565Q428 578 462 562T532 558" />
+  <path d="M690 812Q760 835 817 810T922 808" />
+  <path d="M1160 566Q1212 582 1260 560T1350 559" />
+  <path d="M1250 846Q1320 862 1380 840T1470 842" />
+ </g>
+ <g stroke="#FFF0C8" stroke-width="3" opacity=".8">
+  <path d="M855 313v13m16-15v14m16-13v14m16-15v13"/>
+  <path d="M407 545v15m16-13v14m16-12v14m16-12v13"/>
+  <path d="M820 791v13m17-15v14m17-14v14m17-15v13"/>
+  <path d="M1272 826v13m17-14v13m17-13v13"/>
+ </g>
+</g>
+<!-- miniature observatory annex at Basecamp -->
+<g stroke="#D9CEFF" stroke-width="2" fill="#514A7E">
+ <path d="m952 314 18-17 18 17v21h-36Z"/><path d="m948 314 22-20 22 20" fill="none"/>
+ <path d="M961 321v8m9-8v8m9-8v8" stroke="#FFE5A8"/>
+</g>
+<!-- workshop annexes and antenna mast at Build Lab -->
+<g stroke="#9AF5FF" stroke-width="2" fill="#1C526D">
+ <path d="m553 536 19-13 19 13v25h-38Z"/><path d="m548 536 24-17 24 17" fill="none"/>
+ <path d="M565 546h5v8h-5Zm10 0h5v8h-5Z" fill="#D5FFFF" stroke="none"/>
+ <path d="M602 534v-26m-8 8 8-8 8 8" fill="none"/>
+</g>
+<!-- Journey wayfinding posts and lodge-side shelter -->
+<g stroke="#FFD58E" stroke-width="2" fill="#795B46">
+ <path d="m942 786 17-12 17 12v20h-34Z"/><path d="m938 786 21-16 21 16" fill="none"/>
+ <path d="M958 792v14m-8-14h16" stroke="#FFF0C5"/>
+ <path d="M721 820v-18m-7 7 7-7 7 7" fill="none"/>
+ <circle cx="721" cy="799" r="4" fill="#FFE1A3" stroke="none"/>
+</g>
+<!-- Frontier lookout cabin and signal mast -->
+<g stroke="#B8F5DC" stroke-width="2" fill="#315D56">
+ <path d="m1430 545 18-14 18 14v23h-36Z"/><path d="m1426 545 22-18 22 18" fill="none"/>
+ <path d="M1440 554h6v8h-6Z" fill="#E0FFF1" stroke="none"/>
+ <path d="M1480 550v-31m-8 8 8-8 8 8" fill="none"/>
+</g>
+<!-- Connection Hub: small comms kiosks around the beacon -->
+<g stroke="#FFD3EE" stroke-width="2" fill="#754A78">
+ <path d="m1450 860 14-11 14 11v18h-28Z"/><path d="m1447 860 17-14 17 14" fill="none"/>
+ <path d="M1458 866h5v7h-5Z" fill="#FFF0FA" stroke="none"/>
+ <path d="M1491 855v-21m-6 7 6-7 6 7" fill="none"/>
+</g>
+
 <!-- broken mineral veins and natural waterfalls; subtle, secondary to the rock silhouettes -->
 <g fill="none" stroke-linecap="round" stroke-linejoin="round">
  <g stroke="#B8C9F0" stroke-opacity=".28" stroke-width="3"><path d="m711 365 47 28 17 49m46-55 42 23 18 49m55-85 48-18 29 40"/><path d="m285 597 55 25 20 53m54-50 48 22 18 54m68-74 52-18 25 43"/><path d="m676 823 55 24 21 58m60-54 50 23 20 57m72-70 54-22 28 47"/></g>
