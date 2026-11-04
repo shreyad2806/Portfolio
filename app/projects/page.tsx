@@ -27,12 +27,12 @@ export default function ProjectsPage() {
             variants={fadeUp}
             className="mb-12"
           >
-            <p className="eyebrow mb-4">MY WORK</p>
+            <p className="mb-4 font-mono text-[10px] uppercase tracking-[.24em] text-cyan-100/60">SHREYA.EXE · THE BUILD LAB</p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-4">
-              Projects
+              The Build Lab
             </h1>
             <p className="text-lg text-muted max-w-2xl">
-              A collection of AI systems, developer tools, and production-ready applications I&apos;ve built.
+              A closer look at the systems I have built — from financial workflows and runtime security to machine-learning applications. Explore the engineering choices, tools and lessons behind each one.
             </p>
           </motion.div>
 

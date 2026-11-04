@@ -6,14 +6,14 @@ import Link from "next/link";
 import { portfolioData } from "@/lib/portfolio-data";
 
 export default function FeaturedProjects() {
-  const featuredProjects = portfolioData.projects.filter((p) => p.featured);
+  const featuredProjects = portfolioData.projects.filter((p) => p.featured).slice(0, 3);
 
   return (
     <section id="projects" className="py-16 lg:py-24">
       <div className="container-px mx-auto max-w-7xl">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <p className="eyebrow mb-3">Featured Work</p>
+            <p className="eyebrow mb-3">The Build Lab · Flagship systems</p>
             <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">
               Projects
             </h2>
@@ -31,7 +31,7 @@ export default function FeaturedProjects() {
           </Link>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6">
+        <div className="grid gap-5 lg:grid-cols-3">
           {featuredProjects.map((project, index) => (
             <motion.div
               key={project.id}

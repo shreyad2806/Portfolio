@@ -446,3 +446,72 @@
 @media (prefers-reduced-motion: reduce) {
   .nova-sidekick *, .nova-sidekick *::before, .nova-sidekick *::after {animation:none !important;transition:none !important;}
 }
+
+/* SHREYA.EXE — immersive destination hero */
+.explorer-hero { min-height:calc(100svh - 4rem); background:#080d1c; }
+.explorer-hero-scene { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+.explorer-hero-scene::before { content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 53% 48%,rgba(88,105,207,.24),transparent 43%),linear-gradient(90deg,rgba(7,11,23,.96) 0%,rgba(7,11,23,.78) 29%,rgba(7,11,23,.12) 63%,rgba(7,11,23,.62) 100%); z-index:3; }
+.hero-island-world { position:absolute; left:25%; top:8%; width:55%; height:80%; perspective:1000px; }
+.hero-island { position:absolute; width:clamp(150px,17vw,260px); height:190px; transform-style:preserve-3d; animation:hero-island-float 7s ease-in-out infinite; }
+.hero-island:nth-child(1){left:31%;top:2%;animation-delay:-1s}
+.hero-island:nth-child(2){left:2%;top:32%;animation-delay:-3s}
+.hero-island:nth-child(3){left:40%;top:53%;animation-delay:-2s}
+.hero-island:nth-child(4){right:0;top:28%;animation-delay:-4s}
+.hero-island:nth-child(5){right:3%;bottom:-3%;animation-delay:-5s}
+@keyframes hero-island-float {0%,100%{translate:0 0}50%{translate:0 -12px}}
+.hero-island-rock { position:absolute;left:10%;top:39%;width:80%;height:43%;border-radius:38% 48% 42% 48%;background:linear-gradient(150deg,#8796c9,#34436e 48%,#111b35);clip-path:polygon(0 0,100% 0,83% 58%,61% 100%,22% 86%);filter:drop-shadow(0 22px 16px rgba(0,0,0,.6)); }
+.hero-island-top { position:absolute;left:7%;top:25%;width:86%;height:34%;border-radius:50%;border:2px solid rgba(198,220,255,.45);background:radial-gradient(ellipse at 40% 28%,rgba(255,255,255,.35),transparent 32%),linear-gradient(140deg,#657ab4,#1c315c);box-shadow:0 0 35px var(--island-glow),inset 0 0 24px rgba(180,210,255,.22);transform:rotateX(52deg) rotateZ(-12deg); }
+.hero-island-structure { position:absolute;left:50%;top:4%;width:44%;height:54%;transform:translateX(-50%);filter:drop-shadow(0 0 18px var(--island-glow)); }
+.hero-island-structure::before,.hero-island-structure::after {content:"";position:absolute;left:15%;right:15%;bottom:0;border:2px solid var(--island-color);border-bottom:0;border-radius:50% 50% 0 0;height:55%;background:linear-gradient(180deg,color-mix(in srgb,var(--island-color) 32%,transparent),transparent);}
+.hero-island-structure::after {left:31%;right:31%;height:80%;bottom:0;border-color:rgba(235,244,255,.78);background:linear-gradient(180deg,rgba(190,225,255,.35),transparent);}
+.hero-island-label {position:absolute;z-index:4;left:50%;top:72%;transform:translateX(-50%);white-space:nowrap;padding:9px 13px;border:1px solid color-mix(in srgb,var(--island-color) 55%,transparent);border-radius:999px;background:rgba(7,13,29,.82);box-shadow:0 0 25px color-mix(in srgb,var(--island-color) 22%,transparent);color:#f5f8ff;font-size:11px;font-weight:650;backdrop-filter:blur(12px);}
+.hero-island-label span {font-family:monospace;font-size:9px;color:var(--island-color);margin-right:7px;}
+.hero-island--basecamp {--island-color:#b49aff;--island-glow:rgba(180,154,255,.6)}
+.hero-island--buildlab {--island-color:#66e9f4;--island-glow:rgba(80,220,255,.6)}
+.hero-island--journey {--island-color:#ffc46e;--island-glow:rgba(255,188,90,.55)}
+.hero-island--frontier {--island-color:#78e5bd;--island-glow:rgba(110,240,190,.55)}
+.hero-island--connection {--island-color:#f58dc8;--island-glow:rgba(245,130,205,.55)}
+.hero-island--basecamp .hero-island-structure::before {height:90%;border-radius:48% 48% 0 0}
+.hero-island--buildlab .hero-island-structure::before {height:100%;border-radius:12% 12% 0 0;left:28%;right:28%}
+.hero-island--journey .hero-island-structure::before {height:60%;border-radius:50% 50% 0 0}
+.hero-island--frontier .hero-island-structure::before {height:82%;border-radius:0;left:48%;right:48%}
+.hero-island--connection .hero-island-structure::before {height:85%;border-radius:10% 10% 0 0}
+.hero-nova-panel {position:relative;z-index:5;border:1px solid rgba(167,139,250,.35);border-radius:26px;background:linear-gradient(155deg,rgba(17,25,50,.92),rgba(7,13,28,.94));box-shadow:0 0 55px rgba(117,88,255,.13),inset 0 1px rgba(255,255,255,.08);backdrop-filter:blur(18px);}
+.hero-nova-panel img {filter:drop-shadow(0 0 25px rgba(120,180,255,.22));}
+.hero-proof-strip {position:relative;z-index:5;border:1px solid rgba(167,190,255,.14);border-radius:20px;background:rgba(10,16,34,.76);backdrop-filter:blur(16px);}
+@media(max-width:1023px){.hero-island-world{left:25%;top:8%;width:72%;opacity:.72}.hero-island{width:clamp(120px,22vw,190px)}}
+@media(max-width:767px){.explorer-hero{min-height:auto}.explorer-hero-scene{opacity:.35}.hero-island-world{left:0;top:24%;width:100%;height:44%;opacity:.7}.hero-island{width:120px;height:125px}.hero-island:nth-child(1){left:36%;top:0}.hero-island:nth-child(2){left:-3%;top:28%}.hero-island:nth-child(3){left:34%;top:43%}.hero-island:nth-child(4){right:-8%;top:22%}.hero-island:nth-child(5){display:none}.hero-island-label{font-size:8px;padding:6px 8px;top:68%}.hero-nova-panel{max-width:520px;margin-inline:auto}.hero-proof-strip{margin-top:18px}.hero-proof-strip > div{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.hero-island{animation:none!important}}
+/* Build Lab card system */
+.project-showcase-card{display:flex;min-width:0;flex-direction:column;overflow:hidden;border:1px solid rgba(176,197,255,.14);border-radius:19px;background:linear-gradient(155deg,rgba(20,29,51,.96),rgba(8,14,27,.98));box-shadow:0 14px 38px rgba(0,0,0,.16);transition:border-color .25s,box-shadow .25s}
+.project-showcase-card:hover{border-color:rgba(114,232,245,.34);box-shadow:0 20px 50px rgba(0,0,0,.28),0 0 26px rgba(114,232,245,.06)}
+.project-showcase-visual{position:relative;isolation:isolate;height:190px;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,rgba(93,105,170,.28),transparent 65%),#0c1428}
+.project-showcase-card--featured .project-showcase-visual{height:220px}
+.project-visual-art{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 55%,rgba(60,88,155,.22),transparent 62%)}
+.project-visual-grid{position:absolute;inset:0;opacity:.22;background-image:linear-gradient(rgba(160,185,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(160,185,255,.12) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(transparent,black 25%,black 80%,transparent)}
+.project-visual-orbit{position:absolute;width:180px;height:78px;border:1px solid rgba(114,232,245,.55);border-radius:50%;transform:rotate(-25deg);box-shadow:0 0 20px rgba(114,232,245,.12),inset 0 0 18px rgba(114,232,245,.08)}
+.project-visual-orbit--two{width:145px;height:105px;border-color:rgba(167,139,250,.48);transform:rotate(55deg)}
+.project-visual-core{position:relative;z-index:2;display:grid;place-items:center;width:86px;height:86px;border:1px solid rgba(114,232,245,.5);border-radius:24px;color:#b8f5ff;background:linear-gradient(145deg,rgba(114,232,245,.17),rgba(167,139,250,.13));box-shadow:0 0 35px rgba(114,232,245,.18),inset 0 0 24px rgba(114,232,245,.1);transform:rotate(-8deg)}
+.project-visual-core span{transform:rotate(8deg)}
+.project-visual-topline{position:absolute;z-index:2;left:14px;right:14px;top:13px;display:flex;justify-content:space-between;gap:8px;font:9px monospace;letter-spacing:.12em;color:rgba(224,239,255,.72)}
+.project-status{position:absolute;z-index:3;right:12px;bottom:12px;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 9px;background:rgba(5,10,22,.78);font:9px monospace;color:#e5edff}
+.project-status--complete{border-color:rgba(110,231,183,.28);color:#a7f3d0}
+.project-status--active{border-color:rgba(251,191,36,.3);color:#fcd34d}
+.project-status--upcoming{color:#c4b5fd}
+.project-visual-index{position:absolute;left:14px;bottom:12px;font:10px monospace;color:rgba(255,255,255,.6)}
+.project-visual--closeloop{background:radial-gradient(ellipse at 50% 45%,rgba(38,178,210,.25),transparent 65%),#0a172a}
+.project-visual--kavach{background:radial-gradient(ellipse at 50% 45%,rgba(160,105,255,.25),transparent 65%),#101126}
+.project-visual--visionguard{background:radial-gradient(ellipse at 50% 45%,rgba(255,173,86,.2),transparent 65%),#1a1421}
+@media(prefers-reduced-motion:reduce){.project-showcase-card{transition:none}}
+
+
+.hero-island-world--main{left:0;top:0;width:100%;height:100%}
+.hero-island-button{appearance:none;border:0;padding:0;background:transparent;cursor:pointer;text-align:initial}
+.hero-island-button:focus-visible{outline:2px solid #fff;outline-offset:5px;border-radius:18px}
+.hero-island--basecamp{left:36%;top:1%}
+.hero-island--buildlab{left:1%;top:35%}
+.hero-island--journey{left:39%;top:57%}
+.hero-island--frontier{right:0;top:29%}
+.hero-island--connection{right:0;bottom:-3%}
+@media(max-width:1023px){.hero-island-world--main{left:0;top:0;width:100%;height:100%}}
+@media(max-width:767px){.hero-island-world--main{left:0;top:0;width:100%;height:100%}.hero-island--basecamp{left:35%;top:0}.hero-island--buildlab{left:0;top:28%}.hero-island--journey{left:37%;top:49%}.hero-island--frontier{right:-3%;top:24%}.hero-island--connection{display:none}}

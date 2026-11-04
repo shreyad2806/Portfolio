@@ -23,7 +23,7 @@ const iconMap: Record<string, LucideIcon> = {
 
 export default function TechnicalExpertise() {
   return (
-    <section className="py-16 lg:py-20">
+    <section id="skills" className="py-16 lg:py-20">
       <div className="container-px mx-auto max-w-7xl">
         <div className="mb-10">
           <p className="eyebrow mb-3">Technical Expertise</p>
