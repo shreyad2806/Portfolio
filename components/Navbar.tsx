@@ -9,6 +9,7 @@ import { portfolioData } from "@/lib/portfolio-data";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
+  { label: "World", href: "/#world-atlas" },
   { label: "Projects", href: "/projects" },
   { label: "Experience", href: "/experience" },
   { label: "Blog", href: "/blog" },
