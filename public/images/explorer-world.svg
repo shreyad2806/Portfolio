@@ -23,9 +23,7 @@
 
 
 <g opacity=".3" stroke="#A9BFFF" stroke-width="2"><path d="M220 115v-30m-8 10 8-10 8 10"/><path d="M520 270v-22m-6 8 6-8 6 8"/><path d="M1170 180v-34m-8 12 8-12 8 12"/></g>
-<!-- distant atmospheric cloud bands -->
-<path d="M0 430Q260 360 510 440T1020 430T1800 410" stroke="#8394D9" stroke-opacity=".12" stroke-width="54" filter="url(#softGlow)"/>
-<path d="M0 880Q300 800 600 875T1200 850T1800 880" stroke="#8D78E9" stroke-opacity=".1" stroke-width="65" filter="url(#softGlow)"/>
+<!-- atmospheric bands removed: preserve a clean, continuous page background -->
 
 <!-- BASECAMP: high, distant citadel on a narrow, deeply fractured mountain -->
 <g transform="translate(191 88) scale(.78)" filter="url(#islandShadow)">
@@ -121,6 +119,5 @@
  <g stroke="#8FFFD2" stroke-width="4" opacity=".6"><path d="m1182 662 12 34 13-16 15 40m178-54 14 34 14-15 14 34"/></g>
  <g stroke="#FF9BD8" stroke-width="4" opacity=".62"><path d="m1238 936 13 33 13-15 15 38m164-62 13 34 14-15 14 34"/></g>
 </g>
-<!-- mist below the floating continents, not glowing platform halos -->
-<g fill="#A9B7E9" opacity=".1" filter="url(#softGlow)"><ellipse cx="865" cy="625" rx="270" ry="34"/><ellipse cx="450" cy="790" rx="210" ry="28"/><ellipse cx="1335" cy="790" rx="250" ry="32"/><ellipse cx="1370" cy="1040" rx="220" ry="25"/></g>
+<!-- atmospheric ground haze removed for a cleaner silhouette -->
 </svg>
