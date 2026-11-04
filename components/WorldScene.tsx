@@ -112,6 +112,25 @@ function FloatingShard({ position, scale, color, speed }: { position: [number, n
 
 function Destination({ item, onSelect }: { item: Hotspot; onSelect: (target: string) => void }) {
   const [hovered, setHovered] = useState(false);
+  const labelTexture = useMemo(() => {
+    const canvas = document.createElement("canvas");
+    canvas.width = 512;
+    canvas.height = 96;
+    const context = canvas.getContext("2d");
+    if (context) {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.font = "600 34px ui-monospace, SFMono-Regular, monospace";
+      context.textAlign = "center";
+      context.textBaseline = "middle";
+      context.shadowColor = item.color;
+      context.shadowBlur = 14;
+      context.fillStyle = "#f1f5ff";
+      context.fillText(item.label, 256, 48);
+    }
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    return texture;
+  }, [item.color, item.label]);
   const ref = useRef<THREE.Group>(null);
   useFrame((state) => {
     if (ref.current) ref.current.position.y = item.position[1] + Math.sin(state.clock.elapsedTime * 1.4 + item.position[0]) * 0.09;
