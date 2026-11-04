@@ -66,16 +66,7 @@ export default function ExplorerHero() {
   return (
     <section id="home" className="explorer-hero relative isolate overflow-hidden">
       <div className="explorer-hero-scene" aria-hidden="true">
-        <div className="hero-island-world">
-          {destinations.map((d) => (
-            <div key={d.id} className={`hero-island hero-island--${d.id}`} style={{"--island-color":d.color,"--island-glow":d.color} as React.CSSProperties}>
-              <div className="hero-island-rock"/>
-              <div className="hero-island-top"/>
-              <div className="hero-island-structure"/>
-              <div className="hero-island-label"><span>{d.n}</span>{d.title}</div>
-            </div>
-          ))}
-        </div>
+        
         <svg className="absolute inset-0 h-full w-full opacity-50" viewBox="0 0 1440 850" preserveAspectRatio="none">
           <defs><linearGradient id="sky-route" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#a78bfa"/><stop offset=".5" stopColor="#67e8f9"/><stop offset="1" stopColor="#f58dc8"/></linearGradient></defs>
           <path d="M460 470 C650 220 780 650 930 390 S1170 240 1290 510" fill="none" stroke="url(#sky-route)" strokeWidth="2" strokeDasharray="7 12" opacity=".6"/>
@@ -152,7 +143,7 @@ export default function ExplorerHero() {
           {metrics.map((m) => { const Icon=m.icon; return <div key={m.label} className="flex items-center justify-center gap-3 px-3 py-4 sm:py-5"><Icon size={20} className="shrink-0 text-violet-300"/><div><div className="text-xl font-bold tracking-tight text-white sm:text-2xl">{m.value}</div><div className="text-[9px] text-slate-300 sm:text-[10px]">{m.label}</div></div></div>; })}
         </div>
       </div>
-      <button onClick={()=>document.getElementById("world-atlas")?.scrollIntoView({behavior:"smooth"})} className="absolute bottom-2 left-6 z-10 hidden items-center gap-2 text-[9px] font-mono uppercase tracking-[.18em] text-slate-500 transition hover:text-white lg:flex"><ArrowDown size={13}/> Scroll to explore</button>
+      <button onClick={()=>document.getElementById("projects")?.scrollIntoView({behavior:"smooth"})} className="absolute bottom-2 left-6 z-10 hidden items-center gap-2 text-[9px] font-mono uppercase tracking-[.18em] text-slate-500 transition hover:text-white lg:flex"><ArrowDown size={13}/> Scroll to explore</button>
     </section>
   );
 }
