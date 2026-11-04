@@ -160,7 +160,6 @@ function Destination({ item, onSelect }: { item: Hotspot; onSelect: (target: str
 
 function SceneContent({ onSelect }: { onSelect: (target: string) => void }) {
   return <>
-    <color attach="background" args={["#090d18"]} />
     <fog attach="fog" args={["#11182e", 7, 18]} />
     <ambientLight intensity={0.8} />
     <directionalLight position={[4, 7, 5]} intensity={2.1} color="#c5d5ff" />
