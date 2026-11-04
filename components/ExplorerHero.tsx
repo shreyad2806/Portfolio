@@ -112,6 +112,13 @@ export default function ExplorerHero() {
         {/* Central Floating-Islands World - 43-46% */}
         <div className="floating-world-stage relative min-h-[400px] sm:min-h-[520px] lg:min-h-[600px] xl:min-h-[650px] overflow-visible">
           <div className="floating-world-container" aria-label="Five floating destinations in Shreya's portfolio">
+            <div className="island-art-layer" aria-hidden="true">
+              <img className="island-art-piece island-art--basecamp" src="/images/island-basecamp.svg" alt="" />
+              <img className="island-art-piece island-art--buildlab" src="/images/island-buildlab.svg" alt="" />
+              <img className="island-art-piece island-art--journey" src="/images/island-journey.svg" alt="" />
+              <img className="island-art-piece island-art--frontier" src="/images/island-frontier.svg" alt="" />
+              <img className="island-art-piece island-art--connection" src="/images/island-connection.svg" alt="" />
+            </div>
             {destinations.map((d) => (
               <button 
                 key={d.id} 
