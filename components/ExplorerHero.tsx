@@ -75,8 +75,8 @@ export default function ExplorerHero() {
           </div>
           <p className="mb-4 text-[10px] font-mono uppercase tracking-[.25em] text-violet-200/80">SOFTWARE ENGINEER · AI / BACKEND SYSTEMS</p>
           <h1 className="max-w-[680px] text-[clamp(2.65rem,3.65vw,4.35rem)] font-semibold leading-[1.02] tracking-[-.058em] text-white">
-            <span className="block whitespace-nowrap">I build systems</span>
-            <span className="block whitespace-nowrap bg-gradient-to-r from-violet-200 via-white to-cyan-200 bg-clip-text text-transparent">that move ideas</span>
+            <span className="block whitespace-normal lg:whitespace-nowrap">I build systems</span>
+            <span className="block whitespace-normal lg:whitespace-nowrap bg-gradient-to-r from-violet-200 via-white to-cyan-200 bg-clip-text text-transparent">that move ideas</span>
             <span className="block">into reality.</span>
           </h1>
           <p className="mt-6 max-w-md text-sm leading-7 text-slate-200/75 sm:text-base">Exploring agentic AI, backend engineering, and the infrastructure behind intelligent software.</p>
