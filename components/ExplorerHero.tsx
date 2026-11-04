@@ -34,7 +34,7 @@ export default function ExplorerHero() {
     else if (id === "journey") document.getElementById("journey")?.scrollIntoView({ behavior:"smooth" });
     else if (id === "frontier") document.getElementById("focus")?.scrollIntoView({ behavior:"smooth" });
     else if (id === "connection") document.getElementById("contact")?.scrollIntoView({ behavior:"smooth" });
-    else document.getElementById("snapshot")?.scrollIntoView({ behavior:"smooth" });
+    else document.getElementById("skills")?.scrollIntoView({ behavior:"smooth" });
   };
 
   const askNova = (event: FormEvent<HTMLFormElement>) => {
