@@ -2374,3 +2374,36 @@ html { scroll-padding-top: 5.75rem; }
 @media (prefers-reduced-motion:reduce) {
   .cinematic-hero .floating-world-container::before,.cinematic-hero .floating-world-container::after,.cinematic-hero .luminous-pathways path { animation:none !important; }
 }
+
+
+/* Island correction: the artwork itself supplies the 3D silhouettes.
+   Remove the extra CSS ellipses that were flattening and duplicating the platforms. */
+.cinematic-hero .floating-island::before,
+.cinematic-hero .floating-island::after {
+  content: none !important;
+  display: none !important;
+}
+.cinematic-hero .floating-island {
+  background: transparent !important;
+  filter: drop-shadow(0 18px 18px rgba(0,0,0,.34)) drop-shadow(0 0 12px color-mix(in srgb,var(--island-color) 34%,transparent));
+}
+.cinematic-hero .floating-island--connection {
+  left: auto !important;
+  right: 1% !important;
+  top: 56% !important;
+  bottom: auto !important;
+}
+@media (max-width:1023px) {
+  .cinematic-hero .floating-island--connection {
+    left: auto !important;
+    right: 1% !important;
+    top: 62% !important;
+  }
+}
+@media (max-width:767px) {
+  .cinematic-hero .floating-island--connection {
+    left: auto !important;
+    right: 0 !important;
+    top: 62% !important;
+  }
+}
