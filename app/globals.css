@@ -2407,3 +2407,23 @@ html { scroll-padding-top: 5.75rem; }
     top: 62% !important;
   }
 }
+
+
+/* Geometry pass: freeze the art and its hit targets so the island silhouettes
+   stay registered while the composition is being tuned. */
+.cinematic-hero .floating-island {
+  animation: none !important;
+}
+.cinematic-hero .floating-world-container::before,
+.cinematic-hero .floating-world-container::after {
+  animation: none !important;
+}
+.cinematic-hero .floating-world-container::after {
+  opacity: .2;
+  mix-blend-mode: normal;
+  background:
+    linear-gradient(180deg, rgba(7, 12, 28, .02), rgba(7, 12, 28, .12));
+}
+.cinematic-hero .floating-world-container::before {
+  filter: saturate(1.12) contrast(1.12) brightness(1.04);
+}
