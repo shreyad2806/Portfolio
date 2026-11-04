@@ -1167,3 +1167,103 @@ html { scroll-padding-top: 5.75rem; }
 @media (prefers-reduced-motion: reduce) {
   .nova-avatar-depth, .nova-character-orbit { transform: none !important; animation: none !important; }
 }
+
+
+/* HERO ALIGNMENT V3 — keep the destination map in its own grid column */
+@media (min-width: 1024px) {
+  .explorer-hero .relative.z-10.mx-auto.grid {
+    grid-template-columns: minmax(360px, .94fr) minmax(470px, 1.22fr) minmax(360px, .9fr) !important;
+    column-gap: clamp(18px, 1.55vw, 30px) !important;
+    padding-left: clamp(28px, 2.2vw, 42px);
+    padding-right: clamp(28px, 2.2vw, 42px);
+  }
+  .explorer-hero .relative.z-10.mx-auto.grid > div:first-child {
+    width: 100%;
+    max-width: 470px;
+    justify-self: start;
+    z-index: 5;
+  }
+  .explorer-hero .relative.z-10.mx-auto.grid > div:nth-child(2) {
+    width: 100%;
+    min-width: 0;
+    min-height: clamp(420px, 55svh, 560px) !important;
+    height: clamp(420px, 55svh, 560px);
+    overflow: visible;
+    isolation: isolate;
+  }
+  .hero-island-world--main {
+    left: 0 !important;
+    top: 4% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 91% !important;
+    transform: none !important;
+    overflow: visible;
+  }
+  .hero-island--basecamp { left: 43% !important; top: 0 !important; }
+  .hero-island--buildlab { left: 0 !important; top: 31% !important; }
+  .hero-island--journey { left: 42% !important; top: 61% !important; }
+  .hero-island--frontier { right: 0 !important; top: 29% !important; }
+  .hero-island--connection { left: 0 !important; top: 56% !important; }
+  .hero-island { width: clamp(118px, 8.4vw, 166px); height: 154px; }
+  .hero-island-label { max-width: 190px; font-size: clamp(8px, .58vw, 10px); padding: 7px 9px; }
+  .hero-proof-strip {
+    width: min(100%, 1100px);
+    margin-top: 0 !important;
+    justify-self: center;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1399px) {
+  .explorer-hero .relative.z-10.mx-auto.grid {
+    grid-template-columns: minmax(300px, .9fr) minmax(390px, 1.12fr) minmax(330px, .94fr) !important;
+    column-gap: 14px !important;
+  }
+  .hero-island { width: clamp(112px, 8vw, 140px); height: 138px; }
+  .hero-island--buildlab { left: 0 !important; top: 30% !important; }
+  .hero-island--connection { left: 0 !important; top: 56% !important; }
+}
+@media (min-width: 1024px) {
+  .nova-intro {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    align-items: center;
+  }
+  .nova-character-wrap {
+    width: 100%;
+    min-width: 0;
+    min-height: 118px !important;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  .nova-avatar-depth {
+    width: 100%;
+    max-width: 184px;
+    height: 100%;
+    margin-inline: auto;
+    transform: translateX(17px) rotateY(-3deg) translateZ(12px);
+    transform-style: preserve-3d;
+  }
+  .nova-character {
+    display: block;
+    width: 100% !important;
+    height: 142px !important;
+    object-fit: contain !important;
+    object-position: center 42% !important;
+    transform: scale(1.13);
+    transform-origin: center bottom;
+  }
+  .nova-character-wrap::before { left: 54%; }
+  .nova-character-wrap::after { left: 54%; }
+  .nova-character-orbit { left: 54%; }
+  .nova-character-aura { left: 54%; }
+}
+@media (max-width: 1023px) {
+  .hero-island-world--main {
+    left: 50%;
+    width: 100vw;
+    max-width: 100vw;
+    transform: translateX(-50%);
+  }
+  .nova-avatar-depth { width: 100%; max-width: 210px; margin-inline: auto; }
+  .nova-character { object-fit: contain; object-position: center 40%; }
+}
