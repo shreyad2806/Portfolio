@@ -2620,3 +2620,106 @@ html { scroll-padding-top: 5.75rem; }
   .cinematic-hero .floating-island--frontier,
   .cinematic-hero .floating-island--connection { right: 8% !important; }
 }
+
+
+/* Independent island layers: each landmass now moves as its own object,
+   with its clickable destination label sharing the exact same motion curve. */
+.cinematic-hero .floating-world-container::before {
+  display: none !important;
+  content: none !important;
+}
+.cinematic-hero .floating-world-container::after {
+  pointer-events: none;
+}
+.cinematic-hero .island-art-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: visible;
+  pointer-events: none;
+}
+.cinematic-hero .island-art-piece {
+  position: absolute;
+  display: block;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  will-change: transform, filter;
+  filter: drop-shadow(0 15px 17px rgba(2, 5, 20, .28));
+}
+.cinematic-hero .island-art--basecamp {
+  left: 36.7%; top: 7.3%; width: 23.9%;
+  animation: island-drift-base 8.8s ease-in-out infinite, island-light-breathe 7s ease-in-out infinite;
+}
+.cinematic-hero .island-art--buildlab {
+  left: 12.8%; top: 30.9%; width: 26.1%;
+  animation: island-drift-left 9.6s ease-in-out infinite, island-light-breathe 8s ease-in-out infinite;
+}
+.cinematic-hero .island-art--journey {
+  left: 30.6%; top: 51.8%; width: 34.4%;
+  animation: island-drift-foreground 10.5s ease-in-out infinite, island-light-breathe 8.5s ease-in-out infinite;
+}
+.cinematic-hero .island-art--frontier {
+  left: 60%; top: 31.8%; width: 26.7%;
+  animation: island-drift-right 9.2s ease-in-out infinite, island-light-breathe 7.8s ease-in-out infinite;
+}
+.cinematic-hero .island-art--connection {
+  left: 65.6%; top: 60%; width: 22.2%;
+  animation: island-drift-small 8.4s ease-in-out infinite, island-light-breathe 7.4s ease-in-out infinite;
+}
+@keyframes island-drift-base {
+  0%,100% { transform: translate3d(0,0,0) rotate(0deg); }
+  50% { transform: translate3d(0,-7px,0) rotate(-.35deg); }
+}
+@keyframes island-drift-left {
+  0%,100% { transform: translate3d(0,0,0) rotate(0deg); }
+  50% { transform: translate3d(-2px,-6px,0) rotate(.3deg); }
+}
+@keyframes island-drift-foreground {
+  0%,100% { transform: translate3d(0,0,0) rotate(0deg); }
+  50% { transform: translate3d(0,-4px,0) rotate(-.18deg); }
+}
+@keyframes island-drift-right {
+  0%,100% { transform: translate3d(0,0,0) rotate(0deg); }
+  50% { transform: translate3d(2px,-7px,0) rotate(-.28deg); }
+}
+@keyframes island-drift-small {
+  0%,100% { transform: translate3d(0,0,0) rotate(0deg); }
+  50% { transform: translate3d(1px,-5px,0) rotate(.35deg); }
+}
+@keyframes island-light-breathe {
+  0%,100% { filter: drop-shadow(0 15px 17px rgba(2,5,20,.28)) brightness(1); }
+  50% { filter: drop-shadow(0 17px 20px rgba(2,5,20,.3)) brightness(1.045); }
+}
+/* Keep the UI hit areas locked to their matching animated artwork. */
+.cinematic-hero .floating-island {
+  animation: island-drift-base 8.8s ease-in-out infinite !important;
+  z-index: 3;
+}
+.cinematic-hero .floating-island--basecamp { animation-name: island-drift-base !important; animation-duration: 8.8s !important; animation-delay: -1.1s !important; }
+.cinematic-hero .floating-island--buildlab { animation-name: island-drift-left !important; animation-duration: 9.6s !important; animation-delay: -2.8s !important; }
+.cinematic-hero .floating-island--journey { animation-name: island-drift-foreground !important; animation-duration: 10.5s !important; animation-delay: -1.7s !important; }
+.cinematic-hero .floating-island--frontier { animation-name: island-drift-right !important; animation-duration: 9.2s !important; animation-delay: -3.4s !important; }
+.cinematic-hero .floating-island--connection { animation-name: island-drift-small !important; animation-duration: 8.4s !important; animation-delay: -4.2s !important; }
+.cinematic-hero .floating-island:hover { filter: brightness(1.12) !important; }
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-hero .island-art-piece,
+  .cinematic-hero .floating-island {
+    animation: none !important;
+    will-change: auto;
+  }
+}
+@media (max-width: 1023px) {
+  .cinematic-hero .island-art--basecamp { left: 36%; top: 8%; width: 25%; }
+  .cinematic-hero .island-art--buildlab { left: 9%; top: 30%; width: 28%; }
+  .cinematic-hero .island-art--journey { left: 29%; top: 51%; width: 37%; }
+  .cinematic-hero .island-art--frontier { left: 59%; top: 31%; width: 29%; }
+  .cinematic-hero .island-art--connection { left: 65%; top: 59%; width: 24%; }
+}
+@media (max-width: 767px) {
+  .cinematic-hero .island-art--basecamp { left: 35%; top: 7%; width: 27%; }
+  .cinematic-hero .island-art--buildlab { left: 5%; top: 30%; width: 31%; }
+  .cinematic-hero .island-art--journey { left: 27%; top: 50%; width: 42%; }
+  .cinematic-hero .island-art--frontier { left: 58%; top: 30%; width: 32%; }
+  .cinematic-hero .island-art--connection { left: 63%; top: 59%; width: 27%; }
+}
