@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import ExplorerHero from "@/components/ExplorerHero";
-import WorldCanvas from "@/components/WorldCanvas";
 import EngineeringSnapshot from "@/components/EngineeringSnapshot";
 import TechnicalExpertise from "@/components/TechnicalExpertise";
 import FeaturedProjects from "@/components/FeaturedProjects";
@@ -15,7 +14,6 @@ export default function Home() {
       <Navbar />
       <main>
         <ExplorerHero />
-        <WorldCanvas />
         <EngineeringSnapshot />
         <TechnicalExpertise />
         <FeaturedProjects />
