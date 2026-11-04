@@ -2571,3 +2571,52 @@ html { scroll-padding-top: 5.75rem; }
     mask-image: radial-gradient(ellipse 88% 82% at 50% 50%, #000 52%, transparent 100%) !important;
   }
 }
+
+
+/* Final composition alignment from the latest desktop review. */
+.cinematic-hero .floating-world-stage {
+  aspect-ratio: 1.52 / 1;
+  transform: translateY(-1.5%);
+}
+.cinematic-hero .floating-world-container {
+  background: transparent !important;
+}
+.cinematic-hero .floating-world-container::before {
+  inset: -7% -8% -7% !important;
+  background-size: 106% auto !important;
+  opacity: .9 !important;
+  filter: saturate(.92) contrast(1.04) brightness(.98) !important;
+  -webkit-mask-image: radial-gradient(ellipse 79% 80% at 50% 49%, #000 50%, rgba(0,0,0,.92) 68%, rgba(0,0,0,.4) 86%, transparent 100%) !important;
+  mask-image: radial-gradient(ellipse 79% 80% at 50% 49%, #000 50%, rgba(0,0,0,.92) 68%, rgba(0,0,0,.4) 86%, transparent 100%) !important;
+}
+.cinematic-hero .luminous-pathways {
+  display: none !important;
+}
+.cinematic-hero .floating-island--basecamp { left: 37% !important; top: 9% !important; }
+.cinematic-hero .floating-island--buildlab { left: 12% !important; top: 34% !important; }
+.cinematic-hero .floating-island--journey { left: 35% !important; top: 53% !important; }
+.cinematic-hero .floating-island--frontier { right: 14% !important; left: auto !important; top: 33% !important; }
+.cinematic-hero .floating-island--connection { right: 14% !important; left: auto !important; top: 57% !important; }
+.cinematic-hero .island-label {
+  max-width: 148px;
+  padding: 8px 10px;
+  font-size: 9px !important;
+  letter-spacing: -.01em;
+  background: rgba(7, 13, 30, .88) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.07) !important;
+}
+@media (max-width: 1279px) and (min-width: 1024px) {
+  .cinematic-hero .floating-island--basecamp { left: 35% !important; }
+  .cinematic-hero .floating-island--buildlab { left: 10% !important; }
+  .cinematic-hero .floating-island--journey { left: 32% !important; }
+  .cinematic-hero .floating-island--frontier,
+  .cinematic-hero .floating-island--connection { right: 11% !important; }
+}
+@media (max-width: 1023px) {
+  .cinematic-hero .floating-world-stage { transform: none; }
+  .cinematic-hero .floating-island--basecamp { left: 36% !important; }
+  .cinematic-hero .floating-island--buildlab { left: 9% !important; }
+  .cinematic-hero .floating-island--journey { left: 32% !important; }
+  .cinematic-hero .floating-island--frontier,
+  .cinematic-hero .floating-island--connection { right: 8% !important; }
+}
