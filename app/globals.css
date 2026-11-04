@@ -607,3 +607,91 @@
  .hero-landscape-cloud,.hero-island,.featured-build-orbit {animation:none!important;}
  .featured-build-card {transition:none!important;}
 }
+
+
+/* PR #5 polish pass — richer scene, compact first fold, cleaner navigation */
+html { scroll-padding-top: 5.75rem; }
+#home, #skills, #world-atlas, #projects, #journey, #focus, #contact { scroll-margin-top: 5.75rem; }
+.explorer-hero { min-height:calc(100svh - 4rem); }
+.explorer-hero .relative.z-10.mx-auto.grid {grid-template-rows:minmax(0,1fr) auto;align-content:center;}
+.explorer-hero-scene::before {background:radial-gradient(ellipse at 54% 48%,rgba(89,107,220,.2),transparent 42%),linear-gradient(90deg,rgba(7,11,23,.96) 0%,rgba(7,11,23,.82) 22%,rgba(7,11,23,.22) 60%,rgba(7,11,23,.55) 100%);}
+.hero-landscape {opacity:.9;background-image:url("/images/explorer-world.svg");background-repeat:no-repeat;background-size:cover;background-position:center 57%;filter:saturate(1.18);}
+.hero-landscape::before {content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,23,.52),transparent 30%,transparent 78%,rgba(7,11,23,.28)),linear-gradient(180deg,rgba(7,11,23,.12),transparent 48%,rgba(7,11,23,.35));}
+.hero-landscape-moon {right:10%;top:9%;width:62px;height:62px;box-shadow:0 0 50px rgba(180,164,255,.48),inset -8px -4px 14px rgba(28,28,75,.4);}
+.hero-landscape-mountain {opacity:.2;filter:blur(2px);}
+.hero-landscape-cloud {height:90px;filter:blur(34px);opacity:.85;}
+.hero-island-world--main {left:0;top:0;width:100%;height:100%;filter:drop-shadow(0 20px 35px rgba(0,0,0,.3));}
+.hero-island {width:clamp(138px,15vw,225px);height:176px;}
+.hero-island-rock {background:radial-gradient(ellipse at 30% 10%,rgba(145,180,230,.35),transparent 38%),linear-gradient(155deg,#8797c7 0%,#52648f 22%,#29395f 58%,#10182e 100%);border:1px solid rgba(210,225,255,.24);}
+.hero-island-rock::before {left:24%;top:25%;width:24%;height:78%;background:linear-gradient(180deg,rgba(124,237,255,.9),rgba(84,181,231,.25) 52%,transparent);filter:drop-shadow(0 0 12px rgba(103,232,249,.65));}
+.hero-island-top {background:radial-gradient(ellipse at 25% 30%,rgba(154,236,192,.5),transparent 16%),radial-gradient(ellipse at 68% 24%,rgba(179,239,195,.5),transparent 15%),radial-gradient(ellipse at 40% 22%,rgba(255,255,255,.45),transparent 27%),linear-gradient(145deg,#8498cf,#425782 55%,#1c2c4d);border-color:rgba(220,232,255,.55);}
+.hero-island-landscape {position:absolute;z-index:2;left:16%;top:35%;width:68%;height:22%;border-radius:50%;pointer-events:none;background:radial-gradient(ellipse at 15% 50%,rgba(150,235,190,.7),transparent 18%),radial-gradient(ellipse at 78% 42%,rgba(160,236,190,.62),transparent 18%),radial-gradient(ellipse at 48% 65%,rgba(82,145,105,.45),transparent 34%);filter:blur(2px);}
+.hero-island-landscape::before,.hero-island-landscape::after {content:"";position:absolute;bottom:18%;width:9px;height:22px;border-radius:70% 10% 60% 10%;background:linear-gradient(90deg,#315d55,#9ce5a8);box-shadow:0 0 12px rgba(120,225,170,.3);}
+.hero-island-landscape::before {left:23%;transform:rotate(-18deg);}
+.hero-island-landscape::after {right:24%;height:17px;transform:rotate(22deg);}
+.hero-island-label {top:70%;padding:9px 14px;border-color:color-mix(in srgb,var(--island-color) 78%,transparent);background:linear-gradient(145deg,rgba(10,16,36,.94),rgba(5,10,24,.92));box-shadow:0 8px 30px rgba(0,0,0,.38),0 0 32px color-mix(in srgb,var(--island-color) 30%,transparent);}
+.hero-island--basecamp {left:32%;top:0%}
+.hero-island--buildlab {left:0%;top:31%}
+.hero-island--journey {left:36%;top:55%}
+.hero-island--frontier {right:0%;top:27%}
+.hero-island--connection {right:0%;bottom:-5%}
+.hero-nova-panel {min-height:0!important;padding:16px!important;border-color:rgba(181,150,255,.58);box-shadow:0 0 0 1px rgba(120,99,255,.1),0 18px 65px rgba(0,0,0,.38),0 0 48px rgba(117,88,255,.2),inset 0 1px rgba(255,255,255,.12);}
+.hero-nova-portrait {min-height:210px!important;}
+.hero-nova-avatar {height:220px!important;}
+.hero-nova-speech {font-size:11px!important;line-height:1.45!important;padding:11px!important;}
+.hero-nova-panel .space-y-1\.5 > button {padding-block:9px;min-height:46px;}
+.hero-nova-panel .space-y-1\.5 > button > span:first-child {height:30px;width:30px;}
+.hero-nova-panel .space-y-1\.5 > button > span:nth-child(2) > span:first-child {font-size:11px;}
+.hero-nova-panel .space-y-1\.5 > button > span:nth-child(2) > span:last-child {font-size:9px;}
+.hero-nova-panel .nova-input-row {margin-top:10px!important;}
+.hero-proof-strip {max-width:1120px!important;margin-top:0!important;}
+.skills-card {min-height:156px;display:flex;flex-direction:column;justify-content:flex-start;}
+.skills-card .flex.flex-wrap {gap:6px;}
+.skills-chip {padding:5px 9px;line-height:1.25;}
+.journey-section {background:radial-gradient(ellipse at 10% 30%,rgba(246,199,121,.08),transparent 42%),radial-gradient(ellipse at 88% 72%,rgba(103,232,249,.045),transparent 38%),#090d18;}
+.journey-recognition {min-height:82px;}
+.featured-build-art-footer span:last-child {color:rgba(225,238,255,.42);}
+@media(min-width:1280px) {
+ .explorer-hero .relative.z-10.mx-auto.grid {padding-top:5rem;padding-bottom:1.25rem;}
+ .explorer-hero .relative.z-10.mx-auto.grid > .relative.min-h-\[340px\] {min-height:550px;}
+ .hero-nova-panel {max-width:470px;}
+}
+@media(max-width:1279px) and (min-width:1024px) {
+ .explorer-hero .relative.z-10.mx-auto.grid {padding-top:5rem;padding-bottom:1rem;grid-template-columns:minmax(250px,.82fr) minmax(330px,1.15fr) minmax(275px,.9fr);}
+ .explorer-hero .relative.z-10.mx-auto.grid > .relative.min-h-\[340px\] {min-height:510px;}
+ .hero-island {width:clamp(112px,13vw,168px);height:155px;}
+ .hero-nova-panel {padding:13px!important;}
+ .hero-nova-portrait {min-height:190px!important;}
+ .hero-nova-avatar {height:200px!important;}
+}
+@media(max-width:1023px) {
+ .explorer-hero .relative.z-10.mx-auto.grid {grid-template-rows:auto;align-content:start;padding-top:6rem;}
+ .hero-landscape {background-position:center 52%;opacity:.65;}
+ .hero-island-world--main {min-height:440px;}
+ .hero-island {width:clamp(118px,21vw,180px);height:160px;}
+ .hero-nova-panel {max-width:620px;}
+ .hero-proof-strip {margin-top:8px!important;}
+}
+@media(max-width:767px) {
+ .explorer-hero .relative.z-10.mx-auto.grid {padding-top:5.5rem;padding-bottom:4rem;}
+ .hero-landscape {opacity:.48;background-size:auto 100%;background-position:53% center;}
+ .hero-island-world--main {min-height:330px;}
+ .hero-island {width:clamp(104px,31vw,132px);height:125px;}
+ .hero-island--basecamp {left:34%;top:0}
+ .hero-island--buildlab {left:-5%;top:28%}
+ .hero-island--journey {left:34%;top:50%}
+ .hero-island--frontier {right:-7%;top:24%}
+ .hero-island--connection {right:-6%;bottom:-2%}
+ .hero-island-label {font-size:8px;padding:6px 8px;}
+ .hero-nova-panel {padding:14px!important;}
+ .hero-nova-portrait {min-height:195px!important;}
+ .hero-nova-avatar {height:195px!important;}
+ .hero-proof-strip > div {padding:12px 8px;}
+ .skills-card {min-height:0;}
+ .skills-chip {font-size:9px;}
+}
+@media(prefers-reduced-motion:reduce) {
+ .hero-landscape-cloud,.hero-island,.featured-build-orbit {animation:none!important;}
+ .hero-nova-avatar {transform:none!important;}
+ .featured-build-card,.journey-recognition {transition:none!important;}
+}

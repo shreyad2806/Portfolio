@@ -68,7 +68,7 @@ export default function ExplorerHero() {
         </svg>
       </div>
 
-      <div className="relative z-10 mx-auto grid max-w-[1720px] items-center gap-7 px-5 pb-12 pt-24 sm:px-8 lg:min-h-[calc(100svh-4rem)] lg:grid-cols-[minmax(285px,.88fr)_minmax(410px,1.42fr)_minmax(320px,.9fr)] lg:gap-5 lg:px-8 lg:pb-10 lg:pt-10 xl:gap-7 xl:px-10">
+      <div className="relative z-10 mx-auto grid max-w-[1720px] items-center gap-7 px-5 pb-12 pt-24 sm:px-8 lg:min-h-[calc(100svh-4rem)] lg:grid-cols-[minmax(285px,.88fr)_minmax(410px,1.42fr)_minmax(320px,.9fr)] lg:gap-5 lg:px-8 lg:pb-5 lg:pt-20 xl:gap-7 xl:px-10">
         <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.7}} className="relative z-10 max-w-xl lg:py-10">
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-cyan-200/20 bg-slate-950/45 px-3.5 py-2 text-[10px] font-mono uppercase tracking-[.2em] text-cyan-100/80 backdrop-blur-md">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-300"/> SHREYA.EXE · AN INTERACTIVE PORTFOLIO
@@ -90,7 +90,7 @@ export default function ExplorerHero() {
           </div>
         </motion.div>
 
-        <div className="relative min-h-[390px] sm:min-h-[520px] lg:min-h-[690px]">
+        <div className="relative min-h-[340px] sm:min-h-[480px] lg:min-h-[560px]">
           <div className="hero-landscape" aria-hidden="true"><span className="hero-landscape-moon"/><span className="hero-landscape-mountain hero-landscape-mountain--back"/><span className="hero-landscape-mountain hero-landscape-mountain--front"/><span className="hero-landscape-cloud hero-landscape-cloud--one"/><span className="hero-landscape-cloud hero-landscape-cloud--two"/></div>
           <div className="absolute inset-0 rounded-full bg-indigo-500/10 blur-[90px]"/>
           <div className="hero-island-world hero-island-world--main" aria-label="Five floating destinations in Shreya's portfolio">
@@ -114,7 +114,7 @@ export default function ExplorerHero() {
             <motion.img src="/images/nova-guide.svg" alt="Nova, Shreya's AI companion" className="hero-nova-avatar h-[242px] w-[58%] object-contain object-bottom drop-shadow-[0_0_30px_rgba(90,170,255,.32)]" animate={{ y: [0, -8, 0], rotate: [0, 1.1, 0], scale: [1, 1.012, 1] }} transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }} />
             <div className="hero-nova-speech relative z-10 mr-1 max-w-[46%] rounded-2xl rounded-bl-sm border border-cyan-200/30 bg-slate-950/75 p-3 text-xs leading-5 text-slate-200 shadow-xl backdrop-blur-md">
               <span className="mb-1 block font-mono text-[8px] uppercase tracking-widest text-cyan-200">✦ Nova says</span>
-              Hey Explorer! 👋 I&apos;m Nova, Shreya&apos;s AI companion. I can guide you through her work, projects, experience and what she&apos;s exploring next.
+              {reply}
             </div>
           </div>
           <div className="mb-2 mt-2 text-sm font-medium text-white">Where would you like to go?</div>
@@ -128,7 +128,7 @@ export default function ExplorerHero() {
               </button>;
             })}
           </div>
-          <AnimatePresence mode="wait"><motion.p key={reply} initial={{opacity:0,y:4}} animate={{opacity:1,y:0}} exit={{opacity:0}} className="mt-3 min-h-[38px] rounded-lg border border-white/5 bg-black/20 p-2.5 text-[10px] leading-4 text-slate-300">{reply}</motion.p></AnimatePresence>
+          
           <form onSubmit={askNova} className="nova-input-row mt-3 max-w-none">
             <input value={draft} onChange={(event)=>setDraft(event.target.value)} placeholder="Ask Nova anything..." aria-label="Ask Nova anything"/>
             <button type="submit" aria-label="Send question to Nova" disabled={!draft.trim()}><Send size={14}/></button>

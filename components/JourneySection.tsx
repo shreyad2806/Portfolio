@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, BriefcaseBusiness, Trophy, Users, Sparkles } from "lucide-react";
+import { ArrowUpRight, BriefcaseBusiness, Trophy, Users, Sparkles, BrainCircuit } from "lucide-react";
 
 const milestones = [
   {
@@ -28,6 +28,7 @@ const recognitions = [
   { title: "Smart India Hackathon", detail: "National Runner-up · 2025", icon: Trophy, color: "#f6c779" },
   { title: "ET GenAI Hackathon", detail: "Finalist · 2025", icon: Sparkles, color: "#a78bfa" },
   { title: "Technomech Club", detail: "President · Community & leadership", icon: Users, color: "#8ee5c1" },
+  { title: "NandaHack", detail: "HCLTech × MIT Media Lab · Agentic AI", icon: BrainCircuit, color: "#67e8f9" },
 ];
 
 export default function JourneySection() {

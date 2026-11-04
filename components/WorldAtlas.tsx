@@ -5,7 +5,7 @@ import type { CSSProperties } from "react";
 import { ArrowUpRight, Compass, Cpu, FlaskConical, Map, RadioTower, Telescope } from "lucide-react";
 
 const destinations = [
-  { number: "01", name: "The Basecamp", code: "IDENTITY / PROFILE", description: "The person behind the systems: background, engineering principles and the path so far.", target: "about", icon: Compass, color: "#a78bfa", glow: "rgba(167,139,250,.2)", terrain: "basecamp" },
+  { number: "01", name: "The Basecamp", code: "IDENTITY / PROFILE", description: "The person behind the systems: background, engineering principles and the path so far.", target: "skills", icon: Compass, color: "#a78bfa", glow: "rgba(167,139,250,.2)", terrain: "basecamp" },
   { number: "02", name: "The Build Lab", code: "PROJECTS / SYSTEMS", description: "A closer look at the systems I've designed, built, tested and learned from.", target: "projects", icon: FlaskConical, color: "#67e8f9", glow: "rgba(103,232,249,.17)", terrain: "buildlab" },
   { number: "03", name: "The Journey", code: "EXPERIENCE / MILESTONES", description: "Internships, hackathons, collaborations and the moments that shaped my work.", target: "journey", icon: Map, color: "#f6c779", glow: "rgba(246,199,121,.16)", terrain: "journey" },
   { number: "04", name: "The Frontier", code: "EXPLORATION / IDEAS", description: "Agentic engineering, developer infrastructure, experiments and what I'm learning next.", target: "focus", icon: Telescope, color: "#8ee5c1", glow: "rgba(142,229,193,.16)", terrain: "frontier" },
