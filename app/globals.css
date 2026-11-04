@@ -828,3 +828,96 @@ html { scroll-padding-top: 5.75rem; }
 @media(max-width:1279px) and (min-width:1024px){.nova-assistant{padding:13px!important}.nova-intro{min-height:126px;margin:10px 0}.nova-character-wrap{min-height:115px}.nova-character{height:125px}.nova-message-list{max-height:100px}.nova-prompts{gap:4px;margin:5px 0 7px}.nova-prompts button{font-size:7px;padding:4px 6px}.nova-destination{padding:5px 7px}.nova-destination-icon{width:26px;height:26px;flex-basis:26px}}
 @media(max-width:767px){.nova-assistant{padding:14px!important}.nova-intro{grid-template-columns:minmax(92px,.72fr) minmax(0,1.28fr);min-height:140px}.nova-character{height:138px}.nova-message-list{max-height:190px}.nova-destination{padding:9px}}
 @media(prefers-reduced-motion:reduce){.nova-thinking i{animation:none!important}}
+
+
+/* Layout correction — fixed-nav clearance, balanced hero columns, compact Nova */
+.explorer-hero {
+  min-height: 100svh;
+  box-sizing: border-box;
+  padding-top: 64px;
+}
+.explorer-hero .relative.z-10.mx-auto.grid {
+  min-height: calc(100svh - 64px);
+  padding-top: clamp(12px, 1.8vh, 22px);
+  padding-bottom: 14px;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-content: stretch;
+  align-items: center;
+}
+.explorer-hero .relative.z-10.mx-auto.grid > div:first-child {
+  align-self: center;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.explorer-hero .relative.z-10.mx-auto.grid > div:nth-child(2) {
+  min-height: clamp(390px, 58svh, 535px) !important;
+  height: clamp(390px, 58svh, 535px);
+}
+.hero-nova-panel {
+  width: 100%;
+  max-width: 430px;
+  max-height: calc(100svh - 104px);
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155,131,255,.35) transparent;
+  align-self: center;
+}
+.nova-intro {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  min-height: 150px;
+}
+.nova-character-wrap { min-height: 138px; }
+.nova-character {
+  height: 150px;
+  object-fit: contain;
+  object-position: center bottom;
+}
+.nova-message-list { max-height: 94px; min-height: 58px; }
+.nova-destination { min-height: 36px; padding: 5px 8px; }
+.nova-destination-icon { width: 26px; height: 26px; flex-basis: 26px; }
+.nova-destinations-label { margin-top: 9px; }
+.nova-disclaimer { margin-top: 7px; }
+@media (min-width: 1024px) {
+  .explorer-hero .relative.z-10.mx-auto.grid {
+    grid-template-columns: minmax(260px, .88fr) minmax(360px, 1.35fr) minmax(315px, .92fr);
+    column-gap: clamp(12px, 1.25vw, 22px);
+  }
+  .hero-nova-panel { max-width: 430px; }
+}
+@media (max-height: 820px) and (min-width: 1024px) {
+  .hero-nova-panel { max-height: calc(100svh - 88px); padding: 12px !important; }
+  .nova-intro { min-height: 126px; margin: 9px 0; }
+  .nova-character-wrap { min-height: 116px; }
+  .nova-character { height: 126px; }
+  .nova-message-list { max-height: 72px; min-height: 48px; }
+  .nova-prompts { margin: 5px 0 7px; gap: 4px; }
+  .nova-prompts button { padding: 4px 6px; }
+  .nova-destination { min-height: 33px; padding: 4px 7px; }
+  .nova-destination-icon { width: 24px; height: 24px; flex-basis: 24px; }
+}
+@media (max-width: 1023px) {
+  .explorer-hero { padding-top: 64px; }
+  .explorer-hero .relative.z-10.mx-auto.grid {
+    min-height: 0;
+    padding-top: 20px;
+    padding-bottom: 36px;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    gap: 18px;
+  }
+  .explorer-hero .relative.z-10.mx-auto.grid > div:nth-child(2) {
+    height: 430px;
+    min-height: 430px !important;
+  }
+  .hero-nova-panel { max-height: none; max-width: 620px; overflow: visible !important; }
+}
+@media (max-width: 767px) {
+  .explorer-hero .relative.z-10.mx-auto.grid { padding-top: 14px; gap: 14px; }
+  .explorer-hero .relative.z-10.mx-auto.grid > div:nth-child(2) {
+    height: 350px;
+    min-height: 350px !important;
+  }
+  .nova-intro { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+}
