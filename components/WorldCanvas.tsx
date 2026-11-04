@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight, Compass, FlaskConical, Map, RadioTower, Telescope, Sparkles, Send, X, RotateCcw } from "lucide-react";
+import { ArrowUpRight, Compass, FlaskConical, Map, RadioTower, Telescope, Send, X, RotateCcw } from "lucide-react";
 
 type Destination = {
   id: string; number: string; name: string; short: string; description: string;
@@ -27,6 +27,13 @@ const quickQuestions = [
 
 export default function WorldCanvas() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [compact, setCompact] = useState(false);
+  useEffect(() => {
+    const update = () => setCompact(window.innerWidth < 760);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
   const [novaOpen, setNovaOpen] = useState(true);
   const [draft, setDraft] = useState("");
   const [novaReply, setNovaReply] = useState("Hi, Explorer. I'm Nova. I can guide you around Shreya's world. Pick a destination or ask me where to go.");
@@ -64,11 +71,13 @@ export default function WorldCanvas() {
     setDraft("");
   };
 
-  const camera = selected ? { x:selected.cameraX, y:selected.cameraY, scale:1.22 } : { x:0, y:0, scale:1 };
+  const camera = selected
+    ? { x:selected.cameraX * (compact ? .48 : 1), y:selected.cameraY * (compact ? .48 : 1), scale:compact ? .78 : 1.22 }
+    : { x:0, y:0, scale:compact ? .34 : 1 };
   const stars = useMemo(() => Array.from({length:48}, (_,i) => ({ left:(i*73)%100, top:(i*47)%100, delay:(i%9)*.35 })), []);
 
   return (
-    <section id="world-map" className="world-explorer relative overflow-hidden">
+    <section id="world-atlas" className="world-explorer relative overflow-hidden">
       <div className="world-explorer-noise" aria-hidden="true"/>
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
         <div className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
@@ -80,7 +89,7 @@ export default function WorldCanvas() {
           <button type="button" onClick={() => {setSelectedId(null);setNovaReply("Map reset. All five destinations are in view. Where would you like to go?");}} className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[.035] px-4 py-2 text-xs text-slate-300 transition hover:border-cyan-200/30 hover:text-white"><RotateCcw size={13}/> Reset view</button>
         </div>
 
-        <div className="world-stage relative">
+        <div className={`world-stage relative ${compact ? "world-stage--compact" : ""}`}>
           <div className="world-stage-stars" aria-hidden="true">
             {stars.map((star,i)=><i key={i} style={{left:star.left+"%",top:star.top+"%",animationDelay:star.delay+"s"}}/>)}
           </div>
@@ -94,7 +103,7 @@ export default function WorldCanvas() {
               const Icon = destination.icon;
               const active = selectedId === destination.id;
               return (
-                <motion.div key={destination.id} className={`world-location world-location--${destination.structure}`} style={{left:destination.x,top:destination.y,"--landmark-color":destination.color} as React.CSSProperties} animate={{scale:active?1.12:1,opacity:selectedId && !active?.58:1}} transition={{duration:.35}}>
+                <motion.div key={destination.id} className={`world-location world-location--${destination.structure}`} style={{left:destination.x,top:destination.y,"--landmark-color":destination.color} as React.CSSProperties} animate={{scale:active?1.12:1,opacity: selectedId && !active ? 0.58 : 1}} transition={{duration:.35}}>
                   <div className="world-island" aria-hidden="true">
                     <div className="island-shadow"/>
                     <div className="island-rock island-rock--back"/>
