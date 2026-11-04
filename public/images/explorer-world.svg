@@ -28,7 +28,7 @@
 <path d="M0 880Q300 800 600 875T1200 850T1800 880" stroke="#8D78E9" stroke-opacity=".1" stroke-width="65" filter="url(#softGlow)"/>
 
 <!-- BASECAMP: high, distant citadel on a narrow, deeply fractured mountain -->
-<g filter="url(#islandShadow)">
+<g transform="translate(191 88) scale(.78)" filter="url(#islandShadow)">
  <path d="M650 306 694 276 730 266 763 235 814 242 850 216 891 231 928 215 974 246 1018 248 1052 284 1084 303 1067 337 1034 354 1018 399 986 429 971 485 941 516 916 568 880 600 851 553 824 527 801 473 765 450 747 403 705 381 678 348Z" fill="url(#cliff)" stroke="#9BAED7" stroke-opacity=".6" stroke-width="3"/>
  <path d="m701 349 65 28 31 65-33 51-42-47-38-51Zm127 68 59 18 24 76-41 64-48-66Zm125-12 59-31 39 57-47 82-52-31Z" fill="#172541" opacity=".86"/>
  <path d="m766 454 38 31 16 80m53-104 31 34 8 75m88-126-25 61-5 65" stroke="#6F8AB6" stroke-opacity=".42" stroke-width="7"/>
@@ -45,7 +45,7 @@
 </g>
 
 <!-- BUILD LAB: broad, wind-carved mesa with a vertical workshop district -->
-<g filter="url(#islandShadow)">
+<g transform="translate(55 75) scale(.88)" filter="url(#islandShadow)">
  <path d="M230 562 275 525 313 517 348 482 401 493 438 469 484 486 526 467 568 494 617 499 654 535 693 552 681 594 648 623 632 668 596 706 573 757 536 778 507 745 467 774 427 746 389 753 351 716 315 703 288 663 253 635 235 599Z" fill="url(#cliff)" stroke="#8FE9F4" stroke-opacity=".48" stroke-width="3"/>
  <path d="m278 624 74 30 23 68-45 51-57-58Zm120 43 70 17 19 76-47 46-59-70Zm137-4 65-28 43 54-40 78-62-34Z" fill="#132A43" opacity=".9"/>
  <path d="m325 693 22 57m90-55 22 65m90-90-8 74m-162-116 52 23 25 48m78-54 54 20 24 51" stroke="#557B9A" stroke-opacity=".42" stroke-width="6"/>
@@ -64,7 +64,7 @@
 </g>
 
 <!-- FRONTIER: forested, broken highland with needle-like natural spires -->
-<g filter="url(#islandShadow)">
+<g transform="translate(132 62) scale(.9)" filter="url(#islandShadow)">
  <path d="M1092 553 1134 516 1172 503 1211 472 1258 485 1300 455 1344 477 1382 457 1423 484 1470 490 1504 527 1546 551 1531 595 1497 626 1475 673 1434 709 1403 757 1361 774 1324 741 1282 770 1241 744 1200 755 1163 715 1128 695 1108 653 1081 623Z" fill="url(#cliff)" stroke="#9DEBD0" stroke-opacity=".54" stroke-width="3"/>
  <path d="m1130 625 74 30 26 70-48 53-58-65Zm125 44 67 14 20 75-47 48-56-71Zm134-8 67-30 43 54-43 80-64-34Z" fill="#102D38" opacity=".92"/>
  <path d="m1177 690 22 57m95-56 20 70m95-93-10 75m-150-130 54 25 27 53m80-66 53 21 21 50" stroke="#548F83" stroke-opacity=".42" stroke-width="6"/>
@@ -79,7 +79,7 @@
 </g>
 
 <!-- JOURNEY: largest foreground island, a rugged valley with warm stone, trails and a lodge -->
-<g filter="url(#islandShadow)">
+<g transform="translate(-85 -85) scale(1.1)" filter="url(#islandShadow)">
  <path d="M596 789 638 752 679 741 719 705 772 714 814 680 863 696 909 669 956 690 1002 681 1044 716 1091 738 1104 780 1081 817 1051 850 1030 899 989 929 953 976 912 1002 868 974 827 1004 783 974 739 981 700 947 660 932 635 891 604 859Z" fill="url(#cliff)" stroke="#F2C987" stroke-opacity=".62" stroke-width="3"/>
  <path d="m643 856 78 28 30 74-51 54-61-71Zm130 47 73 20 22 79-51 49-61-75Zm137-5 72-31 47 59-46 83-66-35Z" fill="#2D293B" opacity=".94"/>
  <path d="m688 925 25 58m94-55 22 72m105-94-12 78m-170-135 57 25 26 53m91-65 54 24 23 54" stroke="#8B6650" stroke-opacity=".5" stroke-width="7"/>
@@ -99,7 +99,7 @@
 </g>
 
 <!-- CONNECTION HUB: smaller, lower-right island with a suspended beacon and layered cliffs -->
-<g filter="url(#islandShadow)">
+<g transform="translate(302 198) scale(.78)" filter="url(#islandShadow)">
  <path d="M1190 832 1225 801 1262 789 1298 761 1341 773 1378 749 1419 767 1455 751 1493 779 1530 792 1558 827 1592 849 1577 886 1545 914 1523 954 1488 978 1455 1015 1416 1029 1380 1000 1342 1028 1302 1000 1265 1007 1230 975 1200 951 1184 914 1160 888Z" fill="url(#cliff)" stroke="#F0A8D7" stroke-opacity=".58" stroke-width="3"/>
  <path d="m1211 901 67 26 24 66-43 48-54-63Zm117 43 62 18 18 68-44 43-53-66Zm124-5 60-27 39 48-39 72-59-31Z" fill="#2D1D3B" opacity=".94"/>
  <path d="m1250 957 18 53m83-46 17 63m94-80-9 65m-156-122 50 22 24 48m83-58 47 22 19 48" stroke="#8D4E82" stroke-opacity=".5" stroke-width="6"/>
