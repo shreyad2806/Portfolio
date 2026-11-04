@@ -1,12 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight, Github, Layers3, ShieldCheck, ScanEye, Activity } from "lucide-react";
 import Link from "next/link";
 import { portfolioData } from "@/lib/portfolio-data";
 
 export default function FeaturedProjects() {
   const featuredProjects = portfolioData.projects.filter((p) => p.featured).slice(0, 3);
+  const artwork = {
+    closeloop: { code: "LEDGER / 017", label: "RECONCILIATION ENGINE", icon: Layers3, accent: "cyan", metric: "MATCH → VERIFY", bars: [42, 72, 55, 88, 64, 96] },
+    kavach: { code: "RUNTIME / ZERO TRUST", label: "POLICY ENFORCEMENT", icon: ShieldCheck, accent: "violet", metric: "ALLOW · DENY · AUDIT", bars: [88, 52, 76, 44, 92, 68] },
+    visionguard: { code: "VISION / QUALITY", label: "IMAGE SIGNAL ANALYSIS", icon: ScanEye, accent: "amber", metric: "SHARPNESS · NOISE · LIGHT", bars: [58, 84, 46, 72, 91, 63] },
+  } as const;
 
   return (
     <section id="projects" className="py-16 lg:py-24">
@@ -39,8 +44,26 @@ export default function FeaturedProjects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="card-surface p-8"
+              className="featured-build-card card-surface overflow-hidden p-0"
             >
+              {(() => {
+                const art = artwork[project.id as keyof typeof artwork];
+                const ArtIcon = art.icon;
+                return (
+                  <div className={`featured-build-art featured-build-art--${art.accent}`} aria-hidden="true">
+                    <div className="featured-build-art-grid"/>
+                    <div className="featured-build-orbit featured-build-orbit--one"/>
+                    <div className="featured-build-orbit featured-build-orbit--two"/>
+                    <div className="featured-build-art-header"><span>{art.code}</span><span>SYS / 0{index + 1}</span></div>
+                    <div className="featured-build-console">
+                      <div className="featured-build-console-icon"><ArtIcon size={28}/></div>
+                      <div className="featured-build-signal"><span>{art.metric}</span><div>{art.bars.map((height, i) => <i key={i} style={{height: height + "%"}}/>)}</div></div>
+                    </div>
+                    <div className="featured-build-art-footer"><span><Activity size={11}/> {art.label}</span><span>LIVE SYSTEMS</span></div>
+                  </div>
+                );
+              })()}
+              <div className="featured-build-content p-6 sm:p-7">
               <div className="flex items-start justify-between gap-4 mb-3">
                 <h3 className="text-xl font-semibold tracking-tight">
                   {project.name}
@@ -73,6 +96,7 @@ export default function FeaturedProjects() {
                   GitHub
                   <Github size={14} />
                 </a>
+              </div>
               </div>
             </motion.div>
           ))}

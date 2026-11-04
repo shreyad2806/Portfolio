@@ -43,7 +43,7 @@ export default function TechnicalExpertise() {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
                 whileHover={{ y: -4 }}
-                className="card-surface p-6 transition-all duration-300 hover:border-primary/30"
+                className="skills-card card-surface p-6 transition-all duration-300 hover:border-primary/30"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 rounded-lg bg-primary/10">
