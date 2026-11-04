@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowDown, ArrowRight, ArrowUpRight, Compass, Download, FlaskConical, Map, RadioTower, Send, Sparkles, Telescope, Trophy, Layers3, Boxes, Code2 } from "lucide-react";
+import { ArrowDown, ArrowRight, Compass, Download, FlaskConical, Map, RadioTower, Send, Sparkles, Telescope, Trophy, Layers3, Boxes, Code2 } from "lucide-react";
 import { portfolioData } from "@/lib/portfolio-data";
 
 const destinations = [
@@ -13,17 +13,12 @@ const destinations = [
   { id:"connection", n:"05", title:"The Connection Hub", sub:"Contact · Collaborate · Opportunities", target:"contact", color:"#f58dc8", icon:RadioTower, reply:"The Connection Hub is the fastest route to Shreya's email, GitHub and LinkedIn." },
 ];
 
-const questions = [
-  { label:"Show me her projects", id:"buildlab" },
-  { label:"Where has she worked?", id:"journey" },
-  { label:"What is she exploring?", id:"frontier" },
-];
+
 
 export default function ExplorerHero() {
   const [selected, setSelected] = useState("buildlab");
   const [draft, setDraft] = useState("");
   const [reply, setReply] = useState("Hey Explorer! 👋 I'm Nova, Shreya's AI companion. I can guide you through her work, projects, experience and what she's exploring next.");
-  const active = destinations.find((item) => item.id === selected) ?? destinations[1];
 
   const goTo = (id: string) => {
     const destination = destinations.find((item) => item.id === id);
@@ -115,7 +110,7 @@ export default function ExplorerHero() {
           </div>
           <div className="relative flex min-h-[195px] items-center justify-between gap-2 overflow-hidden rounded-2xl bg-[radial-gradient(ellipse_at_45%_75%,rgba(60,170,220,.2),transparent_60%)]">
             <div className="pointer-events-none absolute inset-0 rounded-2xl border border-white/5"/>
-            <img src="/images/nova-guide.svg" alt="Nova, Shreya's AI companion" className="h-[210px] w-[58%] object-contain object-bottom drop-shadow-[0_0_25px_rgba(90,170,255,.2)]"/>
+            <motion.img src="/images/nova-guide.svg" alt="Nova, Shreya's AI companion" className="h-[210px] w-[58%] object-contain object-bottom drop-shadow-[0_0_25px_rgba(90,170,255,.2)]" animate={{ y: [0, -7, 0], rotate: [0, 0.7, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} />
             <div className="relative z-10 mr-1 max-w-[46%] rounded-2xl rounded-bl-sm border border-cyan-200/30 bg-slate-950/75 p-3 text-xs leading-5 text-slate-200 shadow-xl backdrop-blur-md">
               <span className="mb-1 block font-mono text-[8px] uppercase tracking-widest text-cyan-200">✦ Nova says</span>
               Hey Explorer! 👋 I&apos;m Nova, Shreya&apos;s AI companion. I can guide you through her work, projects, experience and what she&apos;s exploring next.
@@ -125,7 +120,7 @@ export default function ExplorerHero() {
           <div className="space-y-1.5">
             {destinations.map((d) => {
               const Icon = d.icon;
-              return <button key={d.id} type="button" onClick={() => goTo(d.id)} className={`group flex w-full items-center gap-3 rounded-xl border px-3 py-2.5 text-left transition ${selected===d.id?"border-violet-300/35 bg-violet-300/10":"border-white/10 bg-white/[.025] hover:border-white/20 hover:bg-white/[.06]"}`}>
+              return <button key={d.id} type="button" aria-pressed={selected===d.id} onClick={() => goTo(d.id)} className={`group flex w-full items-center gap-3 rounded-xl border px-3 py-2.5 text-left transition ${selected===d.id?"border-violet-300/35 bg-violet-300/10":"border-white/10 bg-white/[.025] hover:border-white/20 hover:bg-white/[.06]"}`}>
                 <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg" style={{color:d.color,background:`${d.color}18`}}><Icon size={16}/></span>
                 <span className="min-w-0 flex-1"><span className="block text-[11px] font-semibold text-slate-100">{d.title}</span><span className="block truncate text-[9px] text-slate-400">{d.sub}</span></span>
                 <ArrowRight size={13} className="text-slate-500 transition group-hover:translate-x-1 group-hover:text-white"/>
