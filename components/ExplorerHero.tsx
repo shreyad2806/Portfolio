@@ -68,15 +68,15 @@ export default function ExplorerHero() {
         </svg>
       </div>
 
-      <div className="relative z-10 mx-auto grid max-w-[1600px] items-center gap-8 px-5 pb-12 pt-24 sm:px-8 lg:min-h-[calc(100svh-4rem)] lg:grid-cols-[.88fr_1.45fr_.82fr] lg:gap-5 lg:px-10 lg:pb-10 lg:pt-12 xl:px-12">
+      <div className="relative z-10 mx-auto grid max-w-[1720px] items-center gap-7 px-5 pb-12 pt-24 sm:px-8 lg:min-h-[calc(100svh-4rem)] lg:grid-cols-[minmax(285px,.88fr)_minmax(410px,1.42fr)_minmax(320px,.9fr)] lg:gap-5 lg:px-8 lg:pb-10 lg:pt-10 xl:gap-7 xl:px-10">
         <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.7}} className="relative z-10 max-w-xl lg:py-10">
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-cyan-200/20 bg-slate-950/45 px-3.5 py-2 text-[10px] font-mono uppercase tracking-[.2em] text-cyan-100/80 backdrop-blur-md">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-300"/> SHREYA.EXE · AN INTERACTIVE PORTFOLIO
           </div>
           <p className="mb-4 text-[10px] font-mono uppercase tracking-[.25em] text-violet-200/80">SOFTWARE ENGINEER · AI / BACKEND SYSTEMS</p>
-          <h1 className="max-w-[620px] text-[clamp(2.9rem,5.1vw,5.3rem)] font-semibold leading-[.99] tracking-[-.06em] text-white">
-            I build systems
-            <span className="block bg-gradient-to-r from-violet-200 via-white to-cyan-200 bg-clip-text text-transparent">that move ideas</span>
+          <h1 className="max-w-[680px] text-[clamp(2.65rem,3.65vw,4.35rem)] font-semibold leading-[1.02] tracking-[-.058em] text-white">
+            <span className="block whitespace-nowrap">I build systems</span>
+            <span className="block whitespace-nowrap bg-gradient-to-r from-violet-200 via-white to-cyan-200 bg-clip-text text-transparent">that move ideas</span>
             <span className="block">into reality.</span>
           </h1>
           <p className="mt-6 max-w-md text-sm leading-7 text-slate-200/75 sm:text-base">Exploring agentic AI, backend engineering, and the infrastructure behind intelligent software.</p>
@@ -90,12 +90,13 @@ export default function ExplorerHero() {
           </div>
         </motion.div>
 
-        <div className="relative min-h-[370px] sm:min-h-[510px] lg:min-h-[650px]">
+        <div className="relative min-h-[390px] sm:min-h-[520px] lg:min-h-[690px]">
+          <div className="hero-landscape" aria-hidden="true"><span className="hero-landscape-moon"/><span className="hero-landscape-mountain hero-landscape-mountain--back"/><span className="hero-landscape-mountain hero-landscape-mountain--front"/><span className="hero-landscape-cloud hero-landscape-cloud--one"/><span className="hero-landscape-cloud hero-landscape-cloud--two"/></div>
           <div className="absolute inset-0 rounded-full bg-indigo-500/10 blur-[90px]"/>
           <div className="hero-island-world hero-island-world--main" aria-label="Five floating destinations in Shreya's portfolio">
             {destinations.map((d) => (
               <button key={d.id} type="button" onClick={() => goTo(d.id)} className={`hero-island hero-island--${d.id} hero-island-button`} style={{"--island-color":d.color,"--island-glow":d.color} as React.CSSProperties} aria-label={`Explore ${d.title}`}>
-                <span className="hero-island-rock"/><span className="hero-island-top"/><span className="hero-island-structure"/>
+                <span className="hero-island-rock"/><span className="hero-island-waterfall"/><span className="hero-island-top"/><span className="hero-island-structure"/><span className="hero-island-landscape"/>
                 <span className="hero-island-label"><span>{d.n}</span>{d.title}</span>
               </button>
             ))}
@@ -103,15 +104,15 @@ export default function ExplorerHero() {
           <div className="absolute bottom-3 left-1/2 hidden -translate-x-1/2 items-center gap-2 whitespace-nowrap text-[9px] font-mono uppercase tracking-[.18em] text-slate-400 lg:flex"><span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_10px_#67e8f9]"/> FIVE DESTINATIONS · ONE WORLD</div>
         </div>
 
-        <motion.aside initial={{opacity:0,x:24}} animate={{opacity:1,x:0}} transition={{duration:.7,delay:.15}} className="hero-nova-panel mx-auto w-full max-w-[440px] p-4 sm:p-5 lg:my-auto">
+        <motion.aside initial={{opacity:0,x:24}} animate={{opacity:1,x:0}} transition={{duration:.7,delay:.15}} className="hero-nova-panel mx-auto w-full max-w-[470px] p-4 sm:p-5 lg:my-auto">
           <div className="mb-3 flex items-center justify-between">
             <div className="flex items-center gap-2.5"><Sparkles className="text-violet-300" size={19}/><span className="text-lg font-semibold text-white">Nova</span><span className="rounded-full border border-emerald-300/30 bg-emerald-300/10 px-2.5 py-1 text-[9px] text-emerald-200">Online</span></div>
             <span className="text-[9px] font-mono uppercase tracking-widest text-slate-500">World guide</span>
           </div>
-          <div className="relative flex min-h-[195px] items-center justify-between gap-2 overflow-hidden rounded-2xl bg-[radial-gradient(ellipse_at_45%_75%,rgba(60,170,220,.2),transparent_60%)]">
+          <div className="hero-nova-portrait relative flex min-h-[225px] items-center justify-between gap-2 overflow-hidden rounded-2xl bg-[radial-gradient(ellipse_at_45%_75%,rgba(60,170,220,.2),transparent_60%)]">
             <div className="pointer-events-none absolute inset-0 rounded-2xl border border-white/5"/>
-            <motion.img src="/images/nova-guide.svg" alt="Nova, Shreya's AI companion" className="h-[210px] w-[58%] object-contain object-bottom drop-shadow-[0_0_25px_rgba(90,170,255,.2)]" animate={{ y: [0, -7, 0], rotate: [0, 0.7, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} />
-            <div className="relative z-10 mr-1 max-w-[46%] rounded-2xl rounded-bl-sm border border-cyan-200/30 bg-slate-950/75 p-3 text-xs leading-5 text-slate-200 shadow-xl backdrop-blur-md">
+            <motion.img src="/images/nova-guide.svg" alt="Nova, Shreya's AI companion" className="hero-nova-avatar h-[242px] w-[58%] object-contain object-bottom drop-shadow-[0_0_30px_rgba(90,170,255,.32)]" animate={{ y: [0, -8, 0], rotate: [0, 1.1, 0], scale: [1, 1.012, 1] }} transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }} />
+            <div className="hero-nova-speech relative z-10 mr-1 max-w-[46%] rounded-2xl rounded-bl-sm border border-cyan-200/30 bg-slate-950/75 p-3 text-xs leading-5 text-slate-200 shadow-xl backdrop-blur-md">
               <span className="mb-1 block font-mono text-[8px] uppercase tracking-widest text-cyan-200">✦ Nova says</span>
               Hey Explorer! 👋 I&apos;m Nova, Shreya&apos;s AI companion. I can guide you through her work, projects, experience and what she&apos;s exploring next.
             </div>
