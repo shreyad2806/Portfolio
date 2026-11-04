@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github, Layers3, ShieldCheck, ScanEye, Activity, LockKeyhole, ScanLine } from "lucide-react";
+import { ArrowUpRight, Github, Layers3, ShieldCheck, ScanEye, Activity } from "lucide-react";
 import Link from "next/link";
 import { portfolioData } from "@/lib/portfolio-data";
 
