@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Project } from "@/types/project";
 import ProjectCard from "./ProjectCard";
 
