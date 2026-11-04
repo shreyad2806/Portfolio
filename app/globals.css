@@ -90,3 +90,65 @@
   .world-canvas { opacity: .72; }
   .world-canvas-hint { display: none; }
 }
+
+.world-atlas {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(111, 101, 204, .12), transparent 48%),
+    linear-gradient(180deg, #090d18 0%, #0c1222 55%, #090d18 100%);
+}
+.world-atlas-grid {
+  position: absolute; inset: 0; opacity: .18; pointer-events: none;
+  background-image: linear-gradient(rgba(139,161,220,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(139,161,220,.12) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+}
+.world-route-line {
+  height: 1px; margin-left: 8%; margin-right: 8%;
+  background: linear-gradient(90deg, transparent, rgba(167,139,250,.65), rgba(103,232,249,.65), rgba(246,199,121,.65), rgba(142,229,193,.65), rgba(255,154,203,.65), transparent);
+  box-shadow: 0 0 16px rgba(114,232,245,.16);
+}
+.world-destination {
+  min-height: 252px;
+  border-color: rgba(255,255,255,.1);
+  background: linear-gradient(145deg, rgba(24,33,57,.82), rgba(10,16,30,.94));
+  box-shadow: 0 14px 40px rgba(0,0,0,.16);
+  isolation: isolate;
+}
+.world-destination::before {
+  content:""; position:absolute; inset:0; z-index:-2; opacity:.85;
+  background: radial-gradient(circle at 80% 18%, var(--destination-glow), transparent 52%);
+  transition: opacity .35s ease, transform .5s ease;
+}
+.world-destination:hover { border-color: color-mix(in srgb, var(--destination-color) 50%, transparent); }
+.world-destination:hover::before { opacity:1; transform:scale(1.15); }
+.destination-orbit {
+  position:absolute; width:170px; height:170px; right:-78px; top:35px;
+  border:1px solid color-mix(in srgb, var(--destination-color) 28%, transparent);
+  border-radius:50%; opacity:.6;
+}
+.destination-orbit::before,.destination-orbit::after {
+  content:""; position:absolute; inset:17px; border:1px solid color-mix(in srgb, var(--destination-color) 20%, transparent); border-radius:50%;
+}
+.destination-orbit::after { inset:38px; }
+.destination-scan {
+  position:absolute; bottom:0; left:0; height:2px; width:0;
+  background:var(--destination-color); box-shadow:0 0 14px var(--destination-color);
+  transition:width .4s ease;
+}
+.world-destination:hover .destination-scan { width:100%; }
+.world-destination--basecamp { background-image: linear-gradient(145deg, rgba(70,52,115,.3), rgba(10,16,30,.94)); }
+.world-destination--buildlab { background-image: linear-gradient(145deg, rgba(34,89,111,.28), rgba(10,16,30,.94)); }
+.world-destination--journey { background-image: linear-gradient(145deg, rgba(116,83,43,.24), rgba(10,16,30,.94)); }
+.world-destination--frontier { background-image: linear-gradient(145deg, rgba(40,105,85,.25), rgba(10,16,30,.94)); }
+.world-destination--connection { background-image: linear-gradient(145deg, rgba(111,56,91,.25), rgba(10,16,30,.94)); }
+.journey-section {
+  background: radial-gradient(ellipse at 10% 30%, rgba(246,199,121,.07), transparent 42%), #090d18;
+}
+.journey-rail { background:linear-gradient(180deg,transparent,rgba(246,199,121,.5),rgba(167,139,250,.3),transparent); }
+.journey-card { box-shadow:0 16px 55px rgba(0,0,0,.15); }
+.journey-recognition { transition:transform .25s ease,border-color .25s ease,background .25s ease; }
+.journey-recognition:hover { transform:translateY(-3px); border-color:rgba(246,199,121,.28); background:rgba(255,255,255,.045); }
+#about, #projects, #journey, #focus, #contact { scroll-margin-top: 5.5rem; }
+@media (prefers-reduced-motion: reduce) {
+  .destination-scan, .world-destination, .journey-recognition { transition:none !important; }
+}
