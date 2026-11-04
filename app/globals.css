@@ -732,3 +732,59 @@ html { scroll-padding-top: 5.75rem; }
 .explorer-hero .relative.z-10.mx-auto.grid > div:nth-child(2) {min-height:540px;}
 @media(max-width:1023px){.explorer-hero .relative.z-10.mx-auto.grid > div:nth-child(2){min-height:520px;}}
 @media(max-width:767px){.explorer-hero .relative.z-10.mx-auto.grid > div:nth-child(2){min-height:390px;}}
+
+
+/* PR #5 refinement: keep all five landmarks inside the visible world at desktop zoom levels */
+.explorer-hero .relative.z-10.mx-auto.grid {isolation:isolate;}
+.explorer-hero-scene {z-index:0;}
+.explorer-hero-scene::before {z-index:1;}
+.hero-landscape {z-index:0;opacity:.96;filter:saturate(1.02) contrast(1.06);}
+.hero-landscape::before {background:linear-gradient(90deg,rgba(5,9,25,.9) 0%,rgba(5,9,25,.58) 18%,rgba(5,9,25,.08) 42%,rgba(5,9,25,.08) 70%,rgba(5,9,25,.48) 100%),linear-gradient(180deg,rgba(5,9,25,.08),transparent 52%,rgba(5,9,25,.2));}
+.hero-island-world--main {left:50%;width:100vw;max-width:100vw;z-index:3;pointer-events:none;}
+.hero-island {width:clamp(118px,11.2vw,190px);height:168px;pointer-events:auto;filter:drop-shadow(0 12px 22px rgba(0,0,0,.3));}
+.hero-island--basecamp {left:45%;top:1%;}
+.hero-island--buildlab {left:24%;top:32%;}
+.hero-island--journey {left:45%;top:61%;}
+.hero-island--frontier {right:17%;top:29%;}
+.hero-island--connection {left:24%;top:52%;right:auto;bottom:auto;}
+.hero-island-label {top:69%;font-size:clamp(9px,.68vw,12px);padding:8px 11px;letter-spacing:-.01em;}
+.hero-nova-panel {z-index:8;max-width:430px;backdrop-filter:blur(20px);background:linear-gradient(155deg,rgba(17,25,50,.94),rgba(7,13,28,.96));}
+.hero-proof-strip {z-index:8;position:relative;}
+.explorer-hero .relative.z-10.mx-auto.grid > div:nth-child(2) {min-height:520px;}
+@media(min-width:1500px) {
+ .hero-island {width:clamp(150px,10.6vw,205px);}
+ .hero-island--basecamp {left:45%;top:1%;}
+ .hero-island--buildlab {left:25%;top:32%;}
+ .hero-island--journey {left:46%;top:61%;}
+ .hero-island--frontier {right:17%;top:29%;}
+ .hero-island--connection {left:25%;top:52%;}
+}
+@media(max-width:1279px) and (min-width:1024px) {
+ .hero-island {width:clamp(112px,10.5vw,155px);height:150px;}
+ .hero-island--basecamp {left:45%;top:2%;}
+ .hero-island--buildlab {left:22%;top:33%;}
+ .hero-island--journey {left:44%;top:62%;}
+ .hero-island--frontier {right:16%;top:30%;}
+ .hero-island--connection {left:22%;top:54%;}
+ .hero-island-label {font-size:9px;padding:7px 9px;}
+ .hero-nova-panel {max-width:390px;}
+}
+@media(max-width:1023px) {
+ .hero-island-world--main {left:50%;width:100vw;height:520px;}
+ .hero-island {width:clamp(112px,19vw,170px);height:150px;}
+ .hero-island--basecamp {left:43%;top:0;}
+ .hero-island--buildlab {left:8%;top:28%;}
+ .hero-island--journey {left:42%;top:55%;}
+ .hero-island--frontier {right:7%;top:27%;}
+ .hero-island--connection {left:8%;top:54%;}
+}
+@media(max-width:767px) {
+ .hero-island-world--main {height:400px;}
+ .hero-island {width:clamp(100px,28vw,126px);height:120px;}
+ .hero-island--basecamp {left:39%;top:0;}
+ .hero-island--buildlab {left:0;top:26%;}
+ .hero-island--journey {left:39%;top:52%;}
+ .hero-island--frontier {right:0;top:25%;}
+ .hero-island--connection {left:0;top:52%;}
+ .hero-island-label {font-size:8px;padding:6px 7px;}
+}
