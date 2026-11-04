@@ -6,14 +6,12 @@ import NovaAssistant from "@/components/NovaAssistant";
 import { portfolioData } from "@/lib/portfolio-data";
 
 const destinations = [
-  { id:"basecamp", n:"01", title:"The Basecamp", sub:"About · Skills · Philosophy", target:"journey", color:"#b49aff", icon:Compass, reply:"The Basecamp is where you get to know Shreya: her background, engineering mindset and technical foundations." },
-  { id:"buildlab", n:"02", title:"The Build Lab", sub:"Projects · Systems · Demos", target:"projects", color:"#66e9f4", icon:FlaskConical, reply:"Start with CloseLoop and Kavach to see how Shreya approaches reliability, security and agentic workflows." },
-  { id:"journey", n:"03", title:"The Journey", sub:"Experience · Hackathons · Impact", target:"journey", color:"#ffc46e", icon:Map, reply:"The Journey covers Shreya's internships, hackathons and the milestones along the way." },
-  { id:"frontier", n:"04", title:"The Frontier", sub:"Explore · Experiments · Learn", target:"focus", color:"#78e5bd", icon:Telescope, reply:"The Frontier is the lab notebook: agentic systems, developer infrastructure, observability and what Shreya is exploring next." },
-  { id:"connection", n:"05", title:"The Connection Hub", sub:"Contact · Collaborate · Opportunities", target:"contact", color:"#f58dc8", icon:RadioTower, reply:"The Connection Hub is the fastest route to Shreya's email, GitHub and LinkedIn." },
+  { id:"basecamp", n:"01", title:"The Basecamp", sub:"About · Skills · Philosophy", target:"journey", color:"#a78bfa", icon:Compass, reply:"The Basecamp is where you get to know Shreya: her background, engineering mindset and technical foundations." },
+  { id:"buildlab", n:"02", title:"The Build Lab", sub:"Projects · Systems · Demos", target:"projects", color:"#67e8f9", icon:FlaskConical, reply:"Start with CloseLoop and Kavach to see how Shreya approaches reliability, security and agentic workflows." },
+  { id:"journey", n:"03", title:"The Journey", sub:"Experience · Hackathons · Impact", target:"journey", color:"#f6c779", icon:Map, reply:"The Journey covers Shreya's internships, hackathons and the milestones along the way." },
+  { id:"frontier", n:"04", title:"The Frontier", sub:"Explore · Experiments · Learn", target:"focus", color:"#8ee5c1", icon:Telescope, reply:"The Frontier is the lab notebook: agentic systems, developer infrastructure, observability and what Shreya is exploring next." },
+  { id:"connection", n:"05", title:"The Connection Hub", sub:"Contact · Collaborate · Opportunities", target:"contact", color:"#ff9acb", icon:RadioTower, reply:"The Connection Hub is the fastest route to Shreya's email, GitHub and LinkedIn." },
 ];
-
-
 
 export default function ExplorerHero() {
   const goTo = (id: string) => {
@@ -34,58 +32,144 @@ export default function ExplorerHero() {
   ];
 
   return (
-    <section id="home" className="explorer-hero relative isolate overflow-hidden">
-      <div className="explorer-hero-scene" aria-hidden="true">
-        
-        <svg className="absolute inset-0 h-full w-full opacity-50" viewBox="0 0 1440 850" preserveAspectRatio="none">
-          <defs><linearGradient id="sky-route" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#a78bfa"/><stop offset=".5" stopColor="#67e8f9"/><stop offset="1" stopColor="#f58dc8"/></linearGradient></defs>
-          <path d="M460 470 C650 220 780 650 930 390 S1170 240 1290 510" fill="none" stroke="url(#sky-route)" strokeWidth="2" strokeDasharray="7 12" opacity=".6"/>
-        </svg>
+    <section id="home" className="cinematic-hero relative isolate overflow-hidden min-h-screen bg-[#050914]">
+      {/* Cinematic background with depth */}
+      <div className="cinematic-bg" aria-hidden="true">
+        <div className="cinematic-stars"/>
+        <div className="cinematic-nebula"/>
+        <div className="cinematic-clouds"/>
       </div>
 
-      <div className="relative z-10 mx-auto grid max-w-[1720px] items-center gap-7 px-5 pb-12 pt-24 sm:px-8 lg:min-h-[calc(100svh-4rem)] lg:grid-cols-[minmax(285px,.88fr)_minmax(410px,1.42fr)_minmax(320px,.9fr)] lg:gap-5 lg:px-8 lg:pb-5 lg:pt-20 xl:gap-7 xl:px-10">
-        <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.7}} className="relative z-10 max-w-xl lg:py-10">
-          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-cyan-200/20 bg-slate-950/45 px-3.5 py-2 text-[10px] font-mono uppercase tracking-[.2em] text-cyan-100/80 backdrop-blur-md">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-300"/> SHREYA.EXE · AN INTERACTIVE PORTFOLIO
+      <div className="relative z-10 mx-auto grid max-w-[1920px] items-center gap-5 px-6 pb-8 pt-20 sm:px-8 lg:min-h-[calc(100svh-4rem)] lg:grid-cols-[minmax(320px,0.88fr)_minmax(520px,1.15fr)_minmax(380px,0.94fr)] lg:gap-6 lg:px-10 lg:pb-6 lg:pt-24 xl:gap-8 xl:px-12">
+        {/* Left Hero Content - 25-27% */}
+        <motion.div 
+          initial={{opacity:0,x:-20}} 
+          animate={{opacity:1,x:0}} 
+          transition={{duration:0.8,delay:0.1}}
+          className="relative z-10 max-w-lg flex flex-col justify-center"
+        >
+          {/* Eyebrow */}
+          <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-violet-400/25 bg-violet-950/40 px-4 py-2.5 text-[10px] font-mono uppercase tracking-[0.22em] text-violet-100/90 backdrop-blur-xl shadow-[0_0_25px_rgba(167,139,250,0.15)]">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-violet-300 shadow-[0_0_8px_#a78bfa]"/>
+            SHREYA.EXE · AN INTERACTIVE PORTFOLIO
           </div>
-          <p className="mb-4 text-[10px] font-mono uppercase tracking-[.25em] text-violet-200/80">SOFTWARE ENGINEER · AI / BACKEND SYSTEMS</p>
-          <h1 className="max-w-[680px] text-[clamp(2.65rem,3.65vw,4.35rem)] font-semibold leading-[1.02] tracking-[-.058em] text-white">
-            <span className="block whitespace-normal lg:whitespace-nowrap">I build systems</span>
-            <span className="block whitespace-normal lg:whitespace-nowrap bg-gradient-to-r from-violet-200 via-white to-cyan-200 bg-clip-text text-transparent">that move ideas</span>
+
+          {/* Role */}
+          <p className="mb-5 text-[10px] font-mono uppercase tracking-[0.28em] text-cyan-200/80 leading-relaxed">
+            SOFTWARE ENGINEER · AI / BACKEND SYSTEMS
+          </p>
+
+          {/* Main Headline */}
+          <h1 className="max-w-[620px] text-[clamp(2.8rem,4vw,4.8rem)] font-bold leading-[1.05] tracking-[-0.06em] text-white mb-6">
+            <span className="block">I build systems</span>
+            <span className="block bg-gradient-to-r from-cyan-300 via-violet-300 to-magenta-300 bg-clip-text text-transparent">that move ideas</span>
             <span className="block">into reality.</span>
           </h1>
-          <p className="mt-6 max-w-md text-sm leading-7 text-slate-200/75 sm:text-base">Exploring agentic AI, backend engineering, and the infrastructure behind intelligent software.</p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <button onClick={() => goTo("buildlab")} className="inline-flex items-center gap-3 rounded-full border border-violet-200/40 bg-gradient-to-r from-violet-500 to-indigo-500 px-5 py-3 text-sm font-semibold text-white shadow-[0_0_35px_rgba(135,120,255,.32)] transition hover:-translate-y-0.5 hover:brightness-110"><Sparkles size={15}/> Explore the World <ArrowRight size={15}/></button>
-            <a href={portfolioData.personal.resume} className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-slate-950/35 px-5 py-3 text-sm font-medium text-white backdrop-blur-md transition hover:border-cyan-200/50 hover:bg-white/10">View Resume <Download size={15}/></a>
+
+          {/* Supporting text */}
+          <p className="mt-6 max-w-md text-base leading-7 text-slate-300/85">
+            Exploring agentic AI, backend engineering, and the infrastructure behind intelligent software.
+          </p>
+
+          {/* CTAs */}
+          <div className="mt-8 flex flex-wrap gap-3.5">
+            <button 
+              onClick={() => goTo("buildlab")} 
+              className="inline-flex items-center gap-2.5 rounded-full border border-cyan-400/40 bg-gradient-to-r from-violet-600 to-indigo-600 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_0_40px_rgba(139,92,246,0.35)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_50px_rgba(139,92,246,0.45)] hover:brightness-110"
+            >
+              <Sparkles size={16}/> Explore the World <ArrowRight size={16}/>
+            </button>
+            <a 
+              href={portfolioData.personal.resume} 
+              className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-medium text-white backdrop-blur-md transition-all hover:border-cyan-400/50 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(103,232,249,0.15)]"
+            >
+              View Resume <Download size={16}/>
+            </a>
           </div>
-          <div className="mt-8">
-            <p className="mb-3 text-[9px] font-mono uppercase tracking-[.2em] text-slate-400">CURRENTLY EXPLORING</p>
-            <div className="flex flex-wrap gap-2">{["Agentic AI","System Design","AI Infra"].map((x,i)=><span key={x} className={`rounded-full border px-3 py-1.5 text-[10px] ${i===0?"border-violet-300/40 text-violet-200":i===1?"border-cyan-200/40 text-cyan-100":"border-emerald-200/30 text-emerald-100"}`}>{x}</span>)}</div>
+
+          {/* Currently Exploring */}
+          <div className="mt-10">
+            <p className="mb-3.5 text-[9px] font-mono uppercase tracking-[0.22em] text-slate-400">CURRENTLY EXPLORING</p>
+            <div className="flex flex-wrap gap-2.5">
+              {["Agentic AI", "System Design", "AI Infra"].map((x,i)=>
+                <span 
+                  key={x} 
+                  className={`rounded-full border px-3.5 py-2 text-[10px] font-medium transition-all hover:scale-105 ${
+                    i===0 
+                      ? "border-violet-400/40 bg-violet-500/10 text-violet-200 shadow-[0_0_15px_rgba(167,139,250,0.2)]" 
+                      : i===1 
+                        ? "border-cyan-400/40 bg-cyan-500/10 text-cyan-200 shadow-[0_0_15px_rgba(103,232,249,0.2)]" 
+                        : "border-emerald-400/30 bg-emerald-500/10 text-emerald-200"
+                  }`}
+                >
+                  {x}
+                </span>
+              )}
+            </div>
           </div>
         </motion.div>
 
-        <div className="relative min-h-[340px] sm:min-h-[480px] lg:min-h-[560px]">
-          <div className="hero-landscape" aria-hidden="true"><span className="hero-landscape-moon"/><span className="hero-landscape-mountain hero-landscape-mountain--back"/><span className="hero-landscape-mountain hero-landscape-mountain--front"/><span className="hero-landscape-cloud hero-landscape-cloud--one"/><span className="hero-landscape-cloud hero-landscape-cloud--two"/></div>
-          <div className="absolute inset-0 rounded-full bg-indigo-500/10 blur-[90px]"/>
-          <div className="hero-island-world hero-island-world--main" aria-label="Five floating destinations in Shreya's portfolio">
+        {/* Central Floating-Islands World - 43-46% */}
+        <div className="relative min-h-[400px] sm:min-h-[520px] lg:min-h-[600px] xl:min-h-[650px] overflow-visible">
+          <div className="floating-world-container" aria-label="Five floating destinations in Shreya's portfolio">
             {destinations.map((d) => (
-              <button key={d.id} type="button" onClick={() => goTo(d.id)} className={`hero-island hero-island--${d.id} hero-island-button`} style={{"--island-color":d.color,"--island-glow":d.color} as React.CSSProperties} aria-label={`Explore ${d.title}`}>
-                <span className="hero-island-rock"/><span className="hero-island-waterfall"/><span className="hero-island-top"/><span className="hero-island-structure"/><span className="hero-island-landscape"/>
-                <span className="hero-island-label"><span>{d.n}</span>{d.title}</span>
+              <button 
+                key={d.id} 
+                type="button" 
+                onClick={() => goTo(d.id)} 
+                className={`floating-island floating-island--${d.id} floating-island-button`}
+                style={{"--island-color":d.color,"--island-glow":d.color} as React.CSSProperties}
+                aria-label={`Explore ${d.title}`}
+              >
+                <span className="island-rock"/>
+                <span className="island-top"/>
+                <span className="island-structure"/>
+                <span className="island-label"><span>{d.n}</span>{d.title}</span>
               </button>
             ))}
           </div>
-          <div className="absolute bottom-3 left-1/2 hidden -translate-x-1/2 items-center gap-2 whitespace-nowrap text-[9px] font-mono uppercase tracking-[.18em] text-slate-400 lg:flex"><span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_10px_#67e8f9]"/> FIVE DESTINATIONS · ONE WORLD</div>
+          {/* Luminous pathways connecting islands */}
+          <svg className="luminous-pathways" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#a78bfa"/>
+                <stop offset="25%" stopColor="#67e8f9"/>
+                <stop offset="50%" stopColor="#f6c779"/>
+                <stop offset="75%" stopColor="#8ee5c1"/>
+                <stop offset="100%" stopColor="#ff9acb"/>
+              </linearGradient>
+            </defs>
+            <path d="M25 15 Q 35 35, 15 50 Q 35 65, 25 85 Q 55 70, 75 50 Q 55 30, 75 15" fill="none" stroke="url(#pathGradient)" strokeWidth="0.3" strokeDasharray="2 3" opacity="0.5"/>
+          </svg>
         </div>
 
+        {/* Right Nova Panel - 27-30% */}
         <NovaAssistant destinations={destinations} onNavigate={goTo} />
 
-        <div className="hero-proof-strip col-span-full mx-auto mt-2 grid w-full max-w-5xl grid-cols-2 divide-x divide-white/10 lg:grid-cols-4">
-          {metrics.map((m) => { const Icon=m.icon; return <div key={m.label} className="flex items-center justify-center gap-3 px-3 py-4 sm:py-5"><Icon size={20} className="shrink-0 text-violet-300"/><div><div className="text-xl font-bold tracking-tight text-white sm:text-2xl">{m.value}</div><div className="text-[9px] text-slate-300 sm:text-[10px]">{m.label}</div></div></div>; })}
+        {/* Bottom Statistics Strip */}
+        <div className="statistics-strip col-span-full mx-auto mt-4 grid w-full max-w-6xl grid-cols-2 divide-x divide-white/10 lg:grid-cols-4 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-xl shadow-[0_0_40px_rgba(0,0,0,0.3)]">
+          {metrics.map((m) => { 
+            const Icon=m.icon; 
+            return (
+              <div key={m.label} className="flex items-center justify-center gap-3 px-4 py-5 sm:py-6 transition-all hover:bg-white/5">
+                <Icon size={22} className="shrink-0 text-violet-300"/>
+                <div>
+                  <div className="text-2xl font-bold tracking-tight text-white sm:text-3xl">{m.value}</div>
+                  <div className="text-[10px] text-slate-300 sm:text-[11px] uppercase tracking-wide">{m.label}</div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
-      <button onClick={()=>document.getElementById("projects")?.scrollIntoView({behavior:"smooth"})} className="absolute bottom-2 left-6 z-10 hidden items-center gap-2 text-[9px] font-mono uppercase tracking-[.18em] text-slate-500 transition hover:text-white lg:flex"><ArrowDown size={13}/> Scroll to explore</button>
+
+      {/* Scroll indicator */}
+      <button 
+        onClick={()=>document.getElementById("projects")?.scrollIntoView({behavior:"smooth"})} 
+        className="absolute bottom-6 left-10 z-10 hidden items-center gap-2.5 text-[9px] font-mono uppercase tracking-[0.2em] text-slate-400 transition-all hover:text-white lg:flex"
+      >
+        <ArrowDown size={14}/> Scroll to explore
+      </button>
     </section>
   );
 }
