@@ -13,7 +13,7 @@ const iconMap: Record<string, LucideIcon> = {
 
 export default function EngineeringSnapshot() {
   return (
-    <section className="py-16 lg:py-20">
+    <section id="about" className="py-16 lg:py-20">
       <div className="container-px mx-auto max-w-7xl">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {portfolioData.metrics.map((stat, i) => {
