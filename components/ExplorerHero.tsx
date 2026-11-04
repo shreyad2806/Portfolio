@@ -110,7 +110,7 @@ export default function ExplorerHero() {
         </motion.div>
 
         {/* Central Floating-Islands World - 43-46% */}
-        <div className="relative min-h-[400px] sm:min-h-[520px] lg:min-h-[600px] xl:min-h-[650px] overflow-visible">
+        <div className="floating-world-stage relative min-h-[400px] sm:min-h-[520px] lg:min-h-[600px] xl:min-h-[650px] overflow-visible">
           <div className="floating-world-container" aria-label="Five floating destinations in Shreya's portfolio">
             {destinations.map((d) => (
               <button 
