@@ -2,62 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+:root {
+  color-scheme: dark;
+  --world-bg: #090d18;
+  --world-panel: #111a2c;
+  --world-border: rgba(176, 197, 255, .14);
+  --world-violet: #9b83ff;
+  --world-cyan: #72e8f5;
+}
 
+@layer base {
+  html { scroll-behavior: smooth; background: var(--world-bg); }
   body {
-    background-color: #09090b;
+    background: var(--world-bg);
     color: #f8fafc;
     font-feature-settings: "ss01" on, "cv01" on;
+    overflow-x: hidden;
   }
-
-  ::selection {
-    background: rgba(139, 92, 246, 0.35);
-    color: #f8fafc;
-  }
-
-  :focus-visible {
-    outline: 2px solid #8b5cf6;
-    outline-offset: 3px;
-    border-radius: 4px;
-  }
+  ::selection { background: rgba(155, 131, 255, .38); color: #fff; }
+  :focus-visible { outline: 2px solid var(--world-cyan); outline-offset: 3px; border-radius: 5px; }
 }
 
 @layer components {
-  .container-px {
-    @apply px-6 sm:px-8 lg:px-12;
-  }
-
-  .eyebrow {
-    @apply font-mono text-xs uppercase tracking-[0.18em] text-muted;
-  }
-
-  .card-surface {
-    @apply bg-card border border-border rounded-xl2;
-  }
-
-  .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-xl2 bg-primary px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-soft;
-  }
-
-  .btn-secondary {
-    @apply inline-flex items-center gap-2 rounded-xl2 border border-border bg-transparent px-5 py-3 text-sm font-medium text-text transition-colors hover:border-primary/50 hover:bg-primary/5;
-  }
-
-  .chip {
-    @apply font-mono text-xs text-muted border border-border rounded-full px-3 py-1.5 bg-white/[0.02];
-  }
+  .container-px { @apply px-6 sm:px-8 lg:px-12; }
+  .eyebrow { @apply font-mono text-xs uppercase tracking-[0.18em] text-muted; }
+  .card-surface { background: linear-gradient(145deg, rgba(24,32,55,.88), rgba(13,19,34,.94)); border: 1px solid var(--world-border); @apply rounded-xl2; }
+  .btn-primary { @apply inline-flex items-center gap-2 rounded-xl2 px-5 py-3 text-sm font-medium text-white transition-colors; background: #8065ed; }
+  .btn-primary:hover { background: #9b83ff; }
+  .btn-secondary { border: 1px solid var(--world-border); background: rgba(255,255,255,.025); @apply inline-flex items-center gap-2 rounded-xl2 px-5 py-3 text-sm font-medium text-text transition-colors; }
+  .btn-secondary:hover { border-color: rgba(114,232,245,.5); background: rgba(114,232,245,.06); }
+  .chip { border: 1px solid var(--world-border); background: rgba(255,255,255,.025); @apply rounded-full px-3 py-1.5 font-mono text-xs text-muted; }
 }
 
+.explorer-hero { background: #090d18; isolation: isolate; }
+.explorer-world, .explorer-vignette, .explorer-stars { position:absolute; inset:0; pointer-events:none; }
+.explorer-world {
+  background-image: linear-gradient(90deg, rgba(7,11,23,.93) 0%, rgba(7,11,23,.76) 38%, rgba(7,11,23,.18) 76%, rgba(7,11,23,.15) 100%), url("/images/explorer-world.svg");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.025);
+  animation: world-drift 28s ease-in-out infinite alternate;
+}
+.explorer-vignette { background: radial-gradient(ellipse at 76% 44%, transparent 10%, rgba(6,10,22,.16) 48%, rgba(6,10,22,.7) 100%); }
+.explorer-stars {
+  opacity:.22;
+  background-image: radial-gradient(1px 1px at 12% 22%, #d9e5ff 99%, transparent), radial-gradient(1px 1px at 38% 15%, #d9e5ff 99%, transparent), radial-gradient(2px 2px at 71% 24%, #9cefff 99%, transparent), radial-gradient(1px 1px at 87% 12%, #d9e5ff 99%, transparent), radial-gradient(1px 1px at 56% 43%, #d9e5ff 99%, transparent);
+  background-size: 420px 340px;
+}
+.nova-character { animation: nova-float 5.5s ease-in-out infinite; }
+.nova-orbit { animation: orbit-breathe 7s ease-in-out infinite; }
+.nova-orbit--second { animation-delay: -3s; animation-direction: reverse; }
+@keyframes nova-float { 0%,100% { transform: translate(-50%,0) } 50% { transform: translate(-50%,-11px) } }
+@keyframes orbit-breathe { 0%,100% { opacity:.35; scale: .98 } 50% { opacity:.8; scale:1.035 } }
+@keyframes world-drift { from { transform:scale(1.025) translate3d(0,0,0) } to { transform:scale(1.08) translate3d(-.5%,.35%,0) } }
+
+@media (max-width: 767px) {
+  .explorer-world { background-image: linear-gradient(180deg, rgba(7,11,23,.82) 0%, rgba(7,11,23,.64) 45%, rgba(7,11,23,.34) 100%), url("/images/explorer-world.svg"); background-position: 61% center; }
+}
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
+  *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
 }
