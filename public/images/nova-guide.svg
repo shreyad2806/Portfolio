@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 520" fill="none">
+<defs><linearGradient id="coat" x1="80" y1="250" x2="340" y2="510" gradientUnits="userSpaceOnUse"><stop stop-color="#344A75"/><stop offset="1" stop-color="#111A32"/></linearGradient><linearGradient id="hair" x1="90" y1="20" x2="330" y2="260" gradientUnits="userSpaceOnUse"><stop stop-color="#A68BFF"/><stop offset=".55" stop-color="#343A73"/><stop offset="1" stop-color="#10182D"/></linearGradient><linearGradient id="face" x1="140" y1="90" x2="280" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#FFE0D0"/><stop offset="1" stop-color="#D69E91"/></linearGradient><filter id="shadow"><feGaussianBlur stdDeviation="18"/></filter></defs>
+<ellipse cx="210" cy="485" rx="150" ry="25" fill="#66E7F5" opacity=".2" filter="url(#shadow)"/>
+<path d="M55 520q12-155 155-155t155 155H55Z" fill="url(#coat)" stroke="#7189C5" stroke-width="3"/>
+<path d="M128 380q80 85 164 0l38 140H90l38-140Z" fill="#1B2949"/>
+<path d="M112 175q-10-135 100-145 120-7 119 140l-10 112q-17 70-106 72-90-5-105-90l2-89Z" fill="url(#hair)"/>
+<path d="M143 157q0-85 69-91 79-2 86 85l-7 102q-12 62-81 65-70-2-79-68l12-93Z" fill="url(#face)"/>
+<path d="M130 160q-9-105 84-122 86-14 120 67-37-27-72-19-49 11-75 53-24 39-57 44Z" fill="url(#hair)"/>
+<path d="M130 170q-39 26-25 110 5 35 33 50l-8-101Zm178-9q42 33 26 119-7 35-35 48l8-111Z" fill="#222C57"/>
+<path d="M163 203q20-15 42 0m37 0q21-15 42 0" stroke="#694B59" stroke-width="5" stroke-linecap="round"/>
+<ellipse cx="184" cy="224" rx="7" ry="9" fill="#24263E"/><ellipse cx="263" cy="224" rx="7" ry="9" fill="#24263E"/>
+<path d="M222 231q-7 24-2 30" stroke="#B87877" stroke-width="4" stroke-linecap="round"/>
+<path d="M196 277q28 22 56-1" stroke="#A84F65" stroke-width="5" stroke-linecap="round"/>
+<path d="M143 155q42-53 89-56 56-2 91 47" stroke="#BBA6FF" stroke-width="8" stroke-linecap="round" opacity=".65"/>
+<path d="M149 117q30-35 80-35 49 0 80 31" stroke="#73E9F7" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+<path d="M133 370q-32 24-55 91l51 28 57-86m101-33q40 23 65 91l-49 28-61-86" fill="url(#coat)" stroke="#7386BF" stroke-width="3"/>
+<circle cx="119" cy="255" r="12" stroke="#73E9F7" stroke-width="4"/><circle cx="304" cy="255" r="12" stroke="#73E9F7" stroke-width="4"/>
+<path d="M167 390q43 34 86 0" stroke="#72E8F5" stroke-width="4" opacity=".7"/>
+<path d="M210 12v-9m-4 4h8" stroke="#8B7BFF" stroke-width="3" stroke-linecap="round"/>
+</svg>
