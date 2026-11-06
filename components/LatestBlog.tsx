@@ -23,8 +23,8 @@ export default function LatestBlog() {
           <div className="journal-preview-heading">
             <div>
               <p className="eyebrow mb-3">05 / The Journal · Field notes & discoveries</p>
-              <h2 className="text-2xl lg:text-3xl font-semibold tracking-tight">Things I'm building, finding & learning.</h2>
-              <p className="mt-3 max-w-2xl text-sm leading-7 text-muted">A living collection of engineering notes, interesting open-source projects, useful tools and skills I'm exploring. Less polished blog, more builder's notebook.</p>
+              <h2 className="text-2xl lg:text-3xl font-semibold tracking-tight">Things I&apos;m building, finding & learning.</h2>
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-muted">A living collection of engineering notes, interesting open-source projects, useful tools and skills I&apos;m exploring. Less polished blog, more builder&apos;s notebook.</p>
             </div>
             <Link href="/journal" className="journal-preview-link">Explore Journal <ArrowUpRight size={15}/></Link>
           </div>
