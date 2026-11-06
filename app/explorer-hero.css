@@ -357,3 +357,67 @@
     margin: 0;
   }
 }
+
+
+/* PR #7 refinement — prioritize the world stage and make Nova a compact guide.
+   The center column gains the space released by the narrower assistant panel. */
+@media (min-width: 1280px) {
+  .xh-grid {
+    grid-template-columns: minmax(380px, .88fr) minmax(0, 2.05fr) minmax(270px, 305px);
+    column-gap: 10px;
+  }
+  .xh-stage {
+    min-width: 0;
+    z-index: 2;
+  }
+  .xh-world {
+    width: 118%;
+    margin-left: -9%;
+    transform: translateY(-1%) scale(1.025);
+  }
+  .xh-nova-slot {
+    justify-self: end;
+    width: 100%;
+    max-width: 305px;
+    transform: translateY(-8px);
+  }
+  .xh-nova {
+    max-width: 305px;
+    padding: 12px 13px 13px;
+    border-radius: 22px;
+  }
+  .xh-nova-head h2 { font-size: 1.12rem; }
+  .xh-nova-head { gap: 8px; }
+  .xh-nova-online { padding: 3px 8px; font-size: 10px; }
+  .xh-nova-ctrl { gap: 5px; }
+  .xh-nova-ctrl button { width: 26px; height: 26px; }
+  .xh-nova-stage { height: 184px; margin-top: 3px; }
+  .xh-nova-rig { width: 56%; }
+  .xh-nova-bubble {
+    top: 5px;
+    width: 49%;
+    padding: 9px 9px;
+    font-size: 10px;
+  }
+  .xh-nova-bubble strong { font-size: 12px; }
+  .xh-nova-bubble span { font-size: 11px; }
+  .xh-nova-bubble p { font-size: 9px; margin-top: 5px; }
+  .xh-nova-ask { margin: 10px 0 8px; font-size: .92rem; }
+  .xh-nova-dests { gap: 6px; }
+  .xh-nova-dests button {
+    gap: 8px;
+    padding: 8px 9px;
+    border-radius: 10px;
+    font-size: 10.5px;
+  }
+  .xh-nova-dests button > :first-child { width: 17px; height: 17px; }
+  .xh-nova-input { margin-top: 10px; padding: 3px 4px 3px 12px; }
+  .xh-nova-input input { font-size: 11px; padding: 6px 0; }
+  .xh-nova-input button { width: 33px; height: 33px; }
+  .xh-pill { font-size: clamp(10px, .78vw, 14px); }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .xh-nova-slot { max-width: 360px; justify-self: center; }
+  .xh-nova { max-width: 360px; }
+  .xh-nova-stage { height: 205px; }
+}
