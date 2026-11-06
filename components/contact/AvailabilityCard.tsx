@@ -5,12 +5,12 @@ import { Code } from "lucide-react";
 
 export default function AvailabilityCard() {
   const items = [
-    "Full-time opportunities",
-    "Software Engineering",
-    "AI & Backend Development",
-    "Open Source Collaboration",
-    "Hackathons & Developer Communities",
-    "Freelance / Personal Projects",
+    "Software engineering internships",
+    "2027 graduate SDE opportunities",
+    "Backend & API engineering",
+    "AI/ML and agentic systems",
+    "Testing, reliability & developer tooling",
+    "Open-source collaboration",
   ];
 
   return (
