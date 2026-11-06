@@ -68,7 +68,7 @@ export default async function ProjectDetailPage({
             <DemoSection data={project} />
             <ResultsSection data={project} />
             <LearningsSection data={project} />
-            <RoadmapSection data={project} />
+            {project.roadmap.length > 0 && <RoadmapSection data={project} />}
             <GitHubCTA data={project} />
             <NextProject data={project} />
           </>
