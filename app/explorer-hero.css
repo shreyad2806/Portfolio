@@ -236,3 +236,78 @@
 @media (prefers-reduced-motion: reduce) { .xh-nova-rig { transform: none !important; } .xh-nova-halo, .xh-star, .xh-cloud, .xh-sparkle { animation: none !important; } }
 
 @media (max-width: 1023px) { .xh-sparkle { display: none; } }
+
+
+/* ---------- PR #7 alignment pass ---------- */
+/* Keep the island artwork inside the middle grid column. The previous
+   viewport-relative absolute placement let the right islands drift under Nova. */
+@media (min-width: 1280px) {
+  .xh-stage {
+    position: relative;
+    min-width: 0;
+    z-index: 1;
+  }
+  .xh-world {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 105%;
+    max-width: none;
+    margin: 0 0 0 -16%;
+    transform: translateY(-1%);
+    transform-origin: center center;
+    z-index: 1;
+  }
+  .xh-nova-slot {
+    align-self: center;
+    transform: translateY(-20px);
+    z-index: 4;
+  }
+}
+
+/* At laptop widths, give the artwork enough room and place Nova beneath it
+   instead of compressing the center column into an unusable sliver. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .xh-grid {
+    grid-template-columns: minmax(360px, .9fr) minmax(0, 1.1fr);
+    grid-template-areas:
+      "copy stage"
+      "nova nova"
+      "stats stats";
+    align-items: center;
+  }
+  .xh-stage {
+    position: relative;
+    min-width: 0;
+  }
+  .xh-world {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 112%;
+    margin: 0 0 0 -6%;
+    transform: none;
+  }
+  .xh-nova-slot {
+    width: 100%;
+    justify-self: end;
+    justify-content: flex-end;
+    transform: translateY(-12px);
+  }
+}
+
+/* Keep the map and its labels legible on narrow screens without overlap. */
+@media (max-width: 1023px) {
+  .xh-stage {
+    position: relative;
+    overflow: visible;
+  }
+  .xh-world {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    margin: 0;
+    transform: none;
+  }
+}
