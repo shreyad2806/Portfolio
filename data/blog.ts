@@ -4,7 +4,7 @@ export interface Article {
   readTime: string;
 }
 
-export const upcomingArticles: Article[] = [
+export const upcomingArticles: Article[] = [];\n\n/* Journal entries are added to lib/portfolio-data.ts when ready. */\nexport const legacyUpcomingArticles: Article[] = [
   {
     title: "Building TalentLens",
     category: "Case Study",
