@@ -17,7 +17,7 @@ export const projects: Project[] = [
     id: "kavach",
     name: "Kavach",
     description: "Two-agent zero-trust runtime security platform combining AWS Fargate isolation, Docker sandboxing and capability-based authorization. Integrates Amazon Bedrock with four security scanners and fail-closed authorization across ten protected tool methods.",
-    tech: ["Python", "FastAPI", "AWS Fargate", "Bedrock", "Docker", "Cedar"],
+    tech: ["Python", "FastAPI", "AWS Fargate", "Amazon Bedrock", "Docker", "Cedar"],
     github: "https://github.com/shreyad2806/Kavach",
     status: "completed",
     slug: "kavach",
@@ -40,7 +40,7 @@ export const projects: Project[] = [
   {
     id: "complytai",
     name: "ComplytAI",
-    description: "Financial compliance and risk intelligence platform with a five-agent CrewAI workflow for financial document analysis, AML, compliance assessment, risk auditing and executive synthesis. Uses Pinecone RAG, embeddings, structured outputs, confidence scoring and evidence citations.",
+    description: "Financial compliance and risk intelligence platform with a five-agent CrewAI workflow for financial document analysis, AML, compliance assessment, risk auditing and executive report synthesis. Uses Pinecone RAG, embeddings, Pydantic-validated outputs, confidence scoring and evidence citations, with executive PDF reports.",
     tech: ["Python", "FastAPI", "Next.js", "CrewAI", "Pinecone", "RAG", "Ollama", "Qwen2.5"],
     thumbnail: "/images/comply(thumbnail).png",
     github: "https://github.com/shreyad2806/ComplytAI",
