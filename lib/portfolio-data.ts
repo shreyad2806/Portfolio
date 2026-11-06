@@ -45,7 +45,7 @@ export const portfolioData = {
     { icon: "Trophy", title: "Smart India Hackathon", subtitle: "Runner-up · 2025" },
     { icon: "Rocket", title: "ET GenAI Hackathon", subtitle: "Finalist · 2025" },
     { icon: "Globe", title: "NandaHack", subtitle: "HCLTech × MIT Media Lab" },
-    { icon: "Github", title: "Technomech Club", subtitle: "President · Student leadership" },
+    { icon: "Users", title: "Technomech Club", subtitle: "President · Student leadership" },
   ],
   projects: [
     {
