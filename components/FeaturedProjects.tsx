@@ -10,6 +10,7 @@ export default function FeaturedProjects() {
   const artwork = {
     closeloop: { code: "LEDGER / 017", label: "RECONCILIATION ENGINE", icon: Layers3, accent: "cyan", metric: "MATCH → VERIFY", bars: [42,72,55,88,64,96], flow: ["INGEST", "MATCH", "CLASSIFY", "VERIFY"] },
     kavach: { code: "RUNTIME / ZERO TRUST", label: "POLICY ENFORCEMENT", icon: ShieldCheck, accent: "violet", metric: "ALLOW · DENY · AUDIT", bars: [88,52,76,44,92,68], flow: ["SCAN", "AUTHORIZE", "ISOLATE", "AUDIT"] },
+    complytai: { code: "RISK / 005", label: "COMPLIANCE INTELLIGENCE", icon: Activity, accent: "amber", metric: "RETRIEVE → ASSESS", bars: [62,84,70,91,56,88], flow: ["INGEST", "RETRIEVE", "ASSESS", "REPORT"] },
     visionguard: { code: "VISION / QUALITY", label: "IMAGE SIGNAL ANALYSIS", icon: ScanEye, accent: "amber", metric: "SHARPNESS · NOISE · LIGHT", bars: [58,84,46,72,91,63], flow: ["IMAGE", "FEATURES", "MODEL", "SCORE"] },
   } as const;
 
