@@ -421,3 +421,82 @@
   .xh-nova { max-width: 360px; }
   .xh-nova-stage { height: 205px; }
 }
+
+
+/* Small first-visit cue: explain that each island is an interactive destination. */
+.xh-explore-hint {
+  position: absolute;
+  z-index: 6;
+  top: 4.5%;
+  left: 72%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: max-content;
+  max-width: 255px;
+  padding: 10px 11px;
+  border: 1px solid rgba(190, 157, 255, .62);
+  border-radius: 15px;
+  color: #f7f4ff;
+  background: linear-gradient(135deg, rgba(37, 23, 91, .94), rgba(9, 15, 48, .94));
+  box-shadow: 0 8px 28px rgba(5, 3, 30, .36), 0 0 24px rgba(139, 92, 246, .22), inset 0 1px rgba(255,255,255,.12);
+  backdrop-filter: blur(12px);
+  animation: xh-hint-arrive .55s cubic-bezier(.2,.8,.2,1) both;
+}
+.xh-explore-hint::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  bottom: -7px;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+  border-right: 1px solid rgba(190,157,255,.55);
+  border-bottom: 1px solid rgba(190,157,255,.55);
+  background: #171044;
+}
+.xh-explore-hint-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  color: #8beaff;
+  background: rgba(34,211,238,.12);
+  box-shadow: inset 0 0 0 1px rgba(103,232,249,.22);
+}
+.xh-explore-hint-copy { display: grid; gap: 3px; }
+.xh-explore-hint-copy b { font-size: 11px; line-height: 1.2; letter-spacing: .02em; }
+.xh-explore-hint-copy small { color: rgba(224,232,255,.78); font-size: 9px; line-height: 1.25; }
+.xh-explore-hint > button {
+  display: grid;
+  place-items: center;
+  align-self: flex-start;
+  width: 21px;
+  height: 21px;
+  margin: -4px -4px 0 1px;
+  border-radius: 50%;
+  color: rgba(235,230,255,.75);
+  background: rgba(255,255,255,.07);
+  transition: color .18s, background .18s;
+}
+.xh-explore-hint > button:hover { color: #fff; background: rgba(255,255,255,.16); }
+@keyframes xh-hint-arrive {
+  from { opacity: 0; transform: translateY(-8px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .xh-explore-hint { left: 68%; top: 5%; transform: scale(.9); transform-origin: top right; }
+}
+@media (max-width: 1023px) {
+  .xh-explore-hint { top: 2%; left: 50%; max-width: 235px; transform: translateX(-50%); }
+}
+@media (max-width: 520px) {
+  .xh-explore-hint { top: 1%; left: 50%; gap: 7px; padding: 8px 9px; }
+  .xh-explore-hint-copy b { font-size: 10px; }
+  .xh-explore-hint-copy small { font-size: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .xh-explore-hint { animation: none; }
+}
