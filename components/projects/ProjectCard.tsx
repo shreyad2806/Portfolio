@@ -20,7 +20,7 @@ const statusConfig = {
   upcoming: { label: "Upcoming", className: "project-status--upcoming", icon: null },
 };
 
-const detailedSlugs = new Set(["talentlens", "ai-tech-stack-recommender", "lawgpt-crm", "complytai", "falcon-airlines", "devforge", "architectiq", "reflex-ninja"]);
+const detailedSlugs = new Set(["closeloop", "kavach", "talentlens", "ai-tech-stack-recommender", "lawgpt-crm", "complytai", "falcon-airlines", "devforge", "architectiq", "reflex-ninja"]);
 
 export default function ProjectCard({ project, index, featured = false }: ProjectCardProps) {
   const status = statusConfig[project.status];
