@@ -21,7 +21,7 @@ export const portfolioData = {
     linkedin: "https://www.linkedin.com/in/shreya-dubey-544874289/",
     github: "https://github.com/shreyad2806",
     resume: "/SDE.pdf",
-    stack: ["Agentic AI", "Backend Systems", "Developer Infrastructure", "Open Source"],
+    stack: ["Backend Engineering", "AI/ML Systems", "Testing & Reliability", "Agentic AI"],
   },
   contact: {
     email: "mailto:dubeyshreya2507@gmail.com",
@@ -58,7 +58,7 @@ export const portfolioData = {
       github: "https://github.com/shreyad2806/Vision-Guard", caseStudy: null, featured: false, status: "Additional build",
     },
     {
-      id: "complytai", name: "ComplytAI", description: "Financial compliance and risk intelligence platform using document processing, retrieval-augmented generation and a five-agent CrewAI workflow for evidence-backed findings.",
+      id: "complytai", name: "ComplytAI", description: "Financial compliance and risk intelligence platform with a five-agent CrewAI workflow for financial document analysis, AML, compliance assessment, risk auditing and executive synthesis. Uses Pinecone RAG, embeddings, Pydantic-validated outputs, confidence scoring and evidence citations.",
       tech: ["Python", "FastAPI", "Next.js", "CrewAI", "Pinecone", "RAG", "Ollama", "Qwen2.5"],
       github: "https://github.com/shreyad2806/ComplytAI", caseStudy: null, featured: true, status: "Resume project",
     },
