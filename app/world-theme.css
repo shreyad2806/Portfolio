@@ -521,3 +521,18 @@
 @media (prefers-reduced-motion: reduce) {
   .featured-build-console-pulse {animation:none;}
 }
+
+
+/* Final layout corrections for the newly introduced illustrations. */
+.portfolio-world-page #focus .frontier-scene::after { content: none; }
+.portfolio-world-page .featured-build-console {
+  inset: auto;
+  left: 12%;
+  right: 12%;
+  top: 27%;
+  bottom: 24%;
+  transform: none;
+}
+@media (max-width: 767px) {
+  .portfolio-world-page .featured-build-console { left: 8%; right: 8%; }
+}
