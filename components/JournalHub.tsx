@@ -83,9 +83,9 @@ export default function JournalHub() {
             ) : (
               <div className="journal-empty-state">
                 <span><PackageOpen size={23}/></span>
-                <h3>{active === "Open Source" ? "No repositories saved yet." : "No tools added yet."}</h3>
+                <h3>{active === "Open Source" ? "No repositories saved yet." : active === "Build Notes" ? "No build notes published yet." : "No tools added yet."}</h3>
                 <p>This space is ready for the next interesting discovery. Add an item to the matching collection in <code>lib/portfolio-data.ts</code> and it will appear here.</p>
-                <span className="journal-empty-code">{active === "Open Source" ? "journal.openSourceFinds" : "journal.toolsAndPlugins"} <ArrowUpRight size={13}/></span>
+                <span className="journal-empty-code">{active === "Open Source" ? "journal.openSourceFinds" : active === "Build Notes" ? "journal.buildNotes" : "journal.toolsAndPlugins"} <ArrowUpRight size={13}/></span>
               </div>
             )}
           </div>

@@ -1,3 +1,10 @@
+export type JournalBuildNote = {
+  title: string;
+  description: string;
+  category: string;
+  status?: string;
+};
+
 export type JournalResource = {
   name: string;
   description: string;
@@ -7,21 +14,28 @@ export type JournalResource = {
 };
 
 // Add discoveries here as you find useful repositories, tools or plugins.
-const openSourceFinds: JournalResource[] = [];
-const toolsAndPlugins: JournalResource[] = [];
+const buildNotes: JournalBuildNote[] = [];
+const openSourceFinds: JournalResource[] = [
+  { name: "YCQM", description: "Saved for a future note. Details coming soon.", category: "To document" },
+  { name: "DeepSeek Harness", description: "Saved for a future note. Details coming soon.", category: "To document" },
+  { name: "Paperclip", description: "Saved for a future note. Details coming soon.", category: "To document" },
+];
+const toolsAndPlugins: JournalResource[] = [
+  { name: "PostHog", description: "Product analytics and event insights encountered in software debugging workflows. More notes coming soon.", category: "Observability" },
+];
 
 export const portfolioData = {
   personal: {
     name: "Shreya Dubey",
     role: "Software Engineer",
     subtitle: "Backend Engineering • AI/ML Systems",
-    tagline: "I build systems that move ideas into reality.",
-    description: "I explore agentic AI, backend engineering, and the infrastructure behind intelligent software. I like taking complex ideas apart, understanding how they work, and building things that hold up in the real world.",
+    tagline: "I build reliable backend and AI systems.",
+    description: "Computer Science student and software engineer focused on backend engineering and AI/ML systems. I build API-driven applications, retrieval and agent workflows, and reliability-focused software—combining practical testing with a strong foundation in computer science.",
     email: "dubeyshreya2507@gmail.com",
     linkedin: "https://www.linkedin.com/in/shreya-dubey-544874289/",
     github: "https://github.com/shreyad2806",
     resume: "/SDE.pdf",
-    stack: ["Agentic AI", "Backend Systems", "Developer Infrastructure", "Open Source"],
+    stack: ["Backend Engineering", "AI/ML Systems", "Testing & Reliability", "Agentic AI"],
   },
   contact: {
     email: "mailto:dubeyshreya2507@gmail.com",
@@ -30,37 +44,37 @@ export const portfolioData = {
     resume: "/SDE.pdf",
   },
   metrics: [
-    { value: "8+", label: "Individual Software Projects", caption: "AI • Backend • Full Stack", icon: "Layers" },
-    { value: "4+", label: "Production-Style Systems", caption: "Architecture, reliability & developer tools", icon: "Boxes" },
-    { value: "20+", label: "Technologies Explored", caption: "Frameworks, cloud & AI", icon: "Wrench" },
+    { value: "3", label: "Resume-Featured Projects", caption: "CloseLoop • Kavach • ComplytAI", icon: "Layers" },
+    { value: "2", label: "Internship Experiences", caption: "Software Engineering • AI Engineering", icon: "Boxes" },
+    { value: "8.24", label: "CGPA / 10", caption: "B.Tech Computer Science & Engineering", icon: "Wrench" },
     { value: "SIH", label: "National Runner-up", caption: "ET GenAI finalist • NandaHack participant", icon: "Trophy" },
   ],
   hackathons: [
     { icon: "Trophy", title: "Smart India Hackathon", subtitle: "Runner-up · 2025" },
     { icon: "Rocket", title: "ET GenAI Hackathon", subtitle: "Finalist · 2025" },
     { icon: "Globe", title: "NandaHack", subtitle: "HCLTech × MIT Media Lab" },
-    { icon: "Github", title: "Open Source", subtitle: "Agentic AI platform contributor" },
+    { icon: "Users", title: "Technomech Club", subtitle: "President · Student leadership" },
   ],
   projects: [
     {
-      id: "closeloop", name: "CloseLoop", description: "AI-assisted financial exception resolution platform combining deterministic transaction matching, ML-based exception classification, evidence retrieval and controlled resolution execution.",
-      tech: ["Python", "FastAPI", "PostgreSQL", "XGBoost", "LangGraph", "MCP"],
+      id: "closeloop", name: "CloseLoop", description: "Financial reconciliation backend combining deterministic transaction matching, XGBoost-based exception classification, evidence retrieval and controlled resolution recommendations. A 17-node LangGraph workflow adds five fail-closed guardrail gates, approval checks, idempotency controls and independent post-resolution verification.",
+      tech: ["Python", "FastAPI", "PostgreSQL", "XGBoost", "pgvector", "LangGraph", "MCP"],
       github: "https://github.com/shreyad2806/razorpay-closeloop", caseStudy: null, featured: true, status: "Featured build",
     },
     {
-      id: "kavach", name: "Kavach", description: "Zero-trust runtime security platform combining isolated execution environments, a two-agent security workflow and capability-based authorization for AI agent tools.",
-      tech: ["Python", "FastAPI", "AWS Fargate", "Bedrock", "Docker", "Cedar"],
+      id: "kavach", name: "Kavach", description: "Two-agent zero-trust runtime security platform combining AWS Fargate isolation, Docker sandboxing and capability-based authorization. Integrates Amazon Bedrock with four security scanners and fail-closed authorization across ten protected tool methods.",
+      tech: ["Python", "FastAPI", "AWS Fargate", "Amazon Bedrock", "Docker", "Cedar"],
       github: "https://github.com/shreyad2806/Kavach", caseStudy: null, featured: true, status: "Featured build",
     },
     {
-      id: "visionguard", name: "VisionGuard", description: "Machine-learning image-quality assessment system using a RandomForest model and a FastAPI backend to evaluate image-quality metrics.",
+      id: "visionguard", name: "VisionGuard", description: "Image-quality assessment system using a RandomForest regression model and a FastAPI backend to evaluate image-quality metrics.",
       tech: ["Python", "Scikit-learn", "RandomForest", "FastAPI", "Computer Vision"],
-      github: "https://github.com/shreyad2806/Vision-Guard", caseStudy: null, featured: true, status: "Featured build",
+      github: "https://github.com/shreyad2806/Vision-Guard", caseStudy: null, featured: false, status: "Additional build",
     },
     {
-      id: "complytai", name: "ComplytAI", description: "Financial compliance and risk intelligence platform using document processing, retrieval-augmented generation and a five-agent CrewAI workflow for evidence-backed findings.",
-      tech: ["Python", "FastAPI", "CrewAI", "RAG", "Pinecone", "Qwen2.5"],
-      github: "https://github.com/shreyad2806/ComplytAI", caseStudy: null, featured: false, status: "Completed",
+      id: "complytai", name: "ComplytAI", description: "Financial compliance and risk intelligence platform with a five-agent CrewAI workflow for financial document analysis, AML, compliance assessment, risk auditing and executive synthesis. Uses Pinecone RAG, embeddings, Pydantic-validated outputs, confidence scoring and evidence citations.",
+      tech: ["Python", "FastAPI", "Next.js", "CrewAI", "Pinecone", "RAG", "Ollama", "Qwen2.5"],
+      github: "https://github.com/shreyad2806/ComplytAI", caseStudy: null, featured: true, status: "Resume project",
     },
     {
       id: "talentlens", name: "TalentLens", description: "Resume intelligence and candidate discovery platform using semantic search, embeddings, vector retrieval and candidate ranking.",
@@ -85,7 +99,7 @@ export const portfolioData = {
       github: "https://github.com/shreyad2806/DevForge", caseStudy: null, featured: false, status: "Completed",
     },
   ],
-  currentlyExploring: ["Agentic AI", "Agent harnesses", "AI infrastructure", "Open-source tooling", "Observability & evaluation", "System design"],
+  currentlyExploring: ["Agentic AI", "Agent harnesses", "AI infrastructure", "System design", "LLM evaluation", "Developer tooling"],
   currentFocus: {
     title: "Engineering with agentic systems",
     subtitle: "Software Engineer Intern · StartupCrafters",
@@ -93,34 +107,25 @@ export const portfolioData = {
     badge: "Currently exploring",
   },
   developerJournal: {
-    title: "Engineering Field Notes",
-    articles: [
-      { title: "Building reliable agent workflows", category: "Agentic AI", readTime: "Draft" },
-      { title: "Debugging production issues from signals to fixes", category: "Engineering", readTime: "Draft" },
-      { title: "Designing fail-closed guardrails in CloseLoop", category: "Architecture", readTime: "Draft" },
-      { title: "Runtime authorization for AI agents", category: "Security", readTime: "Draft" },
-    ],
-    note: "Notes from building, debugging and exploring the infrastructure behind intelligent software.",
+    title: "The Journal",
+    articles: [],
+    note: "A space for project notes, open-source discoveries and tools worth documenting.",
   },
-  blog: { title: "Engineering Field Notes", readingTime: "", href: null },
+  blog: { title: "The Journal", readingTime: "", href: "/journal" },
   journal: {
-    buildNotes: [
-      { title: "Building reliable agent workflows", description: "Notes on orchestration, tool boundaries, retries and predictable agent behavior.", category: "Agentic AI", status: "Writing idea" },
-      { title: "Debugging production issues from signals to fixes", description: "A practical log of reproducing failures, tracing root causes and validating fixes.", category: "Engineering", status: "Writing idea" },
-      { title: "Designing fail-closed guardrails in CloseLoop", description: "How deterministic checks, approval boundaries and post-action verification fit together.", category: "Architecture", status: "Writing idea" },
-      { title: "Runtime authorization for AI agents", description: "Exploring policy enforcement and least-privilege access for agent tools.", category: "Security", status: "Writing idea" },
-    ],
+    buildNotes,
     openSourceFinds,
     toolsAndPlugins,
-    skillsInProgress: ["Agentic AI", "Agent harnesses", "AI infrastructure", "Open-source tooling", "Observability & evaluation", "System design"],
+    skillsInProgress: ["Agentic AI", "Agent harnesses", "AI infrastructure", "System design", "LLM evaluation", "Developer tooling"],
   },
 
   technicalExpertise: [
-    { icon: "Cpu", category: "Core CS", skills: ["Data Structures & Algorithms", "OOP", "DBMS", "Operating Systems", "Computer Networks", "System Design Fundamentals"] },
+    { icon: "Cpu", category: "Core CS", skills: ["Data Structures & Algorithms", "OOP", "DBMS", "Operating Systems", "System Design Fundamentals"] },
     { icon: "Code", category: "Languages", skills: ["Python", "C++", "SQL"] },
-    { icon: "Server", category: "Backend & Databases", skills: ["FastAPI", "REST APIs", "PostgreSQL", "pgvector", "Unit Testing", "Integration Testing", "API Testing", "CI/CD"] },
-    { icon: "Layout", category: "Frameworks & Cloud", skills: ["Next.js", "Docker", "AWS", "MCP"] },
-    { icon: "Brain", category: "AI & Intelligent Systems", skills: ["Machine Learning", "Scikit-learn", "XGBoost", "LLMs", "NLP", "RAG", "Embeddings", "Agentic AI", "LangGraph", "LangChain", "CrewAI"] },
-    { icon: "Database", category: "Developer Infrastructure", skills: ["Git", "GitHub", "PostHog", "Repository Debugging", "Observability", "Testing"] },
+    { icon: "Server", category: "Backend & Databases", skills: ["FastAPI", "REST APIs", "PostgreSQL", "pgvector"] },
+    { icon: "Layout", category: "Software Engineering", skills: ["Unit Testing", "Integration Testing", "API Testing", "CI/CD"] },
+    { icon: "Database", category: "Frameworks & Cloud", skills: ["LangGraph", "LangChain", "CrewAI", "MCP", "Next.js", "AWS", "Docker"] },
+    { icon: "Brain", category: "AI & Intelligent Systems", skills: ["Machine Learning", "Scikit-learn", "XGBoost", "LLMs", "NLP", "RAG", "Embeddings", "Agentic AI"] },
+    
   ],
 };

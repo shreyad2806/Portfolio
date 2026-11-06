@@ -7,7 +7,7 @@ import ExperienceContent from "@/components/experience/ExperienceContent";
 import { experienceData } from "@/data/experience";
 
 export default function ExperiencePage() {
-  const [selectedId, setSelectedId] = useState("current");
+  const [selectedId, setSelectedId] = useState("startupcrafters-intern");
 
   const selectedData = experienceData.find((item) => item.id === selectedId);
 

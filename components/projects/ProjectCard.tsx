@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github, Layers3, ShieldCheck, ScanEye, ExternalLink, Loader2 } from "lucide-react";
+import { ArrowUpRight, Github, Layers3, ShieldCheck, ScanEye, Activity, ExternalLink, Loader2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Project } from "@/types/project";
@@ -12,6 +12,7 @@ const visualConfig: Record<string, { label: string; icon: typeof Layers3; classN
   closeloop: { label: "FINANCIAL SYSTEMS", icon: Layers3, className: "project-visual--closeloop", glyph: "01 / RECONCILIATION" },
   kavach: { label: "RUNTIME SECURITY", icon: ShieldCheck, className: "project-visual--kavach", glyph: "02 / ZERO TRUST" },
   visionguard: { label: "COMPUTER VISION", icon: ScanEye, className: "project-visual--visionguard", glyph: "03 / IMAGE INTELLIGENCE" },
+  complytai: { label: "FINANCIAL COMPLIANCE", icon: Activity, className: "project-visual--complytai", glyph: "RAG / RISK INTELLIGENCE" },
 };
 
 const statusConfig = {
@@ -20,7 +21,7 @@ const statusConfig = {
   upcoming: { label: "Upcoming", className: "project-status--upcoming", icon: null },
 };
 
-const detailedSlugs = new Set(["talentlens", "ai-tech-stack-recommender", "lawgpt-crm", "complytai", "falcon-airlines", "devforge", "architectiq", "reflex-ninja"]);
+const detailedSlugs = new Set(["closeloop", "kavach", "talentlens", "ai-tech-stack-recommender", "lawgpt-crm", "complytai", "falcon-airlines", "devforge", "architectiq", "reflex-ninja"]);
 
 export default function ProjectCard({ project, index, featured = false }: ProjectCardProps) {
   const status = statusConfig[project.status];

@@ -16,9 +16,9 @@ const destinations: NovaDestination[] = [
 ];
 
 const metrics = [
-  { value: "8+", label: "Individual Projects", icon: Layers3 },
-  { value: "4+", label: "Production-Style Systems", icon: Boxes },
-  { value: "20+", label: "Technologies Explored", icon: Code2 },
+  { value: "3", label: "Resume Projects", icon: Layers3 },
+  { value: "2", label: "Internships", icon: Boxes },
+  { value: "8.24", label: "CGPA / 10", icon: Code2 },
   { value: "SIH", label: "National Runner-up", icon: Trophy },
 ];
 
@@ -47,12 +47,12 @@ export default function ExplorerHero() {
         >
           <div className="xh-badge"><i /> SHREYA.EXE · AN INTERACTIVE PORTFOLIO</div>
           <h1>
-            I build systems
-            <br />that move <em>ideas</em>
-            <br />into reality.
+            I build reliable
+            <br /><em>backend & AI</em>
+            <br />systems.
           </h1>
           <p className="xh-sub">
-            Exploring agentic AI, backend engineering, and the infrastructure behind intelligent software.
+            Software engineer focused on backend engineering and AI/ML systems—from reliable APIs and testing to retrieval and agentic workflows.
           </p>
           <div className="xh-cta">
             <button type="button" className="xh-btn xh-btn--primary" onClick={() => scrollToSection("buildlab")}>

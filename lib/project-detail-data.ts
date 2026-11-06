@@ -496,592 +496,75 @@ export const aiTechStackRecommenderData: ProjectDetailData = {
 export const complytAIData: ProjectDetailData = {
   slug: "complytai",
   name: "ComplytAI",
-  badge: "Enterprise Compliance & Risk Intelligence Platform",
-
-  oneLiner:
-    "Enterprise compliance platform that combines RAG, local LLMs, vector search, and CrewAI-based agent orchestration for document analysis and risk detection.",
-
-  description:
-    "ComplytAI is an end-to-end compliance intelligence system that processes enterprise documents, retrieves relevant regulatory context, and uses local LLM reasoning with CrewAI orchestration to identify compliance risks and generate actionable insights.",
-
+  badge: "Financial Compliance & Risk Intelligence",
+  oneLiner: "A financial document intelligence platform using RAG and a five-agent CrewAI workflow to produce structured, evidence-backed compliance assessments.",
+  description: "ComplytAI coordinates financial document analysis, anti-money laundering (AML), compliance assessment, risk auditing and executive report synthesis. Its retrieval pipeline uses embeddings and Pinecone, while structured outputs, confidence scoring and evidence citations make findings easier to inspect.",
   github: "https://github.com/shreyad2806/ComplytAI",
-
-  techStack: [
-    "Next.js",
-    "TypeScript",
-    "Python",
-    "FastAPI",
-    "CrewAI",
-    "Ollama",
-    "Qwen2.5",
-    "nomic-embed-text",
-    "Pinecone",
-    "RAG",
-    "PostgreSQL"
-  ],
-
-  heroImage: "/images/comply-thumbnail.png",
-
-  // ============================================================
-  // PROBLEM
-  // ============================================================
-
+  techStack: ["Python", "FastAPI", "Next.js", "CrewAI", "Pinecone", "RAG", "Ollama", "Qwen2.5"],
+  heroImage: "",
   problem: {
-    title: "What problem does ComplytAI solve?",
-
+    title: "What does ComplytAI help analyze?",
     points: [
-      "Organizations manage thousands of compliance documents, policies, contracts, audit reports, and regulatory guidelines.",
-
-      "Manually searching through large document collections is slow and makes it difficult to find relevant regulatory context quickly.",
-
-      "Important compliance risks can be overlooked because analysts have to process large volumes of information.",
-
-      "Compliance teams spend significant time reviewing repetitive documents and comparing policies against regulatory requirements.",
-
-      "Traditional document search systems do not understand semantic relationships between compliance requirements, policies, and enterprise documents.",
-
-      "ComplytAI combines document intelligence, RAG, local LLM reasoning, and agent orchestration to assist with compliance analysis and risk detection."
+      "Financial documents need to be reviewed for compliance and risk signals.",
+      "AML and compliance assessment involve distinct analysis responsibilities.",
+      "Findings need to be traceable to supporting document evidence.",
+      "Executive summaries should consolidate specialist analysis into a structured report."
     ]
   },
-
-  // ============================================================
-  // MOTIVATIONS
-  // ============================================================
-
   motivations: [
-    {
-      icon: "🏢",
-      title: "Building Enterprise AI Systems",
-      description:
-        "Explore how AI systems can be designed around enterprise documents, privacy requirements, scalable retrieval, and structured analysis workflows."
-    },
-
-    {
-      icon: "🔍",
-      title: "Engineering Production RAG",
-      description:
-        "Build a complete retrieval pipeline covering document ingestion, chunking, embeddings, vector search, retrieval, and grounded generation."
-    },
-
-    {
-      icon: "🤖",
-      title: "Exploring Agentic AI",
-      description:
-        "Use CrewAI to coordinate specialized agents and separate responsibilities across compliance analysis and risk identification."
-    },
-
-    {
-      icon: "🔒",
-      title: "Privacy-Aware AI",
-      description:
-        "Use Ollama and Qwen2.5 for local inference so sensitive enterprise information can be processed without depending entirely on external LLM APIs."
-    }
+    { icon: "📄", title: "Financial document intelligence", description: "Build a workflow that can analyze financial documents and surface relevant compliance information." },
+    { icon: "🤖", title: "Specialized agent responsibilities", description: "Use a five-agent CrewAI workflow to separate document analysis, AML, compliance, risk auditing and synthesis." },
+    { icon: "🔎", title: "Evidence-backed findings", description: "Use retrieval, confidence scoring and citations so findings can be traced to supporting evidence." }
   ],
-
-  // ============================================================
-  // ARCHITECTURE
-  // ============================================================
-
   architecture: {
     steps: [
-      {
-        label: "Enterprise Documents",
-        description:
-          "Ingest policies, contracts, audit reports, regulatory documents, and other compliance material."
-      },
-
-      {
-        label: "Document Processing",
-        description:
-          "Extract, clean, normalize, and prepare documents for downstream retrieval."
-      },
-
-      {
-        label: "Semantic Chunking",
-        description:
-          "Split documents into meaningful sections optimized for retrieval and contextual understanding."
-      },
-
-      {
-        label: "Embedding Generation",
-        description:
-          "Generate dense vector representations using the nomic-embed-text embedding model."
-      },
-
-      {
-        label: "Pinecone Vector Database",
-        description:
-          "Store document embeddings and provide scalable semantic retrieval."
-      },
-
-      {
-        label: "Hybrid Retrieval",
-        description:
-          "Retrieve relevant regulatory and enterprise context using semantic and keyword-based signals."
-      },
-
-      {
-        label: "Ollama + Qwen2.5",
-        description:
-          "Run local LLM inference for compliance reasoning and document analysis."
-      },
-
-      {
-        label: "CrewAI Agent Orchestration",
-        description:
-          "Coordinate specialized agents responsible for compliance analysis, risk identification, and structured reasoning."
-      },
-
-      {
-        label: "Risk Analysis Engine",
-        description:
-          "Analyze retrieved evidence and identify potential compliance risks and violations."
-      },
-
-      {
-        label: "Compliance Dashboard",
-        description:
-          "Present compliance findings, risk signals, evidence, and analysis results through the web application."
-      }
+      { label: "Financial documents", description: "Provide financial documents for analysis." },
+      { label: "Embeddings", description: "Create embeddings for semantic retrieval." },
+      { label: "Pinecone retrieval", description: "Retrieve relevant document context using Pinecone." },
+      { label: "Document analysis", description: "Analyze the supplied financial documents." },
+      { label: "AML assessment", description: "Run the AML-focused analysis workflow." },
+      { label: "Compliance assessment", description: "Evaluate compliance-related findings." },
+      { label: "Risk auditing", description: "Review identified risks and audit signals." },
+      { label: "Executive synthesis", description: "Combine specialist outputs into an executive assessment and PDF report." }
     ]
   },
-
-  // ============================================================
-  // FEATURES
-  // ============================================================
-
   features: [
-    {
-      icon: "📄",
-      title: "Document Ingestion",
-      description:
-        "Process enterprise policies, contracts, audit reports, and regulatory documents for analysis."
-    },
-
-    {
-      icon: "🔍",
-      title: "Semantic Search",
-      description:
-        "Find relevant compliance information using natural-language queries instead of relying only on exact keywords."
-    },
-
-    {
-      icon: "🧠",
-      title: "RAG Question Answering",
-      description:
-        "Generate context-grounded answers using retrieved regulatory and enterprise document evidence."
-    },
-
-    {
-      icon: "🤖",
-      title: "CrewAI Agent Orchestration",
-      description:
-        "Coordinate specialized agents for compliance analysis, risk identification, and structured reasoning."
-    },
-
-    {
-      icon: "⚠️",
-      title: "Compliance Risk Detection",
-      description:
-        "Analyze enterprise documentation to identify potential compliance risks and regulatory gaps."
-    },
-
-    {
-      icon: "📋",
-      title: "Policy Retrieval",
-      description:
-        "Retrieve relevant policies, requirements, and regulatory context for specific compliance scenarios."
-    },
-
-    {
-      icon: "📊",
-      title: "Compliance Dashboard",
-      description:
-        "Visualize analysis results, risk findings, and compliance insights through a centralized interface."
-    },
-
-    {
-      icon: "🔒",
-      title: "Local LLM Processing",
-      description:
-        "Run Qwen2.5 locally through Ollama for privacy-conscious document analysis."
-    },
-
-    {
-      icon: "📚",
-      title: "Enterprise Knowledge Base",
-      description:
-        "Maintain a searchable vector knowledge layer containing compliance documents and regulatory information."
-    },
-
-    {
-      icon: "🎯",
-      title: "Evidence-Grounded Analysis",
-      description:
-        "Connect compliance findings to retrieved document context rather than relying solely on model-generated information."
-    }
+    { icon: "📚", title: "Pinecone-based RAG", description: "Use embeddings and vector retrieval to ground analysis in relevant document context." },
+    { icon: "🤖", title: "Five-agent CrewAI workflow", description: "Coordinate document analysis, AML, compliance, risk auditing and executive synthesis." },
+    { icon: "📐", title: "Structured outputs", description: "Validate agent outputs with Pydantic models." },
+    { icon: "🎯", title: "Confidence scoring", description: "Attach confidence scores to generated findings." },
+    { icon: "🔗", title: "Evidence citations", description: "Connect findings to supporting document evidence." },
+    { icon: "📑", title: "Executive PDF reports", description: "Generate reports with risk scores, compliance gaps, audit flags, recommendations and supporting evidence." }
   ],
-
-  // ============================================================
-  // ENGINEERING DECISIONS
-  // ============================================================
-
   decisions: [
-    {
-      problem: "LLM choice?",
-      decision: "Qwen2.5 via Ollama",
-      why:
-        "Provides local LLM inference for privacy-sensitive compliance workflows while reducing dependence on external model APIs."
-    },
-
-    {
-      problem: "Embedding model?",
-      decision: "nomic-embed-text",
-      why:
-        "Provides semantic embeddings suitable for document retrieval and enterprise knowledge search."
-    },
-
-    {
-      problem: "Vector database?",
-      decision: "Pinecone",
-      why:
-        "Provides scalable vector storage and efficient semantic retrieval for large document collections."
-    },
-
-    {
-      problem: "Agent orchestration?",
-      decision: "CrewAI",
-      why:
-        "Provides structured coordination between specialized agents while keeping individual compliance responsibilities modular."
-    },
-
-    {
-      problem: "Backend framework?",
-      decision: "FastAPI",
-      why:
-        "Provides high-performance Python APIs, asynchronous processing, type safety, and automatic API documentation."
-    },
-
-    {
-      problem: "Frontend framework?",
-      decision: "Next.js",
-      why:
-        "Provides a scalable React-based application architecture for the compliance dashboard and user-facing workflows."
-    },
-
-    {
-      problem: "Primary database?",
-      decision: "PostgreSQL",
-      why:
-        "Provides reliable relational storage for application data, metadata, users, and structured compliance information."
-    },
-
-    {
-      problem: "Retrieval approach?",
-      decision: "RAG + Hybrid Retrieval",
-      why:
-        "Combines semantic understanding with relevant document evidence to improve retrieval quality and reduce unsupported generation."
-    }
+    { problem: "How should specialist analysis be coordinated?", decision: "Five-agent CrewAI workflow", why: "Separate responsibilities for document analysis, AML, compliance assessment, risk auditing and executive synthesis." },
+    { problem: "How should document context be retrieved?", decision: "Embeddings with Pinecone RAG", why: "Retrieve relevant source material to support grounded findings." },
+    { problem: "How should outputs remain inspectable?", decision: "Pydantic-validated structures, confidence scores and evidence citations", why: "Structured and cited results are easier to validate than free-form generated text." }
   ],
-
-  // ============================================================
-  // CHALLENGES
-  // ============================================================
-
   challenges: [
-    {
-      problem: "Designing document ingestion",
-
-      solution:
-        "Built a structured ingestion pipeline for extracting, cleaning, validating, and preparing enterprise documents for retrieval.",
-
-      learning:
-        "Enterprise document processing requires robust handling of inconsistent formats, missing information, and edge cases."
-    },
-
-    {
-      problem: "Choosing embedding models",
-
-      solution:
-        "Evaluated the retrieval requirements and selected nomic-embed-text for the semantic document retrieval pipeline.",
-
-      learning:
-        "Embedding quality directly affects retrieval quality, making model selection and evaluation important parts of RAG engineering."
-    },
-
-    {
-      problem: "Handling large document collections",
-
-      solution:
-        "Designed chunking and batch-processing stages to make document ingestion and indexing more manageable.",
-
-      learning:
-        "Scalable AI systems require careful consideration of processing cost, memory usage, indexing strategy, and throughput."
-    },
-
-    {
-      problem: "Improving retrieval quality",
-
-      solution:
-        "Combined semantic retrieval with keyword-based signals to improve recall across compliance queries.",
-
-      learning:
-        "Hybrid retrieval can provide better coverage when queries contain both domain-specific terminology and semantic concepts."
-    },
-
-    {
-      problem: "Reducing LLM hallucinations",
-
-      solution:
-        "Used retrieved document context, structured prompts, and evidence-oriented responses to keep generated analysis grounded.",
-
-      learning:
-        "Reliable LLM applications require grounding, validation, and clear boundaries around what the model is allowed to infer."
-    },
-
-    {
-      problem: "Coordinating compliance analysis",
-
-      solution:
-        "Introduced CrewAI-based agent orchestration to separate responsibilities across compliance analysis and risk identification.",
-
-      learning:
-        "Agentic systems require clearly defined responsibilities, controlled context, and reliable coordination between specialized components."
-    },
-
-    {
-      problem: "Running AI workloads privately",
-
-      solution:
-        "Integrated Ollama with Qwen2.5 to support local LLM inference for sensitive compliance workflows.",
-
-      learning:
-        "Enterprise AI architecture often requires balancing model quality, privacy, infrastructure cost, and operational complexity."
-    },
-
-    {
-      problem: "Building a usable compliance interface",
-
-      solution:
-        "Connected the AI pipeline to a Next.js dashboard that presents analysis results and compliance findings in a structured format.",
-
-      learning:
-        "AI systems become useful products only when complex model output is converted into understandable user-facing workflows."
-    }
+    { problem: "Coordinating different financial review tasks", solution: "Organize the workflow into five specialized CrewAI agents.", learning: "Clear agent responsibilities make multi-stage analysis easier to reason about." },
+    { problem: "Grounding findings in source documents", solution: "Use embeddings and Pinecone retrieval, then attach evidence citations.", learning: "Document-backed evidence is important when presenting compliance findings." },
+    { problem: "Making generated analysis usable", solution: "Use Pydantic-validated outputs, confidence scoring and executive PDF reports.", learning: "AI output needs structure and context to become useful in a business workflow." }
   ],
-
-  // ============================================================
-  // DEVELOPMENT JOURNEY
-  // ============================================================
-
   journey: [
-    {
-      phase: "Problem Discovery",
-      description:
-        "Identified the difficulty of manually reviewing large volumes of compliance documents and regulatory information."
-    },
-
-    {
-      phase: "Compliance Research",
-      description:
-        "Studied document-heavy compliance workflows and identified opportunities for retrieval and AI-assisted analysis."
-    },
-
-    {
-      phase: "Document Processing",
-      description:
-        "Built the document ingestion and preprocessing pipeline for enterprise compliance content."
-    },
-
-    {
-      phase: "Embedding Pipeline",
-      description:
-        "Implemented semantic embedding generation using nomic-embed-text."
-    },
-
-    {
-      phase: "Vector Database",
-      description:
-        "Integrated Pinecone to store document embeddings and support semantic retrieval."
-    },
-
-    {
-      phase: "RAG Pipeline",
-      description:
-        "Connected retrieval with local LLM reasoning to generate context-aware compliance responses."
-    },
-
-    {
-      phase: "Local LLM Integration",
-      description:
-        "Integrated Ollama and Qwen2.5 for local inference and privacy-conscious document analysis."
-    },
-
-    {
-      phase: "Agent Orchestration",
-      description:
-        "Introduced CrewAI to coordinate specialized agents for compliance analysis and risk identification."
-    },
-
-    {
-      phase: "Compliance Dashboard",
-      description:
-        "Built the Next.js interface for displaying document analysis, risk findings, and compliance insights."
-    },
-
-    {
-      phase: "Production Architecture",
-      description:
-        "Containerized the system with Docker and structured the application for maintainability and deployment."
-    }
+    { phase: "Document intelligence", description: "Set up financial document analysis as the core workflow." },
+    { phase: "Retrieval pipeline", description: "Add embeddings and Pinecone-based RAG for relevant document context." },
+    { phase: "Specialized agents", description: "Coordinate document analysis, AML, compliance, risk auditing and executive synthesis with CrewAI." },
+    { phase: "Structured findings", description: "Add Pydantic validation, confidence scoring and evidence citations." },
+    { phase: "Executive reporting", description: "Generate PDF reports with risk scores, audit flags, recommendations and supporting evidence." }
   ],
-
-  // ============================================================
-  // RESULTS
-  // ============================================================
-
   results: [
-    {
-      label: "AI Architecture",
-      value: "End-to-End",
-      description:
-        "Complete document-to-analysis pipeline combining retrieval, LLM reasoning, and agent orchestration."
-    },
-
-    {
-      label: "RAG Pipeline",
-      value: "Production",
-      description:
-        "Document ingestion, embeddings, vector search, retrieval, and grounded generation."
-    },
-
-    {
-      label: "Agentic Analysis",
-      value: "CrewAI",
-      description:
-        "Specialized agent orchestration for structured compliance analysis."
-    },
-
-    {
-      label: "LLM Infrastructure",
-      value: "Local",
-      description:
-        "Qwen2.5 inference through Ollama for privacy-conscious AI processing."
-    },
-
-    {
-      label: "Document Search",
-      value: "Semantic",
-      description:
-        "Vector-based retrieval across enterprise compliance documents."
-    },
-
-    {
-      label: "Application",
-      value: "Full Stack",
-      description:
-        "Next.js frontend connected to Python/FastAPI AI services and supporting infrastructure."
-    }
+    { label: "Agent workflow", value: "5 agents", description: "Document analysis, AML, compliance, risk auditing and executive synthesis." },
+    { label: "Retrieval", value: "Pinecone RAG", description: "Embedding-based retrieval for financial document context." },
+    { label: "Output validation", value: "Pydantic", description: "Structured output validation." },
+    { label: "Traceability", value: "Cited evidence", description: "Confidence-scored findings with supporting document citations." }
   ],
-
-  // ============================================================
-  // LEARNINGS
-  // ============================================================
-
   learnings: [
-    {
-      title: "Production RAG",
-      description:
-        "Production RAG requires careful attention to document processing, chunking, embeddings, retrieval quality, latency, and grounding."
-    },
-
-    {
-      title: "Agentic AI",
-      description:
-        "Agentic systems work best when responsibilities are clearly separated and agents operate within controlled context and workflows."
-    },
-
-    {
-      title: "Vector Search",
-      description:
-        "Retrieval quality depends on embedding models, chunking strategies, indexing, query formulation, and retrieval techniques."
-    },
-
-    {
-      title: "Enterprise AI Architecture",
-      description:
-        "Enterprise AI systems require privacy, reliability, scalability, observability, and maintainable service boundaries."
-    },
-
-    {
-      title: "Local LLM Infrastructure",
-      description:
-        "Running models locally introduces important engineering trade-offs around hardware, latency, model size, and privacy."
-    },
-
-    {
-      title: "AI Product Engineering",
-      description:
-        "A useful AI product requires more than model integration; the surrounding APIs, databases, interfaces, validation, and workflows are equally important."
-    }
+    { title: "Agent orchestration", description: "Specialized agents need clear responsibilities and a coordinated synthesis step." },
+    { title: "Retrieval-grounded analysis", description: "Embeddings and vector retrieval help connect generated findings to source documents." },
+    { title: "Structured AI output", description: "Validation, confidence scoring and citations make generated results easier to review." }
   ],
-
-  // ============================================================
-  // ROADMAP
-  // ============================================================
-
-  roadmap: [
-    {
-      feature: "Multi-Agent Compliance Review",
-      status: "planned"
-    },
-
-    {
-      feature: "Regulation Change Detection",
-      status: "planned"
-    },
-
-    {
-      feature: "Real-time Compliance Monitoring",
-      status: "planned"
-    },
-
-    {
-      feature: "Fine-tuned Compliance Models",
-      status: "planned"
-    },
-
-    {
-      feature: "Role-based Enterprise Access",
-      status: "planned"
-    },
-
-    {
-      feature: "Document Version Tracking",
-      status: "planned"
-    },
-
-    {
-      feature: "Enterprise Analytics",
-      status: "planned"
-    },
-
-    {
-      feature: "Multi-language Support",
-      status: "planned"
-    }
-  ],
-
-  // ============================================================
-  // NEXT PROJECT
-  // ============================================================
-
-  nextProject: {
-    name: "Reflex Ninja",
-    slug: "reflex-ninja",
-    description:
-      "Native Android reflex game built with Kotlin while exploring mobile application development."
-  }
+  roadmap: []
 };
 
 export const reflexNinjaData: ProjectDetailData = {
@@ -2220,7 +1703,156 @@ export const kodexaData: ProjectDetailData = {
   }
 };
 
+
+export const closeLoopData: ProjectDetailData = {
+  slug: "closeloop",
+  name: "CloseLoop",
+  badge: "AI Financial Exception Resolution Platform",
+  oneLiner: "A reconciliation backend that combines deterministic transaction matching, ML-based exception classification, evidence retrieval and guarded resolution workflows.",
+  description: "CloseLoop is designed around a simple principle: financial state changes should be explainable, controlled and independently verified. The backend performs deterministic reconciliation, investigates exceptions with classification and evidence retrieval, then coordinates resolution through a guarded LangGraph workflow.",
+  github: "https://github.com/shreyad2806/razorpay-closeloop",
+  techStack: ["Python", "FastAPI", "PostgreSQL", "XGBoost", "pgvector", "LangGraph", "MCP"],
+  heroImage: "",
+  problem: {
+    title: "What problem does CloseLoop address?",
+    points: [
+      "Payment and settlement records can disagree and require investigation.",
+      "Exception classification needs to be consistent and grounded in available evidence.",
+      "Resolution actions need approval, idempotency and explicit guardrails.",
+      "A proposed action must not be treated as complete until the resulting financial state is checked."
+    ]
+  },
+  motivations: [
+    { icon: "🔎", title: "Make exceptions explainable", description: "Combine classification with retrieved evidence so an exception can be investigated rather than guessed at." },
+    { icon: "🧭", title: "Keep financial logic deterministic", description: "Use deterministic transaction matching as the foundation before applying AI-assisted investigation." },
+    { icon: "🛡️", title: "Control state-changing actions", description: "Place approval, idempotency and fail-closed checks around resolution execution." }
+  ],
+  architecture: {
+    steps: [
+      { label: "Record ingestion", description: "Ingest payment and settlement records for reconciliation." },
+      { label: "Deterministic matching", description: "Compare transaction records using deterministic reconciliation logic." },
+      { label: "Exception classification", description: "Use XGBoost to classify unmatched or inconsistent records." },
+      { label: "Evidence retrieval", description: "Retrieve relevant evidence using vector search with pgvector." },
+      { label: "LangGraph orchestration", description: "Coordinate investigation and resolution through a 17-node workflow." },
+      { label: "Guardrail checks", description: "Apply five fail-closed gates, approval checks and idempotency controls." },
+      { label: "Controlled execution", description: "Pass an approved resolution through the provider abstraction." },
+      { label: "Independent verification", description: "Recalculate and verify the resulting state before closing an exception." }
+    ]
+  },
+  features: [
+    { icon: "⚖️", title: "Deterministic reconciliation", description: "Transaction matching is handled by explicit backend logic rather than delegated to an LLM." },
+    { icon: "🧠", title: "ML-assisted investigation", description: "XGBoost classification helps categorize exceptions for investigation." },
+    { icon: "📚", title: "Evidence-grounded retrieval", description: "Vector retrieval supplies supporting evidence for explanations and candidate resolutions." },
+    { icon: "🔐", title: "Guarded resolution workflow", description: "Five fail-closed gates, approval checks and idempotency controls constrain execution." },
+    { icon: "✓", title: "Post-action verification", description: "The workflow verifies the financial state after a resolution attempt." }
+  ],
+  decisions: [
+    { problem: "Where should transaction matching happen?", decision: "Deterministic reconciliation logic", why: "Financial matching should be explicit and repeatable before AI-assisted investigation begins." },
+    { problem: "How should exception investigation be coordinated?", decision: "17-node LangGraph workflow", why: "A graph makes the investigation, checks and resolution stages explicit." },
+    { problem: "How should risky actions be constrained?", decision: "Five fail-closed gates with approval and idempotency checks", why: "A proposed resolution should not bypass authorization or duplicate-action protection." },
+    { problem: "How should completion be established?", decision: "Independent post-execution verification", why: "An attempted action is not proof that the financial state was corrected." }
+  ],
+  challenges: [
+    { problem: "Keeping reconciliation outcomes consistent", solution: "Use deterministic transaction matching before ML-based exception classification.", learning: "AI assistance should complement deterministic financial logic, not replace it." },
+    { problem: "Preventing unsafe resolution execution", solution: "Place fail-closed guardrails, approval checks and idempotency controls in the workflow.", learning: "State-changing financial workflows need explicit authorization boundaries." },
+    { problem: "Knowing whether a resolution actually worked", solution: "Recalculate and independently verify the resulting state after execution.", learning: "Verification must be a separate step from action execution." }
+  ],
+  journey: [
+    { phase: "Reconciliation foundation", description: "Build deterministic matching for payment and settlement records." },
+    { phase: "Exception intelligence", description: "Add XGBoost classification and evidence retrieval to support investigation." },
+    { phase: "Workflow orchestration", description: "Coordinate the process with a 17-node LangGraph workflow." },
+    { phase: "Safety and verification", description: "Add five fail-closed gates, approval and idempotency controls, and post-execution verification." },
+    { phase: "Validation", description: "Validate with synthetic fixtures, SQLite unit tests and Docker-backed PostgreSQL integration tests. The provider is mocked; the project does not execute live payment transactions." }
+  ],
+  results: [
+    { label: "Workflow", value: "17 nodes", description: "LangGraph investigation and resolution orchestration." },
+    { label: "Guardrails", value: "5 gates", description: "Fail-closed checks around controlled resolution." },
+    { label: "Test cases", value: "30", description: "Curated financial exceptions evaluated with synthetic fixtures." },
+    { label: "Exception types", value: "9", description: "Coverage across nine curated exception categories." },
+    { label: "Execution environment", value: "MockProvider", description: "Synthetic test fixtures; no live payment transactions are executed." }
+  ],
+  learnings: [
+    { title: "Deterministic core, AI-assisted edges", description: "Keep critical financial calculations explicit and use ML or retrieval where they add investigation value." },
+    { title: "Guardrails belong in the workflow", description: "Approval, idempotency and authorization checks should be enforceable steps, not prompt instructions." },
+    { title: "Verify outcomes independently", description: "Close an exception only after checking the resulting state." }
+  ],
+  roadmap: []
+};
+
+export const kavachData: ProjectDetailData = {
+  slug: "kavach",
+  name: "Kavach",
+  badge: "Zero-Trust Runtime Security Platform",
+  oneLiner: "A two-agent security platform that combines isolated execution, runtime authorization and capability-based access controls for AI tools.",
+  description: "Kavach focuses on securing agent tool execution with isolation and explicit authorization boundaries. It combines AWS Fargate, Docker sandboxing, Amazon Bedrock, Cedar policy enforcement and four security scanners, with fail-closed authorization across protected tool methods.",
+  github: "https://github.com/shreyad2806/Kavach",
+  techStack: ["Python", "FastAPI", "AWS Fargate", "Amazon Bedrock", "Docker", "Cedar"],
+  heroImage: "",
+  problem: {
+    title: "What problem does Kavach address?",
+    points: [
+      "AI agents can invoke tools that access files, execute code or interact with external systems.",
+      "Tool execution needs isolation from the host application and other workloads.",
+      "Authorization should be evaluated explicitly for each protected tool method.",
+      "Security checks should fail closed when authorization cannot be established."
+    ]
+  },
+  motivations: [
+    { icon: "🛡️", title: "Apply zero-trust principles", description: "Treat tool calls as actions that require explicit authorization rather than assuming agent intent is safe." },
+    { icon: "📦", title: "Isolate execution", description: "Use AWS Fargate and Docker-based sandboxing to separate agent execution environments." },
+    { icon: "🔍", title: "Bring security checks together", description: "Connect code, dependency and secret scanners to a coordinated security workflow." }
+  ],
+  architecture: {
+    steps: [
+      { label: "Agent request", description: "Receive a request to invoke a protected tool." },
+      { label: "Scanner agent", description: "Coordinate security scanning with Bandit, Semgrep, pip-audit and Gitleaks." },
+      { label: "Isolated execution", description: "Use AWS Fargate isolation and Docker sandboxing for execution boundaries." },
+      { label: "Authorization agent", description: "Evaluate whether the requested tool action is authorized." },
+      { label: "Cedar policy enforcement", description: "Apply capability-based policy checks at protected tool methods." },
+      { label: "Fail-closed decision", description: "Deny execution when authorization cannot be established." }
+    ]
+  },
+  features: [
+    { icon: "🤖", title: "Two-agent workflow", description: "Separate scanner and authorization responsibilities across two agents." },
+    { icon: "📦", title: "Isolated execution", description: "Use AWS Fargate and Docker sandboxing to isolate execution environments." },
+    { icon: "🔐", title: "Capability-based authorization", description: "Use Cedar policies and fail-closed checks for protected tool methods." },
+    { icon: "🧪", title: "Security scanner integration", description: "Connect Bandit, Semgrep, pip-audit and Gitleaks for code, dependency and secret checks." }
+  ],
+  decisions: [
+    { problem: "How should agent execution be separated?", decision: "AWS Fargate isolation and Docker sandboxing", why: "Execution should run within an isolated boundary." },
+    { problem: "How should tool access be controlled?", decision: "Cedar policy enforcement with capability-based authorization", why: "Protected actions need explicit, enforceable authorization." },
+    { problem: "What should happen when authorization is uncertain?", decision: "Fail closed", why: "An unclear authorization result must not allow a protected action to proceed." },
+    { problem: "How should security issues be surfaced?", decision: "Integrate four focused scanners", why: "Bandit, Semgrep, pip-audit and Gitleaks cover different classes of code and repository risk." }
+  ],
+  challenges: [
+    { problem: "Keeping agent tool execution isolated", solution: "Use Fargate isolation with Docker sandboxing.", learning: "Agent security includes the execution environment, not only the model prompt." },
+    { problem: "Preventing unauthorized tool calls", solution: "Enforce fail-closed authorization across protected tool methods.", learning: "Authorization should be enforced at the tool boundary." },
+    { problem: "Validating the runtime security layer", solution: "Run integration and payload stress tests up to 1 MB.", learning: "Security controls need testing under realistic and oversized inputs." }
+  ],
+  journey: [
+    { phase: "Security model", description: "Define a zero-trust approach to agent tool execution." },
+    { phase: "Execution isolation", description: "Combine AWS Fargate isolation and Docker sandboxing." },
+    { phase: "Scanner integration", description: "Connect Bandit, Semgrep, pip-audit and Gitleaks with Amazon Bedrock." },
+    { phase: "Authorization", description: "Enforce Cedar-backed, fail-closed authorization across protected tool methods." },
+    { phase: "Validation", description: "Test runtime authorization and isolated execution, including payload stress tests up to 1 MB." }
+  ],
+  results: [
+    { label: "Agents", value: "2", description: "Scanner and authorization responsibilities." },
+    { label: "Scanners", value: "4", description: "Bandit, Semgrep, pip-audit and Gitleaks." },
+    { label: "Protected methods", value: "10", description: "Fail-closed authorization enforced at tool boundaries." },
+    { label: "Stress testing", value: "1 MB", description: "Payload size exercised during integration and stress tests." }
+  ],
+  learnings: [
+    { title: "Secure the tool boundary", description: "Authorization must be enforced where a tool action is invoked, not left to the agent to self-police." },
+    { title: "Isolation is part of the security model", description: "Runtime boundaries matter alongside policy checks and scanning." },
+    { title: "Fail closed by default", description: "When access cannot be proven, protected execution should be denied." }
+  ],
+  roadmap: []
+};
+
 export const projectDataMap: Record<string, ProjectDetailData> = {
+  closeloop: closeLoopData,
+  kavach: kavachData,
   talentlens: talentLensData,
   "ai-tech-stack-recommender": aiTechStackRecommenderData,
   "lawgpt-crm": crmData,

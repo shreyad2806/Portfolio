@@ -32,7 +32,7 @@ export default function ProjectsPage() {
               The Build Lab
             </h1>
             <p className="text-lg text-muted max-w-2xl">
-              A closer look at the systems I have built — from financial workflows and runtime security to machine-learning applications. Explore the engineering choices, tools and lessons behind each one.
+              A closer look at the projects highlighted on my resume: financial exception resolution, zero-trust runtime security, and financial compliance intelligence—plus additional experiments and applications.
             </p>
           </motion.div>
 
@@ -59,7 +59,7 @@ export default function ProjectsPage() {
                 Building in public.
               </h3>
               <p className="text-muted leading-relaxed">
-                Currently exploring AI infrastructure, developer tools, backend engineering, and open-source software.
+                Current focus: backend engineering, AI/ML systems, testing and reliability, agentic workflows, and system design.
               </p>
               <p className="text-muted mt-2">
                 More projects are on the way.
