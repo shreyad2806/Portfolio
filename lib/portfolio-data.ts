@@ -99,16 +99,11 @@ export const portfolioData = {
     badge: "Currently exploring",
   },
   developerJournal: {
-    title: "Engineering Field Notes",
-    articles: [
-      { title: "Building reliable agent workflows", category: "Agentic AI", readTime: "Draft" },
-      { title: "Debugging production issues from signals to fixes", category: "Engineering", readTime: "Draft" },
-      { title: "Designing fail-closed guardrails in CloseLoop", category: "Architecture", readTime: "Draft" },
-      { title: "Runtime authorization for AI agents", category: "Security", readTime: "Draft" },
-    ],
-    note: "Notes from building, debugging and exploring the infrastructure behind intelligent software.",
+    title: "The Journal",
+    articles: [],
+    note: "A space for project notes, open-source discoveries and tools worth documenting.",
   },
-  blog: { title: "Engineering Field Notes", readingTime: "", href: null },
+  blog: { title: "The Journal", readingTime: "", href: "/journal" },
   journal: {
     buildNotes: [],
     openSourceFinds,
@@ -120,8 +115,9 @@ export const portfolioData = {
     { icon: "Cpu", category: "Core CS", skills: ["Data Structures & Algorithms", "OOP", "DBMS", "Operating Systems", "System Design Fundamentals"] },
     { icon: "Code", category: "Languages", skills: ["Python", "C++", "SQL"] },
     { icon: "Server", category: "Backend & Databases", skills: ["FastAPI", "REST APIs", "PostgreSQL", "pgvector"] },
-    { icon: "Layout", category: "Software Engineering & Cloud", skills: ["Unit Testing", "Integration Testing", "API Testing", "CI/CD", "Next.js", "AWS", "Docker"] },
+    { icon: "Layout", category: "Software Engineering", skills: ["Unit Testing", "Integration Testing", "API Testing", "CI/CD"] },
+    { icon: "Database", category: "Frameworks & Cloud", skills: ["LangGraph", "LangChain", "CrewAI", "MCP", "Next.js", "AWS", "Docker"] },
     { icon: "Brain", category: "AI & Intelligent Systems", skills: ["Machine Learning", "Scikit-learn", "XGBoost", "LLMs", "NLP", "RAG", "Embeddings", "Agentic AI"] },
-    { icon: "Database", category: "Frameworks & Agent Systems", skills: ["LangGraph", "LangChain", "CrewAI", "MCP"] },
+    
   ],
 };
