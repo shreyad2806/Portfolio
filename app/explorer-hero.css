@@ -658,3 +658,37 @@
 @media (prefers-reduced-motion: reduce) {
   .xh-world-tip { animation: none; }
 }
+
+
+/* Nova portrait / speech bubble separation: keep the greeting to the far right
+   so it never sits over her eyes or face. */
+.xh-nova-stage { overflow: visible; }
+.xh-nova-rig { width: 58% !important; left: -1% !important; }
+.xh-nova-bubble {
+  left: auto !important;
+  right: 0 !important;
+  width: 42% !important;
+  max-width: 170px;
+  box-sizing: border-box;
+  padding: 10px 10px !important;
+  top: 6px !important;
+  z-index: 3;
+}
+.xh-nova-bubble::before {
+  left: -7px;
+  bottom: 20px;
+  width: 12px;
+  height: 12px;
+}
+@media (min-width: 1280px) {
+  .xh-nova-rig { width: 58% !important; }
+  .xh-nova-bubble { width: 42% !important; right: 0 !important; }
+}
+@media (max-width: 520px) {
+  .xh-nova-rig { width: 56% !important; }
+  .xh-nova-bubble {
+    width: 42% !important;
+    right: 0 !important;
+    padding: 8px !important;
+  }
+}
