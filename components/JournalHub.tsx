@@ -43,7 +43,7 @@ export default function JournalHub() {
           <div className="journal-hub-kicker"><Sparkles size={13}/> SHREYA.EXE / FIELD LOG 05</div>
           <p className="eyebrow mt-5 mb-3">The Journal · An evolving collection</p>
           <h1>Curiosity, <span>documented.</span></h1>
-          <p className="journal-hub-intro">A living notebook of things I build, repositories I discover, tools that make me curious and skills I'm working on. Updated as I explore—not just when I publish.</p>
+          <p className="journal-hub-intro">A living notebook of things I build, repositories I discover, tools that make me curious and skills I&apos;m working on. Updated as I explore—not just when I publish.</p>
           <div className="journal-hub-stats">
             <span><b>{journal.buildNotes.length}</b> build notes</span><i/>
             <span><b>{journal.openSourceFinds.length}</b> open-source finds</span><i/>
@@ -94,14 +94,14 @@ export default function JournalHub() {
             <section className="journal-sidebar-card journal-skills-card">
               <div className="journal-sidebar-heading"><span><Compass size={17}/></span><p className="eyebrow">Learning orbit</p></div>
               <h2>Skills in progress</h2>
-              <p>Topics I'm actively exploring, testing and connecting to real projects.</p>
+              <p>Topics I&apos;m actively exploring, testing and connecting to real projects.</p>
               <div className="journal-skill-list">{journal.skillsInProgress.map((skill,index)=><span key={skill}><i>{String(index+1).padStart(2,"0")}</i>{skill}</span>)}</div>
             </section>
             <section className="journal-sidebar-card journal-add-card">
               <span className="journal-add-icon"><Layers3 size={19}/></span>
               <p className="eyebrow mt-4 mb-2">Keep the log alive</p>
               <h3>Found something interesting?</h3>
-              <p>Add a repository, developer tool, plugin or learning note to the journal data. This page is designed to grow with what you're exploring.</p>
+              <p>Add a repository, developer tool, plugin or learning note to the journal data. This page is designed to grow with what you&apos;re exploring.</p>
               <a href="https://github.com/shreyad2806/Portfolio" target="_blank" rel="noreferrer">Open portfolio source <ArrowUpRight size={14}/></a>
             </section>
           </aside>
