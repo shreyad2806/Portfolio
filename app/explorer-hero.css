@@ -692,3 +692,42 @@
     padding: 8px !important;
   }
 }
+
+
+/* Keep Nova's discovery cue adjacent to the floating-island cluster, not over
+   the headline or the assistant panel. */
+.xh-world-tip {
+  top: 3.5% !important;
+  left: 56% !important;
+  width: 238px;
+}
+@media (min-width: 1280px) {
+  .xh-world-tip { top: 3.5% !important; left: 56% !important; }
+}
+@media (max-width: 1023px) {
+  .xh-world-tip { top: 1.5% !important; left: 50% !important; }
+}
+
+/* Persistent Nova dock on interior pages. */
+.xh-global-nova {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 70;
+  width: min(390px, calc(100vw - 32px));
+}
+.xh-global-nova .xh-nova { width: 100%; max-width: 390px; max-height: min(78vh, 760px); overflow-y: auto; }
+.xh-global-nova .xh-nova-launcher {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 70;
+  padding: 13px 19px;
+  border: 1px solid rgba(173, 145, 255, .82);
+  background: linear-gradient(120deg, rgba(91,  fifty, 220, .96), rgba(37, 27, 103, .97));
+  box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 0 26px rgba(124,92,255,.42);
+}
+@media (max-width: 640px) {
+  .xh-global-nova { right: 12px; bottom: 12px; width: min(390px, calc(100vw - 24px)); }
+  .xh-global-nova .xh-nova-launcher { right: 14px; bottom: 14px; }
+}
