@@ -18,11 +18,11 @@ export interface NovaDestination {
 }
 
 type Message = { id: string; role: "assistant" | "user"; content: string };
-type Props = { destinations: NovaDestination[]; onNavigate: (id: string) => void };
+type Props = { destinations: NovaDestination[]; onNavigate: (id: string) => void; listenForOpen?: boolean; startClosed?: boolean };
 type View = "open" | "minimized" | "closed";
 
-export default function NovaAssistant({ destinations, onNavigate }: Props) {
-  const [view, setView] = useState<View>("open");
+export default function NovaAssistant({ destinations, onNavigate, listenForOpen = false, startClosed = false }: Props) {
+  const [view, setView] = useState<View>(startClosed ? "closed" : "open");
   const [messages, setMessages] = useState<Message[]>([]);
   const [draft, setDraft] = useState("");
   const [busy, setBusy] = useState(false);
@@ -46,6 +46,13 @@ export default function NovaAssistant({ destinations, onNavigate }: Props) {
   useEffect(() => {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, busy]);
+
+  useEffect(() => {
+    if (!listenForOpen) return;
+    const openNova = () => setView("open");
+    window.addEventListener("nova:open", openNova);
+    return () => window.removeEventListener("nova:open", openNova);
+  }, [listenForOpen]);
 
   async function ask(value: string) {
     const question = value.trim();
