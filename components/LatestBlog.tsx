@@ -1,37 +1,49 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, BookOpen, Code2, FileText, TerminalSquare } from "lucide-react";
+import { ArrowUpRight, BookOpen, Code2, Compass, PackageOpen, Wrench } from "lucide-react";
+import Link from "next/link";
 import { portfolioData } from "@/lib/portfolio-data";
 
+const categories = [
+  { icon: BookOpen, label: "Build notes", detail: "Ideas from projects & engineering" },
+  { icon: Code2, label: "Open-source finds", detail: "Repositories worth exploring" },
+  { icon: Wrench, label: "Tools & plugins", detail: "Useful things in my workflow" },
+  { icon: Compass, label: "Skills in progress", detail: "What I'm learning next" },
+];
+
 export default function LatestBlog() {
-  const journal = portfolioData.developerJournal;
-  const journalIcons = [BookOpen, Code2, FileText, TerminalSquare];
+  const journal = portfolioData.journal;
+  const totalFinds = journal.openSourceFinds.length + journal.toolsAndPlugins.length;
 
   return (
-    <section id="blog" className="py-16 lg:py-20">
+    <section id="journal" className="py-16 lg:py-20">
       <div className="container-px mx-auto max-w-7xl">
-        <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.5 }} className="journal-scene card-surface">
-          <div className="journal-art" aria-hidden="true">
-            <div className="journal-art-orbit journal-art-orbit--one"/>
-            <div className="journal-art-orbit journal-art-orbit--two"/>
-            <div className="journal-book"><span/><span/><span/><i/></div>
-            <div className="journal-art-caption"><i/> FIELD NOTES / 04</div>
+        <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.5 }} className="journal-preview-scene">
+          <div className="journal-preview-heading">
+            <div>
+              <p className="eyebrow mb-3">05 / The Journal · Field notes & discoveries</p>
+              <h2 className="text-2xl lg:text-3xl font-semibold tracking-tight">Things I&apos;m building, finding & learning.</h2>
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-muted">A living collection of engineering notes, interesting open-source projects, useful tools and skills I&apos;m exploring. Less polished blog, more builder&apos;s notebook.</p>
+            </div>
+            <Link href="/journal" className="journal-preview-link">Explore Journal <ArrowUpRight size={15}/></Link>
           </div>
-          <div className="journal-content">
-            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-5 mb-5">
-              <div><p className="eyebrow mb-3">05 / Developer Journal</p><h2 className="text-xl lg:text-2xl font-semibold tracking-tight mb-2">{journal.title}</h2><p className="text-sm text-muted">Ideas, lessons and engineering notes from the build process.</p></div>
-              <a href="https://github.com/shreyad2806" target="_blank" rel="noopener noreferrer" className="journal-updates">GitHub Updates <ArrowUpRight size={15}/></a>
-            </div>
-            <div className="journal-entries">
-              {journal.articles.map((article, index) => {
-                const Icon = journalIcons[index % journalIcons.length];
-                return <motion.div key={index} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: index * 0.05 }} whileHover={{ x: 4 }} className="journal-entry">
-                  <span className="journal-entry-index">0{index + 1}</span><span className="journal-entry-icon"><Icon size={15}/></span><div className="flex-1 min-w-0"><h3>{article.title}</h3><span>{article.readTime}</span></div><span className="journal-entry-tag">{article.category}</span><ArrowUpRight className="journal-entry-arrow" size={15}/>
-                </motion.div>;
-              })}
-            </div>
-            <p className="journal-note">{journal.note}</p>
+
+          <div className="journal-category-grid">
+            {categories.map(({icon: Icon,label,detail}, index) => {
+              const count = [journal.buildNotes.length,journal.openSourceFinds.length,journal.toolsAndPlugins.length,journal.skillsInProgress.length][index];
+              return <motion.div key={label} initial={{opacity:0,y:12}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:index*.06}} className={`journal-category-tile journal-category-tile--${index+1}`}>
+                <span className="journal-category-icon"><Icon size={19}/></span>
+                <span className="journal-category-count">{String(count).padStart(2,"0")}</span>
+                <b>{label}</b>
+                <small>{detail}</small>
+              </motion.div>;
+            })}
+          </div>
+
+          <div className="journal-preview-bottom">
+            <span><PackageOpen size={14}/> {totalFinds} resources collected so far</span>
+            <span>UPDATED AS I EXPLORE <i/></span>
           </div>
         </motion.div>
       </div>
