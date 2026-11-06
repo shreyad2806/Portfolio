@@ -1762,13 +1762,14 @@ export const closeLoopData: ProjectDetailData = {
     { phase: "Exception intelligence", description: "Add XGBoost classification and evidence retrieval to support investigation." },
     { phase: "Workflow orchestration", description: "Coordinate the process with a 17-node LangGraph workflow." },
     { phase: "Safety and verification", description: "Add five fail-closed gates, approval and idempotency controls, and post-execution verification." },
-    { phase: "Validation", description: "Test with synthetic fixtures, SQLite unit tests and Docker-backed PostgreSQL integration tests." }
+    { phase: "Validation", description: "Validate with synthetic fixtures, SQLite unit tests and Docker-backed PostgreSQL integration tests. The provider is mocked; the project does not execute live payment transactions." }
   ],
   results: [
     { label: "Workflow", value: "17 nodes", description: "LangGraph investigation and resolution orchestration." },
     { label: "Guardrails", value: "5 gates", description: "Fail-closed checks around controlled resolution." },
     { label: "Test cases", value: "30", description: "Curated financial exceptions evaluated with synthetic fixtures." },
-    { label: "Exception types", value: "9", description: "Coverage across nine curated exception categories." }
+    { label: "Exception types", value: "9", description: "Coverage across nine curated exception categories." },
+    { label: "Execution environment", value: "MockProvider", description: "Synthetic test fixtures; no live payment transactions are executed." }
   ],
   learnings: [
     { title: "Deterministic core, AI-assisted edges", description: "Keep critical financial calculations explicit and use ML or retrieval where they add investigation value." },
