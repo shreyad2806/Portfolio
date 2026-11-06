@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import TalentLensPage from "@/components/projects/TalentLensPage";
 import AITechStackRecommenderPage from "@/components/projects/AITechStackRecommenderPage";
-import ComplytaiPage from "@/components/projects/ComplytaiPage";
 import ProjectDetailHero from "@/components/projects/ProjectDetailHero";
 import ProblemSection from "@/components/projects/ProblemSection";
 import MotivationSection from "@/components/projects/MotivationSection";
@@ -44,7 +43,6 @@ export default async function ProjectDetailPage({
   const isTalentLens = slug === "talentlens";
   const isAITechStackRecommender =
     slug === "ai-tech-stack-recommender";
-  const isComplytai = slug === "complytai";
 
   return (
     <>
@@ -56,8 +54,7 @@ export default async function ProjectDetailPage({
           <TalentLensPage data={project} />
         ) : isAITechStackRecommender ? (
           <AITechStackRecommenderPage data={project} />
-        ) : isComplytai ? (
-          <ComplytaiPage data={project} />
+        ) : (
         ) : (
           <>
             <ProjectDetailHero data={project} />
