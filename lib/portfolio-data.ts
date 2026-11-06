@@ -1,3 +1,10 @@
+export type JournalBuildNote = {
+  title: string;
+  description: string;
+  category: string;
+  status?: string;
+};
+
 export type JournalResource = {
   name: string;
   description: string;
@@ -7,6 +14,7 @@ export type JournalResource = {
 };
 
 // Add discoveries here as you find useful repositories, tools or plugins.
+const buildNotes: JournalBuildNote[] = [];
 const openSourceFinds: JournalResource[] = [
   { name: "YCQM", description: "Saved for a future note. Details coming soon.", category: "To document" },
   { name: "DeepSeek Harness", description: "Saved for a future note. Details coming soon.", category: "To document" },
@@ -105,7 +113,7 @@ export const portfolioData = {
   },
   blog: { title: "The Journal", readingTime: "", href: "/journal" },
   journal: {
-    buildNotes: [],
+    buildNotes,
     openSourceFinds,
     toolsAndPlugins,
     skillsInProgress: ["Agentic AI", "Agent harnesses", "AI infrastructure", "System design", "LLM evaluation", "Developer tooling"],
