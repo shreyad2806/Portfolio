@@ -20,11 +20,13 @@ type Props = {
 /* Canvas is 1749 x 1172. Each island is its own image so the group can be spread apart. */
 const CANVAS = { w: 1749, h: 1172 };
 const ISLANDS: Record<string, { left: number; top: number; width: number; w: number; h: number; pill: { left: number; top: number } }> = {
-  buildlab: { left: 5.655, top: 21.881, width: 30.074, w: 526, h: 570, pill: { left: 20.69, top: 56.9 } },
-  basecamp: { left: 33.21, top: 6.625, width: 34.019, w: 595, h: 514, pill: { left: 50.22, top: 38.2 } },
-  journey: { left: 25.569, top: 50.034, width: 33.391, w: 584, h: 503, pill: { left: 42.26, top: 80.94 } },
-  frontier: { left: 63.634, top: 27.743, width: 28.645, w: 501, h: 316, pill: { left: 77.96, top: 47.16 } },
-  connection: { left: 62.65, top: 47.828, width: 31.618, w: 553, h: 536, pill: { left: 78.46, top: 80.76 } },
+  // Wider spacing and larger silhouettes create a clear five-island arc:
+  // two upper islands, two lower islands, and Journey as the foreground anchor.
+  buildlab: { left: 1.5, top: 20.5, width: 34, w: 526, h: 570, pill: { left: 19.5, top: 57 } },
+  basecamp: { left: 31.5, top: 2.5, width: 38, w: 595, h: 514, pill: { left: 50.5, top: 38.5 } },
+  journey: { left: 23.5, top: 49, width: 38, w: 584, h: 503, pill: { left: 42.5, top: 82 } },
+  frontier: { left: 66, top: 22.5, width: 32.5, w: 501, h: 316, pill: { left: 82, top: 48 } },
+  connection: { left: 66, top: 49, width: 34, w: 553, h: 536, pill: { left: 82, top: 82 } },
 };
 
 /* Glowing travel routes between islands (canvas coordinates). */
