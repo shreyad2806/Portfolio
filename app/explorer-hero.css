@@ -1,0 +1,423 @@
+/* Home hero — "SHREYA.EXE" floating-island world. Scoped with the xh- prefix. */
+
+.xh-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(88, 60, 200, .28), transparent 55%),
+    radial-gradient(ellipse at 15% 0%, rgba(60, 40, 150, .3), transparent 45%),
+    linear-gradient(180deg, #080522 0%, #0d0838 55%, #170c4a 100%);
+}
+
+/* ---------- backdrop ---------- */
+.xh-sky { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.xh-nebula { position: absolute; border-radius: 50%; filter: blur(70px); }
+.xh-nebula--a { left: 28%; top: 6%; width: 52%; height: 62%; background: radial-gradient(ellipse, rgba(120, 70, 255, .5), transparent 68%); }
+.xh-nebula--b { left: -8%; top: 28%; width: 38%; height: 52%; background: radial-gradient(ellipse, rgba(60, 90, 255, .32), transparent 70%); }
+.xh-nebula--c { right: 4%; top: 52%; width: 40%; height: 40%; background: radial-gradient(ellipse, rgba(220, 70, 200, .26), transparent 70%); }
+.xh-star { position: absolute; border-radius: 50%; opacity: .85; animation: xh-twinkle 4s ease-in-out infinite; }
+@keyframes xh-twinkle { 0%, 100% { opacity: .2; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.25); } }
+.xh-sparkle { position: absolute; width: 14px; height: 14px; opacity: .9; animation: xh-twinkle 5s ease-in-out infinite;
+  background: radial-gradient(circle, #fff 0 12%, transparent 14%), linear-gradient(#fff, #fff) center / 1.5px 100% no-repeat, linear-gradient(#fff, #fff) center / 100% 1.5px no-repeat;
+  filter: drop-shadow(0 0 6px #8fe9ff); }
+.xh-moon-wrap { position: absolute; top: 9%; left: 60.5%; width: 74px; height: 74px; }
+.xh-moon { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 68% 32%, #f6f1ff, #a79bea 55%, #5a4fb0);
+  box-shadow: 0 0 70px rgba(170, 150, 255, .6), 0 0 160px rgba(120, 100, 255, .3);
+  -webkit-mask-image: radial-gradient(circle at 24% 60%, transparent 40%, #000 42%); mask-image: radial-gradient(circle at 24% 60%, transparent 40%, #000 42%); }
+.xh-mountains { position: absolute; left: 0; right: 0; bottom: 6%; width: 100%; height: 62%; opacity: .95; }
+.xh-rock { position: absolute; background: linear-gradient(145deg, #4a3d94, #1a1250); clip-path: polygon(10% 0, 90% 14%, 100% 55%, 52% 100%, 6% 70%); box-shadow: 0 0 20px rgba(130, 100, 255, .4); animation: xh-bob 9s ease-in-out infinite; }
+.xh-rock--1 { left: 35%; top: 62%; width: 26px; height: 26px; }
+.xh-rock--2 { left: 61%; top: 70%; width: 18px; height: 18px; animation-delay: -3s; }
+.xh-rock--3 { left: 24%; top: 76%; width: 34px; height: 34px; animation-delay: -5s; }
+.xh-mist { position: absolute; left: 0; right: 0; bottom: 0; height: 42%; background: linear-gradient(180deg, transparent, rgba(110, 60, 210, .32) 55%, rgba(150, 70, 220, .5)); }
+.xh-cloud { position: absolute; border-radius: 50%; filter: blur(34px); animation: xh-drift 20s ease-in-out infinite alternate; }
+.xh-cloud--l { left: -8%; bottom: 2%; width: 46%; height: 190px; background: rgba(150, 90, 240, .72); }
+.xh-cloud--m { left: 24%; bottom: -6%; width: 40%; height: 150px; background: rgba(110, 70, 220, .75); animation-delay: -6s; }
+.xh-cloud--r { right: -8%; bottom: 3%; width: 44%; height: 200px; background: rgba(180, 90, 230, .62); animation-delay: -11s; }
+.xh-cloud--b { left: 48%; bottom: -8%; width: 40%; height: 150px; background: rgba(130, 80, 235, .7); animation-delay: -3s; }
+@keyframes xh-drift { from { transform: translateX(-3%); } to { transform: translateX(4%); } }
+.xh-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 46%, transparent 52%, rgba(4, 2, 22, .55) 100%); }
+
+
+.xh-grid {
+  position: relative; z-index: 1;
+  display: grid; gap: 28px; align-items: center;
+  max-width: 1720px; margin: 0 auto; padding: 96px 20px 28px;
+}
+@media (min-width: 1024px) {
+  .xh-grid {
+    grid-template-columns: minmax(470px, .95fr) minmax(0, 1.6fr) minmax(330px, 385px);
+    grid-template-areas: "copy stage nova" "stats stats stats";
+    gap: 8px 12px; padding: 88px 32px 28px; min-height: calc(100svh - 0px);
+  }
+  .xh-copy { grid-area: copy; }
+  .xh-stage { grid-area: stage; }
+  .xh-nova-slot { grid-area: nova; }
+  .xh-stats { grid-area: stats; }
+}
+
+/* ---------- copy ---------- */
+.xh-badge {
+  display: inline-flex; align-items: center; gap: 10px; margin-bottom: 30px;
+  padding: 9px 16px; border-radius: 999px;
+  border: 1px solid rgba(103, 232, 249, .35); background: rgba(8, 10, 40, .6); backdrop-filter: blur(10px);
+  font: 500 11px/1 var(--font-jetbrains), ui-monospace, monospace; letter-spacing: .12em; color: #d9e4ff;
+}
+.xh-badge i { width: 11px; height: 11px; background: #36d6ff; transform: rotate(45deg); box-shadow: 0 0 12px #36d6ff; }
+.xh-copy h1 {
+  font-size: clamp(2.5rem, 3.4vw, 3.9rem); font-weight: 700; line-height: 1.04; letter-spacing: -.035em; color: #fff;
+}
+.xh-copy h1 em { font-style: normal; color: #22d3ee; background: linear-gradient(90deg, #2dd4f0, #67e8f9); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.xh-sub { margin-top: 26px; max-width: 26rem; font-size: 1.08rem; line-height: 1.6; color: rgba(226, 232, 255, .86); }
+.xh-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; margin-top: 32px; }
+.xh-btn {
+  display: inline-flex; align-items: center; gap: 12px; padding: 15px 26px; border-radius: 999px;
+  font-size: 1.08rem; font-weight: 500; color: #fff; transition: transform .2s, box-shadow .2s, filter .2s;
+}
+.xh-btn:hover { transform: translateY(-2px); }
+.xh-btn--primary {
+  min-width: 300px; justify-content: space-between;
+  border: 1.5px solid rgba(190, 170, 255, .75);
+  background: linear-gradient(90deg, #6d4df2, #8b6bff);
+  box-shadow: 0 0 34px rgba(124, 92, 255, .55), inset 0 1px rgba(255, 255, 255, .25);
+}
+.xh-btn--primary:hover { filter: brightness(1.1); }
+.xh-btn--ghost { border: 1.5px solid rgba(150, 130, 255, .6); background: rgba(12, 10, 50, .55); box-shadow: 0 0 22px rgba(124, 92, 255, .22); padding-right: 36px; }
+.xh-btn--ghost:hover { border-color: #67e8f9; }
+.xh-exploring { margin-top: 44px; }
+.xh-exploring p { margin-bottom: 14px; font-size: 12px; letter-spacing: .16em; color: rgba(226, 232, 255, .8); }
+.xh-exploring > div { display: flex; flex-wrap: wrap; gap: 10px; }
+.xh-chip { padding: 8px 16px; border-radius: 999px; border: 1px solid; font-size: 13px; font-weight: 500; background: rgba(12, 10, 50, .5); }
+.xh-chip--violet { color: #e0d4ff; border-color: rgba(190, 120, 255, .7); background: rgba(140, 70, 220, .22); }
+.xh-chip--cyan { color: #c8fbff; border-color: rgba(103, 232, 249, .6); background: rgba(34, 211, 238, .1); }
+.xh-chip--blue { color: #cfe0ff; border-color: rgba(110, 150, 255, .6); background: rgba(70, 110, 240, .14); }
+
+/* ---------- world ---------- */
+.xh-stage { min-width: 0; position: relative; z-index: 1; }
+.xh-copy, .xh-nova-slot { position: relative; z-index: 2; }
+.xh-world { position: relative; width: 112%; margin: 0 0 0 -6%; aspect-ratio: 1749 / 1172; }
+.xh-island { position: absolute; height: auto; user-select: none; pointer-events: none; filter: drop-shadow(0 26px 34px rgba(10, 4, 40, .55)); animation: xh-bob 8s ease-in-out infinite; }
+.xh-routes { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.xh-route-flow { stroke-dasharray: 14 26; animation: xh-flow 2.4s linear infinite; opacity: .9; }
+@keyframes xh-flow { to { stroke-dashoffset: -80; } }
+.xh-world-glow { position: absolute; inset: 8% 6%; border-radius: 50%; background: radial-gradient(ellipse, rgba(120, 80, 255, .32), rgba(40, 190, 255, .1) 50%, transparent 72%); filter: blur(30px); }
+@keyframes xh-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes xh-pill-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -6px; } }
+
+.xh-pill {
+  position: absolute; z-index: 2; display: flex; align-items: center; gap: 12px; transform: translate(-50%, -50%); animation: xh-pill-bob 6s ease-in-out infinite;
+  padding: .55em 1.4em .55em .9em; border-radius: 999px; white-space: nowrap; text-align: left; color: #fff;
+  border: 2px solid var(--c);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--c) 22%, #0a0630), rgba(8, 5, 36, .92));
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .4), 0 0 24px color-mix(in srgb, var(--c) 45%, transparent);
+  transition: transform .2s, box-shadow .2s;
+  font-size: clamp(9px, .86vw, 16px);
+}
+.xh-pill:hover, .xh-pill:focus-visible { transform: translate(-50%, -54%) scale(1.04); box-shadow: 0 10px 34px rgba(0, 0, 0, .45), 0 0 38px color-mix(in srgb, var(--c) 70%, transparent); }
+.xh-pill-icon { display: grid; place-items: center; color: var(--c); }
+.xh-pill-copy { display: flex; flex-direction: column; gap: 2px; }
+.xh-pill-copy b { font-weight: 600; font-size: 1em; }
+.xh-pill-copy b i { font-style: normal; font-weight: 500; margin-right: 4px; }
+.xh-pill-copy small { font-size: .7em; color: rgba(235, 240, 255, .8); }
+
+/* ---------- Nova panel ---------- */
+.xh-nova-slot { display: flex; justify-content: center; align-self: center; }
+.xh-nova {
+  width: 100%; max-width: 385px; padding: 16px 18px 18px; border-radius: 26px;
+  border: 1.5px solid rgba(160, 120, 255, .7);
+  background: linear-gradient(160deg, rgba(24, 16, 84, .62), rgba(9, 6, 44, .72));
+  box-shadow: 0 0 44px rgba(124, 80, 255, .3), inset 0 1px rgba(255, 255, 255, .1);
+  backdrop-filter: blur(16px);
+}
+.xh-nova-head { display: flex; align-items: center; gap: 10px; }
+.xh-nova-head h2 { font-size: 1.3rem; font-weight: 600; color: #fff; }
+.xh-nova-spark { color: #c4b5fd; filter: drop-shadow(0 0 8px #8b5cf6); }
+.xh-nova-online { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px; border: 1px solid rgba(52, 211, 153, .6); background: rgba(16, 185, 129, .12); color: #6ee7b7; font-size: 12px; }
+.xh-nova-online i { width: 7px; height: 7px; border-radius: 50%; background: #34d399; box-shadow: 0 0 8px #34d399; }
+.xh-nova-ctrl { margin-left: auto; display: flex; gap: 8px; }
+.xh-nova-ctrl button { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; color: #e2e8ff; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .12); }
+.xh-nova-ctrl button:hover { background: rgba(255, 255, 255, .16); }
+.xh-nova-body { overflow: hidden; }
+.xh-nova-stage { position: relative; height: 236px; margin-top: 6px; perspective: 700px; }
+
+
+.xh-nova-bubble {
+  position: absolute; right: 0; top: 4px; width: 46%; padding: 11px 12px; border-radius: 16px;
+  border: 1.5px solid rgba(103, 180, 255, .6); background: linear-gradient(150deg, rgba(20, 40, 110, .95), rgba(10, 18, 60, .95));
+  box-shadow: 0 0 22px rgba(80, 140, 255, .25); font-size: 11.5px; line-height: 1.35; color: #e8eeff;
+}
+.xh-nova-bubble strong { display: block; font-size: 14px; color: #fff; margin-bottom: 2px; }
+.xh-nova-bubble span { display: block; font-size: 13px; color: #fff; }
+.xh-nova-bubble p { margin-top: 6px; font-size: 10.5px; color: rgba(232, 238, 255, .85); }
+.xh-nova-chat { display: flex; flex-direction: column; gap: 8px; max-height: 170px; margin-top: 12px; overflow-y: auto; padding-right: 4px; }
+.xh-msg { padding: 9px 12px; border-radius: 14px; font-size: 12px; line-height: 1.5; color: #e8eeff; }
+.xh-msg--assistant { background: rgba(110, 90, 240, .18); border: 1px solid rgba(160, 130, 255, .28); }
+.xh-msg--user { align-self: flex-end; max-width: 88%; background: rgba(34, 211, 238, .14); border: 1px solid rgba(103, 232, 249, .3); }
+.xh-msg--busy { opacity: .7; font-style: italic; }
+.xh-nova-ask { margin: 14px 0 10px; font-size: 1.05rem; font-weight: 600; color: #fff; }
+.xh-nova-dests { display: flex; flex-direction: column; gap: 8px; }
+.xh-nova-dests button {
+  display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 12px; text-align: left;
+  border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--c) 12%, rgba(10, 8, 50, .8)), rgba(10, 8, 50, .6));
+  color: #e8eeff; font-size: 12.5px; transition: transform .18s, border-color .18s;
+}
+.xh-nova-dests button > :first-child { color: var(--c); flex: 0 0 auto; }
+.xh-nova-dests button span { flex: 1; min-width: 0; }
+.xh-nova-dests button b { color: #fff; font-weight: 600; }
+.xh-nova-dests button:hover { transform: translateX(3px); border-color: var(--c); }
+.xh-nova-input { display: flex; align-items: center; gap: 8px; margin-top: 14px; padding: 5px 5px 5px 18px; border-radius: 999px; border: 1.5px solid rgba(160, 130, 255, .7); background: rgba(6, 4, 30, .7); }
+.xh-nova-input:focus-within { border-color: #67e8f9; }
+.xh-nova-input input { flex: 1; min-width: 0; background: transparent; outline: none; color: #fff; font-size: 13px; padding: 8px 0; }
+.xh-nova-input input::placeholder { color: #8f98bf; }
+.xh-nova-input button { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; color: #fff; background: linear-gradient(135deg, #8b6bff, #6d7bff); box-shadow: 0 0 16px rgba(124, 92, 255, .5); }
+.xh-nova-input button:disabled { opacity: .45; cursor: not-allowed; }
+.xh-nova-launcher { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; color: #fff; font-weight: 500; border: 1.5px solid rgba(160, 120, 255, .7); background: rgba(20, 14, 70, .9); box-shadow: 0 0 30px rgba(124, 80, 255, .35); }
+
+/* ---------- stats ---------- */
+.xh-stats { position: relative; display: flex; justify-content: center; align-items: center; margin-top: 4px; }
+.xh-scroll { display: none; }
+.xh-stats-bar {
+  display: grid; grid-template-columns: repeat(2, 1fr); width: 100%; max-width: 990px; border-radius: 22px;
+  border: 1.5px solid rgba(150, 120, 255, .5); background: rgba(10, 6, 44, .72); backdrop-filter: blur(14px);
+  box-shadow: 0 0 34px rgba(100, 70, 230, .22);
+}
+.xh-stats-bar > div { display: flex; align-items: center; gap: 14px; padding: 16px 20px; color: #a78bfa; }
+.xh-stats-bar p { display: flex; flex-direction: column; color: #fff; }
+.xh-stats-bar b { font-size: 1.7rem; line-height: 1.1; font-weight: 700; }
+.xh-stats-bar span { font-size: 13px; color: rgba(226, 232, 255, .85); }
+@media (min-width: 1024px) {
+  .xh-stats-bar { grid-template-columns: repeat(4, 1fr); }
+  .xh-stats-bar > div + div { border-left: 1px solid rgba(150, 120, 255, .3); }
+  .xh-scroll {
+    position: absolute; left: 0; display: flex; align-items: center; gap: 16px;
+    color: rgba(226, 232, 255, .8); font-size: 13px; letter-spacing: .1em;
+  }
+}
+
+/* ---------- small screens ---------- */
+@media (max-width: 1023px) {
+  .xh-moon { display: none; }
+  .xh-copy { max-width: 36rem; }
+  .xh-btn--primary { min-width: 0; }
+  .xh-pill { padding: 5px 10px 5px 7px; gap: 6px; border-width: 1.5px; }
+  .xh-pill-icon svg { width: 14px; height: 14px; }
+  .xh-pill-copy small { display: none; }
+  .xh-nova { max-width: 460px; }
+}
+@media (max-width: 520px) {
+  .xh-pill { font-size: 9px; }
+  .xh-stats-bar > div { padding: 12px 12px; gap: 9px; }
+  .xh-stats-bar b { font-size: 1.3rem; }
+  .xh-stats-bar span { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .xh-island, .xh-pill, .xh-route-flow { animation: none; }
+}
+
+
+@media (min-width: 1024px) {
+  .xh-stage { position: static; }
+  .xh-world { position: absolute; left: 23.5%; top: 40px; width: 57.5%; margin: 0; z-index: 1; }
+  .xh-copy { z-index: 3; }
+  .xh-nova-slot { z-index: 3; }
+}
+
+/* ---------- Nova: character like the mockup ---------- */
+.xh-nova-halo { position: absolute; left: -4%; top: 4%; width: 62%; height: 96%; border-radius: 50%; background: radial-gradient(circle at 50% 45%, rgba(110, 90, 255, .55), rgba(40, 180, 255, .22) 45%, transparent 70%); filter: blur(10px); animation: xh-halo 5s ease-in-out infinite; }
+@keyframes xh-halo { 0%, 100% { opacity: .7; transform: scale(.96); } 50% { opacity: 1; transform: scale(1.06); } }
+.xh-nova-rig { position: absolute; left: 0; bottom: 0; width: 58%; height: 100%; transform-style: preserve-3d; will-change: transform; }
+.xh-nova-layer { position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; object-fit: contain; object-position: 50% 100%; pointer-events: none; user-select: none; }
+.xh-nova-layer--back { filter: blur(16px) saturate(1.8) brightness(1.2); opacity: .6; transform: translateZ(-30px) scale(1.1); }
+.xh-nova-layer--main { transform: translateZ(14px); filter: saturate(1.12) contrast(1.05) drop-shadow(0 8px 14px rgba(0, 0, 0, .45)); }
+.xh-nova-bubble { top: 6px; width: 48%; z-index: 2; border-radius: 18px; }
+.xh-nova-bubble::before { content: ""; position: absolute; left: -9px; bottom: 22px; width: 16px; height: 16px; transform: rotate(45deg); background: rgba(14, 26, 82, .96); border-left: 1.5px solid rgba(103, 180, 255, .6); border-bottom: 1.5px solid rgba(103, 180, 255, .6); }
+@media (prefers-reduced-motion: reduce) { .xh-nova-rig { transform: none !important; } .xh-nova-halo, .xh-star, .xh-cloud, .xh-sparkle { animation: none !important; } }
+
+@media (max-width: 1023px) { .xh-sparkle { display: none; } }
+
+
+/* ---------- PR #7 alignment pass ---------- */
+/* Keep the island artwork inside the middle grid column. The previous
+   viewport-relative absolute placement let the right islands drift under Nova. */
+@media (min-width: 1280px) {
+  .xh-stage {
+    position: relative;
+    min-width: 0;
+    z-index: 1;
+  }
+  .xh-world {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 105%;
+    max-width: none;
+    margin: 0 0 0 -16%;
+    transform: translateY(-1%);
+    transform-origin: center center;
+    z-index: 1;
+  }
+  .xh-nova-slot {
+    align-self: center;
+    transform: translateY(-20px);
+    z-index: 4;
+  }
+}
+
+/* At laptop widths, give the artwork enough room and place Nova beneath it
+   instead of compressing the center column into an unusable sliver. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .xh-grid {
+    grid-template-columns: minmax(360px, .9fr) minmax(0, 1.1fr);
+    grid-template-areas:
+      "copy stage"
+      "nova nova"
+      "stats stats";
+    align-items: center;
+  }
+  .xh-stage {
+    position: relative;
+    min-width: 0;
+  }
+  .xh-world {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 112%;
+    margin: 0 0 0 -6%;
+    transform: none;
+  }
+  .xh-nova-slot {
+    width: 100%;
+    justify-self: end;
+    justify-content: flex-end;
+    transform: translateY(-12px);
+  }
+}
+
+/* Keep the map and its labels legible on narrow screens without overlap. */
+@media (max-width: 1023px) {
+  .xh-stage {
+    position: relative;
+    overflow: visible;
+  }
+  .xh-world {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    margin: 0;
+    transform: none;
+  }
+}
+
+
+/* PR #7 — give the island world more of the center stage without encroaching
+   on the headline or Nova. The five landmasses are enlarged independently
+   in HeroWorld and this wider canvas gives their silhouettes room to breathe. */
+@media (min-width: 1280px) {
+  .xh-stage {
+    min-width: 0;
+    overflow: visible;
+  }
+  .xh-world {
+    width: 112%;
+    max-width: none;
+    margin: 0 0 0 -6%;
+    transform: translateY(-1.5%) scale(1.015);
+    transform-origin: center center;
+  }
+  .xh-nova-slot {
+    position: relative;
+    z-index: 5;
+  }
+  .xh-copy {
+    position: relative;
+    z-index: 5;
+  }
+  .xh-pill {
+    font-size: clamp(10px, .82vw, 15px);
+  }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .xh-world {
+    width: 108%;
+    margin-left: -4%;
+  }
+  .xh-pill {
+    font-size: clamp(9px, .9vw, 12px);
+    padding: .5em .9em .5em .7em;
+    gap: 7px;
+  }
+}
+@media (max-width: 1023px) {
+  .xh-world {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+
+/* PR #7 refinement — prioritize the world stage and make Nova a compact guide.
+   The center column gains the space released by the narrower assistant panel. */
+@media (min-width: 1280px) {
+  .xh-grid {
+    grid-template-columns: minmax(380px, .88fr) minmax(0, 2.05fr) minmax(270px, 305px);
+    column-gap: 10px;
+  }
+  .xh-stage {
+    min-width: 0;
+    z-index: 2;
+  }
+  .xh-world {
+    width: 118%;
+    margin-left: -9%;
+    transform: translateY(-1%) scale(1.025);
+  }
+  .xh-nova-slot {
+    justify-self: end;
+    width: 100%;
+    max-width: 305px;
+    transform: translateY(-8px);
+  }
+  .xh-nova {
+    max-width: 305px;
+    padding: 12px 13px 13px;
+    border-radius: 22px;
+  }
+  .xh-nova-head h2 { font-size: 1.12rem; }
+  .xh-nova-head { gap: 8px; }
+  .xh-nova-online { padding: 3px 8px; font-size: 10px; }
+  .xh-nova-ctrl { gap: 5px; }
+  .xh-nova-ctrl button { width: 26px; height: 26px; }
+  .xh-nova-stage { height: 184px; margin-top: 3px; }
+  .xh-nova-rig { width: 56%; }
+  .xh-nova-bubble {
+    top: 5px;
+    width: 49%;
+    padding: 9px 9px;
+    font-size: 10px;
+  }
+  .xh-nova-bubble strong { font-size: 12px; }
+  .xh-nova-bubble span { font-size: 11px; }
+  .xh-nova-bubble p { font-size: 9px; margin-top: 5px; }
+  .xh-nova-ask { margin: 10px 0 8px; font-size: .92rem; }
+  .xh-nova-dests { gap: 6px; }
+  .xh-nova-dests button {
+    gap: 8px;
+    padding: 8px 9px;
+    border-radius: 10px;
+    font-size: 10.5px;
+  }
+  .xh-nova-dests button > :first-child { width: 17px; height: 17px; }
+  .xh-nova-input { margin-top: 10px; padding: 3px 4px 3px 12px; }
+  .xh-nova-input input { font-size: 11px; padding: 6px 0; }
+  .xh-nova-input button { width: 33px; height: 33px; }
+  .xh-pill { font-size: clamp(10px, .78vw, 14px); }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .xh-nova-slot { max-width: 360px; justify-self: center; }
+  .xh-nova { max-width: 360px; }
+  .xh-nova-stage { height: 205px; }
+}
