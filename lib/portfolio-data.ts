@@ -21,7 +21,7 @@ export const portfolioData = {
     name: "Shreya Dubey",
     role: "Software Engineer",
     subtitle: "Backend Engineering • AI/ML Systems",
-    tagline: "I build systems that move ideas into reality.",
+    tagline: "I build reliable backend and AI systems.",
     description: "Computer Science student and software engineer focused on backend engineering and AI/ML systems. I build API-driven applications, retrieval and agent workflows, and reliability-focused software—combining practical testing with a strong foundation in computer science.",
     email: "dubeyshreya2507@gmail.com",
     linkedin: "https://www.linkedin.com/in/shreya-dubey-544874289/",
@@ -55,7 +55,7 @@ export const portfolioData = {
     },
     {
       id: "kavach", name: "Kavach", description: "Two-agent zero-trust runtime security platform combining AWS Fargate isolation, Docker sandboxing and capability-based authorization. Integrates Amazon Bedrock with four security scanners and fail-closed authorization across ten protected tool methods.",
-      tech: ["Python", "FastAPI", "AWS Fargate", "Bedrock", "Docker", "Cedar"],
+      tech: ["Python", "FastAPI", "AWS Fargate", "Amazon Bedrock", "Docker", "Cedar"],
       github: "https://github.com/shreyad2806/Kavach", caseStudy: null, featured: true, status: "Featured build",
     },
     {
