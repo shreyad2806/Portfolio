@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import "./explorer-hero.css";
+import "./world-theme.css";
 import GlobalNova from "@/components/GlobalNova";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
