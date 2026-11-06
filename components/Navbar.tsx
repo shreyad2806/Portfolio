@@ -68,7 +68,10 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-3">
+          <button type="button" onClick={() => window.dispatchEvent(new Event("nova:open"))} className="inline-flex items-center gap-2 rounded-full border border-cyan-300/40 bg-violet-950/70 px-4 py-2 text-sm font-medium text-violet-100 shadow-[0_0_18px_rgba(124,92,255,.18)] transition hover:border-cyan-200/80 hover:bg-violet-900/80" aria-label="Open Nova assistant">
+            <Sparkles size={15} className="text-cyan-200" /> Nova
+          </button>
           <a href={portfolioData.personal.resume} className="inline-flex items-center gap-2 rounded-full border border-violet-300/50 bg-[#0c0a3a]/70 px-5 py-2 text-sm font-medium text-white shadow-[0_0_20px_rgba(124,92,255,.25)] transition hover:border-cyan-200/70">
             Resume <Download size={15} />
           </a>
@@ -100,6 +103,7 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <button type="button" onClick={() => { setOpen(false); window.dispatchEvent(new Event("nova:open")); }} className="inline-flex items-center gap-2 text-sm text-violet-200"><Sparkles size={15}/> Ask Nova</button>
             <a href={portfolioData.personal.resume} className="btn-secondary text-sm w-fit">
               Resume
             </a>
