@@ -4,35 +4,5 @@ export interface Article {
   readTime: string;
 }
 
-export const upcomingArticles: Article[] = [];\n\n/* Journal entries are added to lib/portfolio-data.ts when ready. */\nexport const legacyUpcomingArticles: Article[] = [
-  {
-    title: "Building TalentLens",
-    category: "Case Study",
-    readTime: "12 min",
-  },
-  {
-    title: "Hybrid Retrieval Explained",
-    category: "RAG",
-    readTime: "8 min",
-  },
-  {
-    title: "Cross Encoder Reranking",
-    category: "Machine Learning",
-    readTime: "7 min",
-  },
-  {
-    title: "Production RAG Lessons",
-    category: "Architecture",
-    readTime: "10 min",
-  },
-  {
-    title: "Building AI Systems with FastAPI",
-    category: "Backend",
-    readTime: "9 min",
-  },
-  {
-    title: "Prompt Engineering in Real Applications",
-    category: "LLMs",
-    readTime: "6 min",
-  },
-];
+// The Journal is seeded from lib/portfolio-data.ts. Add long-form articles here when they are ready.
+export const upcomingArticles: Article[] = [];
