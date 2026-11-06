@@ -500,3 +500,57 @@
 @media (prefers-reduced-motion: reduce) {
   .xh-explore-hint { animation: none; }
 }
+
+
+/* Nova now delivers the island discovery instruction as part of her speech bubble. */
+.xh-nova-bubble {
+  width: 56%;
+  right: -1%;
+  padding: 11px 12px 12px;
+  border-color: rgba(157, 119, 255, .88);
+  background: linear-gradient(145deg, rgba(32, 24, 100, .98), rgba(8, 17, 61, .98));
+  box-shadow: 0 0 0 1px rgba(164, 123, 255, .14), 0 0 26px rgba(130, 74, 255, .38), 0 10px 24px rgba(0,0,0,.28);
+}
+.xh-nova-discover {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 9px;
+  padding: 8px 9px;
+  border: 1px solid rgba(178, 142, 255, .82);
+  border-radius: 10px;
+  color: #fff;
+  background: linear-gradient(100deg, rgba(124, 58, 237, .48), rgba(79, 70, 229, .26));
+  box-shadow: inset 0 0 12px rgba(167, 139, 250, .14), 0 0 15px rgba(139, 92, 246, .22);
+  animation: xh-nova-discover-pulse 3s ease-in-out infinite;
+}
+.xh-nova-discover svg {
+  flex: 0 0 16px;
+  color: #8beaff;
+  filter: drop-shadow(0 0 5px rgba(103,232,249,.7));
+}
+.xh-nova-discover span {
+  display: block;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: .005em;
+}
+@keyframes xh-nova-discover-pulse {
+  0%, 100% { box-shadow: inset 0 0 12px rgba(167,139,250,.14), 0 0 12px rgba(139,92,246,.18); }
+  50% { box-shadow: inset 0 0 15px rgba(167,139,250,.22), 0 0 20px rgba(139,92,246,.34); }
+}
+@media (min-width: 1280px) {
+  .xh-nova-bubble { width: 57%; padding: 10px 10px 11px; }
+  .xh-nova-discover { gap: 6px; padding: 7px; margin-top: 8px; }
+  .xh-nova-discover span { font-size: 9.5px; }
+}
+@media (max-width: 520px) {
+  .xh-nova-bubble { width: 54%; padding: 8px; }
+  .xh-nova-discover { gap: 5px; padding: 6px; margin-top: 6px; }
+  .xh-nova-discover span { font-size: 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .xh-nova-discover { animation: none; }
+}
