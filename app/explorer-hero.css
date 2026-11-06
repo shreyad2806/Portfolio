@@ -724,7 +724,7 @@
   z-index: 70;
   padding: 13px 19px;
   border: 1px solid rgba(173, 145, 255, .82);
-  background: linear-gradient(120deg, rgba(91,  fifty, 220, .96), rgba(37, 27, 103, .97));
+  background: linear-gradient(120deg, rgba(91, 50, 220, .96), rgba(37, 27, 103, .97));
   box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 0 26px rgba(124,92,255,.42);
 }
 @media (max-width: 640px) {
