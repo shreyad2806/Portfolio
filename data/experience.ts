@@ -41,5 +41,17 @@ export const experienceData: ExperienceItem[] = [
     highlights: ["Legal marketing CRM workflows", "Automated lead qualification", "AI-assisted content generation"],
     checklist: ["Build lead discovery and qualification workflows", "Integrate OCR and NLP processing", "Connect REST APIs and Supabase services", "Support content generation and engagement tracking"],
     quote: "Build useful workflows by connecting the right pieces."
-  }
+  },
+  {
+    id: "education",
+    year: "Sep 2023 – May 2027",
+    title: "B.Tech · Computer Science & Engineering",
+    subtitle: "Vellore Institute of Technology, Bhopal",
+    icon: "FolderGit2",
+    description: "Pursuing a Bachelor of Technology in Computer Science and Engineering at VIT Bhopal University. Current CGPA: 8.24/10.",
+    focusAreas: ["Data Structures & Algorithms", "Object-Oriented Programming", "DBMS & Operating Systems", "System Design Fundamentals"],
+    highlights: ["B.Tech Computer Science & Engineering", "CGPA: 8.24/10", "Sep 2023 – May 2027"],
+    checklist: ["Computer science foundations", "Problem solving", "Software engineering"],
+    quote: "Strong fundamentals make better systems."
+  },
 ];
