@@ -22,11 +22,11 @@ const CANVAS = { w: 1749, h: 1172 };
 const ISLANDS: Record<string, { left: number; top: number; width: number; w: number; h: number; pill: { left: number; top: number } }> = {
   // Wider spacing and larger silhouettes create a clear five-island arc:
   // two upper islands, two lower islands, and Journey as the foreground anchor.
-  buildlab: { left: 1.5, top: 20.5, width: 34, w: 526, h: 570, pill: { left: 19.5, top: 57 } },
-  basecamp: { left: 31.5, top: 2.5, width: 38, w: 595, h: 514, pill: { left: 50.5, top: 38.5 } },
-  journey: { left: 23.5, top: 49, width: 38, w: 584, h: 503, pill: { left: 42.5, top: 82 } },
-  frontier: { left: 66, top: 22.5, width: 32.5, w: 501, h: 316, pill: { left: 82, top: 48 } },
-  connection: { left: 66, top: 49, width: 34, w: 553, h: 536, pill: { left: 82, top: 82 } },
+  buildlab: { left: 0.5, top: 19.5, width: 34, w: 526, h: 570, pill: { left: 18.5, top: 57 } },
+  basecamp: { left: 31, top: 2, width: 38.5, w: 595, h: 514, pill: { left: 50, top: 38 } },
+  journey: { left: 23.5, top: 51.5, width: 38, w: 584, h: 503, pill: { left: 43, top: 82 } },
+  frontier: { left: 65, top: 22.5, width: 30, w: 501, h: 316, pill: { left: 80, top: 48 } },
+  connection: { left: 64, top: 49, width: 32, w: 553, h: 536, pill: { left: 80.5, top: 81 } },
 };
 
 /* Glowing travel routes between islands (canvas coordinates). */
