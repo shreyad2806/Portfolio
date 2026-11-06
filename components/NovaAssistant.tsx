@@ -29,9 +29,9 @@ export default function NovaAssistant({ destinations, onNavigate }: Props) {
   const listRef = useRef<HTMLDivElement>(null);
   const px = useMotionValue(0);
   const py = useMotionValue(0);
-  const rotateY = useSpring(useTransform(px, [-0.5, 0.5], [-16, 16]), { stiffness: 140, damping: 16 });
-  const rotateX = useSpring(useTransform(py, [-0.5, 0.5], [12, -12]), { stiffness: 140, damping: 16 });
-  const shiftX = useSpring(useTransform(px, [-0.5, 0.5], [-5, 5]), { stiffness: 140, damping: 16 });
+  const rotateY = useSpring(useTransform(px, [-0.5, 0.5], [-10, 10]), { stiffness: 140, damping: 16 });
+  const rotateX = useSpring(useTransform(py, [-0.5, 0.5], [8, -8]), { stiffness: 140, damping: 16 });
+  const shiftX = useSpring(useTransform(px, [-0.5, 0.5], [-4, 4]), { stiffness: 140, damping: 16 });
 
   function tilt(e: React.PointerEvent<HTMLDivElement>) {
     const r = e.currentTarget.getBoundingClientRect();
@@ -126,19 +126,18 @@ export default function NovaAssistant({ destinations, onNavigate }: Props) {
             className="xh-nova-body"
           >
             <div className="xh-nova-stage" onPointerMove={tilt} onPointerLeave={untilt}>
+              <div className="xh-nova-halo" aria-hidden="true" />
               <motion.div className="xh-nova-rig" style={{ rotateX, rotateY, x: shiftX }}>
-                <div className="xh-nova-floor" aria-hidden="true" />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/nova-guide.webp" alt="" aria-hidden="true" className="xh-nova-layer xh-nova-layer--back" draggable={false} />
+                <img src="/images/nova-3d.webp" alt="" aria-hidden="true" className="xh-nova-layer xh-nova-layer--back" draggable={false} />
                 <motion.img
-                  src="/images/nova-guide.webp"
+                  src="/images/nova-3d.webp"
                   alt="Nova, Shreya's AI companion"
                   className="xh-nova-layer xh-nova-layer--main"
                   draggable={false}
-                  animate={{ y: [0, -5, 0] }}
+                  animate={{ y: [0, -6, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 />
-                <div className="xh-nova-rim" aria-hidden="true" />
               </motion.div>
               <div className="xh-nova-bubble">
                 <strong>Hey Explorer! 👋</strong>

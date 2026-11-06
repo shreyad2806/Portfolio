@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Boxes, Code2, FileText, Home, Layers3, FlaskConical, Map, Play, ArrowRight, Radio, Telescope, Trophy, Mouse } from "lucide-react";
+import HeroBackdrop from "@/components/HeroBackdrop";
 import HeroWorld from "@/components/HeroWorld";
 import NovaAssistant, { type NovaDestination } from "@/components/NovaAssistant";
 import { portfolioData } from "@/lib/portfolio-data";
@@ -35,12 +36,7 @@ function scrollToSection(id: string) {
 export default function ExplorerHero() {
   return (
     <section id="home" className="xh-hero">
-      <div className="xh-sky" aria-hidden="true">
-        <span className="xh-moon" />
-        <span className="xh-cloud xh-cloud--l" />
-        <span className="xh-cloud xh-cloud--r" />
-        <span className="xh-cloud xh-cloud--b" />
-      </div>
+      <HeroBackdrop />
 
       <div className="xh-grid">
         <motion.div

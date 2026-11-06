@@ -17,23 +17,23 @@ type Props = {
   onNavigate: (id: string) => void;
 };
 
-/* Canvas is 1895 x 1270. Each island is its own image so the group can be spread apart. */
-const CANVAS = { w: 1895, h: 1270 };
+/* Canvas is 1749 x 1172. Each island is its own image so the group can be spread apart. */
+const CANVAS = { w: 1749, h: 1172 };
 const ISLANDS: Record<string, { left: number; top: number; width: number; w: number; h: number; pill: { left: number; top: number } }> = {
-  buildlab: { left: 6.612, top: 23.732, width: 27.757, w: 526, h: 570, pill: { left: 20.49, top: 56.05 } },
-  basecamp: { left: 34.522, top: 8.173, width: 31.398, w: 595, h: 514, pill: { left: 50.22, top: 37.31 } },
-  journey: { left: 26.802, top: 51.835, width: 30.818, w: 584, h: 503, pill: { left: 42.21, top: 80.35 } },
-  frontier: { left: 64.929, top: 28.724, width: 26.438, w: 501, h: 316, pill: { left: 78.15, top: 46.64 } },
-  connection: { left: 64.063, top: 49.732, width: 29.182, w: 553, h: 536, pill: { left: 78.65, top: 80.12 } },
+  buildlab: { left: 5.655, top: 21.881, width: 30.074, w: 526, h: 570, pill: { left: 20.69, top: 56.9 } },
+  basecamp: { left: 33.21, top: 6.625, width: 34.019, w: 595, h: 514, pill: { left: 50.22, top: 38.2 } },
+  journey: { left: 25.569, top: 50.034, width: 33.391, w: 584, h: 503, pill: { left: 42.26, top: 80.94 } },
+  frontier: { left: 63.634, top: 27.743, width: 28.645, w: 501, h: 316, pill: { left: 77.96, top: 47.16 } },
+  connection: { left: 62.65, top: 47.828, width: 31.618, w: 553, h: 536, pill: { left: 78.46, top: 80.76 } },
 };
 
 /* Glowing travel routes between islands (canvas coordinates). */
 const ROUTES = [
-  "M 952 361 Q 630 372 388 586",
-  "M 952 361 Q 1246 347 1481 523",
-  "M 388 586 Q 643 686 800 910",
-  "M 800 910 Q 1146 1008 1490 900",
-  "M 1481 523 Q 1187 798 800 910",
+  "M 878 335 Q 583 345 362 541",
+  "M 878 335 Q 1147 322 1363 483",
+  "M 362 541 Q 595 633 739 838",
+  "M 739 838 Q 1057 928 1372 829",
+  "M 1363 483 Q 1094 735 739 838",
 ];
 
 export default function HeroWorld({ destinations, onNavigate }: Props) {
