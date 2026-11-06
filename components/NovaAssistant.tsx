@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowRight, LoaderCircle, Minus, Send, Sparkles, X } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -27,6 +27,21 @@ export default function NovaAssistant({ destinations, onNavigate }: Props) {
   const [draft, setDraft] = useState("");
   const [busy, setBusy] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
+  const px = useMotionValue(0);
+  const py = useMotionValue(0);
+  const rotateY = useSpring(useTransform(px, [-0.5, 0.5], [-16, 16]), { stiffness: 140, damping: 16 });
+  const rotateX = useSpring(useTransform(py, [-0.5, 0.5], [12, -12]), { stiffness: 140, damping: 16 });
+  const shiftX = useSpring(useTransform(px, [-0.5, 0.5], [-5, 5]), { stiffness: 140, damping: 16 });
+
+  function tilt(e: React.PointerEvent<HTMLDivElement>) {
+    const r = e.currentTarget.getBoundingClientRect();
+    px.set((e.clientX - r.left) / r.width - 0.5);
+    py.set((e.clientY - r.top) / r.height - 0.5);
+  }
+  function untilt() {
+    px.set(0);
+    py.set(0);
+  }
 
   useEffect(() => {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" });
@@ -110,15 +125,21 @@ export default function NovaAssistant({ destinations, onNavigate }: Props) {
             transition={{ duration: 0.22 }}
             className="xh-nova-body"
           >
-            <div className="xh-nova-stage">
-              <div className="xh-nova-halo" />
-              <motion.img
-                src="/images/nova-guide.webp"
-                alt="Nova, Shreya's AI companion"
-                className="xh-nova-avatar"
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              />
+            <div className="xh-nova-stage" onPointerMove={tilt} onPointerLeave={untilt}>
+              <motion.div className="xh-nova-rig" style={{ rotateX, rotateY, x: shiftX }}>
+                <div className="xh-nova-floor" aria-hidden="true" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/nova-guide.webp" alt="" aria-hidden="true" className="xh-nova-layer xh-nova-layer--back" draggable={false} />
+                <motion.img
+                  src="/images/nova-guide.webp"
+                  alt="Nova, Shreya's AI companion"
+                  className="xh-nova-layer xh-nova-layer--main"
+                  draggable={false}
+                  animate={{ y: [0, -5, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <div className="xh-nova-rim" aria-hidden="true" />
+              </motion.div>
               <div className="xh-nova-bubble">
                 <strong>Hey Explorer! 👋</strong>
                 <span>I&apos;m Nova, Shreya&apos;s AI companion.</span>
