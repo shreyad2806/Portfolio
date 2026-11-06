@@ -1,3 +1,15 @@
+export type JournalResource = {
+  name: string;
+  description: string;
+  url?: string;
+  category: string;
+  date?: string;
+};
+
+// Add discoveries here as you find useful repositories, tools or plugins.
+const openSourceFinds: JournalResource[] = [];
+const toolsAndPlugins: JournalResource[] = [];
+
 export const portfolioData = {
   personal: {
     name: "Shreya Dubey",
@@ -91,6 +103,18 @@ export const portfolioData = {
     note: "Notes from building, debugging and exploring the infrastructure behind intelligent software.",
   },
   blog: { title: "Engineering Field Notes", readingTime: "", href: null },
+  journal: {
+    buildNotes: [
+      { title: "Building reliable agent workflows", description: "Notes on orchestration, tool boundaries, retries and predictable agent behavior.", category: "Agentic AI", status: "Writing idea" },
+      { title: "Debugging production issues from signals to fixes", description: "A practical log of reproducing failures, tracing root causes and validating fixes.", category: "Engineering", status: "Writing idea" },
+      { title: "Designing fail-closed guardrails in CloseLoop", description: "How deterministic checks, approval boundaries and post-action verification fit together.", category: "Architecture", status: "Writing idea" },
+      { title: "Runtime authorization for AI agents", description: "Exploring policy enforcement and least-privilege access for agent tools.", category: "Security", status: "Writing idea" },
+    ],
+    openSourceFinds,
+    toolsAndPlugins,
+    skillsInProgress: ["Agentic AI", "Agent harnesses", "AI infrastructure", "Open-source tooling", "Observability & evaluation", "System design"],
+  },
+
   technicalExpertise: [
     { icon: "Cpu", category: "Core CS", skills: ["Data Structures & Algorithms", "OOP", "DBMS", "Operating Systems", "Computer Networks", "System Design Fundamentals"] },
     { icon: "Code", category: "Languages", skills: ["Python", "C++", "SQL"] },
