@@ -1,7 +1,7 @@
 "use client";
 
 import type { CSSProperties } from "react";
-import type { LucideIcon } from "lucide-react";
+import { MousePointerClick, Sparkles, type LucideIcon } from "lucide-react";
 
 export interface WorldDestination {
   id: string;
@@ -42,6 +42,12 @@ export default function HeroWorld({ destinations, onNavigate }: Props) {
   return (
     <div className="xh-world" role="group" aria-label="Five floating destinations in Shreya's portfolio">
       <div className="xh-world-glow" aria-hidden="true" />
+      <div className="xh-world-tip" role="note" aria-label="Nova's tip: click any island to discover more">
+        <span className="xh-world-tip-mark"><Sparkles size={13} /></span>
+        <span className="xh-world-tip-from">NOVA&apos;S TIP</span>
+        <span className="xh-world-tip-message"><MousePointerClick size={17} /> Click any island to discover more.</span>
+        <span className="xh-world-tip-pointer" aria-hidden="true" />
+      </div>
       <svg className="xh-routes" viewBox={`0 0 ${CANVAS.w} ${CANVAS.h}`} aria-hidden="true">
         <defs>
           <linearGradient id="xh-route" x1="0" y1="0" x2="1" y2="1">
