@@ -554,3 +554,26 @@
 @media (prefers-reduced-motion: reduce) {
   .xh-nova-discover { animation: none; }
 }
+
+
+/* Rebalance Nova's speech bubble: bring the island invitation inward from the panel edge. */
+.xh-nova-bubble {
+  right: 7% !important;
+  width: 60% !important;
+}
+.xh-nova-discover {
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (min-width: 1280px) {
+  .xh-nova-bubble {
+    right: 7% !important;
+    width: 60% !important;
+  }
+}
+@media (max-width: 520px) {
+  .xh-nova-bubble {
+    right: 4% !important;
+    width: 56% !important;
+  }
+}
