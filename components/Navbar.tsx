@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Download, Menu, Sparkles, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { portfolioData } from "@/lib/portfolio-data";
@@ -32,15 +32,16 @@ export default function Navbar() {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border"
+          ? "bg-[#080522]/80 backdrop-blur-md border-b border-violet-300/10"
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <nav className="container-px mx-auto max-w-7xl flex items-center justify-between h-16">
+      <nav className="container-px mx-auto max-w-[1720px] flex items-center justify-between h-16">
         <a
           href="#home"
-          className="text-[15px] font-semibold tracking-tight text-text"
+          className="flex items-center gap-2.5 text-xl font-semibold tracking-tight text-text"
         >
+          <Sparkles size={26} className="text-violet-300 drop-shadow-[0_0_10px_rgba(167,139,250,.9)]" fill="currentColor" />
           Shreya Dubey
         </a>
 
@@ -49,10 +50,10 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm transition-colors relative ${
+              className={`text-[15px] transition-colors relative ${
                 pathname === link.href
-                  ? "text-primary"
-                  : "text-muted hover:text-text"
+                  ? "text-violet-200"
+                  : "text-slate-300 hover:text-white"
               }`}
             >
               {link.label}
@@ -68,8 +69,8 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:block">
-          <a href={portfolioData.personal.resume} className="btn-secondary !py-2 !px-4 text-sm">
-            Resume
+          <a href={portfolioData.personal.resume} className="inline-flex items-center gap-2 rounded-full border border-violet-300/50 bg-[#0c0a3a]/70 px-5 py-2 text-sm font-medium text-white shadow-[0_0_20px_rgba(124,92,255,.25)] transition hover:border-cyan-200/70">
+            Resume <Download size={15} />
           </a>
         </div>
 
