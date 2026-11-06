@@ -1,0 +1,337 @@
+/* SHREYA.EXE — unified world theme for the full homepage.
+   The island hero is the visual source of truth; every section below it
+   continues the same midnight-violet / cyan-lit environment. */
+
+.portfolio-world-page {
+  --page-ink: #f7f5ff;
+  --page-muted: #a9a6c8;
+  --page-panel: rgba(20, 15, 57, .72);
+  --page-panel-strong: rgba(15, 12, 45, .94);
+  --page-line: rgba(171, 145, 255, .2);
+  --page-violet: #a78bfa;
+  --page-cyan: #67e8f9;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  color: var(--page-ink);
+  background:
+    radial-gradient(ellipse at 12% 18%, rgba(80, 48, 184, .18), transparent 34rem),
+    radial-gradient(ellipse at 92% 46%, rgba(35, 133, 191, .09), transparent 32rem),
+    linear-gradient(180deg, #090522 0%, #0b082b 34%, #08051f 100%);
+}
+.portfolio-world-page::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  opacity: .26;
+  background-image:
+    radial-gradient(1px 1px at 8% 13%, #e9e3ff 99%, transparent),
+    radial-gradient(1.5px 1.5px at 78% 22%, #a7edff 99%, transparent),
+    radial-gradient(1px 1px at 34% 47%, #e9e3ff 99%, transparent),
+    radial-gradient(1px 1px at 91% 67%, #d5c4ff 99%, transparent),
+    radial-gradient(1.5px 1.5px at 62% 88%, #a7edff 99%, transparent);
+  background-size: 370px 310px, 490px 420px, 540px 460px, 610px 530px, 720px 600px;
+}
+.portfolio-world-page > section:not(.xh-hero) {
+  position: relative;
+  z-index: 0;
+  padding-top: clamp(4.5rem, 7vw, 7rem);
+  padding-bottom: clamp(4.5rem, 7vw, 7rem);
+  background: transparent;
+}
+.portfolio-world-page > section:not(.xh-hero)::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 50%;
+  width: min(88%, 1180px);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(167,139,250,.36), rgba(103,232,249,.24), transparent);
+}
+.portfolio-world-page > section:not(.xh-hero)::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  width: 34rem;
+  height: 24rem;
+  top: 12%;
+  right: -22rem;
+  border-radius: 50%;
+  background: rgba(102, 74, 220, .1);
+  filter: blur(90px);
+}
+.portfolio-world-page .container-px,
+.portfolio-world-page .journey-section > div {
+  width: min(100% - 3rem, 1320px);
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+.portfolio-world-page .eyebrow,
+.portfolio-world-page .journey-section > div > div:first-child > p {
+  color: #a9a0ee;
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+.portfolio-world-page h2,
+.portfolio-world-page h3 {
+  color: #fbfaff;
+  text-wrap: balance;
+}
+.portfolio-world-page section:not(.xh-hero) h2 {
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -.045em;
+}
+.portfolio-world-page section:not(.xh-hero) p {
+  text-wrap: pretty;
+}
+.portfolio-world-page .text-muted,
+.portfolio-world-page .text-slate-400 {
+  color: var(--page-muted) !important;
+}
+
+/* Skills — six compact holographic modules. */
+.portfolio-world-page #skills .mb-10 {
+  margin-bottom: 2.2rem;
+}
+.portfolio-world-page .skills-card {
+  position: relative;
+  min-height: 178px;
+  overflow: hidden;
+  border: 1px solid rgba(160, 139, 255, .22);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(113, 85, 255, .2), transparent 52%),
+    linear-gradient(145deg, rgba(31, 24, 82, .76), rgba(11, 10, 40, .9));
+  box-shadow: inset 0 1px rgba(255,255,255,.07), 0 18px 42px rgba(0,0,0,.16);
+  transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+.portfolio-world-page .skills-card::after {
+  content: "";
+  position: absolute;
+  top: -55px;
+  right: -55px;
+  width: 130px;
+  height: 130px;
+  border: 1px solid rgba(103,232,249,.16);
+  border-radius: 50%;
+  box-shadow: 0 0 0 18px rgba(103,232,249,.025), 0 0 0 38px rgba(167,139,250,.025);
+  pointer-events: none;
+}
+.portfolio-world-page .skills-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(103,232,249,.48);
+  box-shadow: 0 20px 48px rgba(36, 18, 108, .3), 0 0 24px rgba(103,232,249,.07);
+}
+.portfolio-world-page .skills-card > div:first-child > div {
+  border: 1px solid rgba(167,139,250,.3);
+  border-radius: 12px;
+  background: rgba(130, 91, 255, .14);
+  box-shadow: 0 0 22px rgba(130,91,255,.12);
+}
+.portfolio-world-page .skills-card > div:first-child svg { color: #c4a8ff; }
+.portfolio-world-page .skills-card .chip,
+.portfolio-world-page .chip {
+  border-color: rgba(156, 137, 236, .22);
+  background: rgba(128, 99, 226, .1);
+  color: #d7d1f5;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 500;
+}
+
+/* Build Lab — project cards feel like instrument panels, not generic tiles. */
+.portfolio-world-page #projects .mb-10 { margin-bottom: 2.2rem; }
+.portfolio-world-page .featured-build-card {
+  border: 1px solid rgba(160,139,255,.25);
+  border-radius: 22px;
+  background: linear-gradient(160deg, rgba(24,18,68,.96), rgba(10,8,35,.98));
+  box-shadow: 0 24px 60px rgba(0,0,0,.22), inset 0 1px rgba(255,255,255,.06);
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.portfolio-world-page .featured-build-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(103,232,249,.42);
+  box-shadow: 0 28px 68px rgba(28,12,95,.3), 0 0 30px rgba(103,232,249,.07);
+}
+.portfolio-world-page .featured-build-art {
+  min-height: 220px;
+  border-bottom: 1px solid rgba(167,139,250,.2);
+  background-color: #100c3d;
+}
+.portfolio-world-page .featured-build-art--cyan {
+  background-image: radial-gradient(ellipse at 50% 60%, rgba(34,211,238,.24), transparent 55%), linear-gradient(145deg,#101b51,#0a0a2b 70%);
+}
+.portfolio-world-page .featured-build-art--violet {
+  background-image: radial-gradient(ellipse at 50% 60%, rgba(139,92,246,.28), transparent 55%), linear-gradient(145deg,#24104d,#0a092b 70%);
+}
+.portfolio-world-page .featured-build-art--amber {
+  background-image: radial-gradient(ellipse at 50% 60%, rgba(245,158,11,.2), transparent 55%), linear-gradient(145deg,#34204b,#0a092b 70%);
+}
+.portfolio-world-page .featured-build-art-grid {
+  opacity: .3;
+  background-image: linear-gradient(rgba(179,166,255,.13) 1px, transparent 1px), linear-gradient(90deg,rgba(179,166,255,.13) 1px,transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse at center,#000 15%,transparent 78%);
+}
+.portfolio-world-page .featured-build-orbit { border-color: rgba(180,158,255,.26); box-shadow: 0 0 30px rgba(130,90,255,.1); }
+.portfolio-world-page .featured-build-content { padding: 1.6rem 1.65rem 1.75rem; }
+.portfolio-world-page .featured-build-content h3 { font-size: 1.3rem; }
+.portfolio-world-page .featured-build-content .chip { font-size: 11px; }
+.portfolio-world-page .featured-build-content .btn-primary {
+  border: 1px solid rgba(196,181,253,.4);
+  border-radius: 999px;
+  background: linear-gradient(100deg,#6845db,#8c62f6);
+  box-shadow: 0 8px 24px rgba(104,69,219,.24);
+}
+.portfolio-world-page .featured-build-content .btn-secondary {
+  border-radius: 999px;
+  border-color: rgba(167,139,250,.3);
+  background: rgba(255,255,255,.035);
+}
+
+/* Journey — a connected timeline with warm achievement signals. */
+.portfolio-world-page .journey-section {
+  background:
+    radial-gradient(ellipse at 6% 34%, rgba(167,139,250,.12), transparent 40%),
+    radial-gradient(ellipse at 96% 80%, rgba(103,232,249,.07), transparent 35%),
+    linear-gradient(180deg, rgba(16,10,53,.42), rgba(8,6,31,.7));
+}
+.portfolio-world-page .journey-card,
+.portfolio-world-page .journey-recognition {
+  border-color: rgba(167,139,250,.2);
+  background: linear-gradient(145deg, rgba(28,21,76,.78), rgba(11,10,39,.9));
+  box-shadow: 0 18px 48px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.045);
+  backdrop-filter: blur(16px);
+}
+.portfolio-world-page .journey-card { border-radius: 22px; }
+.portfolio-world-page .journey-recognition { border-radius: 18px; }
+.portfolio-world-page .journey-recognition:hover {
+  transform: translateY(-4px);
+  border-color: rgba(246,199,121,.45);
+  background: linear-gradient(145deg, rgba(48,34,82,.88), rgba(15,11,45,.95));
+}
+.portfolio-world-page .journey-rail {
+  background: linear-gradient(180deg, transparent, rgba(167,139,250,.75), rgba(103,232,249,.55), transparent);
+  box-shadow: 0 0 14px rgba(167,139,250,.3);
+}
+
+/* Frontier — a single featured signal card with a live-status accent. */
+.portfolio-world-page #focus .card-surface {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(167,139,250,.34);
+  border-radius: 26px;
+  padding: clamp(1.6rem, 4vw, 3rem);
+  background:
+    radial-gradient(ellipse at 88% 12%, rgba(103,232,249,.14), transparent 36%),
+    radial-gradient(ellipse at 10% 100%, rgba(139,92,246,.2), transparent 50%),
+    linear-gradient(135deg, rgba(31,22,86,.9), rgba(10,8,37,.96));
+  box-shadow: 0 24px 70px rgba(0,0,0,.22), inset 0 1px rgba(255,255,255,.07);
+}
+.portfolio-world-page #focus .card-surface::after {
+  content: "FRONTIER / ACTIVE";
+  position: absolute;
+  right: 1.5rem;
+  top: 1.4rem;
+  color: rgba(103,232,249,.52);
+  font: 700 9px var(--font-jetbrains), monospace;
+  letter-spacing: .18em;
+}
+.portfolio-world-page #focus .card-surface .chip {
+  border-color: rgba(103,232,249,.35);
+  color: #a5f3fc;
+  background: rgba(34,211,238,.08);
+}
+
+/* Journal — terminal-like rows with violet separators. */
+.portfolio-world-page #blog .card-surface {
+  border: 1px solid rgba(167,139,250,.22);
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(139,92,246,.13), transparent 42%),
+    linear-gradient(145deg, rgba(24,18,67,.88), rgba(10,8,34,.96));
+  box-shadow: 0 20px 58px rgba(0,0,0,.2);
+}
+.portfolio-world-page #blog .card-surface > div:nth-of-type(2) > div > div { border-color: rgba(167,139,250,.16); }
+.portfolio-world-page #blog .card-surface h4 { transition: color .2s ease; }
+.portfolio-world-page #blog .card-surface .group:hover h4 { color: #a5f3fc; }
+.portfolio-world-page #blog .card-surface span.rounded-full {
+  border: 1px solid rgba(167,139,250,.22);
+  background: rgba(139,92,246,.12);
+  color: #d8ccff;
+}
+
+/* Connection Hub — make the final section feel like a destination. */
+.portfolio-world-page #contact {
+  padding-top: clamp(5rem, 8vw, 8rem);
+  padding-bottom: 2rem;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(124,83,255,.22), transparent 52%),
+    linear-gradient(180deg, transparent, rgba(31,15,79,.5));
+}
+.portfolio-world-page #contact > .container-px > div {
+  max-width: 760px;
+  padding: clamp(2rem, 5vw, 4rem);
+  border: 1px solid rgba(167,139,250,.3);
+  border-radius: 30px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(103,232,249,.09), transparent 50%),
+    linear-gradient(145deg, rgba(29,20,81,.78), rgba(10,8,38,.88));
+  box-shadow: 0 24px 70px rgba(0,0,0,.22), 0 0 48px rgba(124,92,255,.1), inset 0 1px rgba(255,255,255,.08);
+}
+.portfolio-world-page #contact .btn-secondary {
+  border-radius: 999px;
+  border-color: rgba(167,139,250,.35);
+  background: rgba(255,255,255,.04);
+}
+.portfolio-world-page #contact .btn-secondary:hover {
+  border-color: rgba(103,232,249,.65);
+  color: #a5f3fc;
+  background: rgba(103,232,249,.08);
+}
+.portfolio-world-page #contact footer {
+  width: min(100% - 3rem, 1320px);
+  margin: 5rem auto 0;
+  border-color: rgba(167,139,250,.16);
+}
+.portfolio-world-page #contact footer > div { padding-top: 1.5rem; }
+
+/* Shared interaction and responsive rhythm. */
+.portfolio-world-page a,
+.portfolio-world-page button { -webkit-tap-highlight-color: transparent; }
+.portfolio-world-page a:focus-visible,
+.portfolio-world-page button:focus-visible {
+  outline: 2px solid #67e8f9;
+  outline-offset: 4px;
+}
+@media (max-width: 767px) {
+  .portfolio-world-page > section:not(.xh-hero) {
+    padding-top: 3.8rem;
+    padding-bottom: 3.8rem;
+  }
+  .portfolio-world-page .container-px,
+  .portfolio-world-page .journey-section > div {
+    width: min(100% - 2rem, 1320px);
+  }
+  .portfolio-world-page .skills-card { min-height: 0; }
+  .portfolio-world-page .featured-build-art { min-height: 185px; }
+  .portfolio-world-page #focus .card-surface::after { right: 1rem; top: 1rem; font-size: 8px; }
+  .portfolio-world-page #contact > .container-px > div { padding: 2rem 1.25rem; }
+  .portfolio-world-page #contact footer { width: min(100% - 2rem, 1320px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-world-page .skills-card,
+  .portfolio-world-page .featured-build-card,
+  .portfolio-world-page .journey-recognition { transition: none !important; }
+}
