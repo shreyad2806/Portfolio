@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowRight, LoaderCircle, Minus, Send, Sparkles, X } from "lucide-react";
+import { ArrowRight, LoaderCircle, Minus, MousePointerClick, Send, Sparkles, X } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface NovaDestination {
@@ -143,6 +143,10 @@ export default function NovaAssistant({ destinations, onNavigate }: Props) {
                 <strong>Hey Explorer! 👋</strong>
                 <span>I&apos;m Nova, Shreya&apos;s AI companion.</span>
                 <p>I can guide you through her work, projects, experience and what she&apos;s exploring next.</p>
+                <div className="xh-nova-discover">
+                  <MousePointerClick size={16} strokeWidth={2} aria-hidden="true" />
+                  <span>Click any island to discover more.</span>
+                </div>
               </div>
             </div>
 
