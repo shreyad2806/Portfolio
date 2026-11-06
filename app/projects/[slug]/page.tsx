@@ -55,7 +55,6 @@ export default async function ProjectDetailPage({
         ) : isAITechStackRecommender ? (
           <AITechStackRecommenderPage data={project} />
         ) : (
-        ) : (
           <>
             <ProjectDetailHero data={project} />
             <ProblemSection data={project} />
