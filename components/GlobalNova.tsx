@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Compass, FlaskConical, Home, Map, Radio, Telescope } from "lucide-react";
+import { FlaskConical, Home, Map, Radio, Telescope } from "lucide-react";
 import NovaAssistant, { type NovaDestination } from "@/components/NovaAssistant";
 
 const destinations: NovaDestination[] = [
