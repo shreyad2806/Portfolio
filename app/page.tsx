@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="portfolio-world-page">
         <ExplorerHero />
         <TechnicalExpertise />
         <FeaturedProjects />
