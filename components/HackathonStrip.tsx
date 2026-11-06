@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Trophy, Rocket, Globe, Github, LucideIcon } from "lucide-react";
+import { Trophy, Rocket, Globe, Github, Users, LucideIcon } from "lucide-react";
 import { portfolioData } from "@/lib/portfolio-data";
 
 const iconMap: Record<string, LucideIcon> = {
@@ -9,6 +9,7 @@ const iconMap: Record<string, LucideIcon> = {
   Rocket,
   Globe,
   Github,
+  Users,
 };
 
 export default function HackathonStrip() {
