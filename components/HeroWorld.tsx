@@ -1,7 +1,7 @@
 "use client";
 
-import type { CSSProperties } from "react";
-import type { LucideIcon } from "lucide-react";
+import { useState, type CSSProperties } from "react";
+import { MousePointerClick, X, type LucideIcon } from "lucide-react";
 
 export interface WorldDestination {
   id: string;
@@ -39,9 +39,23 @@ const ROUTES = [
 ];
 
 export default function HeroWorld({ destinations, onNavigate }: Props) {
+  const [showExploreHint, setShowExploreHint] = useState(true);
+
   return (
     <div className="xh-world" role="group" aria-label="Five floating destinations in Shreya's portfolio">
       <div className="xh-world-glow" aria-hidden="true" />
+      {showExploreHint && (
+        <aside className="xh-explore-hint" aria-label="How to explore the floating islands">
+          <span className="xh-explore-hint-icon"><MousePointerClick size={19} strokeWidth={1.9} /></span>
+          <span className="xh-explore-hint-copy">
+            <b>A world to explore</b>
+            <small>Click any island to discover more</small>
+          </span>
+          <button type="button" onClick={() => setShowExploreHint(false)} aria-label="Dismiss exploration tip">
+            <X size={14} />
+          </button>
+        </aside>
+      )}
       <svg className="xh-routes" viewBox={`0 0 ${CANVAS.w} ${CANVAS.h}`} aria-hidden="true">
         <defs>
           <linearGradient id="xh-route" x1="0" y1="0" x2="1" y2="1">
