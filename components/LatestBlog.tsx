@@ -6,8 +6,7 @@ import { portfolioData } from "@/lib/portfolio-data";
 
 export default function LatestBlog() {
   const journal = portfolioData.developerJournal;
-  const journalIcons = [WorkflowIcon, Code2, FileText, TerminalSquare];
-  function WorkflowIcon() { return <BookOpen size={16}/>; }
+  const journalIcons = [BookOpen, Code2, FileText, TerminalSquare];
 
   return (
     <section id="blog" className="py-16 lg:py-20">
