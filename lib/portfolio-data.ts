@@ -8,9 +8,9 @@ export type JournalResource = {
 
 // Add discoveries here as you find useful repositories, tools or plugins.
 const openSourceFinds: JournalResource[] = [
-  { name: "YCQM", description: "Saved for a future project note. Details coming soon.", category: "Agentic AI" },
-  { name: "DeepSeek Harness", description: "Saved to document the experiments and engineering notes later.", category: "Agent tooling" },
-  { name: "Paperclip", description: "Saved for a future open-source/tooling note.", category: "Developer tooling" },
+  { name: "YCQM", description: "Saved for a future note. Details coming soon.", category: "To document" },
+  { name: "DeepSeek Harness", description: "Saved for a future note. Details coming soon.", category: "To document" },
+  { name: "Paperclip", description: "Saved for a future note. Details coming soon.", category: "To document" },
 ];
 const toolsAndPlugins: JournalResource[] = [
   { name: "PostHog", description: "Product analytics and event insights encountered in software debugging workflows. More notes coming soon.", category: "Observability" },
