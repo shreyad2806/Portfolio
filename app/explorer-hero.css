@@ -311,3 +311,49 @@
     transform: none;
   }
 }
+
+
+/* PR #7 — give the island world more of the center stage without encroaching
+   on the headline or Nova. The five landmasses are enlarged independently
+   in HeroWorld and this wider canvas gives their silhouettes room to breathe. */
+@media (min-width: 1280px) {
+  .xh-stage {
+    min-width: 0;
+    overflow: visible;
+  }
+  .xh-world {
+    width: 112%;
+    max-width: none;
+    margin: 0 0 0 -6%;
+    transform: translateY(-1.5%) scale(1.015);
+    transform-origin: center center;
+  }
+  .xh-nova-slot {
+    position: relative;
+    z-index: 5;
+  }
+  .xh-copy {
+    position: relative;
+    z-index: 5;
+  }
+  .xh-pill {
+    font-size: clamp(10px, .82vw, 15px);
+  }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .xh-world {
+    width: 108%;
+    margin-left: -4%;
+  }
+  .xh-pill {
+    font-size: clamp(9px, .9vw, 12px);
+    padding: .5em .9em .5em .7em;
+    gap: 7px;
+  }
+}
+@media (max-width: 1023px) {
+  .xh-world {
+    width: 100%;
+    margin: 0;
+  }
+}
