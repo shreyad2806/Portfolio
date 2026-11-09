@@ -14,13 +14,13 @@ export default function TechnicalExpertise() {
       <div className="container-px mx-auto max-w-7xl">
         <div className="skills-world-heading mb-10">
           <div>
-            <p className="eyebrow mb-3">01 / The Basecamp · Technical Expertise</p>
+            <p className="eyebrow mb-3">01 / THE BASECAMP · TECHNICAL EXPERTISE</p>
             <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">Skills & Technologies</h2>
-            <p className="mt-3 max-w-xl text-sm leading-7 text-muted">The building blocks I reach for—from computer science fundamentals to intelligent systems and the infrastructure around them.</p>
+            <p className="mt-3 max-w-xl text-sm leading-7 text-muted">A focused toolkit across computer science, backend systems, software engineering, and applied AI/ML.</p>
           </div>
           <div className="skills-world-total">
             <span className="skills-world-total-icon"><Orbit size={19}/></span>
-            <span><b>{totalSkills}+</b><small>skills & tools explored</small></span>
+            <span><b>{totalSkills}</b><small>resume-listed skills & tools</small></span>
           </div>
         </div>
 
