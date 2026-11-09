@@ -5,6 +5,7 @@ import "./explorer-hero.css";
 import "./world-theme.css";
 import "./theme.css";
 import "./skills.css";
+import "./projects-home.css";
 import GlobalNova from "@/components/GlobalNova";
 import SiteBackdrop from "@/components/theme/SiteBackdrop";
 import InteractionLayer from "@/components/theme/InteractionLayer";
