@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Github, Loader2, ScanEye, Layers3 } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Github, ScanEye, Layers3 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Project } from "@/types/project";
@@ -9,11 +9,6 @@ import { FLAGSHIP, DETAIL_SLUGS } from "@/lib/flagship";
 
 interface ProjectCardProps { project: Project; index: number; total?: number; featured?: boolean; categories?: string[]; }
 
-const statusConfig = {
-  completed: { label: "Completed", dot: "#3be6a0" },
-  "in-progress": { label: "In Progress", dot: "#ffc46e" },
-  upcoming: { label: "Upcoming", dot: "#8da2ff" },
-};
 
 
 export default function ProjectCard({ project, index, total = 0, featured = false, categories = [] }: ProjectCardProps) {
@@ -33,7 +28,6 @@ export default function ProjectCard({ project, index, total = 0, featured = fals
         className={`bl-card card-surface bl-card--${flag.tone}`}
       >
         <div className="bl-top">
-          <span className="bl-status"><i />{flag.status}</span>
           <span className="bl-count">{String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>
         </div>
         <Link href={detailHref} className="bl-thumb" aria-label={`Open ${project.name}`} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
@@ -61,19 +55,13 @@ export default function ProjectCard({ project, index, total = 0, featured = fals
   }
 
   /* ---------- standard ---------- */
-  const status = statusConfig[project.status];
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.45, delay: (index % 3) * 0.07 }} whileHover={{ y: -5 }}
       className="pj-card card-surface group"
     >
-      <div className="pj-top">
-        <span className="bl-status" style={{ ["--dot" as string]: status.dot }}>
-          {project.status === "in-progress" ? <Loader2 size={11} className="animate-spin" /> : <i />}{status.label}
-        </span>
-        {categories[0] && <span className="pj-cat">{categories[0]}</span>}
-      </div>
+      {categories[0] && <div className="pj-top"><span className="pj-cat">{categories[0]}</span></div>}
       <div className="pj-thumb">
         {project.thumbnail ? (
           <Image src={project.thumbnail} alt={`${project.name} preview`} fill sizes="(min-width:1280px) 33vw, (min-width:768px) 50vw, 100vw" className="pj-thumb-img" />

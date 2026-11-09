@@ -21,7 +21,7 @@
 .bl-card { --tone: #8b6bff; position: relative; display: flex; flex-direction: column; padding: 1.1rem 1.3rem 1.3rem; border-radius: 26px; border: 1px solid color-mix(in srgb, var(--tone) 60%, transparent); background: radial-gradient(110% 70% at 50% 100%, color-mix(in srgb, var(--tone) 20%, transparent), transparent 65%), linear-gradient(165deg, rgba(34,24,108,.62), rgba(10,8,44,.8)); box-shadow: 0 0 30px color-mix(in srgb, var(--tone) 24%, transparent), inset 0 1px 0 rgba(255,255,255,.08); transition: box-shadow .35s, border-color .35s; }
 .bl-card:hover { border-color: color-mix(in srgb, var(--tone) 95%, #fff 5%); box-shadow: 0 0 50px color-mix(in srgb, var(--tone) 48%, transparent), inset 0 1px 0 rgba(255,255,255,.14); }
 .bl-card--green { --tone: #5aa7ff; } .bl-card--violet { --tone: #9b7bff; } .bl-card--blue { --tone: #6e8bff; }
-.bl-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: .9rem; }
+.bl-top { display: flex; align-items: center; justify-content: flex-end; margin-bottom: .9rem; }
 .bl-status { display: inline-flex; align-items: center; gap: .5rem; padding: .35rem .8rem; border-radius: 999px; font-size: 12.5px; font-weight: 500; color: #eaf0ff; border: 1px solid color-mix(in srgb, var(--dot) 55%, transparent); background: color-mix(in srgb, var(--dot) 14%, rgba(10,8,44,.6)); }
 .bl-status i { width: 8px; height: 8px; border-radius: 50%; background: var(--dot); box-shadow: 0 0 10px var(--dot); }
 .bl-card--green .bl-status { --dot: #3be6a0; } .bl-card--violet .bl-status { --dot: #d36bff; } .bl-card--blue .bl-status { --dot: #3ea0ff; }

@@ -45,7 +45,6 @@ export default function FeaturedProjects() {
                 className={`bl-card card-surface bl-card--${m.tone}`}
               >
                 <div className="bl-top">
-                  <span className="bl-status"><i />{m.status}</span>
                   <span className="bl-count">{String(index + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}</span>
                 </div>
                 <Link href={href} className="bl-thumb" aria-label={`Open ${project.name}`} {...ext}>
