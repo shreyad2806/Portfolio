@@ -35,7 +35,7 @@ export default function ResumePage() {
             <span>·</span>
             <a href="https://github.com/shreyad2806" target="_blank" rel="noreferrer">GitHub</a>
             <span>·</span>
-            <a href="https://github.com/shreyad2806">Portfolio</a>
+            <a href="/">Portfolio</a>
           </div>
         </header>
 
