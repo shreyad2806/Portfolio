@@ -1,0 +1,29 @@
+.resume-page{min-height:100vh;background:#090817;color:#171526;padding:32px 18px 64px;font-family:Arial,Helvetica,sans-serif}
+.resume-actions{max-width:900px;margin:0 auto 18px;display:flex;align-items:center;justify-content:space-between;color:#d9d5ff;font-size:13px}
+.resume-back{color:#d9d5ff;text-decoration:none}.resume-back:hover{text-decoration:underline}
+.resume-print{border:1px solid #7762d9;background:#211a46;color:white;border-radius:999px;padding:10px 16px;font-size:12px;cursor:pointer}
+.resume-sheet{max-width:900px;margin:0 auto;background:#fff;padding:42px 52px;box-shadow:0 24px 80px #0008;line-height:1.38}
+.resume-header{text-align:center;border-bottom:2px solid #28233f;padding-bottom:13px;margin-bottom:15px}
+.resume-header h1{font-size:25px;letter-spacing:1.8px;font-weight:800;margin:0 0 4px;color:#171526}
+.resume-role{font-size:12px;font-weight:700;margin:0 0 7px;color:#342c5c}.resume-role span{padding:0 4px;color:#8c82ac}
+.resume-contact{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;font-size:10px;color:#514a68}
+.resume-contact a,.resume-row a{color:#5141a2;text-decoration:none}
+.resume-section{margin-top:13px;break-inside:avoid}
+.resume-section h2{font-size:13px;text-transform:none;letter-spacing:.7px;color:#33265e;border-bottom:1px solid #a9a0ca;padding-bottom:3px;margin:0 0 7px;font-weight:800}
+.resume-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:11px;margin:5px 0 2px}
+.resume-row span{font-size:10px;white-space:nowrap}.resume-row a{font-size:10px}
+.resume-section ul{margin:3px 0 8px;padding-left:17px}.resume-section li{font-size:10px;line-height:1.34;margin:2px 0}
+.resume-skill-list p{font-size:10px;line-height:1.35;margin:2px 0}
+.resume-project{margin-bottom:7px;break-inside:avoid}
+.resume-tech{font-size:9.5px;color:#534b70;font-style:italic;margin:0 0 2px}
+@media(max-width:640px){.resume-page{padding:16px 8px 36px}.resume-sheet{padding:24px 20px}.resume-row{align-items:flex-start}.resume-row span{white-space:normal;text-align:right}}
+@media print{
+  @page{size:A4;margin:12mm}
+  body{background:white!important}
+  .resume-page{background:white!important;padding:0!important;min-height:0!important}
+  .no-print{display:none!important}
+  .resume-sheet{max-width:none;box-shadow:none;padding:0;margin:0}
+  .resume-section{break-inside:avoid}
+  .resume-project{break-inside:avoid}
+  .resume-row a,.resume-contact a{color:#33265e}
+}
