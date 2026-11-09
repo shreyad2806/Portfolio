@@ -641,3 +641,71 @@
   .journal-hub-entry {padding:14px;gap:10px;}
   .journal-hub-entry-icon {flex-basis:35px;height:35px;}
 }
+
+
+/* PR #12 — resume-aligned Basecamp skill modules */
+.portfolio-world-page #skills.skills-world-section {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 8% 16%,rgba(104,76,220,.12),transparent 34rem),
+    radial-gradient(ellipse at 92% 78%,rgba(34,211,238,.055),transparent 30rem);
+}
+.portfolio-world-page #skills .skills-world-heading { align-items:flex-end; }
+.portfolio-world-page #skills .skills-heading-copy { position:relative; z-index:2; }
+.portfolio-world-page #skills .skills-world-total { min-width:190px; }
+.portfolio-world-page #skills .skills-world-total b { font-size:1.35rem; letter-spacing:-.04em; }
+.portfolio-world-page #skills .skills-world-total small { text-transform:uppercase; font:700 8px var(--font-jetbrains),monospace; letter-spacing:.09em; }
+.portfolio-world-page #skills .skills-world-orbit { top:-.2rem; left:52%; opacity:.66; }
+.portfolio-world-page #skills .skills-card {
+  display:flex;
+  flex-direction:column;
+  min-height:218px;
+  padding:1.25rem 1.3rem 1rem;
+  border-radius:19px;
+  background:
+    radial-gradient(circle at 100% 0%,var(--skill-glow,rgba(139,92,246,.18)),transparent 52%),
+    linear-gradient(145deg,rgba(26,20,73,.88),rgba(10,9,37,.96));
+  border-color:var(--skill-border,rgba(167,139,250,.24));
+}
+.portfolio-world-page #skills .skills-card--domain-2 { --skill-glow:rgba(103,232,249,.12);--skill-border:rgba(103,232,249,.22); }
+.portfolio-world-page #skills .skills-card--domain-3 { --skill-glow:rgba(112,142,255,.16);--skill-border:rgba(112,142,255,.24); }
+.portfolio-world-page #skills .skills-card--domain-4 { --skill-glow:rgba(167,139,250,.17);--skill-border:rgba(167,139,250,.25); }
+.portfolio-world-page #skills .skills-card--domain-5 { --skill-glow:rgba(246,199,121,.12);--skill-border:rgba(246,199,121,.2); }
+.portfolio-world-page #skills .skills-card--domain-6 { --skill-glow:rgba(142,229,193,.12);--skill-border:rgba(142,229,193,.22); }
+.portfolio-world-page #skills .skills-card-topline { margin-bottom:1.05rem; }
+.portfolio-world-page #skills .skills-card-heading { display:flex;align-items:center;gap:.8rem;margin-bottom:1rem; }
+.portfolio-world-page #skills .skills-card-icon { flex:0 0 42px;width:42px;height:42px;border-radius:13px; }
+.portfolio-world-page #skills .skills-card-heading h3 { font-size:.95rem;letter-spacing:-.02em; }
+.portfolio-world-page #skills .skills-card-tags { display:flex;flex-wrap:wrap;gap:.45rem;align-content:flex-start; }
+.portfolio-world-page #skills .skill-chip {
+  display:inline-flex;align-items:center;min-height:25px;padding:.32rem .62rem;
+  border:1px solid rgba(170,151,244,.23);border-radius:999px;
+  color:#dcd6f6;background:rgba(117,91,207,.105);
+  font:500 9px/1.2 var(--font-inter),sans-serif;
+  transition:background .2s,border-color .2s,color .2s,transform .2s;
+}
+.portfolio-world-page #skills .skill-chip:hover {
+  color:#f7f5ff;border-color:rgba(103,232,249,.48);
+  background:rgba(103,232,249,.09);transform:translateY(-1px);
+}
+.portfolio-world-page #skills .skills-card-footer { margin-top:auto;padding-top:.85rem; }
+.portfolio-world-page #skills .skills-card--domain-2 .skills-card-icon { color:#67e8f9;border-color:rgba(103,232,249,.32); }
+.portfolio-world-page #skills .skills-card--domain-3 .skills-card-icon { color:#9db7ff;border-color:rgba(112,142,255,.34); }
+.portfolio-world-page #skills .skills-card--domain-4 .skills-card-icon { color:#c4b5fd;border-color:rgba(167,139,250,.34); }
+.portfolio-world-page #skills .skills-card--domain-5 .skills-card-icon { color:#f6c779;border-color:rgba(246,199,121,.34); }
+.portfolio-world-page #skills .skills-card--domain-6 .skills-card-icon { color:#8ee5c1;border-color:rgba(142,229,193,.34); }
+@media(max-width:767px) {
+  .portfolio-world-page #skills .skills-world-heading { align-items:flex-start;flex-direction:column;gap:1.2rem; }
+  .portfolio-world-page #skills .skills-world-total { min-width:0;padding:.65rem .8rem; }
+  .portfolio-world-page #skills .skills-world-orbit { left:80%;top:1rem;width:230px;opacity:.35; }
+  .portfolio-world-page #skills .skills-orbit-ring--one { width:220px; }
+  .portfolio-world-page #skills .skills-orbit-ring--two { width:170px; }
+  .portfolio-world-page #skills .skills-card { min-height:0;padding:1.1rem; }
+  .portfolio-world-page #skills .skills-world-legend { flex-wrap:wrap;gap:.7rem;margin-top:1.5rem;font-size:7px; }
+  .portfolio-world-page #skills .skills-world-legend b { width:12px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .portfolio-world-page #skills .skill-chip { transition:none; }
+}
