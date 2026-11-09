@@ -19,7 +19,7 @@ export default function AvailabilityCard() {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
       whileHover={{ y: -4 }}
-      className="p-6 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300"
+      className="p-6 card-surface"
     >
       <div className="flex items-center gap-3 mb-4">
         <div className="p-2 rounded-lg bg-primary/10">

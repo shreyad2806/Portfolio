@@ -10,7 +10,7 @@ export default function QuickConnect() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.5 }}
-      className="p-6 rounded-xl bg-card/50 border border-border/50"
+      className="p-6 card-surface"
     >
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="flex items-start gap-4">

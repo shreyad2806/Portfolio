@@ -31,7 +31,7 @@ export default function ContributionList({
     <motion.div
       initial="hidden"
       animate="show"
-      className="p-6 rounded-xl bg-card/50 border border-border/50"
+      className="p-6 card-surface"
     >
       <h3 className="text-sm font-semibold text-text mb-4">Recent Contributions</h3>
       <div className="space-y-4">
