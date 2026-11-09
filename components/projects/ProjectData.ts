@@ -33,7 +33,6 @@ export const projects: Project[] = [
     github: "https://github.com/shreyad2806/Vision-Guard",
     status: "completed",
     slug: "visionguard",
-    featured: true,
     focus: "Machine learning · Computer vision",
     proof: "End-to-end model inference exposed through a FastAPI service",
   },
@@ -46,6 +45,9 @@ export const projects: Project[] = [
     github: "https://github.com/shreyad2806/ComplytAI",
     status: "completed",
     slug: "complytai",
+    featured: true,
+    focus: "Compliance · Multi-agent AI",
+    proof: "5-agent CrewAI workflow · RAG-backed, evidence-linked findings",
   },
   {
     id: "talentlens",

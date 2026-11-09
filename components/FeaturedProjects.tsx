@@ -1,42 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, BarChart3, Boxes, Landmark, LucideIcon, Scale, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { portfolioData } from "@/lib/portfolio-data";
+import { FLAGSHIP as META, DETAIL_SLUGS } from "@/lib/flagship";
 
-type Meta = {
-  status: string;
-  tone: "green" | "violet" | "blue";
-  subtitle: string;
-  summary: string;
-  thumb: string;
-  alt: string;
-  position: string;
-  icon: LucideIcon;
-  stat: { icon: LucideIcon; value: string; label: string };
-};
-
-const META: Record<string, Meta> = {
-  closeloop: {
-    status: "Production Ready", tone: "green", subtitle: "AI Financial Exception Resolution Platform",
-    summary: "A production-grade system to reconcile payments, classify exceptions and automate resolutions.",
-    thumb: "/images/home-projects/closeloop.webp", alt: "CloseLoop automated reconciliation workflow", position: "left top",
-    icon: Landmark, stat: { icon: Boxes, value: "17+", label: "Workflow Nodes" },
-  },
-  kavach: {
-    status: "In Development", tone: "violet", subtitle: "Zero-Trust Runtime Security Platform",
-    summary: "A multi-agent security system with isolated environments and runtime authorization.",
-    thumb: "/images/home-projects/kavach.webp", alt: "Kavach runtime security simulator dashboard", position: "left top",
-    icon: ShieldCheck, stat: { icon: Sparkles, value: "2-Agent", label: "Architecture" },
-  },
-  complytai: {
-    status: "Exploring", tone: "blue", subtitle: "Financial Compliance & Risk Intelligence",
-    summary: "Multi-agent AI system for compliance analysis, risk detection and automated reporting.",
-    thumb: "/images/home-projects/complytai.webp", alt: "ComplyAI smart compliance platform", position: "left top",
-    icon: Scale, stat: { icon: BarChart3, value: "5-Agent", label: "Workflow" },
-  },
-};
 const ORDER = ["closeloop", "kavach", "complytai"];
 
 export default function FeaturedProjects() {
@@ -60,6 +29,9 @@ export default function FeaturedProjects() {
             const m = META[project.id];
             const Icon = m.icon;
             const Stat = m.stat.icon;
+            const hasDetails = DETAIL_SLUGS.has(project.id);
+            const href = hasDetails ? `/projects/${project.id}` : project.github;
+            const ext = hasDetails ? {} : { target: "_blank", rel: "noopener noreferrer" };
             const shown = project.tech.slice(0, 3);
             const extra = project.tech.length - shown.length;
             return (
@@ -76,7 +48,7 @@ export default function FeaturedProjects() {
                   <span className="bl-status"><i />{m.status}</span>
                   <span className="bl-count">{String(index + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}</span>
                 </div>
-                <Link href={`/projects/${project.id}`} className="bl-thumb" aria-label={`Open ${project.name}`}>
+                <Link href={href} className="bl-thumb" aria-label={`Open ${project.name}`} {...ext}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={m.thumb} alt={m.alt} loading="lazy" style={{ objectPosition: m.position }} />
                   <span className="bl-thumb-shine" aria-hidden="true" />
@@ -95,7 +67,7 @@ export default function FeaturedProjects() {
                   {extra > 0 && <span className="chip bl-more">+{extra}</span>}
                 </div>
                 <div className="bl-actions">
-                  <Link href={`/projects/${project.id}`} className="bl-btn">View Details <ArrowRight size={16} /></Link>
+                  <Link href={href} className="bl-btn" {...ext}>{hasDetails ? "View Details" : "View Repository"} <ArrowRight size={16} /></Link>
                   <span className="bl-stat"><Stat size={20} /><span><b>{m.stat.value}</b><small>{m.stat.label}</small></span></span>
                 </div>
               </motion.article>
