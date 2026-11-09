@@ -1,0 +1,60 @@
+/* Skills & Technologies — home page (sk- namespace) */
+.sk-section { position: relative; }
+.sk-head { position: relative; display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 1.5rem 2rem; margin-bottom: 2.5rem; }
+.sk-head-copy { position: relative; z-index: 2; }
+.sk-gradient { background: linear-gradient(90deg, #c9b6ff, #8f7bff 55%, #c79bff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+.sk-total { position: relative; z-index: 2; display: flex; align-items: center; gap: 1rem; padding: 1rem 1.6rem; border-radius: 22px; border: 1px solid rgba(139,107,255,.5); background: linear-gradient(135deg, rgba(40,28,110,.55), rgba(14,10,53,.6)); box-shadow: 0 0 30px rgba(110,80,255,.25), inset 0 0 22px rgba(139,107,255,.12); backdrop-filter: blur(10px); }
+.sk-total-icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; color: #9fd0ff; border: 1px solid rgba(120,170,255,.6); background: rgba(70,110,255,.14); box-shadow: 0 0 20px rgba(90,140,255,.4); animation: th-pulse 3.2s ease-in-out infinite; }
+.sk-total b { display: block; font-size: 2rem; line-height: 1; color: #fff; }
+.sk-total small { display: block; margin-top: 4px; font-size: .8rem; color: #c3c8ee; }
+
+/* orbiting chip */
+.sk-chip-orbit { position: absolute; left: 50%; top: -1.2rem; width: 440px; height: 220px; transform: translateX(-30%); pointer-events: none; z-index: 1; }
+.sk-ring { position: absolute; left: 50%; top: 50%; border-radius: 50%; border: 1px solid rgba(140,150,255,.4); box-shadow: 0 0 18px rgba(110,120,255,.25); }
+.sk-ring--a { width: 420px; height: 120px; transform: translate(-50%,-50%) rotate(-14deg); animation: sk-sway 9s ease-in-out infinite; }
+.sk-ring--b { width: 340px; height: 96px; transform: translate(-50%,-50%) rotate(12deg); border-color: rgba(120,220,255,.35); animation: sk-sway 11s ease-in-out infinite reverse; }
+.sk-ring--c { width: 260px; height: 190px; transform: translate(-50%,-50%) rotate(-34deg); border-color: rgba(190,140,255,.28); }
+.sk-chip-core { position: absolute; left: 50%; top: 50%; display: grid; place-items: center; width: 96px; height: 96px; border-radius: 22px; transform: translate(-50%,-50%) rotateX(24deg) rotateZ(-8deg); color: #d9ccff; border: 1px solid rgba(170,140,255,.8); background: linear-gradient(145deg, rgba(120,90,255,.55), rgba(40,24,120,.75)); box-shadow: 0 0 40px rgba(130,100,255,.7), 0 18px 40px rgba(60,30,180,.5), inset 0 0 22px rgba(200,180,255,.35); animation: th-float 6s ease-in-out infinite; }
+.sk-gem { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #fff, #b49aff 60%, #6a4cff); box-shadow: 0 0 14px rgba(170,140,255,.9); animation: th-float 5s ease-in-out infinite; }
+.sk-gem--1 { left: 6%; top: 18%; } .sk-gem--2 { right: 12%; top: 8%; animation-delay: -1.5s; width: 11px; height: 11px; }
+.sk-gem--3 { left: 24%; bottom: 8%; animation-delay: -3s; width: 10px; height: 10px; } .sk-gem--4 { right: 4%; bottom: 26%; animation-delay: -2s; }
+@keyframes sk-sway { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+
+/* grid & cards */
+.sk-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; }
+.sk-card { --accent: #8b6bff; position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 280px; padding: 1.2rem 1.5rem 1.1rem; border-radius: 22px; border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent); background: radial-gradient(120% 90% at 85% 100%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 60%), linear-gradient(160deg, rgba(34,24,104,.62), rgba(12,9,46,.78)); box-shadow: 0 0 26px color-mix(in srgb, var(--accent) 22%, transparent), inset 0 1px 0 rgba(255,255,255,.08); transition: box-shadow .35s, border-color .35s; }
+.sk-card:hover { border-color: color-mix(in srgb, var(--accent) 90%, #fff 10%); box-shadow: 0 0 44px color-mix(in srgb, var(--accent) 45%, transparent), inset 0 1px 0 rgba(255,255,255,.12); }
+.sk-meta { display: flex; justify-content: space-between; font: 500 10px/1.4 var(--font-jetbrains), monospace; letter-spacing: .14em; color: #aeb2dd; }
+.sk-title { display: flex; align-items: center; gap: .9rem; margin: .5rem 0 1rem; }
+.sk-title h3 { font-size: 1.2rem; font-weight: 600; color: #fff; }
+.sk-icon { display: grid; place-items: center; flex: none; width: 54px; height: 54px; border-radius: 16px; color: #fff; border: 1px solid color-mix(in srgb, var(--accent) 75%, transparent); background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 55%, transparent), color-mix(in srgb, var(--accent) 16%, transparent)); box-shadow: 0 0 22px color-mix(in srgb, var(--accent) 50%, transparent); transition: transform .3s; }
+.sk-card:hover .sk-icon { transform: rotate(-6deg) scale(1.08); }
+.sk-chips { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: .5rem; max-width: 78%; }
+.sk-chips .chip { font-size: 11.5px; padding: .38rem .8rem; }
+.sk-chips .chip:hover { border-color: var(--accent); box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 45%, transparent); }
+.sk-art { position: absolute; right: -14px; bottom: 26px; width: 150px; height: 150px; color: color-mix(in srgb, var(--accent) 80%, #fff); opacity: .3; filter: drop-shadow(0 0 18px var(--accent)); animation: th-float 7s ease-in-out infinite; pointer-events: none; }
+.sk-foot { position: relative; z-index: 1; display: flex; align-items: flex-end; justify-content: space-between; margin-top: auto; padding-top: 1.2rem; font: 500 10px/1 var(--font-jetbrains), monospace; letter-spacing: .14em; color: #aeb2dd; }
+.sk-bars { display: flex; align-items: flex-end; gap: 3px; height: 18px; }
+.sk-bars i { width: 4px; border-radius: 2px; background: var(--accent); box-shadow: 0 0 8px var(--accent); animation: th-pulse 2.4s ease-in-out infinite; }
+.sk-bars i:nth-child(1) { height: 6px; } .sk-bars i:nth-child(2) { height: 10px; animation-delay: .2s; } .sk-bars i:nth-child(3) { height: 14px; animation-delay: .4s; } .sk-bars i:nth-child(4) { height: 18px; animation-delay: .6s; }
+
+/* tagline */
+.sk-tagline { display: flex; align-items: center; justify-content: center; gap: 1.1rem; margin-top: 3rem; color: #e6e8ff; font-size: .95rem; }
+.sk-tagline i { width: 5px; height: 5px; border-radius: 50%; background: #a78bfa; box-shadow: 0 0 10px #a78bfa; }
+
+@media (max-width: 1023px) {
+  .sk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sk-chip-orbit { display: none; }
+}
+@media (max-width: 767px) {
+  .sk-head { grid-template-columns: 1fr; }
+  .sk-total { justify-self: start; }
+  .sk-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .sk-card { min-height: 0; }
+  .sk-chips { max-width: 100%; }
+  .sk-art { width: 110px; height: 110px; opacity: .18; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sk-ring, .sk-chip-core, .sk-gem, .sk-art, .sk-bars i, .sk-total-icon { animation: none; }
+}

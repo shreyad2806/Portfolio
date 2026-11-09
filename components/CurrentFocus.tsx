@@ -1,37 +1,43 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Boxes, GitBranch, Workflow, Zap } from "lucide-react";
-import { portfolioData } from "@/lib/portfolio-data";
+import Link from "next/link";
+import { ArrowRight, Boxes, Database, Network, Server, ShieldCheck, Workflow, LucideIcon } from "lucide-react";
 
-const signals = [
-  { icon: Workflow, label: "Agent workflows" },
-  { icon: GitBranch, label: "Reliable execution" },
-  { icon: Boxes, label: "Production systems" },
+const pillars: { icon: LucideIcon; title: string; text: string }[] = [
+  { icon: Database, title: "RAG & LLMs", text: "LangGraph, LangChain" },
+  { icon: ShieldCheck, title: "Secure Systems", text: "Kavach, MCP" },
+  { icon: Server, title: "Scalable Platforms", text: "FastAPI, AWS" },
 ];
 
 export default function CurrentFocus() {
   return (
-    <section id="focus" className="py-16 lg:py-20">
+    <section id="focus" className="ar-section py-12 lg:py-16">
       <div className="container-px mx-auto max-w-7xl">
-        <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.5 }} className="frontier-scene card-surface">
-          <div className="frontier-scene-copy">
-            <p className="eyebrow mb-3">04 / The Frontier · Currently Building</p>
-            <h2 className="text-2xl lg:text-3xl font-semibold tracking-tight mb-2">{portfolioData.currentFocus.title}</h2>
-            <p className="text-sm text-primary font-medium mb-3">{portfolioData.currentFocus.subtitle}</p>
-            <p className="text-muted max-w-xl leading-relaxed">{portfolioData.currentFocus.description}</p>
-            <div className="frontier-signals">{signals.map(({icon: Icon,label}) => <span key={label}><Icon size={14}/>{label}</span>)}</div>
-            <a href="https://github.com/shreyad2806" target="_blank" rel="noreferrer" className="frontier-link">Explore engineering work <ArrowUpRight size={15}/></a>
+        <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.55 }} className="ar-scene card-surface">
+          <div className="ar-copy">
+            <p className="ar-eyebrow"><i /> 03 / THE ARCHITECTURE</p>
+            <h2 className="ar-title">Engineering with<br />agentic systems</h2>
+            <p className="ar-text">Building multi-agent workflows, intelligent systems and scalable infrastructure for real-world impact.</p>
+            <Link href="/projects" className="ar-btn">Explore My Projects <ArrowRight size={16} /></Link>
           </div>
-          <div className="frontier-visual" aria-hidden="true">
-            <div className="frontier-visual-grid"/>
-            <div className="frontier-planet"><div className="frontier-planet-core"><Boxes size={48}/></div><span className="frontier-planet-ring frontier-planet-ring--one"/><span className="frontier-planet-ring frontier-planet-ring--two"/></div>
-            <div className="frontier-visual-label"><i/><span>AGENTIC SYSTEMS</span><b>BUILD / 026</b></div>
-            <div className="frontier-orbit-node frontier-orbit-node--one"><Workflow size={16}/></div>
-            <div className="frontier-orbit-node frontier-orbit-node--two"><Zap size={16}/></div>
-            <div className="frontier-orbit-node frontier-orbit-node--three"><GitBranch size={16}/></div>
+
+          <div className="ar-visual" aria-hidden="true">
+            <span className="ar-glow" />
+            <span className="ar-ring ar-ring--a" /><span className="ar-ring ar-ring--b" />
+            <div className="ar-cube"><span>AI</span></div>
+            <span className="ar-node ar-node--1"><ShieldCheck size={16} /></span>
+            <span className="ar-node ar-node--2"><Database size={16} /></span>
+            <span className="ar-node ar-node--3"><Network size={16} /></span>
+            <span className="ar-node ar-node--4"><Workflow size={16} /></span>
+            <span className="ar-node ar-node--5"><Boxes size={16} /></span>
           </div>
-          <div className="frontier-status"><span className="frontier-status-dot"/><span>{portfolioData.currentFocus.badge}</span></div>
+
+          <ul className="ar-pillars">
+            {pillars.map(({ icon: Icon, title, text }) => (
+              <li key={title}><span><Icon size={20} /></span><div><b>{title}</b><small>{text}</small></div></li>
+            ))}
+          </ul>
         </motion.div>
       </div>
     </section>
