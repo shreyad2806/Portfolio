@@ -1,57 +1,78 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cpu, Brain, Server, Layout, Database, Code, LucideIcon, Orbit, Sparkles } from "lucide-react";
+import { Brain, Cloud, Code2, Cpu, Database, FlaskConical, Layers, LucideIcon, Orbit, Terminal, TestTubes } from "lucide-react";
 import { portfolioData } from "@/lib/portfolio-data";
 
-const iconMap: Record<string, LucideIcon> = { Cpu, Brain, Server, Layout, Database, Code };
+const iconMap: Record<string, LucideIcon> = { Code: Code2, Terminal, Database, FlaskConical, Brain, Layers };
+const artMap: Record<string, LucideIcon> = { Code: Cpu, Terminal, Database, FlaskConical: TestTubes, Brain, Layers: Cloud };
+const ACCENTS = ["#8b6bff", "#5aa7ff", "#a78bfa", "#6ee7d9", "#c084fc", "#7aa2ff"];
 
 export default function TechnicalExpertise() {
-  const totalSkills = portfolioData.technicalExpertise.reduce((sum, area) => sum + area.skills.length, 0);
+  const total = portfolioData.technicalExpertise.reduce((sum, a) => sum + a.skills.length, 0);
 
   return (
-    <section id="skills" className="skills-world-section py-16 lg:py-20">
+    <section id="skills" className="sk-section py-16 lg:py-24">
       <div className="container-px mx-auto max-w-7xl">
-        <div className="skills-world-heading mb-10">
-          <div>
+        <div className="sk-head">
+          <div className="sk-head-copy">
             <p className="eyebrow mb-3">01 / The Basecamp · Technical Expertise</p>
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">Skills & Technologies</h2>
-            <p className="mt-3 max-w-xl text-sm leading-7 text-muted">The building blocks I reach for—from computer science fundamentals to intelligent systems and the infrastructure around them.</p>
+            <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight">
+              Skills &amp; <span className="sk-gradient">Technologies</span>
+            </h2>
+            <p className="mt-4 max-w-md text-sm leading-7 text-muted">
+              The building blocks I reach for—from computer science fundamentals to intelligent systems and the infrastructure around them.
+            </p>
           </div>
-          <div className="skills-world-total">
-            <span className="skills-world-total-icon"><Orbit size={19}/></span>
-            <span><b>{totalSkills}+</b><small>skills & tools explored</small></span>
+
+          <div className="sk-chip-orbit" aria-hidden="true">
+            <span className="sk-ring sk-ring--a" />
+            <span className="sk-ring sk-ring--b" />
+            <span className="sk-ring sk-ring--c" />
+            <span className="sk-chip-core"><Cpu size={44} strokeWidth={1.4} /></span>
+            <i className="sk-gem sk-gem--1" /><i className="sk-gem sk-gem--2" /><i className="sk-gem sk-gem--3" /><i className="sk-gem sk-gem--4" />
+          </div>
+
+          <div className="sk-total">
+            <span className="sk-total-icon"><Orbit size={26} /></span>
+            <span><b>{total}+</b><small>skills &amp; tools explored</small></span>
           </div>
         </div>
 
-        <div className="skills-world-orbit" aria-hidden="true">
-          <span className="skills-orbit-ring skills-orbit-ring--one"/>
-          <span className="skills-orbit-ring skills-orbit-ring--two"/>
-          <span className="skills-orbit-core"><Sparkles size={20}/></span>
-          <span className="skills-orbit-node skills-orbit-node--one"/>
-          <span className="skills-orbit-node skills-orbit-node--two"/>
-          <span className="skills-orbit-node skills-orbit-node--three"/>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 skills-world-grid">
+        <div className="sk-grid">
           {portfolioData.technicalExpertise.map((area, i) => {
-            const Icon = iconMap[area.icon] || Cpu;
+            const Icon = iconMap[area.icon] ?? Code2;
+            const Art = artMap[area.icon] ?? Cpu;
             return (
-              <motion.div key={area.category} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.5, delay: i * 0.07 }} whileHover={{ y: -5 }} className="skills-card card-surface p-6 transition-all duration-300">
-                <div className="skills-card-topline"><span>DOMAIN / 0{i + 1}</span><span>{String(area.skills.length).padStart(2, "0")} MODULES</span></div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="skills-card-icon"><Icon size={20}/></div>
-                  <h3 className="text-base font-semibold text-text">{area.category}</h3>
+              <motion.article
+                key={area.category}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
+                whileHover={{ y: -6 }}
+                className="sk-card card-surface"
+                style={{ ["--accent" as string]: ACCENTS[i % ACCENTS.length] }}
+              >
+                <div className="sk-meta"><span>DOMAIN / {String(i + 1).padStart(2, "0")}</span><span>{String(area.skills.length).padStart(2, "0")} MODULES</span></div>
+                <div className="sk-title">
+                  <span className="sk-icon"><Icon size={26} strokeWidth={1.6} /></span>
+                  <h3>{area.category}</h3>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {area.skills.map((skill) => <span key={skill} className="chip text-xs">{skill}</span>)}
+                <div className="sk-chips">
+                  {area.skills.map((skill) => <span key={skill} className="chip">{skill}</span>)}
                 </div>
-                <div className="skills-card-footer"><span>STACK CONFIGURED</span><span className="skills-card-signal"><i/><i/><i/><i/></span></div>
-              </motion.div>
+                <Art className="sk-art" aria-hidden="true" strokeWidth={1} />
+                <div className="sk-foot">
+                  <span>STACK CONFIGURED</span>
+                  <span className="sk-bars"><i /><i /><i /><i /></span>
+                </div>
+              </motion.article>
             );
           })}
         </div>
-        <div className="skills-world-legend"><span><i/> FOUNDATIONS</span><b/><span><i/> SYSTEMS</span><b/><span><i/> INTELLIGENCE</span><b/><span><i/> INFRASTRUCTURE</span></div>
+
+        <div className="sk-tagline" aria-hidden="true"><span>Build</span><i /><span>Learn</span><i /><span>Innovate</span></div>
       </div>
     </section>
   );

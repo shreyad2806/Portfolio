@@ -92,11 +92,11 @@ export const portfolioData = {
   },
   blog: { title: "Engineering Field Notes", readingTime: "", href: null },
   technicalExpertise: [
-    { icon: "Cpu", category: "Core CS", skills: ["Data Structures & Algorithms", "OOP", "DBMS", "Operating Systems", "Computer Networks", "System Design Fundamentals"] },
-    { icon: "Code", category: "Languages", skills: ["Python", "C++", "SQL"] },
-    { icon: "Server", category: "Backend & Databases", skills: ["FastAPI", "REST APIs", "PostgreSQL", "pgvector", "Unit Testing", "Integration Testing", "API Testing", "CI/CD"] },
-    { icon: "Layout", category: "Frameworks & Cloud", skills: ["Next.js", "Docker", "AWS", "MCP"] },
-    { icon: "Brain", category: "AI & Intelligent Systems", skills: ["Machine Learning", "Scikit-learn", "XGBoost", "LLMs", "NLP", "RAG", "Embeddings", "Agentic AI", "LangGraph", "LangChain", "CrewAI"] },
-    { icon: "Database", category: "Developer Infrastructure", skills: ["Git", "GitHub", "PostHog", "Repository Debugging", "Observability", "Testing"] },
+    { icon: "Code", category: "Core CS", skills: ["Data Structures & Algorithms", "Object-Oriented Programming (OOP)", "Database Management Systems (DBMS)", "Operating Systems", "System Design Fundamentals"] },
+    { icon: "Terminal", category: "Programming Languages", skills: ["Python", "C++", "SQL"] },
+    { icon: "Database", category: "Backend & Databases", skills: ["FastAPI", "REST APIs", "PostgreSQL", "pgvector"] },
+    { icon: "FlaskConical", category: "Software Engineering", skills: ["Unit Testing", "Integration Testing", "API Testing", "CI/CD"] },
+    { icon: "Brain", category: "AI / Machine Learning", skills: ["Machine Learning", "Scikit-learn", "XGBoost", "Large Language Models (LLMs)", "Natural Language Processing (NLP)", "Retrieval-Augmented Generation (RAG)", "Embeddings", "Agentic AI"] },
+    { icon: "Layers", category: "Frameworks & Cloud", skills: ["LangGraph", "LangChain", "CrewAI", "Model Context Protocol (MCP)", "Next.js", "AWS", "Docker"] },
   ],
 };
