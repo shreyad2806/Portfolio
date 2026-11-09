@@ -8,13 +8,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#09090B",
-        card: "#111217",
-        border: "#23242C",
-        primary: "#8B5CF6",
-        "primary-soft": "#A78BFA",
-        text: "#F8FAFC",
-        muted: "#94A3B8",
+        background: "#070420",
+        card: "#0e0a35",
+        border: "#2a2166",
+        primary: "#8b6bff",
+        "primary-soft": "#b49aff",
+        text: "#f1f3ff",
+        muted: "#a3a9d6",
+        aurora: { cyan: "#67e8f9", amber: "#ffc46e", mint: "#78e5bd", rose: "#f58dc8", violet: "#b49aff" },
       },
       borderRadius: {
         xl2: "16px",
@@ -30,7 +31,8 @@ const config: Config = {
       },
       boxShadow: {
         soft: "0 8px 30px rgba(0, 0, 0, 0.35)",
-        glow: "0 0 60px rgba(139, 92, 246, 0.15)",
+        glow: "0 0 60px rgba(139, 92, 246, 0.25)",
+        neon: "0 0 34px rgba(124, 92, 255, .45)",
       },
       backgroundImage: {
         "grid-fade":

@@ -18,7 +18,7 @@ import LearningsSection from "@/components/projects/LearningsSection";
 import RoadmapSection from "@/components/projects/RoadmapSection";
 import GitHubCTA from "@/components/projects/GitHubCTA";
 import NextProject from "@/components/projects/NextProject";
-import ReadingProgress from "@/components/projects/ReadingProgress";
+import NextDestinations from "@/components/theme/NextDestinations";
 import StickyNavigation from "@/components/projects/StickyNavigation";
 import { projectDataMap } from "@/lib/project-detail-data";
 
@@ -48,7 +48,6 @@ export default async function ProjectDetailPage({
 
   return (
     <>
-      <ReadingProgress />
       <Navbar />
       {!isTalentLens && <StickyNavigation />}
       <main>
@@ -78,6 +77,9 @@ export default async function ProjectDetailPage({
           </>
         )}
       </main>
+      <div className="container-px mx-auto max-w-[1400px]">
+        <NextDestinations current="buildlab" />
+      </div>
     </>
   );
 }

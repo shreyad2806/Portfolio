@@ -47,14 +47,16 @@ export default function TimelineItem({
       <div className="absolute left-4 top-8 bottom-[-24px] w-0.5 bg-gradient-to-b from-primary/50 to-transparent" />
       
       {/* Timeline Dot */}
-      <div className="absolute left-3 top-8 w-3 h-3 rounded-full bg-primary shadow-lg shadow-primary/50" />
+      <div className={`absolute left-3 top-8 h-3 w-3 rounded-full ${isActive ? "bg-cyan-300 shadow-[0_0_16px_4px_rgba(103,232,249,.7)]" : "bg-primary shadow-[0_0_10px_2px_rgba(139,107,255,.55)]"}`}>
+        {isActive && <span className="absolute inset-0 animate-ping rounded-full bg-cyan-300/70" />}
+      </div>
       
       {/* Card */}
       <motion.div
         className={`ml-10 p-4 rounded-xl border transition-all duration-300 ${
           isActive
-            ? "bg-primary/10 border-primary/50 shadow-lg shadow-primary/10"
-            : "bg-card/50 border-border/50 hover:border-primary/30 hover:bg-card/80"
+            ? "border-cyan-300/60 bg-gradient-to-br from-violet-500/20 to-cyan-400/10 shadow-[0_0_30px_rgba(103,232,249,.18)]"
+            : "border-violet-300/20 bg-[#120c46]/60 backdrop-blur-md hover:border-violet-300/50 hover:bg-[#1a1160]/70"
         }`}
       >
         <div className="flex items-start gap-3">
@@ -65,13 +67,13 @@ export default function TimelineItem({
           >
             <Icon
               size={20}
-              className={isActive ? "text-primary" : "text-muted"}
+              className={isActive ? "text-cyan-200" : "text-muted"}
             />
           </div>
           <div className="flex-1">
             <p
               className={`text-xs font-medium mb-1 ${
-                isActive ? "text-primary" : "text-muted"
+                isActive ? "text-cyan-200" : "text-muted"
               }`}
             >
               {year}

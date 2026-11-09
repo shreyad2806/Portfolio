@@ -27,9 +27,6 @@ export default function ContactCTA() {
           <Link href="/projects" className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-primary transition-all duration-200 group mt-6">Browse All Projects <ArrowUpRight size={14} className="transition group-hover:translate-x-1 group-hover:-translate-y-1"/></Link>
         </motion.div>
       </div>
-      <footer className="connection-footer mt-24 border-t">
-        <div className="container-px mx-auto max-w-7xl py-8 flex flex-col sm:flex-row items-center justify-between gap-4"><p className="text-sm text-muted">© {new Date().getFullYear()} Shreya Dubey</p><p className="text-sm text-muted font-mono">Built with Next.js &amp; Tailwind · SHREYA.EXE</p></div>
-      </footer>
     </section>
   );
 }

@@ -4,68 +4,53 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import ProjectGrid from "@/components/projects/ProjectGrid";
 import { projects } from "@/components/projects/ProjectData";
+import PageHero from "@/components/theme/PageHero";
+import NextDestinations from "@/components/theme/NextDestinations";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 export default function ProjectsPage() {
+  const flagship = projects.filter((p) => p.featured).length;
+  const building = projects.filter((p) => p.status === "in-progress").length;
+
   return (
     <>
       <Navbar />
-      <main className="min-h-screen pt-24 pb-20">
-        <div className="container-px mx-auto max-w-7xl">
-          {/* Hero Section */}
-          <motion.div
-            initial="hidden"
-            animate="show"
-            variants={fadeUp}
-            className="mb-12"
-          >
-            <p className="mb-4 font-mono text-[10px] uppercase tracking-[.24em] text-cyan-100/60">SHREYA.EXE · THE BUILD LAB</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-4">
-              The Build Lab
-            </h1>
-            <p className="text-lg text-muted max-w-2xl">
-              A closer look at the systems I have built — from financial workflows and runtime security to machine-learning applications. Explore the engineering choices, tools and lessons behind each one.
-            </p>
-          </motion.div>
+      <main className="min-h-screen pb-20">
+        <div className="container-px mx-auto max-w-[1400px]">
+          <PageHero
+            place="buildlab"
+            title={
+              <>
+                The <span className="th-accent-text" style={{ "--accent": "#66e9f4" } as React.CSSProperties}>Build Lab</span>
+              </>
+            }
+            description="A closer look at the systems I have built — from financial workflows and runtime security to machine-learning applications. Explore the engineering choices, tools and lessons behind each one."
+            stats={[
+              { value: String(projects.length), label: "projects" },
+              { value: String(flagship), label: "flagship systems" },
+              ...(building ? [{ value: String(building), label: "in the workshop" }] : []),
+            ]}
+          />
 
-          {/* Project Grid */}
-          <motion.div
-            initial="hidden"
-            animate="show"
-            variants={fadeUp}
-            transition={{ delay: 0.1 }}
-          >
+          <motion.div initial="hidden" animate="show" variants={fadeUp} transition={{ delay: 0.1 }}>
             <ProjectGrid projects={projects} />
           </motion.div>
 
-          {/* Bottom CTA */}
-          <motion.div
-            initial="hidden"
-            animate="show"
-            variants={fadeUp}
-            transition={{ delay: 0.2 }}
-            className="mt-20"
-          >
-            <div className="card-surface p-8 lg:p-10 text-center max-w-2xl mx-auto">
-              <h3 className="text-xl font-semibold tracking-tight mb-3">
-                Building in public.
-              </h3>
-              <p className="text-muted leading-relaxed">
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="mt-20">
+            <div className="card-surface mx-auto max-w-2xl p-8 text-center lg:p-10">
+              <h3 className="mb-3 text-xl font-semibold tracking-tight text-white">Building in public.</h3>
+              <p className="leading-relaxed text-muted">
                 Currently exploring AI infrastructure, developer tools, backend engineering, and open-source software.
               </p>
-              <p className="text-muted mt-2">
-                More projects are on the way.
-              </p>
+              <p className="mt-2 text-muted">More projects are on the way.</p>
             </div>
           </motion.div>
+
+          <NextDestinations current="buildlab" />
         </div>
       </main>
     </>

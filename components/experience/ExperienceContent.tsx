@@ -79,7 +79,7 @@ export default function ExperienceContent({ data }: ExperienceContentProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="p-6 rounded-xl bg-card/50 border border-border/50"
+            className="p-6 card-surface"
           >
             <h3 className="text-sm font-semibold text-text mb-4">What I Do</h3>
             <ul className="space-y-2">

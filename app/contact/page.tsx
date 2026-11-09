@@ -1,33 +1,36 @@
 import Navbar from "@/components/Navbar";
-import AnimatedBackground from "@/components/contact/AnimatedBackground";
-import ContactHero from "@/components/contact/ContactHero";
 import AvailabilityCard from "@/components/contact/AvailabilityCard";
 import ContactGrid from "@/components/contact/ContactGrid";
 import QuickConnect from "@/components/contact/QuickConnect";
+import PageHero from "@/components/theme/PageHero";
+import NextDestinations from "@/components/theme/NextDestinations";
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-background">
-      <AnimatedBackground />
+    <div className="min-h-screen">
       <Navbar />
-      <main className="container-px mx-auto max-w-7xl py-12">
-        <div className="flex flex-col lg:flex-row gap-8 mb-8">
-          {/* Left - Hero */}
-          <div className="flex-1">
-            <ContactHero />
-          </div>
+      <main className="container-px mx-auto max-w-[1400px] pb-20">
+        <PageHero
+          place="connection"
+          title={
+            <>
+              Let&apos;s <span className="th-accent-text" style={{ "--accent": "#f58dc8" } as React.CSSProperties}>connect</span>.
+            </>
+          }
+          description="I'm always open to discussing new opportunities, interesting projects, collaborations, or simply connecting with fellow developers."
+          stats={[{ value: "Open", label: "to opportunities" }]}
+        />
 
-          {/* Right - Availability Card */}
-          <div className="lg:w-80">
-            <AvailabilityCard />
-          </div>
+        <div className="grid items-start gap-8 lg:grid-cols-[1fr_20rem]">
+          <ContactGrid />
+          <AvailabilityCard />
         </div>
 
-        {/* Contact Grid */}
-        <ContactGrid />
+        <div className="mt-8">
+          <QuickConnect />
+        </div>
 
-        {/* Quick Connect CTA */}
-        <QuickConnect />
+        <NextDestinations current="connection" />
       </main>
     </div>
   );

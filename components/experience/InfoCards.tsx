@@ -30,7 +30,7 @@ export default function InfoCards({
           animate="show"
           custom={0}
           whileHover={{ y: -4 }}
-          className="p-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300"
+          className="p-4 card-surface"
         >
           <h4 className="text-sm font-semibold text-text mb-3">Focus Areas</h4>
           <ul className="space-y-2">
@@ -52,7 +52,7 @@ export default function InfoCards({
           animate="show"
           custom={1}
           whileHover={{ y: -4 }}
-          className="p-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300"
+          className="p-4 card-surface"
         >
           <h4 className="text-sm font-semibold text-text mb-3">Highlights</h4>
           <ul className="space-y-2">
