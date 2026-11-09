@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import "./explorer-hero.css";
+import "./theme.css";
 import GlobalNova from "@/components/GlobalNova";
+import SiteBackdrop from "@/components/theme/SiteBackdrop";
+import InteractionLayer from "@/components/theme/InteractionLayer";
+import SiteFooter from "@/components/theme/SiteFooter";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: "swap" });
@@ -20,7 +24,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sans bg-background text-text antialiased">{children}<GlobalNova /></body>
+      <body className="font-sans bg-background text-text antialiased">
+        <SiteBackdrop />
+        <InteractionLayer />
+        {children}
+        <SiteFooter />
+        <GlobalNova />
+      </body>
     </html>
   );
 }

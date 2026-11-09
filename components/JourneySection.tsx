@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, BriefcaseBusiness, Trophy, Users, Sparkles, BrainCircuit } from "lucide-react";
+import SectionHeading from "@/components/theme/SectionHeading";
 
 const milestones = [
   {
@@ -34,19 +35,21 @@ const recognitions = [
 export default function JourneySection() {
   return (
     <section id="journey" className="journey-section relative overflow-hidden py-20 sm:py-24">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <div className="mb-12 max-w-2xl">
-          <p className="mb-3 font-mono text-[10px] uppercase tracking-[.26em] text-amber-200/70">03 · The Journey</p>
-          <h2 className="text-3xl font-semibold tracking-[-.04em] text-white sm:text-4xl">Experience is built, not collected.</h2>
-          <p className="mt-4 text-sm leading-7 text-slate-400">A few chapters that shaped how I approach engineering: building for real workflows, debugging what breaks, and learning alongside other builders.</p>
-        </div>
+      <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+        <SectionHeading
+          index="03"
+          eyebrow="The Journey · Experience"
+          title={<>Experience is <span className="th-accent-text" style={{ "--accent": "#ffc46e" } as React.CSSProperties}>built</span>, not collected.</>}
+          description="A few chapters that shaped how I approach engineering: building for real workflows, debugging what breaks, and learning alongside other builders."
+          accent="#ffc46e"
+        />
         <div className="relative grid gap-5 lg:grid-cols-[1.35fr_.85fr]">
-          <div className="journey-rail absolute bottom-6 left-[19px] top-6 hidden w-px lg:block" aria-hidden="true"/>
+          
           <div className="space-y-4">
             {milestones.map((item, index) => {
               const Icon = item.icon;
               return (
-                <motion.article key={item.organization} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .45, delay: index * .08 }} className="journey-card relative rounded-2xl border border-white/10 bg-[#10182b]/80 p-6 sm:p-7 backdrop-blur-xl">
+                <motion.article key={item.organization} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .45, delay: index * .08 }} className="journey-card card-surface relative p-6 sm:p-7">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <span className="font-mono text-[10px] tracking-[.18em]" style={{ color: item.color }}>{item.period}</span>
                     <span className="rounded-full border border-white/10 px-2.5 py-1 text-[10px] text-slate-400">Internship</span>
@@ -68,7 +71,7 @@ export default function JourneySection() {
             {recognitions.map((item, index) => {
               const Icon = item.icon;
               return (
-                <motion.div key={item.title} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .07 }} className="journey-recognition flex items-center gap-4 rounded-2xl border border-white/[.08] bg-white/[.025] p-5">
+                <motion.div key={item.title} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .07 }} className="journey-recognition card-surface flex items-center gap-4 p-5">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl" style={{ color: item.color, background: item.color + "18" }}><Icon size={19}/></div>
                   <div><h3 className="text-sm font-semibold text-white">{item.title}</h3><p className="mt-1 text-xs text-slate-500">{item.detail}</p></div>
                 </motion.div>

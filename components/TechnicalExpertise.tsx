@@ -1,65 +1,55 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
-import {
-  Cpu,
-  Brain,
-  Server,
-  Layout,
-  Database,
-  Code,
-  LucideIcon,
-} from "lucide-react";
+import { Cpu, Brain, Server, Layout, Database, Code, LucideIcon } from "lucide-react";
 import { portfolioData } from "@/lib/portfolio-data";
+import SectionHeading from "@/components/theme/SectionHeading";
 
-const iconMap: Record<string, LucideIcon> = {
-  Cpu,
-  Brain,
-  Server,
-  Layout,
-  Database,
-  Code,
-};
+const iconMap: Record<string, LucideIcon> = { Cpu, Brain, Server, Layout, Database, Code };
+const ACCENTS = ["#b49aff", "#66e9f4", "#78e5bd", "#ffc46e", "#f58dc8", "#8b9bff"];
 
 export default function TechnicalExpertise() {
   return (
-    <section id="skills" className="py-16 lg:py-20">
-      <div className="container-px mx-auto max-w-7xl">
-        <div className="mb-10">
-          <p className="eyebrow mb-3">Technical Expertise</p>
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">
-            Skills & Technologies
-          </h2>
-        </div>
+    <section id="skills" className="relative py-20 lg:py-24">
+      <div className="container-px mx-auto max-w-[1400px]">
+        <SectionHeading
+          index="01"
+          eyebrow="The Basecamp · Technical Expertise"
+          title={<>Skills &amp; <span className="th-accent-text" style={{ "--accent": "#b49aff" } as CSSProperties}>technologies</span></>}
+          description="The toolkit behind the systems: from core computer science to agentic AI and the infrastructure that keeps it reliable."
+          accent="#b49aff"
+        />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {portfolioData.technicalExpertise.map((area, i) => {
             const Icon = iconMap[area.icon] || Cpu;
+            const accent = ACCENTS[i % ACCENTS.length];
             return (
               <motion.div
                 key={area.category}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 22 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: i * 0.06 }}
-                whileHover={{ y: -4 }}
-                className="skills-card card-surface p-6 transition-all duration-300 hover:border-primary/30"
+                transition={{ duration: 0.55, delay: i * 0.07 }}
+                whileHover={{ y: -6 }}
+                className="skills-card card-surface th-skill p-6"
+                style={{ "--accent": accent } as CSSProperties}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-primary/10">
-                    <Icon size={18} className="text-primary" />
+                <div className="mb-5 flex items-center gap-3.5">
+                  <div className="th-skill-icon">
+                    <Icon size={20} />
                   </div>
-                  <h3 className="text-base font-semibold text-text">
-                    {area.category}
-                  </h3>
+                  <div>
+                    <h3 className="text-base font-semibold text-white">{area.category}</h3>
+                    <p className="font-mono text-[10px] uppercase tracking-[.16em]" style={{ color: accent }}>
+                      {String(i + 1).padStart(2, "0")} · {area.skills.length} skills
+                    </p>
+                  </div>
                 </div>
-
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 pb-3">
                   {area.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="chip text-xs"
-                    >
+                    <span key={skill} className="chip text-xs">
                       {skill}
                     </span>
                   ))}

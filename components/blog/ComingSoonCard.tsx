@@ -10,7 +10,7 @@ export default function ComingSoonCard() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className="p-8 rounded-xl bg-card/50 border border-border/50"
+      className="p-8 card-surface"
     >
       <div className="flex items-start gap-4 mb-6">
         <div className="p-3 rounded-lg bg-primary/10">

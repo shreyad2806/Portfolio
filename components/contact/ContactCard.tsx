@@ -30,7 +30,7 @@ export default function ContactCard({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -4 }}
-      className="p-6 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300 group"
+      className="p-6 card-surface group"
     >
       <div className="flex items-start gap-4 mb-4">
         <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">

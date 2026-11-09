@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Github, Layers3, ShieldCheck, ScanEye, Activity } from "lucide-react";
 import Link from "next/link";
 import { portfolioData } from "@/lib/portfolio-data";
+import SectionHeading from "@/components/theme/SectionHeading";
 
 export default function FeaturedProjects() {
   const featuredProjects = portfolioData.projects.filter((p) => p.featured).slice(0, 3);
@@ -14,27 +15,21 @@ export default function FeaturedProjects() {
   } as const;
 
   return (
-    <section id="projects" className="py-16 lg:py-24">
-      <div className="container-px mx-auto max-w-7xl">
-        <div className="flex items-end justify-between mb-10">
-          <div>
-            <p className="eyebrow mb-3">The Build Lab · Flagship systems</p>
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">
-              Projects
-            </h2>
-          </div>
-          <Link
-            href="/projects"
-            className="group inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-primary transition-all duration-200"
-          >
-            View All Projects
-            <motion.span
-              className="group-hover:translate-x-1 transition-transform duration-200"
-            >
-              <ArrowUpRight size={16} />
-            </motion.span>
-          </Link>
-        </div>
+    <section id="projects" className="relative py-20 lg:py-24">
+      <div className="container-px mx-auto max-w-[1400px]">
+        <SectionHeading
+          index="02"
+          eyebrow="The Build Lab · Flagship systems"
+          title={<>Systems built to <span className="th-accent-text" style={{ "--accent": "#66e9f4" } as React.CSSProperties}>hold up</span></>}
+          description="Three flagship builds: financial exception resolution, zero-trust runtime security and image-quality intelligence."
+          accent="#66e9f4"
+          action={
+            <Link href="/projects" className="btn-secondary group text-sm">
+              View all projects
+              <ArrowUpRight size={16} className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+          }
+        />
 
         <div className="grid gap-5 lg:grid-cols-3">
           {featuredProjects.map((project, index) => (
