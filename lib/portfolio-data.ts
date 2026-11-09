@@ -34,14 +34,14 @@ export const portfolioData = {
     email: "dubeyshreya2507@gmail.com",
     linkedin: "https://www.linkedin.com/in/shreya-dubey-544874289/",
     github: "https://github.com/shreyad2806",
-    resume: "/SDE.pdf",
+    resume: "/resume",
     stack: ["Backend Engineering", "AI/ML Systems", "Testing & Reliability", "Agentic AI"],
   },
   contact: {
     email: "mailto:dubeyshreya2507@gmail.com",
     linkedin: "https://www.linkedin.com/in/shreya-dubey-544874289/",
     github: "https://github.com/shreyad2806",
-    resume: "/SDE.pdf",
+    resume: "/resume",
   },
   metrics: [
     { value: "3", label: "Resume-Featured Projects", caption: "CloseLoop • Kavach • ComplytAI", icon: "Layers" },
