@@ -9,11 +9,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "sw
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Shreya Dubey — AI & Backend Systems Engineer",
-  description: "Explore the work of Shreya Dubey: agentic AI, backend engineering, developer infrastructure, and production-oriented software.",
+  title: "Shreya Dubey — Software Engineer | Backend Engineering | AI/ML Systems",
+  description: "Shreya Dubey is a software engineer focused on backend engineering and AI/ML systems, building reliable APIs, intelligent workflows and production-oriented software.",
   openGraph: {
     title: "Shreya Dubey — SHREYA.EXE",
-    description: "An engineer exploring the frontier of intelligent software.",
+    description: "Software Engineer focused on Backend Engineering and AI/ML Systems.",
     type: "website",
   },
 };
