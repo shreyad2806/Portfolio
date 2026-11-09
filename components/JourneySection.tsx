@@ -1,103 +1,100 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowUpRight, BriefcaseBusiness, Trophy, Users, Sparkles, BrainCircuit } from "lucide-react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight, BrainCircuit, Github, Briefcase, Scale, Sparkles, Trophy, Users, LucideIcon } from "lucide-react";
 
-const milestones = [
+const highlights = [
+  { icon: Trophy, title: "Hackathons", text: "Smart India Hackathon, ET GenAI Hackathon", tone: "violet" },
+  { icon: Github, title: "Open Source", text: "Agentic AI platform contributor", tone: "cyan" },
+  { icon: Briefcase, title: "Internships", text: "StartupCrafters & LawGPT", tone: "blue" },
+] as const;
+
+const experience = [
   {
-    period: "AUG 2026 — PRESENT",
-    title: "Software Engineer Intern",
-    organization: "StartupCrafters",
-    description: "Investigating repository-level failures, reproducing bugs, analyzing logs and PostHog events, and improving application reliability through code changes, pull requests and testing.",
-    tags: ["Debugging", "Root-cause analysis", "Testing", "Reliability"],
-    icon: BriefcaseBusiness,
-    color: "#a78bfa",
+    period: "Aug 2026 — Present", title: "Software Engineer Intern", org: "StartupCrafters", active: true, logo: "SC", icon: null as LucideIcon | null,
+    description: "Investigated software failures, implemented fixes, and contributed to backend development through PRs and testing.",
+    tags: ["Python", "FastAPI", "PostHog", "GitHub"],
   },
   {
-    period: "MAY 2026 — JUN 2026",
-    title: "AI Engineer Intern",
-    organization: "LawGPT",
-    description: "Developed an AI-powered legal marketing CRM for lead discovery, qualification, engagement tracking, content generation and workflow automation using OCR, NLP, REST APIs and Supabase.",
-    tags: ["AI workflows", "OCR / NLP", "CRM", "Supabase"],
-    icon: BriefcaseBusiness,
-    color: "#67e8f9",
+    period: "May 2026 — Jun 2026", title: "AI Engineer Intern", org: "LawGPT", active: false, logo: "", icon: Scale,
+    description: "Built an AI-powered legal marketing CRM with OCR, NLP and automated workflows.",
+    tags: ["Python", "Next.js", "Supabase", "RAG"],
   },
 ];
 
-const recognitions = [
-  { title: "Smart India Hackathon", detail: "National Runner-up · 2025", icon: Trophy, color: "#f6c779" },
-  { title: "ET GenAI Hackathon", detail: "Finalist · 2025", icon: Sparkles, color: "#a78bfa" },
-  { title: "Technomech Club", detail: "President · Community & leadership", icon: Users, color: "#8ee5c1" },
-  { title: "NandaHack", detail: "HCLTech × MIT Media Lab · Agentic AI", icon: BrainCircuit, color: "#67e8f9" },
-];
-
-
-const routeMilestones = [
-  { date: "2025", title: "SIH Runner-up", note: "National recognition", icon: Trophy, color: "#f6c779" },
-  { date: "2025", title: "ET GenAI", note: "Hackathon finalist", icon: Sparkles, color: "#b49aff" },
-  { date: "MAY — JUN 2026", title: "LawGPT", note: "AI Engineer Intern", icon: BrainCircuit, color: "#67e8f9" },
-  { date: "AUG 2026 — NOW", title: "StartupCrafters", note: "Software Engineer Intern", icon: BriefcaseBusiness, color: "#8ee5c1" },
+const achievements: { title: string; detail: string; icon: LucideIcon }[] = [
+  { title: "Smart India Hackathon", detail: "National Runner-up · 2025", icon: Trophy },
+  { title: "ET GenAI Hackathon", detail: "Finalist · 2025", icon: Sparkles },
+  { title: "NandaHack", detail: "HCLTech × MIT Media Lab · Agentic AI", icon: BrainCircuit },
+  { title: "Technomech Club", detail: "President · Community & leadership", icon: Users },
 ];
 
 export default function JourneySection() {
+  const [tab, setTab] = useState<"experience" | "achievements">("experience");
+
   return (
-    <section id="journey" className="journey-section relative overflow-hidden py-20 sm:py-24">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <div className="mb-12 max-w-2xl">
-          <p className="mb-3 font-mono text-[10px] uppercase tracking-[.26em] text-amber-200/70">03 · The Journey</p>
-          <h2 className="text-3xl font-semibold tracking-[-.04em] text-white sm:text-4xl">Experience is built, not collected.</h2>
-          <p className="mt-4 text-sm leading-7 text-slate-400">A few chapters that shaped how I approach engineering: building for real workflows, debugging what breaks, and learning alongside other builders.</p>
+    <section id="journey" className="jy-section py-16 lg:py-24">
+      <div className="container-px mx-auto max-w-7xl">
+        <div className="jy-head">
+          <div className="jy-head-copy">
+            <p className="jy-pill"><Sparkles size={14} /> MY JOURNEY <i /></p>
+            <h2 className="jy-title">Building. <span className="jy-violet">Exploring.</span> <span className="jy-cyan">Growing.</span></h2>
+            <p className="mt-4 max-w-lg text-[15px] leading-7 text-muted">From hackathons to open source, and real-world internships — a journey of continuous learning and impact.</p>
+          </div>
+          <div className="jy-planet" aria-hidden="true"><span className="jy-globe" /><span className="jy-ring jy-ring--a" /><span className="jy-ring jy-ring--b" /><i className="jy-moon jy-moon--1" /><i className="jy-moon jy-moon--2" /></div>
         </div>
-        <div className="journey-route" aria-label="Selected career milestones">
-          <div className="journey-route-line"/>
-          {routeMilestones.map((item, index) => {
-            const Icon = item.icon;
-            return <motion.div key={item.title} className="journey-route-stop" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .08 }}>
-              <span className="journey-route-icon" style={{ "--route-color": item.color } as React.CSSProperties}><Icon size={19}/></span>
-              <span className="journey-route-date">{item.date}</span>
-              <b>{item.title}</b>
-              <small>{item.note}</small>
-            </motion.div>;
-          })}
-        </div>
-        <div className="relative grid gap-5 lg:grid-cols-[1.35fr_.85fr]">
-          <div className="journey-rail absolute bottom-6 left-[19px] top-6 hidden w-px lg:block" aria-hidden="true"/>
-          <div className="space-y-4">
-            {milestones.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.article key={item.organization} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .45, delay: index * .08 }} className="journey-card relative rounded-2xl border border-white/10 bg-[#10182b]/80 p-6 sm:p-7 backdrop-blur-xl">
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <span className="font-mono text-[10px] tracking-[.18em]" style={{ color: item.color }}>{item.period}</span>
-                    <span className="rounded-full border border-white/10 px-2.5 py-1 text-[10px] text-slate-400">Internship</span>
-                  </div>
-                  <div className="mt-5 flex items-start gap-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border" style={{ color: item.color, borderColor: item.color + "55", background: item.color + "14" }}><Icon size={19}/></div>
-                    <div className="min-w-0">
-                      <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                      <p className="mt-1 text-sm font-medium" style={{ color: item.color }}>{item.organization}</p>
-                      <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-400">{item.description}</p>
-                      <div className="mt-4 flex flex-wrap gap-2">{item.tags.map(tag => <span key={tag} className="rounded-full border border-white/[.08] bg-white/[.025] px-2.5 py-1 text-[10px] text-slate-400">{tag}</span>)}</div>
+
+        <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.5 }} className="jy-bar">
+          {highlights.map(({ icon: Icon, title, text, tone }) => (
+            <div key={title} className={`jy-hl jy-hl--${tone}`}>
+              <span className="jy-hl-icon"><Icon size={30} strokeWidth={1.5} /></span>
+              <div><h3>{title}</h3><p>{text}</p></div>
+            </div>
+          ))}
+          <Link href="/experience" className="jy-bar-go" aria-label="See full experience"><ArrowRight size={20} /></Link>
+        </motion.div>
+
+        <div className="jy-panel">
+          <div className="jy-panel-head">
+            <span className="jy-panel-title"><i />My {tab === "experience" ? "Experience" : "Achievements"}</span>
+            <div className="jy-tabs" role="tablist">
+              {(["experience", "achievements"] as const).map((t) => (
+                <button key={t} role="tab" aria-selected={tab === t} onClick={() => setTab(t)} className={tab === t ? "is-active" : ""}>{t === "experience" ? "Experience" : "Achievements"}</button>
+              ))}
+            </div>
+          </div>
+
+          <AnimatePresence mode="wait">
+            {tab === "experience" ? (
+              <motion.div key="exp" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.3 }} className="jy-list">
+                {experience.map((e) => (
+                  <article key={e.org} className="jy-card card-surface">
+                    <span className="jy-logo">{e.icon ? <e.icon size={34} strokeWidth={1.4} /> : e.logo}</span>
+                    <div className="jy-card-body">
+                      <h3>{e.title}</h3>
+                      <p className="jy-org">{e.org} <span>· {e.period}</span></p>
+                      <p className="jy-desc">{e.description}</p>
+                      <div className="jy-tags">{e.tags.map((t) => <span key={t} className="chip">{t}</span>)}</div>
                     </div>
-                  </div>
-                </motion.article>
-              );
-            })}
-          </div>
-          <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-            {recognitions.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.div key={item.title} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .07 }} className="journey-recognition flex items-center gap-4 rounded-2xl border border-white/[.08] bg-white/[.025] p-5">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl" style={{ color: item.color, background: item.color + "18" }}><Icon size={19}/></div>
-                  <div><h3 className="text-sm font-semibold text-white">{item.title}</h3><p className="mt-1 text-xs text-slate-500">{item.detail}</p></div>
-                </motion.div>
-              );
-            })}
-            <a href="https://github.com/shreyad2806" target="_blank" rel="noreferrer" className="group flex items-center justify-between rounded-2xl border border-dashed border-white/15 p-5 text-sm text-slate-400 transition hover:border-amber-200/40 hover:text-white">
-              More experiments & contributions <ArrowUpRight size={16} className="transition group-hover:-translate-y-1 group-hover:translate-x-1"/>
-            </a>
-          </div>
+                    {e.active && <span className="jy-active"><i />Active</span>}
+                    <div className="jy-mini" aria-hidden="true"><b /><b /><b /><u /><u /></div>
+                    <Link href="/experience" className="jy-go" aria-label={`${e.org} details`}><ArrowRight size={16} /></Link>
+                  </article>
+                ))}
+              </motion.div>
+            ) : (
+              <motion.div key="ach" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.3 }} className="jy-ach">
+                {achievements.map(({ title, detail, icon: Icon }) => (
+                  <article key={title} className="jy-ach-card card-surface">
+                    <span className="jy-logo jy-logo--sm"><Icon size={24} strokeWidth={1.5} /></span>
+                    <div><h3>{title}</h3><p>{detail}</p></div>
+                  </article>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </section>
