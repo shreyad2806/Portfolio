@@ -120,12 +120,11 @@ export const portfolioData = {
   },
 
   technicalExpertise: [
-    { icon: "Cpu", category: "Core CS", skills: ["Data Structures & Algorithms", "OOP", "DBMS", "Operating Systems", "System Design Fundamentals"] },
+    { icon: "Cpu", category: "Core CS", skills: ["Data Structures & Algorithms", "DBMS", "Operating Systems", "System Design Fundamentals", "OOP"] },
     { icon: "Code", category: "Languages", skills: ["Python", "C++", "SQL"] },
     { icon: "Server", category: "Backend & Databases", skills: ["FastAPI", "REST APIs", "PostgreSQL", "pgvector"] },
     { icon: "Layout", category: "Software Engineering", skills: ["Unit Testing", "Integration Testing", "API Testing", "CI/CD"] },
+    { icon: "Brain", category: "AI/ML", skills: ["Machine Learning", "Scikit-learn", "XGBoost", "LLMs", "NLP", "RAG", "Embeddings", "Agentic AI"] },
     { icon: "Database", category: "Frameworks & Cloud", skills: ["LangGraph", "LangChain", "CrewAI", "MCP", "Next.js", "AWS", "Docker"] },
-    { icon: "Brain", category: "AI & Intelligent Systems", skills: ["Machine Learning", "Scikit-learn", "XGBoost", "LLMs", "NLP", "RAG", "Embeddings", "Agentic AI"] },
-    
   ],
 };
