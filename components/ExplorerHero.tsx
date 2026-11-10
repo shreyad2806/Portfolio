@@ -7,6 +7,18 @@ import HeroWorld from "@/components/HeroWorld";
 import NovaAssistant from "@/components/NovaAssistant";
 import { portfolioData } from "@/lib/portfolio-data";
 
+type NovaDestination = {
+  id: string;
+  n: string;
+  title: string;
+  sub: string;
+  panelSub: string;
+  target: string;
+  color: string;
+  icon: typeof Home;
+  reply: string;
+};
+
 const destinations: NovaDestination[] = [
   { id: "basecamp", n: "01", title: "The Basecamp", sub: "About · Skills · Philosophy", panelSub: "Get to know Shreya", target: "skills", color: "#b49aff", icon: Home, reply: "" },
   { id: "buildlab", n: "02", title: "The Build Lab", sub: "Projects · Systems · Demos", panelSub: "Explore her projects", target: "projects", color: "#66e9f4", icon: FlaskConical, reply: "" },
