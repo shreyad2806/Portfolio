@@ -32,11 +32,11 @@ export const experienceData: ExperienceItem[] = [
       "Evaluation & observability"
     ],
     highlights: [
-      "Agent runtimes: LangGraph, CrewAI, OpenAI Agents SDK and Claude Agent SDK",
-      "Typed and modular agent development: Pydantic AI and Google ADK",
-      "Harness patterns: tool loops, context management, sandboxing, retries and human approval",
-      "Inference systems: vLLM, SGLang, batching, KV-cache and quantization",
-      "Tracing and evaluation: Langfuse, OpenTelemetry and repeatable agent evaluations",
+      "Hands-on orchestration: LangGraph and CrewAI; frameworks being evaluated: OpenAI Agents SDK, Claude Agent SDK, Pydantic AI and Google ADK",
+      "Agent harness concepts: LangChain Deep Agents, tool loops, context management, sandboxing, retries and human approval",
+      "Workflow design: durable state, checkpoints, delegation and human-in-the-loop approvals",
+      "Inference systems to explore: vLLM, SGLang, TensorRT-LLM, continuous batching, KV-cache, quantization and speculative decoding",
+      "Tracing and evaluation: Langfuse, Arize Phoenix, OpenTelemetry and repeatable agent evaluations",
       "Interoperability: MCP and emerging agent-to-agent patterns"
     ],
     checklist: [
