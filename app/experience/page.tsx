@@ -10,7 +10,8 @@ import NextDestinations from "@/components/theme/NextDestinations";
 
 export default function ExperiencePage() {
   const [selectedId, setSelectedId] = useState("current");
-  const selectedData = experienceData.find((item) => item.id === selectedId);
+  const selectedIndex = Math.max(0, experienceData.findIndex((item) => item.id === selectedId));
+  const selectedData = experienceData[selectedIndex];
 
   return (
     <div className="min-h-screen">
@@ -30,11 +31,11 @@ export default function ExperiencePage() {
           ]}
         />
 
-        <div className="grid gap-8 lg:grid-cols-[30%_70%]">
-          <div className="order-2 lg:order-1">
+        <div className="jr-layout">
+          <div>
             <ExperienceTimeline selectedId={selectedId} onSelect={setSelectedId} />
           </div>
-          <div className="order-1 lg:order-2">{selectedData && <ExperienceContent data={selectedData} />}</div>
+          <div className="min-w-0">{selectedData && <ExperienceContent data={selectedData} index={selectedIndex} total={experienceData.length} prev={experienceData[selectedIndex - 1]} next={experienceData[selectedIndex + 1]} onNavigate={setSelectedId} />}</div>
         </div>
 
         <NextDestinations current="journey" />
