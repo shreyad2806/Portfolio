@@ -1,73 +1,43 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Github,
-  Trophy,
-  Target,
-  Rocket,
-  Briefcase,
-  Sparkles,
-  Users,
-  Network,
-  FolderGit2,
-  type LucideIcon,
-} from "lucide-react";
+import { Sparkles } from "lucide-react";
 import TimelineItem from "./TimelineItem";
 import { experienceData } from "@/data/experience";
-
-const iconMap: Record<string, LucideIcon> = {
-  Rocket,
-  Briefcase,
-  Github,
-  Sparkles,
-  Users,
-  Network,
-  Trophy,
-  FolderGit2,
-};
+import { iconOf, kindOf } from "./kinds";
 
 interface ExperienceTimelineProps {
   selectedId: string;
   onSelect: (id: string) => void;
 }
 
-export default function ExperienceTimeline({
-  selectedId,
-  onSelect,
-}: ExperienceTimelineProps) {
+export default function ExperienceTimeline({ selectedId, onSelect }: ExperienceTimelineProps) {
   return (
-    <div className="w-full">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="mb-8"
-      >
-        <h2 className="text-2xl font-bold text-text mb-2">My Journey</h2>
-        <p className="text-sm text-muted">
-          A timeline of my growth, leadership, achievements and the impact I&apos;ve
-          created.
-        </p>
+    <div className="jr-rail">
+      <motion.div initial={{ opacity: 0, y: -14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="jr-rail-head">
+        <h2><Sparkles size={20} fill="currentColor" /> My Journey</h2>
+        <p>A timeline of my growth, leadership, achievements and the impact I&apos;ve created.</p>
       </motion.div>
-
-      <div className="space-y-0">
+      <ol className="jr-list">
         {experienceData.map((item, index) => {
-          const Icon = iconMap[item.icon] || Target;
+          const kind = kindOf(item.icon);
           return (
             <TimelineItem
               key={item.id}
-              icon={Icon}
+              icon={iconOf(item.icon)}
+              kind={kind.label}
+              color={kind.color}
               year={item.year}
               title={item.title}
               subtitle={item.subtitle}
               isActive={selectedId === item.id}
               onClick={() => onSelect(item.id)}
               index={index}
+              isLast={index === experienceData.length - 1}
             />
           );
         })}
-      </div>
+      </ol>
     </div>
   );
 }
