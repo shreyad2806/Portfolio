@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import "./explorer-hero.css";
+import "./nova.css";
 import "./world-theme.css";
 import "./theme.css";
 import "./skills.css";
