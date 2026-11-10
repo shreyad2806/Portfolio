@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent, type CSSProperties } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Compass, FlaskConical, Map, Radio, Send, Sparkles, Telescope, RotateCcw, Minus, X } from "lucide-react";
 import { answerNova, novaDestinations, type NovaDestinationId } from "@/lib/nova-engine";
@@ -96,7 +96,7 @@ export default function NovaAssistant({ onNavigate, listenForOpen = false, start
               {novaDestinations.map((destination) => {
                 const Icon = icons[destination.id];
                 return (
-                  <button key={destination.id} type="button" onClick={() => onNavigate(destination.id)} style={{ "--nova-color": destination.color } as React.CSSProperties}>
+                  <button key={destination.id} type="button" onClick={() => onNavigate(destination.id)} style={{ "--nova-color": destination.color } as CSSProperties}>
                     <span className="xh-nova-destination-icon"><Icon size={16} /></span>
                     <span><b>{destination.title}</b><small>{destination.description}</small></span>
                     <ArrowRight size={14} />
