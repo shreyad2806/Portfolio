@@ -1,0 +1,59 @@
+{
+  "generated": "2026-11-11T19:51:47.341Z",
+  "questions": 45,
+  "categories": [
+    "profile",
+    "education",
+    "experience",
+    "projects",
+    "architecture",
+    "technologies",
+    "interests",
+    "navigation",
+    "follow-up",
+    "unknown"
+  ],
+  "live": false,
+  "scenarios": {
+    "offline": {
+      "summary": {
+        "scenario": "offline",
+        "questions": 45,
+        "passed": 45,
+        "retrievalPrecision": 0.8722222222222221,
+        "retrievalRecall": 0.9888888888888888,
+        "citationCorrectness": 1,
+        "navigationCorrectness": 1,
+        "answerModeCorrectness": 1,
+        "abstentionCorrectness": 1,
+        "hallucinationRate": 0,
+        "factCoverage": 1,
+        "fallbackActivations": 23,
+        "latencyMsAvg": 0.8444444444444444,
+        "latencyMsP95": 2,
+        "tokensTotal": 0
+      },
+      "failures": []
+    },
+    "degraded": {
+      "summary": {
+        "scenario": "degraded",
+        "questions": 45,
+        "passed": 45,
+        "retrievalPrecision": 0.8722222222222221,
+        "retrievalRecall": 0.9888888888888888,
+        "citationCorrectness": 1,
+        "navigationCorrectness": 1,
+        "answerModeCorrectness": 1,
+        "abstentionCorrectness": 1,
+        "hallucinationRate": 0,
+        "factCoverage": 1,
+        "fallbackActivations": 23,
+        "latencyMsAvg": 0.6222222222222222,
+        "latencyMsP95": 2,
+        "tokensTotal": 0
+      },
+      "failures": []
+    }
+  }
+}

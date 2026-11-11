@@ -9,7 +9,8 @@ import "./projects-home.css";
 import "./home-lower.css";
 import "./projects-page.css";
 import "./journey-page.css";
-import GlobalNova from "@/components/GlobalNova";
+import "./nova.css";
+import NovaWidget from "@/components/nova/NovaWidget";
 import SiteBackdrop from "@/components/theme/SiteBackdrop";
 import InteractionLayer from "@/components/theme/InteractionLayer";
 import SiteFooter from "@/components/theme/SiteFooter";
@@ -35,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <InteractionLayer />
         {children}
         <SiteFooter />
-        <GlobalNova />
+        <NovaWidget />
       </body>
     </html>
   );

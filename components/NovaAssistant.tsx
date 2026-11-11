@@ -1,8 +1,8 @@
 "use client";
 
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useState } from "react";
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowRight, LoaderCircle, Minus, Send, Sparkles, X } from "lucide-react";
+import { ArrowRight, Minus, Send, Sparkles, X } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface NovaDestination {
@@ -17,16 +17,13 @@ export interface NovaDestination {
   reply: string;
 }
 
-type Message = { id: string; role: "assistant" | "user"; content: string };
-type Props = { destinations: NovaDestination[]; onNavigate: (id: string) => void; listenForOpen?: boolean; startClosed?: boolean };
+type Props = { destinations: NovaDestination[]; onNavigate: (id: string) => void };
 type View = "open" | "minimized" | "closed";
 
-export default function NovaAssistant({ destinations, onNavigate, listenForOpen = false, startClosed = false }: Props) {
-  const [view, setView] = useState<View>(startClosed ? "closed" : "open");
-  const [messages, setMessages] = useState<Message[]>([]);
+export default function NovaAssistant({ destinations, onNavigate }: Props) {
+  // Hero intro card. Conversation itself lives in the global Nova widget (components/nova); this card only hands questions over.
+  const [view, setView] = useState<View>("open");
   const [draft, setDraft] = useState("");
-  const [busy, setBusy] = useState(false);
-  const listRef = useRef<HTMLDivElement>(null);
   const px = useMotionValue(0);
   const py = useMotionValue(0);
   const rotateY = useSpring(useTransform(px, [-0.5, 0.5], [-10, 10]), { stiffness: 140, damping: 16 });
@@ -43,62 +40,19 @@ export default function NovaAssistant({ destinations, onNavigate, listenForOpen 
     py.set(0);
   }
 
-  useEffect(() => {
-    listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" });
-  }, [messages, busy]);
-
-  useEffect(() => {
-    if (!listenForOpen) return;
-    const openNova = () => setView("open");
-    window.addEventListener("nova:open", openNova);
-    return () => window.removeEventListener("nova:open", openNova);
-  }, [listenForOpen]);
-
-  async function ask(value: string) {
+  function ask(value: string) {
     const question = value.trim();
-    if (!question || busy) return;
-    const next: Message[] = [...messages, { id: crypto.randomUUID(), role: "user", content: question }];
-    setMessages(next);
+    if (!question) return;
+    window.dispatchEvent(new CustomEvent("nova:ask", { detail: { question } }));
     setDraft("");
-    setBusy(true);
-    try {
-      const response = await fetch("/api/nova", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          question,
-          history: next.slice(0, -1).slice(-6).map(({ role, content }) => ({ role, content })),
-        }),
-      });
-      if (!response.ok) throw new Error("request failed");
-      const data = (await response.json()) as { reply: string };
-      setMessages((m) => [...m, { id: crypto.randomUUID(), role: "assistant", content: data.reply }]);
-    } catch {
-      setMessages((m) => [
-        ...m,
-        {
-          id: crypto.randomUUID(),
-          role: "assistant",
-          content: "I hit a connection issue. You can still jump straight to any destination below.",
-        },
-      ]);
-    } finally {
-      setBusy(false);
-    }
   }
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    void ask(draft);
+    ask(draft);
   }
 
-  if (view === "closed") {
-    return (
-      <button type="button" className="xh-nova-launcher" onClick={() => setView("open")} aria-label="Open Nova assistant">
-        <Sparkles size={18} /> Ask Nova
-      </button>
-    );
-  }
+  if (view === "closed") return null;
 
   return (
     <motion.aside
@@ -153,15 +107,6 @@ export default function NovaAssistant({ destinations, onNavigate, listenForOpen 
               </div>
             </div>
 
-            {messages.length > 0 && (
-              <div ref={listRef} className="xh-nova-chat" aria-live="polite">
-                {messages.map((m) => (
-                  <p key={m.id} className={`xh-msg xh-msg--${m.role}`}>{m.content}</p>
-                ))}
-                {busy && <p className="xh-msg xh-msg--assistant xh-msg--busy">Nova is thinking…</p>}
-              </div>
-            )}
-
             <h3 className="xh-nova-ask">Where would you like to go?</h3>
             <div className="xh-nova-dests">
               {destinations.map((d) => {
@@ -184,8 +129,8 @@ export default function NovaAssistant({ destinations, onNavigate, listenForOpen 
                 placeholder="Ask Nova anything..."
                 aria-label="Message Nova"
               />
-              <button type="submit" disabled={!draft.trim() || busy} aria-label="Send message">
-                {busy ? <LoaderCircle size={17} className="animate-spin" /> : <Send size={17} />}
+              <button type="submit" disabled={!draft.trim()} aria-label="Send message">
+                <Send size={17} />
               </button>
             </form>
           </motion.div>

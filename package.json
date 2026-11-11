@@ -6,24 +6,31 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "nova:ingest": "tsx scripts/nova/ingest.ts",
+    "nova:ingest:check": "tsx scripts/nova/ingest.ts --check",
+    "nova:eval": "NOVA_LOG=0 tsx scripts/nova/evaluate.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "framer-motion": "^11.11.17",
+    "lucide-react": "^0.454.0",
     "next": "15.3.9",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "framer-motion": "^11.11.17",
-    "lucide-react": "^0.454.0"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "typescript": "^5.6.3",
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "tailwindcss": "^3.4.14",
-    "postcss": "^8.4.47",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.1",
-    "eslint-config-next": "15.3.9"
+    "eslint-config-next": "15.3.9",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "tsx": "^4.23.15",
+    "typescript": "^5.6.3",
+    "vitest": "^5.1.0"
   }
 }

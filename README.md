@@ -56,3 +56,15 @@ subject matter.
   and "View all" links but not yet built — only the homepage is implemented,
   per the brief.
 - Respects `prefers-reduced-motion`.
+
+## Nova — the portfolio assistant
+
+Nova is a floating assistant (launcher → compact panel, bottom sheet on phones) that answers from a curated knowledge base and works without any LLM. See [`docs/nova`](docs/nova/architecture.md).
+
+**Adding new knowledge**
+1. Add/edit a Markdown file under `nova-knowledge/<category>/` with front-matter (`title, category, source, last_updated, verified, tags`). Mark anything unconfirmed `verified: false` and write `TODO(human)` instead of guessing.
+2. `npm run nova:ingest` (incremental) and commit the regenerated `nova-knowledge/index.json` + `manifest.json`.
+3. Optional exact answers: `nova-knowledge/faq.json`.
+4. `npm test && npm run nova:eval`.
+
+Optional LLM: set `GEMINI_API_KEY` and/or `OPENROUTER_API_KEY` server-side (see `docs/nova/provider-configuration.md`).

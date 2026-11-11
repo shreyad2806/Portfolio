@@ -1,0 +1,237 @@
+{
+  "generated_by": "npm run nova:ingest",
+  "embedder": "hash-384-v1",
+  "documents": [
+    {
+      "id": "achievements-hackathons",
+      "title": "Hackathons and honors",
+      "category": "achievements",
+      "path": "achievements/hackathons.md",
+      "verified": true,
+      "chunks": 1,
+      "hash": "e3d689e9133cfe18"
+    },
+    {
+      "id": "achievements-leadership-community",
+      "title": "Leadership and community",
+      "category": "achievements",
+      "path": "achievements/leadership-community.md",
+      "verified": false,
+      "chunks": 1,
+      "hash": "734f6cbd34fd7d83"
+    },
+    {
+      "id": "achievements-open-source",
+      "title": "Open-source contributions",
+      "category": "achievements",
+      "path": "achievements/open-source.md",
+      "verified": false,
+      "chunks": 1,
+      "hash": "aeb5a92d8237eddb"
+    },
+    {
+      "id": "education-vit-bhopal",
+      "title": "Education — VIT Bhopal",
+      "category": "education",
+      "path": "education/vit-bhopal.md",
+      "verified": true,
+      "chunks": 1,
+      "hash": "34e68e0f812c635c"
+    },
+    {
+      "id": "experience-bluestock",
+      "title": "Software Development Intern — Bluestock",
+      "category": "experience",
+      "path": "experience/bluestock.md",
+      "verified": false,
+      "chunks": 1,
+      "hash": "6d9fd9c511ddef7f"
+    },
+    {
+      "id": "experience-lawgpt",
+      "title": "AI Engineer Intern — LawGPT",
+      "category": "experience",
+      "path": "experience/lawgpt.md",
+      "verified": true,
+      "chunks": 1,
+      "hash": "3fc539b2405f5281"
+    },
+    {
+      "id": "experience-startupcrafters",
+      "title": "Software Engineer Intern — StartupCrafters",
+      "category": "experience",
+      "path": "experience/startupcrafters.md",
+      "verified": true,
+      "chunks": 1,
+      "hash": "abdc3e5273cfb733"
+    },
+    {
+      "id": "interests-technical-interests",
+      "title": "Technical and career interests",
+      "category": "interests",
+      "path": "interests/technical-interests.md",
+      "verified": true,
+      "chunks": 1,
+      "hash": "d2fef77e591d99b6"
+    },
+    {
+      "id": "portfolio-navigation",
+      "title": "Portfolio navigation guide",
+      "category": "portfolio",
+      "path": "portfolio/navigation.md",
+      "verified": true,
+      "chunks": 1,
+      "hash": "1720289fe50814ee"
+    },
+    {
+      "id": "profile-contact",
+      "title": "Contact information and links",
+      "category": "contact",
+      "path": "profile/contact.md",
+      "verified": true,
+      "chunks": 1,
+      "hash": "22a1a6964d30f6cc"
+    },
+    {
+      "id": "profile-shreya-dubey",
+      "title": "Shreya Dubey — Profile",
+      "category": "profile",
+      "path": "profile/shreya-dubey.md",
+      "verified": true,
+      "chunks": 2,
+      "hash": "72fe0652a5afaa13"
+    },
+    {
+      "id": "projects-ai-tech-stack-recommender",
+      "title": "AI Tech Stack Recommender — LLM-powered platform that recommends complete technology stacks, software architecture, deployment strategy and development roadmap from a natural language project idea.",
+      "category": "projects",
+      "path": "projects/ai-tech-stack-recommender.md",
+      "verified": true,
+      "chunks": 8,
+      "hash": "032834191ef36f55"
+    },
+    {
+      "id": "projects-architectiq",
+      "title": "ArchitectIQ — AI-powered software architecture review platform that analyzes repositories, identifies architectural and design issues, and produces actionable engineering insights.",
+      "category": "projects",
+      "path": "projects/architectiq.md",
+      "verified": true,
+      "chunks": 8,
+      "hash": "f26f32be7c381149"
+    },
+    {
+      "id": "projects-closeloop",
+      "title": "CloseLoop — AI Financial Exception Resolution Platform",
+      "category": "projects",
+      "path": "projects/closeloop.md",
+      "verified": true,
+      "chunks": 5,
+      "hash": "85a9461d46bd98ad"
+    },
+    {
+      "id": "projects-complytai",
+      "title": "ComplytAI — Enterprise compliance platform that combines RAG, local LLMs, vector search, and CrewAI-based agent orchestration for document analysis and risk detection.",
+      "category": "projects",
+      "path": "projects/complytai.md",
+      "verified": true,
+      "chunks": 15,
+      "hash": "67900cc8e5171586"
+    },
+    {
+      "id": "projects-devforge",
+      "title": "DevForge — Full-stack SaaS platform for discovering, building, and managing reusable developer kits with authentication, subscriptions, and billing.",
+      "category": "projects",
+      "path": "projects/devforge.md",
+      "verified": true,
+      "chunks": 8,
+      "hash": "31bc2ea6380ac12d"
+    },
+    {
+      "id": "projects-falcon-airlines",
+      "title": "Falcon Airlines — Full-stack airline reservation and ticketing platform with flight search, booking, payments, ticket generation, and boarding pass functionality.",
+      "category": "projects",
+      "path": "projects/falcon-airlines.md",
+      "verified": true,
+      "chunks": 9,
+      "hash": "2d38342fa744f7a8"
+    },
+    {
+      "id": "projects-kavach",
+      "title": "Kavach (AgentShield) — Zero-Trust Runtime Security Platform",
+      "category": "projects",
+      "path": "projects/kavach.md",
+      "verified": true,
+      "chunks": 2,
+      "hash": "79ba607afafce157"
+    },
+    {
+      "id": "projects-kodexa",
+      "title": "Kodexa — AI developer tool for turning agent-generated and rapidly evolving codebases into reusable, maintainable software through debugging, codebase analysis, and repository intelligence.",
+      "category": "projects",
+      "path": "projects/kodexa.md",
+      "verified": true,
+      "chunks": 8,
+      "hash": "10e5bd42368d5e11"
+    },
+    {
+      "id": "projects-lawgpt-crm",
+      "title": "CRM — Full-stack CRM and marketing automation platform for lead management, workflow automation, and sales operations.",
+      "category": "projects",
+      "path": "projects/lawgpt-crm.md",
+      "verified": true,
+      "chunks": 8,
+      "hash": "03e3dbae214f1409"
+    },
+    {
+      "id": "projects-reflex-ninja",
+      "title": "Reflex Ninja — A fast-paced reflex game built while learning native Android development with Kotlin.",
+      "category": "projects",
+      "path": "projects/reflex-ninja.md",
+      "verified": true,
+      "chunks": 8,
+      "hash": "2fc2563669e68cb0"
+    },
+    {
+      "id": "projects-talentlens",
+      "title": "TalentLens — Resume intelligence platform that combines semantic search, hybrid retrieval, reranking, and structured candidate analysis to accelerate technical hiring.",
+      "category": "projects",
+      "path": "projects/talentlens.md",
+      "verified": true,
+      "chunks": 9,
+      "hash": "82141dd052e67a6f"
+    },
+    {
+      "id": "projects-thumblyai",
+      "title": "THUMBLYAI",
+      "category": "projects",
+      "path": "projects/thumblyai.md",
+      "verified": false,
+      "chunks": 1,
+      "hash": "30a90af979cb617b"
+    },
+    {
+      "id": "projects-visionguard",
+      "title": "VisionGuard — Image-Quality Assessment",
+      "category": "projects",
+      "path": "projects/visionguard.md",
+      "verified": true,
+      "chunks": 1,
+      "hash": "379ca34b3464016b"
+    },
+    {
+      "id": "skills-technical-skills",
+      "title": "Technical skills",
+      "category": "skills",
+      "path": "skills/technical-skills.md",
+      "verified": true,
+      "chunks": 1,
+      "hash": "8192cb3460538bf1"
+    }
+  ],
+  "totals": {
+    "documents": 25,
+    "chunks": 103,
+    "verified": 21,
+    "unverified": 4
+  }
+}
