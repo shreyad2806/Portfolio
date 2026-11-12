@@ -82,7 +82,7 @@ export default function ExplorerHero() {
         </motion.div>
 
         <div className="xh-nova-slot">
-          <NovaAssistant destinations={destinations} onNavigate={scrollToSection} listenForOpen />
+          <NovaAssistant destinations={destinations} onNavigate={scrollToSection} />
         </div>
 
         <div className="xh-stats">
