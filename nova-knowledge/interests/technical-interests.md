@@ -1,7 +1,7 @@
 ---
 title: Technical and career interests
 category: interests
-source: owner brief + lib/portfolio-data.ts
+source: owner brief (portfolio brief) + lib/portfolio-data.ts
 updated: 2026-11-11
 verified: true
 tags: [interests, agentic ai, rag, langgraph, inference, ai infrastructure, backend, distributed systems, career, ai engineer]

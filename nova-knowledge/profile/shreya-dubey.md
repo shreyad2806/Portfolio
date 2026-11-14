@@ -1,7 +1,7 @@
 ---
 title: Shreya Dubey — Profile
 category: profile
-source: resume (SDE.pdf) + lib/portfolio-data.ts
+source: resume (approved) + lib/portfolio-data.ts
 updated: 2026-11-11
 verified: true
 tags: [profile, about, shreya, software engineer, backend, ai]
@@ -9,7 +9,7 @@ tags: [profile, about, shreya, software engineer, backend, ai]
 
 # Shreya Dubey
 
-Shreya Dubey is a Software Engineer and Computer Science student at VIT (Vellore Institute of Technology), Bhopal. Her resume headline is **Software Engineer | Backend Engineering | AI/ML Systems**.
+Shreya Dubey is a Software Engineer and Computer Science student at VIT (Vellore Institute of Technology). Her resume headline is **Software Engineer | Backend Engineering | AI/ML Systems**.
 
 ## What she does
 She builds backend systems and AI/ML systems, with a focus on agentic AI, retrieval-augmented generation (RAG), developer infrastructure and production-oriented software. She likes taking complex ideas apart, understanding how they work, and building reliable software around them.

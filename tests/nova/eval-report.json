@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-11T19:51:47.341Z",
-  "questions": 45,
+  "generated": "2026-11-14T08:24:15.724Z",
+  "questions": 123,
   "categories": [
     "profile",
     "education",
@@ -11,26 +11,40 @@
     "interests",
     "navigation",
     "follow-up",
-    "unknown"
+    "unknown",
+    "paraphrase",
+    "comparison",
+    "internship",
+    "multi-turn",
+    "injection"
   ],
   "live": false,
+  "retrieval": {
+    "k": 5,
+    "questions": 64,
+    "recallAtK": 0.8828124999999999,
+    "precisionAtK": 0.5658854166666666,
+    "mrr": 0.8033854166666666,
+    "embedder": "hash-384-v1"
+  },
+  "note": "self-authored heuristic regression set; not an independent benchmark",
   "scenarios": {
     "offline": {
       "summary": {
         "scenario": "offline",
-        "questions": 45,
-        "passed": 45,
-        "retrievalPrecision": 0.8722222222222221,
-        "retrievalRecall": 0.9888888888888888,
+        "questions": 123,
+        "passed": 123,
+        "retrievalPrecision": 0.8673076923076923,
+        "retrievalRecall": 0.9495726495726495,
         "citationCorrectness": 1,
         "navigationCorrectness": 1,
         "answerModeCorrectness": 1,
         "abstentionCorrectness": 1,
         "hallucinationRate": 0,
         "factCoverage": 1,
-        "fallbackActivations": 23,
-        "latencyMsAvg": 0.8444444444444444,
-        "latencyMsP95": 2,
+        "fallbackActivations": 70,
+        "latencyMsAvg": 1.1544715447154472,
+        "latencyMsP95": 3,
         "tokensTotal": 0
       },
       "failures": []
@@ -38,19 +52,19 @@
     "degraded": {
       "summary": {
         "scenario": "degraded",
-        "questions": 45,
-        "passed": 45,
-        "retrievalPrecision": 0.8722222222222221,
-        "retrievalRecall": 0.9888888888888888,
+        "questions": 123,
+        "passed": 123,
+        "retrievalPrecision": 0.8673076923076923,
+        "retrievalRecall": 0.9495726495726495,
         "citationCorrectness": 1,
         "navigationCorrectness": 1,
         "answerModeCorrectness": 1,
         "abstentionCorrectness": 1,
         "hallucinationRate": 0,
         "factCoverage": 1,
-        "fallbackActivations": 23,
-        "latencyMsAvg": 0.6222222222222222,
-        "latencyMsP95": 2,
+        "fallbackActivations": 70,
+        "latencyMsAvg": 0.983739837398374,
+        "latencyMsP95": 3,
         "tokensTotal": 0
       },
       "failures": []
