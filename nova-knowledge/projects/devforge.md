@@ -1,8 +1,8 @@
 ---
-title: DevForge — Full-stack SaaS platform for discovering, building, and managing reusable developer kits with authentication, subscriptions, and billing.
+title: DevForge
 category: projects
-source: lib/project-detail-data.ts (portfolio case study)
-updated: 2026-11-10
+source: portfolio case study (lib/project-detail-data.ts)
+updated: 2026-11-12
 verified: true
 tags: [devforge, devforge, next.js, typescript, react, supabase, postgresql, tailwind css, authentication, subscriptions, saas]
 ---
@@ -73,3 +73,6 @@ DevForge is a SaaS platform that enables developers to discover, build, and shar
 - **Supabase Integration:** Supabase provides a powerful backend-as-a-service platform for rapid development.
 - **Feature Gating:** Premium features need to be gated at multiple layers for security.
 - **Subscription Management:** Subscription workflows require reliable state management and webhooks.
+
+## Verification notes (internal)
+- Generated from lib/project-detail-data.ts (the portfolio case study). Case-study statements are the owner's own portfolio content; they have not been independently checked against the repository.

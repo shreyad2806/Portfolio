@@ -1,5 +1,5 @@
 ---
-title: VisionGuard — Image-Quality Assessment
+title: VisionGuard
 category: projects
 source: lib/portfolio-data.ts
 updated: 2026-11-11
@@ -16,4 +16,5 @@ tags: [visionguard, computer vision, machine learning, randomforest, scikit-lear
 
 It uses a RandomForest regression model and a FastAPI backend to evaluate image-quality metrics; the model is exposed end to end through a FastAPI service.
 
-TODO(human): add the metrics it evaluates and any accuracy numbers. Nova must not state benchmarks.
+## Verification notes (internal)
+- Metrics evaluated and accuracy numbers are not documented. Nova must not state benchmarks. (record: visionguard-metrics)

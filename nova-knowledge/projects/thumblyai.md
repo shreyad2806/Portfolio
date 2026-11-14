@@ -11,4 +11,5 @@ tags: [thumblyai, project]
 
 The owner's brief lists THUMBLYAI as a project to document, but no description, stack or repository link exists in the portfolio or resume.
 
-TODO(human): add a description, stack and link. Until then Nova must say it has no verified details about this project.
+## Verification notes (internal)
+- Only the name is known. Add description, stack and link, then set verified: true. (record: thumblyai-details)

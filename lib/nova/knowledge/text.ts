@@ -22,8 +22,16 @@ const ALIASES: [RegExp, string][] = [
   [/\bpg\s?vector\b/g, "pgvector"],
   [/\binterns\b|\binternships\b/g, "internship"],
   [/\bllms?\b/g, "llm"],
-  [/\bmulti[- ]?agent(s)?\b/g, "multiagent"],
-  [/\bfail[- ]closed\b/g, "failclosed"],
+  [/\bmulti[- ]?agent(s)?\b/g, "multiagent agent"],
+  [/\b(school|college|campus)\b/g, "university education vit"],
+  [/\b(major|branch|course of study|field of study)\b/g, "degree education btech"],
+  [/\bcode in\b|\bcoding languages?\b|\blanguages? (does|can|do) (she|you) (code|program|use)\b/g, "programming languages skills"],
+  [/\b(lately|these days|right now|nowadays)\b/g, "currently exploring"],
+  [/\bcooperating\b|\bseveral agents\b/g, "multiagent agent orchestration"],
+  [/\bsummari[sz]e (her )?profile\b|\bin a few lines\b|\bintroduce (her|shreya)\b/g, "who profile"],
+  [/\breconciliation thing\b|\bpayments? project\b/g, "closeloop reconciliation payment"],
+  [/\bstay safe\b|\bsafeguard\b/g, "secure authorization sandbox"],
+  [/\bfail[- ]closed\b/g, "failclosed fail closed"],
 ];
 
 export function normalize(input: string): string {

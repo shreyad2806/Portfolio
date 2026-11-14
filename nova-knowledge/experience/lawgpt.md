@@ -1,7 +1,7 @@
 ---
 title: AI Engineer Intern — LawGPT
 category: experience
-source: resume (SDE.pdf) + lib/portfolio-data.ts
+source: resume (approved) + lib/portfolio-data.ts
 updated: 2026-11-11
 verified: true
 tags: [experience, internship, lawgpt, crm, ocr, nlp, supabase, legal, automation]
@@ -17,4 +17,6 @@ tags: [experience, internship, lawgpt, crm, ocr, nlp, supabase, legal, automatio
 
 **Technologies shown on the portfolio:** Python, Next.js, Supabase, RAG.
 
-Note: the Journey page's timeline lists this role as an "AI Research Intern"; her resume says "AI Engineer Intern". TODO(human): confirm the exact title.
+## Verification notes (internal)
+- Title: resume says "AI Engineer Intern"; the Journey timeline (data/experience.ts) says "AI Research Intern". Nova uses the resume title and mentions the difference. (record: lawgpt-title)
+- Relationship to the project doc `projects/lawgpt-crm` (a CRM case study) is not stated in any source; Nova must not claim they are the same work. (record: lawgpt-crm-link)

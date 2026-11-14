@@ -59,7 +59,7 @@ subject matter.
 
 ## Nova — the portfolio assistant
 
-Nova is a floating assistant (launcher → compact panel, bottom sheet on phones) that answers from a curated knowledge base and works without any LLM. See [`docs/nova`](docs/nova/architecture.md).
+Nova is a floating assistant (launcher → compact panel, bottom sheet on phones) that answers from a curated knowledge base and works without any LLM. See [`docs/nova`](docs/nova/architecture.md). V2 adds a knowledge-verification policy (see the [human verification report](docs/nova/human-verification-report.md)), structured answers with sources, optional neural embeddings and a 123-question eval (`npm run nova:eval`).
 
 **Adding new knowledge**
 1. Add/edit a Markdown file under `nova-knowledge/<category>/` with front-matter (`title, category, source, last_updated, verified, tags`). Mark anything unconfirmed `verified: false` and write `TODO(human)` instead of guessing.

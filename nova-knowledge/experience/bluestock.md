@@ -13,4 +13,5 @@ tags: [experience, internship, bluestock, rest api, sql, agile, backend]
 
 The Journey page says she optimized REST APIs and SQL queries in an Agile development environment, improving backend response latency.
 
-TODO(human): this role is not on her current resume. Verify the dates, title and the latency claim before Nova states specifics.
+## Verification notes (internal)
+- This role appears only on the Journey page, not on the resume. Dates, title and the latency claim are unverified, so this document is `verified: false` and is never used as evidence. (record: bluestock-role)

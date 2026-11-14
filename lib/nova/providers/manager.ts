@@ -39,7 +39,9 @@ export class ProviderManager {
         if (remaining < 800) { last = last ?? new ProviderError("timeout", p.name); break; }
         attempts++;
         const t0 = Date.now();
-        const signal = AbortSignal.timeout(Math.min(this.cfg.llm.timeoutMs, remaining));
+        const timeout = AbortSignal.timeout(Math.min(this.cfg.llm.timeoutMs, remaining));
+        // Caller cancellation (visitor closed/reset the chat) must also stop the upstream call.
+        const signal = req.signal ? AbortSignal.any([req.signal, timeout]) : timeout;
         let text = ""; let usage: Usage | undefined;
         try {
           for await (const d of p.stream({ ...req, signal }, (u) => (usage = u))) { text += d; onToken(d); }

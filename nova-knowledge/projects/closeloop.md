@@ -1,13 +1,13 @@
 ---
-title: CloseLoop — AI Financial Exception Resolution Platform
+title: CloseLoop
 category: projects
-source: resume (SDE.pdf) + owner brief + lib/portfolio-data.ts
+source: resume (approved) + lib/portfolio-data.ts
 updated: 2026-11-11
 verified: true
 tags: [closeloop, razorpay, reconciliation, langgraph, guardrails, fastapi, postgresql, xgboost, pgvector, mcp, fintech, agentic]
 ---
 
-# CloseLoop (Razorpay CloseLoop)
+# CloseLoop
 
 **One-liner:** An AI-assisted financial reconciliation and exception-resolution platform that combines deterministic transaction matching with an agentic investigation workflow.
 
@@ -29,11 +29,14 @@ Engineers a financial reconciliation backend that combines deterministic transac
 9. Financial state verification (post-resolution verification)
 
 ## Orchestration
-The workflow is a 17-node LangGraph graph. LangGraph is used because the resolution flow is a stateful, branching process with approval gates and verification steps that must run in a controlled order.
-(TODO(human): confirm the exact reasons she chose LangGraph so Nova can quote them rather than infer.)
+The workflow is a 17-node LangGraph graph with five fail-closed guardrail gates, approval checks, idempotency controls, controlled resolution execution and post-resolution verification (from her resume).
 
 ## Testing
 Tested on 30 curated financial exceptions across 9 exception types, using synthetic fixtures, SQLite unit tests and Docker-backed PostgreSQL integration tests.
 
 ## Case study
 There is no case-study page for CloseLoop yet; the GitHub repository is the source.
+
+## Verification notes (internal)
+- Her reasons for choosing LangGraph are not documented; Nova must not infer them. (record: closeloop-langgraph-why)
+- The repository is named razorpay-closeloop; no source describes any relationship with Razorpay. Nova calls it "CloseLoop" and does not imply an affiliation. (record: closeloop-razorpay)

@@ -2,7 +2,7 @@ import type { ChatResult, ChatTurn, ConversationState } from "../types";
 
 export type StreamEvent = { t: "token"; d: string } | { t: "done"; result: ChatResult } | { t: "error"; message: string };
 
-export interface StreamHandlers { onToken(d: string): void; onDone(r: ChatResult): void; onError(message: string): void }
+export interface StreamHandlers { /** Called once the server has accepted the request (HTTP 2xx and a readable stream). */ onAccepted?(): void; onToken(d: string): void; onDone(r: ChatResult): void; onError(message: string): void }
 
 /** POST to /api/nova/chat and consume the NDJSON stream. Never throws: errors are reported via onError. */
 export async function streamChat(body: { message: string; history: ChatTurn[]; state: ConversationState }, h: StreamHandlers, signal?: AbortSignal) {
@@ -10,6 +10,7 @@ export async function streamChat(body: { message: string; history: ChatTurn[]; s
     const res = await fetch("/api/nova/chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), signal });
     if (res.status === 429) { h.onError("You're sending messages quickly — please wait a moment and try again."); return; }
     if (!res.ok || !res.body) { let msg = "Nova couldn't answer that right now. Please try again."; try { msg = (await res.json()).error ?? msg; } catch { /* keep default */ } h.onError(msg); return; }
+    h.onAccepted?.();
     const reader = res.body.getReader();
     const dec = new TextDecoder();
     let buf = "";
@@ -28,7 +29,7 @@ export async function streamChat(body: { message: string; history: ChatTurn[]; s
         else if (ev.t === "error") { finished = true; h.onError(ev.message); }
       }
     }
-    if (!finished) h.onError("The connection dropped before Nova finished answering.");
+    if (!finished && !signal?.aborted) h.onError("The connection dropped before Nova finished answering.");
   } catch (e) {
     if ((e as Error).name !== "AbortError") h.onError("I couldn't reach Nova just now. You can still explore the site with the navigation above.");
   }

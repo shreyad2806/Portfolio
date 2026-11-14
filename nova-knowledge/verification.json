@@ -1,0 +1,267 @@
+{
+  "policy_version": 1,
+  "note": "Human-verification register. Every unresolved or conflicting fact lives here. Nova never states 'unverified' or 'needs-human' items as fact, and tells visitors when sources conflict (public_note). Approved source of truth: the resume; then portfolio data; then owner-confirmed records.",
+  "records": [
+    {
+      "id": "et-genai-year",
+      "status": "conflict",
+      "docs": [
+        "achievements/hackathons.md"
+      ],
+      "topic": "ET GenAI Hackathon year",
+      "statement": "Resume and lib/portfolio-data.ts say 2025; data/experience.ts (Journey timeline) says 2026.",
+      "sources": [
+        "resume: Finalist ET GenAI Hackathon 2025",
+        "lib/portfolio-data.ts: Finalist · 2025",
+        "data/experience.ts: year 2026"
+      ],
+      "nova_behavior": "States 2025 (approved resume) and mentions that the Journey timeline lists a different year.",
+      "public_note": "Her resume lists the ET GenAI Hackathon as 2025, while the timeline on her Journey page shows 2026 — I'm going with the resume.",
+      "action_for_human": "Confirm the year and fix whichever source is wrong (data/experience.ts or the resume)."
+    },
+    {
+      "id": "lawgpt-title",
+      "status": "conflict",
+      "docs": [
+        "experience/lawgpt.md"
+      ],
+      "topic": "LawGPT internship title",
+      "statement": "Resume: AI Engineer Intern. Journey timeline: AI Research Intern.",
+      "sources": [
+        "resume",
+        "data/experience.ts: id lawgpt-intern"
+      ],
+      "nova_behavior": "Uses the resume title and mentions the Journey page wording.",
+      "public_note": "Her resume titles this role \"AI Engineer Intern\"; her Journey page calls it an \"AI Research Intern\" — I'm using the resume title.",
+      "action_for_human": "Confirm the exact title and align the Journey page."
+    },
+    {
+      "id": "bluestock-role",
+      "status": "unverified",
+      "docs": [
+        "experience/bluestock.md"
+      ],
+      "show_with": [
+        "experience/startupcrafters.md",
+        "experience/lawgpt.md"
+      ],
+      "topic": "Bluestock internship (Nov–Dec 2025)",
+      "statement": "Listed on the Journey page only; not on the resume. Title, dates and the latency-improvement claim are unverified.",
+      "sources": [
+        "data/experience.ts: id bluestock"
+      ],
+      "nova_behavior": "Never states details. Internship answers list the two resume roles and add a short note that the Journey page lists another, unverified role.",
+      "public_note": "Her Journey page also lists a Bluestock internship (Nov–Dec 2025) that isn't on her resume and that I can't verify, so I've left it out.",
+      "action_for_human": "Confirm whether this internship should appear; add it to the resume or remove it from the Journey page; then set verified: true with exact title/dates."
+    },
+    {
+      "id": "edu-campus",
+      "status": "needs-human",
+      "docs": [
+        "education/vit.md",
+        "profile/shreya-dubey.md"
+      ],
+      "topic": "VIT campus",
+      "statement": "The resume says 'Vellore Institute of Technology (VIT)' with no campus. An earlier Nova draft said 'Bhopal' but no resume or site source supports it.",
+      "sources": [
+        "resume"
+      ],
+      "nova_behavior": "Says 'VIT (Vellore Institute of Technology)'; never names a campus.",
+      "action_for_human": "Tell Nova which campus is correct (and update the resume if needed), then add it to education/vit.md."
+    },
+    {
+      "id": "edu-dates",
+      "status": "needs-human",
+      "docs": [
+        "education/vit.md"
+      ],
+      "topic": "Study dates",
+      "statement": "Resume: Sep 2023 – May 2027. Journey timeline card 'Projects & Learning' shows 2022–2026 (a label for the learning period, not necessarily education).",
+      "sources": [
+        "resume",
+        "data/experience.ts: id projects"
+      ],
+      "nova_behavior": "Uses the resume dates only.",
+      "action_for_human": "Fix or relabel the 2022–2026 card on the Journey page."
+    },
+    {
+      "id": "leadership-roles",
+      "status": "unverified",
+      "docs": [
+        "achievements/leadership-community.md"
+      ],
+      "topic": "President of Technomech Club; RTC member",
+      "statement": "Journey page only; not on the resume. Club name and RTC scope unconfirmed.",
+      "sources": [
+        "data/experience.ts"
+      ],
+      "nova_behavior": "Not stated as fact; controlled abstention that says a note exists but isn't verified.",
+      "action_for_human": "Confirm both roles, official names, dates, and add them to the resume."
+    },
+    {
+      "id": "open-source-scope",
+      "status": "unverified",
+      "docs": [
+        "achievements/open-source.md"
+      ],
+      "topic": "Open-source contributions",
+      "statement": "Only the resume line about the NandaHack Agentic AI platform exists. No repository links, PR counts or scope.",
+      "sources": [
+        "resume: NandaHack – HCLTech × MIT Media Lab"
+      ],
+      "nova_behavior": "Repeats only the resume sentence (in achievements/hackathons.md, verified). Nothing beyond it.",
+      "action_for_human": "Provide repository links and the scope of the contribution if Nova should say more."
+    },
+    {
+      "id": "competitive-profile-urls",
+      "status": "needs-human",
+      "docs": [
+        "profile/contact.md"
+      ],
+      "topic": "LeetCode / Codeforces profile URLs",
+      "statement": "The resume links the profiles but the URLs are not available to Nova.",
+      "sources": [
+        "resume"
+      ],
+      "nova_behavior": "Mentions '203+ LeetCode problems' (resume) but gives no profile link.",
+      "action_for_human": "Provide the URLs if Nova should link them."
+    },
+    {
+      "id": "thumblyai-details",
+      "status": "unverified",
+      "docs": [
+        "projects/thumblyai.md"
+      ],
+      "topic": "THUMBLYAI project",
+      "statement": "Only the name is known; no description, stack or link in any source.",
+      "sources": [
+        "owner brief (name only)"
+      ],
+      "nova_behavior": "Never described. A question about it gets a controlled abstention.",
+      "action_for_human": "Provide description, stack and repository link."
+    },
+    {
+      "id": "visionguard-metrics",
+      "status": "needs-human",
+      "docs": [
+        "projects/visionguard.md"
+      ],
+      "topic": "VisionGuard metrics",
+      "statement": "No evaluation metrics or accuracy numbers are documented.",
+      "sources": [
+        "lib/portfolio-data.ts"
+      ],
+      "nova_behavior": "Describes the stack and purpose only; never states benchmarks.",
+      "action_for_human": "Provide metrics/dataset if they should be shared."
+    },
+    {
+      "id": "closeloop-langgraph-why",
+      "status": "needs-human",
+      "docs": [
+        "projects/closeloop.md"
+      ],
+      "topic": "Why LangGraph for CloseLoop",
+      "statement": "Her reasons are not documented. The earlier draft contained an inferred reason, which has been removed.",
+      "sources": [
+        "resume"
+      ],
+      "nova_behavior": "States the 17-node LangGraph workflow and guardrails; does not explain 'why LangGraph'.",
+      "action_for_human": "Write her actual reasons into projects/closeloop.md if Nova should quote them."
+    },
+    {
+      "id": "closeloop-razorpay",
+      "status": "needs-human",
+      "docs": [
+        "projects/closeloop.md"
+      ],
+      "topic": "Razorpay association",
+      "statement": "The repository is named razorpay-closeloop. No source describes a relationship with Razorpay (employer, hackathon, personal project inspired by Razorpay…).",
+      "sources": [
+        "lib/portfolio-data.ts: github url"
+      ],
+      "nova_behavior": "Calls it 'CloseLoop'; does not imply any affiliation; does not explain the repo name.",
+      "action_for_human": "State what the Razorpay name refers to."
+    },
+    {
+      "id": "lawgpt-crm-link",
+      "status": "needs-human",
+      "docs": [
+        "experience/lawgpt.md",
+        "projects/lawgpt-crm.md"
+      ],
+      "topic": "LawGPT internship vs LawGPT CRM project",
+      "statement": "Both describe a CRM/marketing-automation system for LawGPT but no source says they are the same work. Stacks differ in wording (resume: OCR, NLP, REST APIs, Supabase; case study: Next.js, TypeScript, Supabase, OpenAI).",
+      "sources": [
+        "resume",
+        "lib/project-detail-data.ts"
+      ],
+      "nova_behavior": "Keeps them as two separate entries; never says one is the other.",
+      "action_for_human": "Say whether the CRM repo is the internship deliverable."
+    },
+    {
+      "id": "complytai-agents",
+      "status": "needs-human",
+      "docs": [
+        "projects/complytai.md"
+      ],
+      "topic": "ComplytAI agents",
+      "statement": "Resume: five-agent CrewAI workflow. Neither source names the five agents.",
+      "sources": [
+        "resume",
+        "lib/project-detail-data.ts"
+      ],
+      "nova_behavior": "Says 'five-agent CrewAI workflow' and lists the responsibilities in the resume; never names agents.",
+      "action_for_human": "Optionally list the five agents."
+    },
+    {
+      "id": "complytai-results",
+      "status": "needs-human",
+      "docs": [
+        "projects/complytai.md"
+      ],
+      "topic": "ComplytAI 'Results' labels",
+      "statement": "Case-study results are qualitative labels (\"Production\", \"End-to-End\"), not metrics.",
+      "sources": [
+        "lib/project-detail-data.ts"
+      ],
+      "nova_behavior": "Never presents them as metrics or claims a production deployment.",
+      "action_for_human": "Add real metrics if available."
+    },
+    {
+      "id": "public-sde-pdf",
+      "status": "needs-human",
+      "docs": [
+        "profile/contact.md"
+      ],
+      "topic": "public/SDE.pdf",
+      "statement": "The file served at /SDE.pdf is an older resume containing a personal phone number and outdated facts.",
+      "sources": [
+        "public/SDE.pdf"
+      ],
+      "nova_behavior": "Not indexed. The resume button still links to it (site behaviour).",
+      "action_for_human": "Replace public/SDE.pdf with the current resume or remove the phone number."
+    },
+    {
+      "id": "case-study-statements",
+      "status": "needs-human",
+      "docs": [
+        "projects/talentlens.md",
+        "projects/ai-tech-stack-recommender.md",
+        "projects/lawgpt-crm.md",
+        "projects/falcon-airlines.md",
+        "projects/devforge.md",
+        "projects/architectiq.md",
+        "projects/reflex-ninja.md",
+        "projects/kodexa.md",
+        "projects/complytai.md"
+      ],
+      "topic": "Case-study statements not checked against repositories",
+      "statement": "These nine documents are generated from the portfolio's own case-study data. They are the owner's published claims but were not checked against the code.",
+      "sources": [
+        "lib/project-detail-data.ts"
+      ],
+      "nova_behavior": "Treated as verified portfolio content; sources are labelled as portfolio case studies.",
+      "action_for_human": "Spot-check each case study against its repository."
+    }
+  ]
+}
