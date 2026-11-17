@@ -27,3 +27,6 @@ Errors are normalised to `ProviderError{kind: rate_limit|auth|timeout|unavailabl
 
 ## Privacy
 Only the visitor's question, ≤6 recent turns and public, verified portfolio passages are sent to a provider. No private repositories, secrets or personal phone numbers are in the index.
+
+## Live validation status
+Adapters and the manager are tested over real HTTP against a local mock server (streaming, 401, 429 + Retry-After, 503, hang, mid-stream drop, refused connection). **Live Gemini/OpenRouter calls have not been tested** (no keys in the build environment). Visitor cancellation now aborts the upstream request. Embedding env vars: see `rag-pipeline.md`.

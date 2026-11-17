@@ -14,7 +14,9 @@ export function parseChatRequest(body: unknown): ChatRequest | { error: string }
         .slice(-novaConfig.input.maxHistoryTurns).map((m) => ({ role: m.role, content: m.content.slice(0, novaConfig.input.maxHistoryChars) }))
     : [];
   const st = (b.state && typeof b.state === "object" ? b.state : {}) as ConversationState;
-  const state: ConversationState = { project: typeof st.project === "string" && PROJECTS.some((p) => p.id === st.project) ? st.project : undefined };
+  const known = (x: unknown): x is string => typeof x === "string" && PROJECTS.some((p) => p.id === x);
+  const state: ConversationState = { project: known(st.project) ? st.project : undefined, projects: Array.isArray(st.projects) ? st.projects.filter(known).slice(0, 2) : undefined };
+  if (!state.projects?.length) delete state.projects;
   return { message, history, state };
 }
 

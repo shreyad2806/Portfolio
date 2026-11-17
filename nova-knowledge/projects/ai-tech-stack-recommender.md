@@ -1,8 +1,8 @@
 ---
-title: AI Tech Stack Recommender — LLM-powered platform that recommends complete technology stacks, software architecture, deployment strategy and development roadmap from a natural language project idea.
+title: AI Tech Stack Recommender
 category: projects
-source: lib/project-detail-data.ts (portfolio case study)
-updated: 2026-11-10
+source: portfolio case study (lib/project-detail-data.ts)
+updated: 2026-11-12
 verified: true
 tags: [ai-tech-stack-recommender, ai tech stack recommender, fastapi, react, gemini, python, postgresql, jwt authentication, google gemini, tailwind css]
 ---
@@ -59,3 +59,6 @@ This platform uses LLM reasoning to generate complete, practical technology reco
 - **LLM Integration:** Integrating an LLM means balancing latency, cost, response quality and validation.
 - **FastAPI:** Type hints and automatic docs make Python backends fast to build and maintain.
 - **React Architecture:** Component composition and state management keep complex UIs maintainable.
+
+## Verification notes (internal)
+- Generated from lib/project-detail-data.ts (the portfolio case study). Case-study statements are the owner's own portfolio content; they have not been independently checked against the repository.

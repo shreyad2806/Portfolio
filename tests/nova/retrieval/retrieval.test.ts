@@ -8,7 +8,7 @@ describe("retrieval", () => {
     ["What is CloseLoop?", "closeloop"],
     ["How does Kavach detect prompt injection?", "kavach"],
     ["Tell me about VisionGuard", "visionguard"],
-    ["Which university is she at? VIT Bhopal degree", "vit-bhopal"],
+    ["Which university is she at? VIT degree", "education-vit"],
     ["What did she do at StartupCrafters?", "startupcrafters"],
   ])("%s → doc containing %s in top results", async (q, id) => {
     const ids = (await top(q)).slice(0, 3);

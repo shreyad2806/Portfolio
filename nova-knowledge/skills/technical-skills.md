@@ -1,7 +1,7 @@
 ---
 title: Technical skills
 category: skills
-source: resume (SDE.pdf) + lib/portfolio-data.ts
+source: resume (approved) + lib/portfolio-data.ts
 updated: 2026-11-11
 verified: true
 tags: [skills, technologies, python, cpp, sql, fastapi, postgresql, pgvector, langgraph, langchain, crewai, mcp, nextjs, aws, docker, rag]

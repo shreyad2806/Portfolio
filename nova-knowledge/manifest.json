@@ -1,6 +1,7 @@
 {
   "generated_by": "npm run nova:ingest",
   "embedder": "hash-384-v1",
+  "neural": null,
   "documents": [
     {
       "id": "achievements-hackathons",
@@ -9,7 +10,7 @@
       "path": "achievements/hackathons.md",
       "verified": true,
       "chunks": 1,
-      "hash": "e3d689e9133cfe18"
+      "hash": "02a8bd03ed6b6e45"
     },
     {
       "id": "achievements-leadership-community",
@@ -18,7 +19,7 @@
       "path": "achievements/leadership-community.md",
       "verified": false,
       "chunks": 1,
-      "hash": "734f6cbd34fd7d83"
+      "hash": "a3c2b50bf8c0de4f"
     },
     {
       "id": "achievements-open-source",
@@ -27,16 +28,16 @@
       "path": "achievements/open-source.md",
       "verified": false,
       "chunks": 1,
-      "hash": "aeb5a92d8237eddb"
+      "hash": "335a89f0a96ae743"
     },
     {
-      "id": "education-vit-bhopal",
-      "title": "Education — VIT Bhopal",
+      "id": "education-vit",
+      "title": "Education — VIT",
       "category": "education",
-      "path": "education/vit-bhopal.md",
+      "path": "education/vit.md",
       "verified": true,
       "chunks": 1,
-      "hash": "34e68e0f812c635c"
+      "hash": "93f9cfb3f5780eb3"
     },
     {
       "id": "experience-bluestock",
@@ -45,7 +46,7 @@
       "path": "experience/bluestock.md",
       "verified": false,
       "chunks": 1,
-      "hash": "6d9fd9c511ddef7f"
+      "hash": "17da17d7d730deb9"
     },
     {
       "id": "experience-lawgpt",
@@ -54,7 +55,7 @@
       "path": "experience/lawgpt.md",
       "verified": true,
       "chunks": 1,
-      "hash": "3fc539b2405f5281"
+      "hash": "27b9a50cfa1361dd"
     },
     {
       "id": "experience-startupcrafters",
@@ -63,7 +64,7 @@
       "path": "experience/startupcrafters.md",
       "verified": true,
       "chunks": 1,
-      "hash": "abdc3e5273cfb733"
+      "hash": "87f2769ee3fea16b"
     },
     {
       "id": "interests-technical-interests",
@@ -72,7 +73,7 @@
       "path": "interests/technical-interests.md",
       "verified": true,
       "chunks": 1,
-      "hash": "d2fef77e591d99b6"
+      "hash": "7c4359d5d550ba24"
     },
     {
       "id": "portfolio-navigation",
@@ -90,7 +91,7 @@
       "path": "profile/contact.md",
       "verified": true,
       "chunks": 1,
-      "hash": "22a1a6964d30f6cc"
+      "hash": "269a62d35ef5b62b"
     },
     {
       "id": "profile-shreya-dubey",
@@ -99,106 +100,106 @@
       "path": "profile/shreya-dubey.md",
       "verified": true,
       "chunks": 2,
-      "hash": "72fe0652a5afaa13"
+      "hash": "ea34055184c0cd34"
     },
     {
       "id": "projects-ai-tech-stack-recommender",
-      "title": "AI Tech Stack Recommender — LLM-powered platform that recommends complete technology stacks, software architecture, deployment strategy and development roadmap from a natural language project idea.",
+      "title": "AI Tech Stack Recommender",
       "category": "projects",
       "path": "projects/ai-tech-stack-recommender.md",
       "verified": true,
       "chunks": 8,
-      "hash": "032834191ef36f55"
+      "hash": "762e030a0aa516e8"
     },
     {
       "id": "projects-architectiq",
-      "title": "ArchitectIQ — AI-powered software architecture review platform that analyzes repositories, identifies architectural and design issues, and produces actionable engineering insights.",
+      "title": "ArchitectIQ",
       "category": "projects",
       "path": "projects/architectiq.md",
       "verified": true,
       "chunks": 8,
-      "hash": "f26f32be7c381149"
+      "hash": "ea00ed61b824237e"
     },
     {
       "id": "projects-closeloop",
-      "title": "CloseLoop — AI Financial Exception Resolution Platform",
+      "title": "CloseLoop",
       "category": "projects",
       "path": "projects/closeloop.md",
       "verified": true,
-      "chunks": 5,
-      "hash": "85a9461d46bd98ad"
+      "chunks": 4,
+      "hash": "922e2cf37a1929e7"
     },
     {
       "id": "projects-complytai",
-      "title": "ComplytAI — Enterprise compliance platform that combines RAG, local LLMs, vector search, and CrewAI-based agent orchestration for document analysis and risk detection.",
+      "title": "ComplytAI",
       "category": "projects",
       "path": "projects/complytai.md",
       "verified": true,
       "chunks": 15,
-      "hash": "67900cc8e5171586"
+      "hash": "2f39ebd389aef649"
     },
     {
       "id": "projects-devforge",
-      "title": "DevForge — Full-stack SaaS platform for discovering, building, and managing reusable developer kits with authentication, subscriptions, and billing.",
+      "title": "DevForge",
       "category": "projects",
       "path": "projects/devforge.md",
       "verified": true,
       "chunks": 8,
-      "hash": "31bc2ea6380ac12d"
+      "hash": "f37f20a7dedf0c83"
     },
     {
       "id": "projects-falcon-airlines",
-      "title": "Falcon Airlines — Full-stack airline reservation and ticketing platform with flight search, booking, payments, ticket generation, and boarding pass functionality.",
+      "title": "Falcon Airlines",
       "category": "projects",
       "path": "projects/falcon-airlines.md",
       "verified": true,
       "chunks": 9,
-      "hash": "2d38342fa744f7a8"
+      "hash": "0f622d88ea3a3d20"
     },
     {
       "id": "projects-kavach",
-      "title": "Kavach (AgentShield) — Zero-Trust Runtime Security Platform",
+      "title": "Kavach",
       "category": "projects",
       "path": "projects/kavach.md",
       "verified": true,
       "chunks": 2,
-      "hash": "79ba607afafce157"
+      "hash": "ec42e406fdd7612a"
     },
     {
       "id": "projects-kodexa",
-      "title": "Kodexa — AI developer tool for turning agent-generated and rapidly evolving codebases into reusable, maintainable software through debugging, codebase analysis, and repository intelligence.",
+      "title": "Kodexa",
       "category": "projects",
       "path": "projects/kodexa.md",
       "verified": true,
       "chunks": 8,
-      "hash": "10e5bd42368d5e11"
+      "hash": "8e52023a9a7cdcf3"
     },
     {
       "id": "projects-lawgpt-crm",
-      "title": "CRM — Full-stack CRM and marketing automation platform for lead management, workflow automation, and sales operations.",
+      "title": "LawGPT CRM",
       "category": "projects",
       "path": "projects/lawgpt-crm.md",
       "verified": true,
       "chunks": 8,
-      "hash": "03e3dbae214f1409"
+      "hash": "5f4fa6992f866fe9"
     },
     {
       "id": "projects-reflex-ninja",
-      "title": "Reflex Ninja — A fast-paced reflex game built while learning native Android development with Kotlin.",
+      "title": "Reflex Ninja",
       "category": "projects",
       "path": "projects/reflex-ninja.md",
       "verified": true,
       "chunks": 8,
-      "hash": "2fc2563669e68cb0"
+      "hash": "652b3af983eb8d8b"
     },
     {
       "id": "projects-talentlens",
-      "title": "TalentLens — Resume intelligence platform that combines semantic search, hybrid retrieval, reranking, and structured candidate analysis to accelerate technical hiring.",
+      "title": "TalentLens",
       "category": "projects",
       "path": "projects/talentlens.md",
       "verified": true,
       "chunks": 9,
-      "hash": "82141dd052e67a6f"
+      "hash": "78fadbbce253b6bd"
     },
     {
       "id": "projects-thumblyai",
@@ -207,16 +208,16 @@
       "path": "projects/thumblyai.md",
       "verified": false,
       "chunks": 1,
-      "hash": "30a90af979cb617b"
+      "hash": "485b74c0ff34e648"
     },
     {
       "id": "projects-visionguard",
-      "title": "VisionGuard — Image-Quality Assessment",
+      "title": "VisionGuard",
       "category": "projects",
       "path": "projects/visionguard.md",
       "verified": true,
       "chunks": 1,
-      "hash": "379ca34b3464016b"
+      "hash": "88aef6a885e8766e"
     },
     {
       "id": "skills-technical-skills",
@@ -225,12 +226,12 @@
       "path": "skills/technical-skills.md",
       "verified": true,
       "chunks": 1,
-      "hash": "8192cb3460538bf1"
+      "hash": "68335cc3d305304e"
     }
   ],
   "totals": {
     "documents": 25,
-    "chunks": 103,
+    "chunks": 102,
     "verified": 21,
     "unverified": 4
   }

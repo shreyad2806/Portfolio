@@ -12,4 +12,5 @@ tags: [leadership, technomech, president, rtc, networking, community, mentoring]
 - **President, Technomech Club (2025 – present).** Leads the university technical club, organizes events, mentors students and builds the technical community.
 - **RTC member (2025 – present).** Takes part in networking events, technical sessions and industry connections.
 
-TODO(human): confirm the club's full name and the scope of the RTC membership; these come from the Journey page, not her resume.
+## Verification notes (internal)
+- Both roles come from the Journey page only; they are not on the resume. Club name and RTC scope unconfirmed. (record: leadership-roles)

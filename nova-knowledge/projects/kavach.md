@@ -1,7 +1,7 @@
 ---
-title: Kavach (AgentShield) — Zero-Trust Runtime Security Platform
+title: Kavach
 category: projects
-source: resume (SDE.pdf) + owner brief + lib/portfolio-data.ts
+source: resume (approved) + lib/portfolio-data.ts
 updated: 2026-11-11
 verified: true
 tags: [kavach, agentshield, security, zero trust, authorization, cedar, bedrock, aws fargate, bandit, semgrep, gitleaks, multi-agent]

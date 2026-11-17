@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     async start(controller) {
       const send = (o: unknown) => controller.enqueue(enc.encode(JSON.stringify(o) + "\n"));
       try {
-        const result = await getNova().run(parsed, (d) => send({ t: "token", d }));
+        const result = await getNova().run(parsed, (d) => send({ t: "token", d }), request.signal);
         send({ t: "done", result });
         log("chat", { mode: result.mode, ms: result.meta.latencyMs, provider: result.meta.provider, cache: result.meta.cacheHit, chunks: result.meta.chunks });
       } catch (e) {

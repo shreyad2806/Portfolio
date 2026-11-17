@@ -10,7 +10,8 @@ export default function NovaWidget() {
   const nova = useNova();
   const { open, setOpen } = nova;
   const launcherWrap = useRef<HTMLDivElement>(null);
-  const close = useCallback(() => { setOpen(false); requestAnimationFrame(() => launcherWrap.current?.querySelector<HTMLButtonElement>("button")?.focus()); }, [setOpen]);
+  const { cancel } = nova;
+  const close = useCallback(() => { cancel(); setOpen(false); requestAnimationFrame(() => launcherWrap.current?.querySelector<HTMLButtonElement>("button")?.focus()); }, [setOpen, cancel]);
   useEffect(() => { document.documentElement.toggleAttribute("data-nova-open", open); }, [open]);
 
   return (

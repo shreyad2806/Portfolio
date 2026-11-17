@@ -1,8 +1,8 @@
 ---
-title: TalentLens — Resume intelligence platform that combines semantic search, hybrid retrieval, reranking, and structured candidate analysis to accelerate technical hiring.
+title: TalentLens
 category: projects
-source: lib/project-detail-data.ts (portfolio case study)
-updated: 2026-11-10
+source: portfolio case study (lib/project-detail-data.ts)
+updated: 2026-11-12
 verified: true
 tags: [talentlens, talentlens, python, fastapi, sentence transformers, pinecone, rag, hybrid search, cross-encoder, redis]
 ---
@@ -72,3 +72,6 @@ TalentLens is an end-to-end recruitment intelligence system that converts unstru
 - **Retrieval Quality:** Retrieval quality is the foundation; invest time in chunking, embedding models, and reranking.
 - **Evaluation:** Systematic evaluation with metrics is essential; intuition alone isn't enough for AI systems.
 - **System Design:** Design for scale from the start; caching, async processing, and error handling are non-negotiable.
+
+## Verification notes (internal)
+- Generated from lib/project-detail-data.ts (the portfolio case study). Case-study statements are the owner's own portfolio content; they have not been independently checked against the repository.

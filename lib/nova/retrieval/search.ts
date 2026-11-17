@@ -1,5 +1,9 @@
 import type { Chunk, Hit, IndexFile, Retrieval } from "../types";
-import { cosine, getEmbedder, hashEmbed, type Embedder } from "../knowledge/embedder";
+import { cosine } from "../knowledge/embedder";
+import { hashEmbed } from "../embeddings/hash";
+import { HASH_CALIBRATION, relevance } from "../embeddings/calibration";
+import { getProvider, preferredNeuralId } from "../embeddings/registry";
+import type { EmbeddingProvider } from "../embeddings/types";
 import { isStopword, normalize, stem, tokens } from "../knowledge/text";
 
 export interface SearchOptions {
@@ -11,6 +15,10 @@ export interface SearchOptions {
   maxContextChars?: number;
   /** Chunks with a combined score below this fraction of the best are dropped. */
   relativeCutoff?: number;
+  /** Unverified chunks are never evidence. Only the abstention path sets this to inspect them. */
+  onlyUnverified?: boolean;
+  /** Do not apply the named-project confidence floor (used for inferred follow-ups, where the project was not named). */
+  noFloor?: boolean;
 }
 
 const IGNORED_NAMES = new Set(["shreya", "dubey", "nova", "ai", "explorer", "hey", "hello", "can", "could", "does", "did", "has", "have", "show", "tell", "what", "which", "where", "when", "why", "how"]);
@@ -24,12 +32,24 @@ export class Retriever {
   private avgdl = 1;
   private byId = new Map<string, Row>();
   private named = new Set<string>();
-  private embedder: Embedder | null = null;
   readonly embedderId: string;
+  /** Neural provider whose space exactly matches the index (null → lexical hash vectors + BM25 only). */
+  private neural: EmbeddingProvider | null = null;
+  readonly neuralStatus: { enabled: boolean; reason: string };
+  private neuralTimeoutMs = 3000;
 
-  constructor(private index: IndexFile, embedder?: Embedder) {
+  constructor(private index: IndexFile, opts: { neural?: EmbeddingProvider | null; neuralTimeoutMs?: number } = {}) {
     this.embedderId = index.embedder;
-    this.embedder = embedder ?? (index.embedder === "hash-384-v1" ? { id: "hash-384-v1", dims: index.dims, embed: async (t) => hashEmbed(t, index.dims) } : null);
+    if (opts.neuralTimeoutMs) this.neuralTimeoutMs = opts.neuralTimeoutMs;
+    this.neuralStatus = { enabled: false, reason: "index has no neural vectors" };
+    if (index.neural && index.chunks.some((c) => c.nvector)) {
+      try {
+        const p = opts.neural === undefined ? (preferredNeuralId() === index.neural.provider ? getProvider(index.neural.provider) : null) : opts.neural;
+        if (!p) this.neuralStatus.reason = "neural retrieval disabled by NOVA_EMBEDDER";
+        else if (p.space !== index.neural.space) this.neuralStatus.reason = `space mismatch (index ${index.neural.space} ≠ provider ${p.space}) — re-run npm run nova:ingest`;
+        else { this.neural = p; this.neuralStatus.enabled = true; this.neuralStatus.reason = "ok"; }
+      } catch (e) { this.neuralStatus.reason = (e as Error).message; }
+    }
     this.rows = index.chunks.map((chunk) => {
       // Field weighting: body text counts 1, the section heading 2, document title/tags 0.35 — tags are shared by every
       // chunk of a document, so weighting them fully would drown the discriminative body terms.
@@ -46,9 +66,15 @@ export class Retriever {
 
   get size() { return this.rows.length; }
 
-  private async queryVector(q: string): Promise<number[] | null> {
-    if (!this.embedder) { try { this.embedder = await getEmbedder(this.index.embedder); } catch { return null; } }
-    return this.embedder.embed(q);
+  /** Query vectors in each available space. A slow or failing model degrades to the lexical space; it never fails the request. */
+  private async queryVectors(q: string): Promise<{ hash: number[]; neural: number[] | null }> {
+    const hash = hashEmbed(q, this.index.dims);
+    if (!this.neural) return { hash, neural: null };
+    try {
+      const timeout = new Promise<never>((_, rej) => setTimeout(() => rej(new Error("embedding timeout")), this.neuralTimeoutMs));
+      const neural = await Promise.race([this.neural.embedQuery(q), timeout]);
+      return { hash, neural: neural.length === this.neural.dims ? neural : null };
+    } catch (e) { this.neuralStatus.reason = `fallback to lexical vectors: ${(e as Error).message.slice(0, 100)}`; return { hash, neural: null }; }
   }
 
   private bm25(q: string[], r: Row): number {
@@ -75,14 +101,22 @@ export class Retriever {
       const f = rows.filter((r) => r.chunk.document_id.endsWith(`-${opts.projectId}`) || r.chunk.tags.includes(opts.projectId!));
       if (f.length) { rows = f; filterDesc = `project=${opts.projectId}`; }
     }
+    // Verification policy: unverified chunks are never evidence (applied after the project scope so a project that has
+    // only unverified notes returns nothing rather than leaking other documents).
+    {
+      const f = rows.filter((r) => (opts.onlyUnverified ? !r.chunk.verified : r.chunk.verified));
+      rows = f;
+    }
     if (opts.categories?.length) {
       const f = rows.filter((r) => opts.categories!.includes(r.chunk.category));
       if (f.length) { rows = f; filterDesc = (filterDesc ? filterDesc + "," : "") + `category=${opts.categories.join("|")}`; }
     }
-    const qv = await this.queryVector(normalize(query));
+    const qvs = await this.queryVectors(normalize(query));
+    const useNeural = !!qvs.neural;
+    const calib = useNeural ? this.index.neural!.calibration : HASH_CALIBRATION;
     const scored = rows.map((r) => {
       const bm = terms.length ? this.bm25(terms, r) : 0;
-      const cos = qv && r.chunk.vector.length ? cosine(qv, r.chunk.vector) : 0;
+      const cos = useNeural ? (r.chunk.nvector?.length ? cosine(qvs.neural!, r.chunk.nvector) : 0) : r.chunk.vector.length ? cosine(qvs.hash, r.chunk.vector) : 0;
       const hit = terms.filter((t) => r.set.has(t)).length;
       return { r, bm, cos, coverage: terms.length ? hit / terms.length : 0 };
     });
@@ -101,7 +135,7 @@ export class Retriever {
         bm25: s.bm,
         cosine: s.cos,
         coverage: s.coverage,
-        score: 0.6 * ((rrf.get(s.r) ?? 0) / maxRrf) + 0.25 * (s.bm / maxBm) + 0.15 * Math.max(0, s.cos) + (s.r.chunk.verified ? 0.02 : 0),
+        score: 0.6 * ((rrf.get(s.r) ?? 0) / maxRrf) + 0.25 * (s.bm / maxBm) + 0.15 * relevance(s.cos, calib) + (s.r.chunk.verified ? 0.02 : 0),
       }))
       .sort((a, b) => b.score - a.score);
 
@@ -145,14 +179,21 @@ export class Retriever {
         // The name must appear in a passage that also covers (most of) the rest of the question — otherwise it is a coincidental match.
         return !top.some((h) => { const r = this.byId.get(h.chunk.chunk_id); return !!r && st.every((t) => r.set.has(t)) && (restW === 0 || rest.reduce((x, t) => x + (r.set.has(t) ? idf(t) : 0), 0) / restW >= 0.5); });
       });
-    const base = best ? 0.7 * wCov + 0.3 * Math.min(1, Math.max(0, best.cosine) / 0.45) : 0;
+    const base = best ? 0.7 * wCov + 0.3 * relevance(best.cosine, calib) : 0;
     // When the question names a project, retrieval is already scoped to that project's verified notes; within that small
     // scope, generic words ("work", "use") are naturally absent, so a named project sets a floor rather than abstaining.
-    const scoped = filterDesc?.startsWith("project=") && best ? Math.max(base, 0.42) : base;
+    const scoped = !opts.noFloor && filterDesc?.startsWith("project=") && best ? Math.max(base, 0.42) : base;
     const confidence = Math.min(1, missingEntities.length ? scoped * 0.45 : scoped);
+    let unverified: Retrieval["unverified"];
+    if (!opts.onlyUnverified && (!ranked.length || confidence < 0.34)) {
+      const u = await this.search(query, { ...opts, onlyUnverified: true, topK: 1 });
+      const h = u.hits[0];
+      if (h && u.confidence >= 0.34) unverified = { document_id: h.chunk.document_id, title: h.chunk.title, category: h.chunk.category, source_path: h.chunk.source_path };
+    }
     return {
+      unverified,
       hits: ranked, confidence,
-      diagnostics: { missingEntities, queryTerms: terms, candidates: scored.filter((s) => s.bm > 0 || s.cos > 0.1).length, kept: ranked.length, durationMs: Date.now() - t0, embedder: this.embedderId, filter: filterDesc },
+      diagnostics: { missingEntities, queryTerms: terms, candidates: scored.filter((s) => s.bm > 0 || relevance(s.cos, calib) > 0.2).length, kept: ranked.length, durationMs: Date.now() - t0, embedder: useNeural ? this.neural!.space : this.embedderId, semantic: useNeural ? "neural" : "hash", filter: filterDesc },
     };
   }
 }

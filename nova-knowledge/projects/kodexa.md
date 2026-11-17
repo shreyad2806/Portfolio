@@ -1,8 +1,8 @@
 ---
-title: Kodexa — AI developer tool for turning agent-generated and rapidly evolving codebases into reusable, maintainable software through debugging, codebase analysis, and repository intelligence.
+title: Kodexa
 category: projects
-source: lib/project-detail-data.ts (portfolio case study)
-updated: 2026-11-10
+source: portfolio case study (lib/project-detail-data.ts)
+updated: 2026-11-12
 verified: true
 tags: [kodexa, kodexa, python, fastapi, langgraph, postgresql, pgvector, vs code extension, developer tools, repository intelligence, agentic ai]
 ---
@@ -73,3 +73,6 @@ Kodexa helps developers turn AI-generated code into cleaner, reusable, maintaina
 - **Agentic AI:** LangGraph enables powerful agentic workflows for code analysis.
 - **Code Analysis:** Accurate code analysis requires multiple techniques combined.
 - **IDE Integration:** VS Code extensions need careful API design and user experience.
+
+## Verification notes (internal)
+- Generated from lib/project-detail-data.ts (the portfolio case study). Case-study statements are the owner's own portfolio content; they have not been independently checked against the repository.

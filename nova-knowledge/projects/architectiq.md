@@ -1,8 +1,8 @@
 ---
-title: ArchitectIQ — AI-powered software architecture review platform that analyzes repositories, identifies architectural and design issues, and produces actionable engineering insights.
+title: ArchitectIQ
 category: projects
-source: lib/project-detail-data.ts (portfolio case study)
-updated: 2026-11-10
+source: portfolio case study (lib/project-detail-data.ts)
+updated: 2026-11-12
 verified: true
 tags: [architectiq, architectiq, python, fastapi, postgresql, react, typescript, openai, repository analysis, system design, code intelligence]
 ---
@@ -73,3 +73,6 @@ ArchitectIQ analyzes real software repositories to identify architectural issues
 - **AI for Engineering:** AI can provide valuable insights when given proper context.
 - **System Design:** Architecture review requires deep understanding of design principles.
 - **Tool Building:** Building developer tools requires understanding of real workflows.
+
+## Verification notes (internal)
+- Generated from lib/project-detail-data.ts (the portfolio case study). Case-study statements are the owner's own portfolio content; they have not been independently checked against the repository.

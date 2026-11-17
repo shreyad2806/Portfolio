@@ -57,8 +57,15 @@ export function chunkDocument(doc: KnowledgeDoc): Omit<Chunk, "vector">[] {
   const sections: Section[] = [];
   let stack: string[] = [];
   let cur: Section = { path: [], lines: [] };
+  let internal = false;
   for (const line of doc.body.split(/\r?\n/)) {
     const h = line.match(/^(#{1,4})\s+(.*)$/);
+    if (h) {
+      // "Verification notes (internal)" sections are for humans only: never chunked, embedded or shown.
+      internal = /^verification notes/i.test(h[2].trim());
+    }
+    if (internal) { if (h) { if (cur.lines.join("").trim()) sections.push(cur); cur = { path: [], lines: [] }; } continue; }
+    if (/TODO\(human\)/i.test(line)) continue;      // defence in depth: TODO text can never reach a chunk
     if (h) {
       if (cur.lines.join("").trim()) sections.push(cur);
       const depth = h[1].length;
@@ -112,4 +119,17 @@ export function chunkDocument(doc: KnowledgeDoc): Omit<Chunk, "vector">[] {
 /** Text that is embedded / keyword-indexed: contextualised with title, heading and tags. */
 export function indexText(c: Pick<Chunk, "title" | "section_heading" | "tags" | "text">): string {
   return `${c.title}. ${c.section_heading}. ${c.tags.join(" ")}. ${c.text}`;
+}
+
+/** Internal notes + TODO markers of a document (for the human-verification report; never indexed). */
+export function internalNotes(doc: Pick<KnowledgeDoc, "body">): { notes: string[]; todos: string[] } {
+  const notes: string[] = []; const todos: string[] = [];
+  let internal = false;
+  for (const line of doc.body.split(/\r?\n/)) {
+    const h = line.match(/^(#{1,4})\s+(.*)$/);
+    if (h) { internal = /^verification notes/i.test(h[2].trim()); continue; }
+    if (/TODO\(human\)/i.test(line)) todos.push(line.trim());
+    if (internal && line.trim().startsWith("-")) notes.push(line.trim().replace(/^-\s*/, ""));
+  }
+  return { notes, todos };
 }

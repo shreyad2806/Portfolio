@@ -1,7 +1,7 @@
 ---
 title: Software Engineer Intern — StartupCrafters
 category: experience
-source: resume (SDE.pdf) + lib/portfolio-data.ts
+source: resume (approved) + lib/portfolio-data.ts
 updated: 2026-11-11
 verified: true
 tags: [experience, internship, startupcrafters, debugging, posthog, pull requests, testing, reliability]

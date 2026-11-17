@@ -11,7 +11,9 @@
     "nova:ingest:check": "tsx scripts/nova/ingest.ts --check",
     "nova:eval": "NOVA_LOG=0 tsx scripts/nova/evaluate.ts",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "nova:verify": "tsx scripts/nova/verify-knowledge.ts",
+    "nova:embed:bench": "NOVA_LOG=0 tsx scripts/nova/embed-bench.ts"
   },
   "dependencies": {
     "framer-motion": "^11.11.17",

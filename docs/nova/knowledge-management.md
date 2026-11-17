@@ -23,7 +23,7 @@ Ground truth is `nova-knowledge/` (Markdown) derived from the portfolio data and
 5. Run `npm test` and `npm run nova:eval`; add a question to `scripts/nova/evaluate.ts` for the new content.
 
 ## Open items needing human verification
-Documents with `verified: false`: `experience/bluestock`, `projects/thumblyai`, `achievements/leadership-community`, `achievements/open-source` (9 `TODO(human)` markers in total). Known inconsistencies in the sources: the LawGPT role title (Journey page "AI Research Intern" vs resume "AI Engineer Intern") and the ET GenAI Hackathon year (2026 vs 2025).
+See the generated [`human-verification-report.md`](human-verification-report.md) (`npm run nova:verify`). Nothing is silently resolved: conflicting or unverified facts are either excluded from answers or disclosed. Internal notes live in `Verification notes (internal)` sections and `verification.json`; they are never chunked or shown.
 
 ## Deliberately excluded
 `public/SDE.pdf` is an older resume that contains a personal phone number and outdated facts; it is not ingested (`sources.json` is empty). Consider replacing or removing it from `public/`.

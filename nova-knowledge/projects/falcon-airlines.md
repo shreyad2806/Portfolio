@@ -1,8 +1,8 @@
 ---
-title: Falcon Airlines — Full-stack airline reservation and ticketing platform with flight search, booking, payments, ticket generation, and boarding pass functionality.
+title: Falcon Airlines
 category: projects
-source: lib/project-detail-data.ts (portfolio case study)
-updated: 2026-11-10
+source: portfolio case study (lib/project-detail-data.ts)
+updated: 2026-11-12
 verified: true
 tags: [falcon-airlines, falcon airlines, java 21, spring boot, spring security, postgresql, redis, docker, jwt, react, rest apis, pdf generation, qr codes]
 ---
@@ -74,3 +74,6 @@ Falcon Airlines is a complete airline reservation system that handles flight sea
 - **Transaction Management:** Database transactions are critical for data integrity in booking systems.
 - **Full-Stack Integration:** Integrating frontend and backend requires careful API design and state management.
 - **Payment Security:** Payment processing requires strict security measures and compliance standards.
+
+## Verification notes (internal)
+- Generated from lib/project-detail-data.ts (the portfolio case study). Case-study statements are the owner's own portfolio content; they have not been independently checked against the repository.

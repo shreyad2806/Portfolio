@@ -1,8 +1,8 @@
 ---
-title: ComplytAI — Enterprise compliance platform that combines RAG, local LLMs, vector search, and CrewAI-based agent orchestration for document analysis and risk detection.
+title: ComplytAI
 category: projects
-source: lib/project-detail-data.ts (portfolio case study)
-updated: 2026-11-10
+source: portfolio case study (lib/project-detail-data.ts) + resume (approved)
+updated: 2026-11-12
 verified: true
 tags: [complytai, complytai, next.js, typescript, python, fastapi, crewai, ollama, qwen2.5, nomic-embed-text, pinecone, rag, postgresql]
 ---
@@ -84,3 +84,14 @@ ComplytAI is an end-to-end compliance intelligence system that processes enterpr
 - **Enterprise AI Architecture:** Enterprise AI systems require privacy, reliability, scalability, observability, and maintainable service boundaries.
 - **Local LLM Infrastructure:** Running models locally introduces important engineering trade-offs around hardware, latency, model size, and privacy.
 - **AI Product Engineering:** A useful AI product requires more than model integration; the surrounding APIs, databases, interfaces, validation, and workflows are equally important.
+
+## From her resume (approved source)
+- Resume title: "ComplytAI – Financial Compliance and Risk Intelligence". Stack on the resume: Python, FastAPI, Next.js, CrewAI, Pinecone, RAG, Ollama, Qwen2.5.
+- A five-agent CrewAI workflow for financial document analysis, anti-money laundering (AML), compliance assessment, risk auditing and executive report synthesis.
+- Pinecone-based RAG using semantic retrieval, embeddings, Pydantic-validated outputs, confidence scoring and evidence citations for traceable compliance findings.
+- Automated executive PDF report generation with risk scores, compliance gaps, audit flags, recommendations and supporting document evidence.
+
+## Verification notes (internal)
+- Generated from lib/project-detail-data.ts (the portfolio case study). Case-study statements are the owner's own portfolio content; they have not been independently checked against the repository.
+- The portfolio case study (above) and the resume describe the same project with different emphasis: the case study lists nomic-embed-text and PostgreSQL, the resume lists a five-agent workflow and PDF reports. They do not contradict each other, but neither names the five agents individually; Nova must not name them. (record: complytai-agents)
+- Case-study "Results" are qualitative labels (e.g. "Production", "End-to-End"), not measured metrics. Nova must not present them as metrics or claim a production deployment. (record: complytai-results)

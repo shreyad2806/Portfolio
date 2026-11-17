@@ -1,8 +1,8 @@
 ---
-title: Reflex Ninja — A fast-paced reflex game built while learning native Android development with Kotlin.
+title: Reflex Ninja
 category: projects
-source: lib/project-detail-data.ts (portfolio case study)
-updated: 2026-11-10
+source: portfolio case study (lib/project-detail-data.ts)
+updated: 2026-11-12
 verified: true
 tags: [reflex-ninja, reflex ninja, kotlin, android studio, jetpack, xml layouts, gradle]
 ---
@@ -67,3 +67,6 @@ Reflex Ninja is a simple arcade-style game where players tap a randomly appearin
 - **Android Lifecycle:** Understanding the Android lifecycle is crucial for building stable apps.
 - **UI Development:** XML layouts and Jetpack components provide a powerful way to build Android UIs.
 - **Event Handling:** Touch events and user interactions are the core of mobile app interactivity.
+
+## Verification notes (internal)
+- Generated from lib/project-detail-data.ts (the portfolio case study). Case-study statements are the owner's own portfolio content; they have not been independently checked against the repository.

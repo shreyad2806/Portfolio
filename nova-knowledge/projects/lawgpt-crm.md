@@ -1,13 +1,13 @@
 ---
-title: CRM — Full-stack CRM and marketing automation platform for lead management, workflow automation, and sales operations.
+title: LawGPT CRM
 category: projects
-source: lib/project-detail-data.ts (portfolio case study)
-updated: 2026-11-10
+source: portfolio case study (lib/project-detail-data.ts)
+updated: 2026-11-12
 verified: true
 tags: [lawgpt-crm, crm, next.js, typescript, react, supabase, postgresql, tailwind css, authentication, automation, openai]
 ---
 
-# CRM
+# LawGPT CRM
 
 **One-liner:** Full-stack CRM and marketing automation platform for lead management, workflow automation, and sales operations.
 
@@ -73,3 +73,6 @@ CRM is a full-stack platform that centralizes lead management, customer data, an
 - **Workflow Automation:** Automation can significantly reduce manual effort and improve efficiency.
 - **Analytics Development:** Analytics dashboards require optimized queries and proper data modeling.
 - **AI Integration:** AI should enhance user experience, not complicate it.
+
+## Verification notes (internal)
+- Generated from lib/project-detail-data.ts (the portfolio case study). Case-study statements are the owner's own portfolio content; they have not been independently checked against the repository.
