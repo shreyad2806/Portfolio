@@ -1,5 +1,6 @@
 "use client";
 
+import Spaceship from "./environment/Spaceship";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { STOPS, ISLAND_IDS, TOTAL, WORLD_IDS, hashFor, nearestStop, poseFor, resolveDestination, stopById, timeOf, unit, type Viewport, type WorldId } from "@/lib/world/destinations";
 import { WORLD_ARRIVED, setWorldHash, type ArrivedDetail } from "@/lib/world/navigation";
@@ -105,7 +106,9 @@ export default function WorldExperience() {
     /* Direct transform writes (one string per element): no React, no layout, and no dependency on gsap's transform cache. */
     const par = (els: HTMLElement[], k: number) => (cx: number, cy: number) => { const t = `translate3d(${(-cx * u * k).toFixed(1)}px,${(-cy * u * k).toFixed(1)}px,0)`; for (const el of els) el.style.transform = t; };
     const pFar = par(layers.far, 0.035), pNear = par(layers.near, 0.08), pNeb = par(layers.neb, 0.05), pFg = par(layers.fg, 0.2);
+    const labels = q(".wx-island-label");
     const apply = () => {
+      const inv = `translateX(-50%) rotate(${(-cam.r).toFixed(2)}deg) scale(${(1 / cam.s).toFixed(3)})`; for (const l of labels) l.style.transform = inv;
       const th = (cam.r * Math.PI) / 180, c = Math.cos(th), s = Math.sin(th), px = cam.cx * u, py = cam.cy * u;
       world.style.transform = `translate3d(${(-cam.s * (c * px - s * py)).toFixed(1)}px,${(-cam.s * (s * px + c * py)).toFixed(1)}px,0) rotate(${cam.r.toFixed(3)}deg) scale(${cam.s.toFixed(4)})`;
       pFar(cam.cx, cam.cy); pNear(cam.cx, cam.cy); pNeb(cam.cx, cam.cy); pFg(cam.cx, cam.cy);
@@ -120,7 +123,7 @@ export default function WorldExperience() {
 
     gsap.set(Object.values(panels), { autoAlpha: 0 });
     gsap.set(panels.intro, { autoAlpha: 1 });
-    gsap.set(Object.values(halos), { opacity: 0.38 });
+    gsap.set(Object.values(halos), { opacity: 0.55 });
     gsap.set(q("[data-route],[data-route-core]"), { strokeDasharray: 1, strokeDashoffset: 1 });
     gsap.set(stage, { "--wx-accent": `rgb(${STOPS[0].glow})` });
 
@@ -129,6 +132,10 @@ export default function WorldExperience() {
     const segLen = segs.map((p) => p.getTotalLength());
     const pr = { p: 0 };
     gsap.set(probe, { opacity: 0 });
+    const ship = scope.querySelector<HTMLElement>("[data-ship]")!, flame = scope.querySelector<SVGGElement>("[data-flame]")!;
+    const warp = scope.querySelector<HTMLElement>(".wx-warp")!, cockpit = scope.querySelector<HTMLElement>(".wx-cockpit")!;
+    const streaks = q("[data-streak]"), legs = q("[data-leg]");
+    gsap.set(ship, { xPercent: -50, yPercent: -50, opacity: 0 }); gsap.set([warp, cockpit, ...legs], { opacity: 0 }); gsap.set(streaks, { transformOrigin: "100% 50%" });
 
     const tl = gsap.timeline({
       defaults: { ease: "none" },
@@ -153,14 +160,26 @@ export default function WorldExperience() {
       else tl.to(cam, { keyframes: [{ s: Math.min(a.scale, b.scale) * 0.7, duration: 0.5, ease: "sine.inOut" }, { s: b.scale, duration: 0.5, ease: "sine.inOut" }], onUpdate: apply }, t0);
       tl.to(cam, { keyframes: [{ r: stop.tilt, duration: 0.5, ease: "sine.inOut" }, { r: 0, duration: 0.5, ease: "sine.inOut" }], onUpdate: apply }, t0);
 
+      // the ship: launches, banks toward the next island, streaks fly past, then it fades as we land
+      const dx = stop.pos.x - STOPS[k - 1].pos.x, dy = stop.pos.y - STOPS[k - 1].pos.y, sign = k === 1 ? -1 : Math.sign(dx) || 1;
+      const rot = (sign < 0 ? Math.atan2(-dy, -dx) : Math.atan2(dy, dx)) * (180 / Math.PI) * 0.55;
+      const flight = (peak: number) => [{ opacity: peak, duration: 0.2 }, { opacity: peak, duration: 0.34 }, { opacity: 0, duration: 0.2 }];
+      tl.set(ship, { scaleX: sign, rotation: rot }, t0);
+      tl.to(ship, { keyframes: flight(1), ease: "sine.inOut" }, t0 + 0.05);
+      tl.to(warp, { keyframes: flight(0.9), ease: "sine.inOut" }, t0 + 0.05);
+      tl.to(cockpit, { keyframes: flight(1), ease: "sine.inOut" }, t0 + 0.05);
+      tl.to(legs.filter((l) => l.dataset.leg === String(k)), { keyframes: flight(1), ease: "sine.inOut" }, t0 + 0.05);
+      tl.fromTo(flame, { scaleX: 1, scaleY: 1 }, { keyframes: [{ scaleX: 2.6, scaleY: 1.25, duration: 0.45 }, { scaleX: 1, scaleY: 1, duration: 0.45 }], ease: "sine.inOut", immediateRender: false }, t0);
+      tl.fromTo(streaks, { x: (i: number) => -sign * view.w * (0.3 + (i % 5) * 0.12), scaleX: 0.4 }, { x: (i: number) => sign * view.w * (0.3 + (i % 5) * 0.12), scaleX: 1.6, duration: 0.9, ease: "power1.inOut", immediateRender: false }, t0 + 0.05);
+
       // lighting follows the destination
       tl.to(stage, { "--wx-accent": `rgb(${stop.glow})`, duration: 0.9, ease: "sine.inOut" }, Math.max(0, t0 + 0.1));
 
       // island emphasis: swell + halo while landed, relax when leaving
       const body = bodies[stop.id], halo = halos[stop.id];
       tl.fromTo(body, { scale: 1 }, { scale: 1.05, duration: 0.45, ease: "power2.out", immediateRender: false }, k - 0.45);
-      tl.fromTo(halo, { opacity: 0.38 }, { opacity: 1, duration: 0.45, ease: "power2.out", immediateRender: false }, k - 0.45);
-      if (k < TOTAL) { tl.to(body, { scale: 1, duration: 0.4, ease: "power2.in" }, k + 0.05); tl.to(halo, { opacity: 0.38, duration: 0.4 }, k + 0.05); }
+      tl.fromTo(halo, { opacity: 0.55 }, { opacity: 1, duration: 0.45, ease: "power2.out", immediateRender: false }, k - 0.45);
+      if (k < TOTAL) { tl.to(body, { scale: 1, duration: 0.4, ease: "power2.in" }, k + 0.05); tl.to(halo, { opacity: 0.55, duration: 0.4 }, k + 0.05); }
 
       // travel route drawn between islands; the probe rides it
       if (k >= 2) {
@@ -248,6 +267,7 @@ export default function WorldExperience() {
               {STOPS.slice(1).map((s, i) => <IslandArtwork key={s.id} stop={s} eager={i < 2} />)}
             </div>
             <FloatingParticles /><AtmosphericLayers />
+            <Spaceship />
             <div className="wx-hud">
               {STOPS.map((s) => { const Scene = SCENES[s.id]; return <div key={s.id} data-panel={s.id} className={`wx-panel wx-panel--${s.id}`}><Scene mode="pinned" /></div>; })}
             </div>

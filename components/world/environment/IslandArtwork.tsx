@@ -13,6 +13,7 @@ export default function IslandArtwork({ stop, eager = false, inline = false }: {
         <img src={stop.island} alt={`Floating island: ${stop.title}`} width={560} height={500} loading={eager ? "eager" : "lazy"} decoding="async" fetchPriority={eager ? "high" : "low"} draggable={false} />
         <i className="wx-ring wx-ring--a" aria-hidden="true" /><i className="wx-ring wx-ring--b" aria-hidden="true" />
       </div>
+      {!inline && <div data-label className="wx-island-label" aria-hidden="true"><span>0{stop.chapter}</span>{stop.title}</div>}
     </div>
   );
 }

@@ -30,13 +30,14 @@
 /* the world plane: origin = stage centre; the camera moves this element */
 .wx-world { position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform-origin: 0 0; will-change: transform; }
 .wx-routes { position: absolute; left: calc(var(--u) * -250); top: calc(var(--u) * -90); width: calc(var(--u) * 500); height: calc(var(--u) * 180); overflow: visible; pointer-events: none; }
-.wx-route-base { fill: none; stroke: rgba(210,200,255,.22); stroke-width: .2; stroke-dasharray: .8 1.4; }
+.wx-route-base { fill: none; stroke: rgba(214,204,255,.62); stroke-width: .42; stroke-linecap: round; stroke-dasharray: 1.2 1.6; animation: wx-flow 3.2s linear infinite; }
+@keyframes wx-flow { to { stroke-dashoffset: -5.6; } }
 .wx-route-glow { fill: none; stroke-width: .9; stroke-linecap: round; opacity: .8; }
 .wx-route-core { fill: none; stroke: #fff; stroke-width: .18; stroke-linecap: round; }
 .wx-probe { fill: #fff; filter: drop-shadow(0 0 1.4px #fff) drop-shadow(0 0 3px var(--wx-accent)); r: .9; }
 
 .wx-island { position: absolute; left: calc(var(--u) * var(--ix)); top: calc(var(--u) * var(--iy)); width: calc(var(--u) * var(--iw)); transform: translate(-50%, -50%); }
-.wx-halo { position: absolute; inset: -28%; pointer-events: none; background: radial-gradient(closest-side, rgba(var(--glow), .5), transparent 72%); }
+.wx-halo { position: absolute; inset: -34%; pointer-events: none; background: radial-gradient(closest-side, rgba(var(--glow), .5), transparent 72%); }
 .wx-island-body { position: relative; will-change: transform; }
 .wx-island-body img { display: block; width: 100%; height: auto; user-select: none; -webkit-user-drag: none; animation: wx-bob 7s ease-in-out var(--bd) infinite alternate; filter: drop-shadow(0 22px 40px rgba(var(--glow), .28)); }
 @keyframes wx-bob { from { transform: translateY(0) rotate(-.4deg); } to { transform: translateY(-3.2%) rotate(.5deg); } }
@@ -211,3 +212,24 @@ html.wx-active { scroll-behavior: auto !important; }
 /* interior routes: way back to the world */
 .th-return { display: inline-flex; align-items: center; gap: 7px; margin-top: 22px; font-size: 13px; font-weight: 600; color: var(--accent, #b49aff); text-decoration: none; }
 .th-return:hover { text-decoration: underline; }
+
+/* ───── V3.1: island names, brighter islands, spaceship flight ───── */
+.wx-island-body img { filter: brightness(1.14) saturate(1.12) drop-shadow(0 22px 40px rgba(var(--glow), .4)); }
+.wx-island-label { position: absolute; left: 50%; top: 96%; transform-origin: 50% 0; transform: translateX(-50%); white-space: nowrap; pointer-events: none; display: inline-flex; gap: 8px; align-items: center; padding: 6px 14px; border-radius: 999px; font: 600 13px/1 var(--font-sans, system-ui), sans-serif; letter-spacing: .02em; color: #fff; background: rgba(12,7,44,.72); border: 1px solid rgba(var(--glow), .6); box-shadow: 0 0 18px rgba(var(--glow), .35); backdrop-filter: blur(6px); }
+.wx-island-label span { font: 700 10.5px/1 ui-monospace, monospace; color: rgb(var(--glow)); letter-spacing: .12em; }
+.wx-island--inline .wx-island-label { display: none; }
+@media (max-width: 760px) { .wx-island-label { font-size: 11.5px; padding: 5px 10px; } }
+
+.wx-flight { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 6; }
+.wx-ship { position: absolute; left: 50%; top: 46%; width: clamp(150px, 17vw, 270px); filter: drop-shadow(0 0 18px rgba(var(--wx-glow, 150,120,255), .6)) drop-shadow(0 0 40px rgba(130,100,255,.45)); }
+.wx-ship svg { display: block; width: 100%; height: auto; overflow: visible; animation: wx-hover 1.6s ease-in-out infinite alternate; }
+@keyframes wx-hover { from { transform: translateY(-5px); } to { transform: translateY(6px); } }
+.wx-warp { position: absolute; inset: 0; }
+.wx-warp i { position: absolute; height: 2px; border-radius: 2px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.85)); box-shadow: 0 0 8px rgba(160,140,255,.8); }
+.wx-cockpit { position: absolute; inset: 0; background: radial-gradient(90% 80% at 50% 50%, transparent 45%, rgba(40,20,110,.5) 100%); }
+.wx-cockpit i { position: absolute; width: 38px; height: 38px; border: 2px solid rgba(190,170,255,.75); }
+.wx-cockpit i:nth-child(1) { left: 22px; top: 88px; border-right: 0; border-bottom: 0; } .wx-cockpit i:nth-child(2) { right: 22px; top: 88px; border-left: 0; border-bottom: 0; }
+.wx-cockpit i:nth-child(3) { left: 22px; bottom: 96px; border-right: 0; border-top: 0; } .wx-cockpit i:nth-child(4) { right: 22px; bottom: 96px; border-left: 0; border-top: 0; }
+.wx-enroute { position: absolute; left: 0; right: 0; bottom: 18%; text-align: center; font: 600 12px/1 ui-monospace, monospace; letter-spacing: .22em; text-transform: uppercase; color: rgba(235,230,255,.9); }
+.wx-enroute span { position: absolute; left: 0; right: 0; } .wx-enroute b { color: var(--accent); font-weight: 700; text-shadow: 0 0 14px var(--accent); }
+@media (prefers-reduced-motion: reduce) { .wx-route-base, .wx-ship svg { animation: none; } }

@@ -51,7 +51,7 @@ export const hashFor = (id: WorldId) => (id === "intro" ? "" : `#${id}`);
 
 /* ---- camera poses -------------------------------------------------------------------------------------------------- */
 export interface Viewport { w: number; h: number }
-export const ISLAND_SIZE = 56; // world units (artwork width)
+export const ISLAND_SIZE = 64; // world units (artwork width)
 /** Pixels per world unit — must match the CSS `--u: min(1vw, 1.72svh)`. */
 export const unit = (v: Viewport) => Math.min(v.w / 100, v.h / 58);
 export const isNarrow = (v: Viewport) => v.w < 820 || v.h > v.w * 1.1;
