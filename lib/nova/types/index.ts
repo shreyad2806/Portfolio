@@ -67,7 +67,7 @@ export type AnswerMode = "faq" | "intent" | "cached" | "llm" | "local" | "abstai
 export interface ChatTurn { role: "user" | "assistant"; content: string }
 
 /** Bounded, session-scoped memory: the active project (or the pair being compared) and the last topic. */
-export interface ConversationState { project?: string; projects?: string[]; topic?: string }
+export interface ConversationState { project?: string; projects?: string[]; topic?: string; /** Home-page world destination the visitor is on (validated id; context only). */ destination?: string }
 
 export interface ChatRequest { message: string; history: ChatTurn[]; state?: ConversationState }
 

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14T08:24:15.724Z",
+  "generated": "2026-11-20T08:00:54.672Z",
   "questions": 123,
   "categories": [
     "profile",
@@ -43,7 +43,7 @@
         "hallucinationRate": 0,
         "factCoverage": 1,
         "fallbackActivations": 70,
-        "latencyMsAvg": 1.1544715447154472,
+        "latencyMsAvg": 1.0975609756097562,
         "latencyMsP95": 3,
         "tokensTotal": 0
       },
@@ -63,7 +63,7 @@
         "hallucinationRate": 0,
         "factCoverage": 1,
         "fallbackActivations": 70,
-        "latencyMsAvg": 0.983739837398374,
+        "latencyMsAvg": 0.9349593495934959,
         "latencyMsP95": 3,
         "tokensTotal": 0
       },

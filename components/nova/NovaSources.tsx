@@ -3,6 +3,8 @@
 import { usePathname, useRouter } from "next/navigation";
 import { BadgeCheck, Briefcase, FolderGit2, GraduationCap, Trophy, UserRound, FileText } from "lucide-react";
 import type { Source } from "@/lib/nova/types";
+import { travelTo } from "@/lib/world/navigation";
+import { resolveDestination } from "@/lib/world/destinations";
 
 const icon = (path: string) => {
   const c = path.split("/")[0];
@@ -24,6 +26,8 @@ export default function NovaSources({ sources, onNavigate }: { sources: Source[]
     if (!href || href.startsWith("http")) return;
     e.preventDefault(); onNavigate?.();
     const [path, hash] = href.split("#");
+    const dest = hash && (path === "" || path === "/") && pathname === "/" ? resolveDestination(hash) : null;
+    if (dest) { travelTo({ destination: dest, source: "nova" }); return; }
     if (hash && (path === "" || path === pathname)) { document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
     router.push(href);
   }

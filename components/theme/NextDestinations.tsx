@@ -39,7 +39,7 @@ export default function NextDestinations({ current }: { current: DestinationId }
       </div>
       <div className="mt-8 text-center">
         <Link href="/" className="btn-secondary text-sm">
-          Return to the Basecamp
+          Return to the world
         </Link>
       </div>
     </section>

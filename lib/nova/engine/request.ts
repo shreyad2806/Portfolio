@@ -3,6 +3,8 @@ import { PROJECTS } from "../tools/registry";
 import type { ChatRequest, ChatTurn, ConversationState } from "../types";
 
 /** Validate and normalise the untrusted request body. */
+/** Registry ids of the home-page world (context hint only; never used to build links). */
+const WORLD_DESTINATIONS = ["intro", "basecamp", "buildlab", "journey", "frontier", "connection"];
 export function parseChatRequest(body: unknown): ChatRequest | { error: string } {
   if (!body || typeof body !== "object") return { error: "Invalid request." };
   const b = body as Record<string, unknown>;
@@ -17,6 +19,7 @@ export function parseChatRequest(body: unknown): ChatRequest | { error: string }
   const known = (x: unknown): x is string => typeof x === "string" && PROJECTS.some((p) => p.id === x);
   const state: ConversationState = { project: known(st.project) ? st.project : undefined, projects: Array.isArray(st.projects) ? st.projects.filter(known).slice(0, 2) : undefined };
   if (!state.projects?.length) delete state.projects;
+  if (typeof st.destination === "string" && WORLD_DESTINATIONS.includes(st.destination)) state.destination = st.destination;
   return { message, history, state };
 }
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { currentDestination } from "@/lib/world/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { streamChat } from "@/lib/nova/client/stream";
 import type { ChatResult, ConversationState, NavAction, Source } from "@/lib/nova/types";
@@ -70,7 +71,7 @@ export function useNova() {
     const patch = (fn: (m: UiMessage) => UiMessage) => setMessages((all) => all.map((m) => (m.id === aid ? fn(m) : m)));
     const show = () => setMessages((m) => [...m, { id: uidMsg, role: "user", text: q }, { id: aid, role: "assistant", text: "" }]);
     show();
-    await streamChat({ message: q, history, state: stateRef.current }, {
+    await streamChat({ message: q, history, state: { ...stateRef.current, destination: currentDestination() ?? undefined } }, {
       onAccepted: () => { accepted = true; opts.onAccepted?.(); },
       onToken: (d) => patch((m) => ({ ...m, text: m.text + d })),
       onDone: (r: ChatResult) => {
