@@ -60,7 +60,7 @@ export interface Pose { x: number; y: number; scale: number }
 /** Camera centre (world units) + scale that frames a stop: wide → island left of centre, narrow → island in the upper part. */
 export function poseFor(stop: WorldStop, v: Viewport): Pose {
   const narrow = isNarrow(v);
-  if (stop.id === "intro") return narrow ? { x: 0, y: -4, scale: 0.24 } : { x: 0, y: -4, scale: 0.2 };
+  if (stop.id === "intro") return narrow ? { x: 0, y: -44, scale: 0.42 } : { x: 0, y: -4, scale: 0.235 };
   const scale = narrow ? 1.0 : 0.72;
   const f = narrow ? { x: 0.5, y: 0.25 } : { x: 0.27, y: 0.5 };
   const u = unit(v);

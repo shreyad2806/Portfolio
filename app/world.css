@@ -84,7 +84,7 @@
 .wx-intro h2 em { font-style: normal; background: linear-gradient(90deg, #b49aff, #66e9f4); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .wx-lede { max-width: 52ch; font-size: clamp(14px, 1.3vw, 17px); line-height: 1.6; color: rgba(222,216,255,.82); }
 .wx-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 18px; }
-.wx-nova { position: absolute; left: clamp(16px, 4vw, 64px); bottom: 5.6rem; display: flex; gap: 14px; align-items: flex-start; max-width: min(400px, 88vw); text-align: left; padding: 14px 16px; border-radius: 18px; background: rgba(12,7,44,.62); border: 1px solid rgba(180,154,255,.25); backdrop-filter: blur(8px); font-size: 13.5px; line-height: 1.55; color: rgba(232,228,255,.9); }
+.wx-nova { position: absolute; left: clamp(16px, 4vw, 64px); top: 6rem; display: flex; gap: 14px; align-items: flex-start; max-width: min(380px, 88vw); text-align: left; padding: 14px 16px; border-radius: 18px; background: rgba(12,7,44,.62); border: 1px solid rgba(180,154,255,.25); backdrop-filter: blur(8px); font-size: 12.5px; line-height: 1.5; color: rgba(232,228,255,.9); }
 .wx-nova-avatar { flex: none; width: 56px; height: 56px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 24px rgba(150,120,255,.6); }
 .wx-nova-q { margin-top: 6px; color: #fff; font-weight: 600; }
 .wx-nova-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
@@ -191,8 +191,8 @@
   .wx-title { font-size: 1.9rem; margin: 8px 0 4px; } .wx-blurb { font-size: 13.5px; line-height: 1.5; } .wx-head { margin-bottom: 10px; }
   .wx-modules { grid-template-columns: repeat(2, 1fr); } .wx-structures { grid-template-columns: repeat(2, 1fr); }
   .wx-fr-grid, .wx-beacons { grid-template-columns: 1fr; } .wx-fr-col:nth-child(3) { grid-column: auto; }
-  .wx-intro { padding-top: 4.6rem; } .wx-intro h2 { font-size: 2.1rem; margin: 12px 0 6px; } .wx-lede { font-size: 13.5px; } .wx-cta { margin-top: 12px; } .wx-btn { padding: 10px 14px; font-size: 13px; }
-  .wx-nova { left: 12px; right: 12px; bottom: 5.2rem; max-width: none; padding: 10px 12px; font-size: 12.5px; } .wx-nova-avatar { width: 44px; height: 44px; } .wx-nova p:first-of-type { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .wx-intro { padding-top: 11.5rem; } .wx-intro h2 { font-size: 2.1rem; margin: 12px 0 6px; } .wx-lede { font-size: 13.5px; } .wx-cta { margin-top: 12px; } .wx-btn { padding: 10px 14px; font-size: 13px; }
+  .wx-nova { left: 12px; right: 12px; top: 4.6rem; bottom: auto; max-width: none; padding: 10px 12px; font-size: 12.5px; } .wx-nova-avatar { width: 44px; height: 44px; } .wx-nova p:first-of-type { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
   .wx-dests, .wx-scrollhint { display: none; }
   .wx-dock { right: 78px; left: 10px; bottom: 12px; } .wx-dock-label { min-width: 0; flex: 1; } .wx-dock-map span, .wx-dock-simple span { display: none; } .wx-dock-simple { display: none !important; }
   .wx-sec { grid-template-columns: 1fr; }
