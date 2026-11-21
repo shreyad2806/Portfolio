@@ -7,12 +7,14 @@ export default function Spaceship() {
   return (
     <div className="wx-flight" aria-hidden="true">
       <div className="wx-cockpit"><i /><i /><i /><i /></div>
+      <div className="wx-tunnel" />
       <div className="wx-warp">
         {Array.from({ length: WARP_STREAKS }, (_, i) => (
           <i key={i} data-streak style={{ top: `${(i * 37 + 11) % 92 + 4}%`, left: `${(i * 53) % 70}%`, width: `${10 + ((i * 7) % 16)}%` }} />
         ))}
       </div>
       <div className="wx-ship" data-ship>
+        <span className="wx-sparks">{Array.from({ length: 7 }, (_, i) => <i key={i} style={{ ["--d" as string]: `${i * 0.13}s`, ["--y" as string]: `${(i % 4) * 9 - 14}px` }} />)}</span>
         <svg viewBox="0 0 260 100" focusable="false">
           <defs>
             <linearGradient id="wx-hull" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#f4f1ff" /><stop offset=".55" stopColor="#b9b0f0" /><stop offset="1" stopColor="#6d62c4" /></linearGradient>
@@ -31,7 +33,7 @@ export default function Spaceship() {
         </svg>
       </div>
       <div className="wx-enroute">
-        {STOPS.slice(1).map((s) => <span key={s.id} data-leg={s.index} style={{ ["--accent" as string]: s.color }}>En route <b>→ {s.title}</b></span>)}
+        {STOPS.slice(1).map((s) => <span key={s.id} data-leg={s.index} style={{ ["--accent" as string]: s.color }}>En route <b>→ {s.title}</b><u><em /></u></span>)}
       </div>
     </div>
   );

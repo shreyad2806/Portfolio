@@ -27,14 +27,18 @@ const SCENES: Record<WorldId, React.ComponentType<{ mode: "pinned" | "stacked" }
   intro: EntranceScene, basecamp: BasecampScene, buildlab: BuildLabScene, journey: JourneyScene, frontier: FrontierScene, connection: ConnectionScene,
 };
 /** Directional snap to a destination: a deliberate gesture settles on the next/previous island; landing exactly on one stays put. */
-const flags = { travelling: false };
+const flags = { travelling: false, anchor: 0 };
+const COMMIT = 0.02; // fraction of a leg the visitor must travel before the world commits to the next island
 function snapToStop(value: number, self?: { direction?: number; progress?: number }) {
   if (flags.travelling) return value; // scripted travel owns the scroll; never fight it with a snap tween
   // Use where the scroll actually is, not ScrollTrigger's velocity-projected end value (that overshoots by a whole island after a scripted move).
   const t = (self?.progress ?? value) * TOTAL, near = Math.round(t);
-  if (Math.abs(t - near) < 0.02) return near / TOTAL;
-  const dir = self?.direction ?? 0;
-  const target = dir > 0 ? Math.ceil(t) : dir < 0 ? Math.floor(t) : near;
+  if (Math.abs(t - near) < 0.02) { flags.anchor = near; return near / TOTAL; }
+  if (Math.abs(t - flags.anchor) > 1.5) flags.anchor = near; // jumped (scrollbar drag, deep link): re-anchor
+  // From the island we settled on, at most ONE island per gesture — momentum/trackpad inertia can't skip islands.
+  const d = t - flags.anchor;
+  if (Math.abs(d) > 1.3) { flags.anchor = near; return near / TOTAL; } // a long deliberate scroll lands where it ends
+  const target = d > COMMIT ? flags.anchor + 1 : d < -COMMIT ? flags.anchor - 1 : flags.anchor;
   return Math.min(TOTAL, Math.max(0, target)) / TOTAL;
 }
 const PREF_KEY = "world:simple";
@@ -101,7 +105,7 @@ export default function WorldExperience() {
     const poses = STOPS.map((s) => poseFor(s, view));
 
     /* camera: a single proxy object tweened by the timeline; one apply() writes every transform (no React, no layout). */
-    const cam = { cx: poses[0].x, cy: poses[0].y, s: poses[0].scale, r: 0 };
+    const cam = { cx: poses[0].x, cy: poses[0].y, s: poses[0].scale, r: 0, sh: 0 };
     const layers = { far: q("[data-layer=stars-far]"), near: q("[data-layer=stars-near]"), neb: q("[data-layer=nebula]"), fg: q("[data-layer=foreground]") };
     /* Direct transform writes (one string per element): no React, no layout, and no dependency on gsap's transform cache. */
     const par = (els: HTMLElement[], k: number) => (cx: number, cy: number) => { const t = `translate3d(${(-cx * u * k).toFixed(1)}px,${(-cy * u * k).toFixed(1)}px,0)`; for (const el of els) el.style.transform = t; };
@@ -110,7 +114,8 @@ export default function WorldExperience() {
     const apply = () => {
       const inv = `translateX(-50%) rotate(${(-cam.r).toFixed(2)}deg) scale(${(1 / cam.s).toFixed(3)})`; for (const l of labels) l.style.transform = inv;
       const th = (cam.r * Math.PI) / 180, c = Math.cos(th), s = Math.sin(th), px = cam.cx * u, py = cam.cy * u;
-      world.style.transform = `translate3d(${(-cam.s * (c * px - s * py)).toFixed(1)}px,${(-cam.s * (s * px + c * py)).toFixed(1)}px,0) rotate(${cam.r.toFixed(3)}deg) scale(${cam.s.toFixed(4)})`;
+      const t = performance.now() / 1000, jx = cam.sh * Math.sin(t * 41), jy = cam.sh * Math.cos(t * 53);
+      world.style.transform = `translate3d(${(-cam.s * (c * px - s * py) + jx).toFixed(1)}px,${(-cam.s * (s * px + c * py) + jy).toFixed(1)}px,0) rotate(${cam.r.toFixed(3)}deg) scale(${cam.s.toFixed(4)})`;
       pFar(cam.cx, cam.cy); pNear(cam.cx, cam.cy); pNeb(cam.cx, cam.cy); pFg(cam.cx, cam.cy);
     };
     apply();
@@ -134,14 +139,14 @@ export default function WorldExperience() {
     gsap.set(probe, { opacity: 0 });
     const ship = scope.querySelector<HTMLElement>("[data-ship]")!, flame = scope.querySelector<SVGGElement>("[data-flame]")!;
     const warp = scope.querySelector<HTMLElement>(".wx-warp")!, cockpit = scope.querySelector<HTMLElement>(".wx-cockpit")!;
-    const streaks = q("[data-streak]"), legs = q("[data-leg]");
-    gsap.set(ship, { xPercent: -50, yPercent: -50, opacity: 0 }); gsap.set([warp, cockpit, ...legs], { opacity: 0 }); gsap.set(streaks, { transformOrigin: "100% 50%" });
+    const streaks = q("[data-streak]"), legs = q("[data-leg]"), tunnel = scope.querySelector<HTMLElement>(".wx-tunnel")!;
+    gsap.set(ship, { xPercent: -50, yPercent: -50, opacity: 0 }); gsap.set([warp, cockpit, tunnel, ...legs], { opacity: 0 }); gsap.set(streaks, { transformOrigin: "100% 50%" });
 
     const tl = gsap.timeline({
       defaults: { ease: "none" },
       scrollTrigger: {
-        trigger: scope, start: "top top", end: `+=${TOTAL * view.h}`, pin: stage, pinSpacing: true, scrub: 0.7, anticipatePin: 1, invalidateOnRefresh: true,
-        snap: { snapTo: snapToStop, duration: { min: 0.25, max: 0.9 }, delay: 0.12, ease: "power2.inOut" },
+        trigger: scope, start: "top top", end: `+=${TOTAL * view.h * (view.w < 820 ? 1.9 : 2.5)}`, pin: stage, pinSpacing: true, scrub: 0.7, anticipatePin: 1, invalidateOnRefresh: true,
+        snap: { snapTo: snapToStop, onComplete: (self: { progress: number }) => { flags.anchor = Math.round(self.progress * TOTAL); }, duration: { min: 0.6, max: 1.5 }, delay: 0.2, ease: "power2.inOut" },
         onRefresh: () => apply(),
         onUpdate: (self) => {
           setFill?.(self.progress);
@@ -164,7 +169,15 @@ export default function WorldExperience() {
       const dx = stop.pos.x - STOPS[k - 1].pos.x, dy = stop.pos.y - STOPS[k - 1].pos.y, sign = k === 1 ? -1 : Math.sign(dx) || 1;
       const rot = (sign < 0 ? Math.atan2(-dy, -dx) : Math.atan2(dy, dx)) * (180 / Math.PI) * 0.55;
       const flight = (peak: number) => [{ opacity: peak, duration: 0.2 }, { opacity: peak, duration: 0.34 }, { opacity: 0, duration: 0.2 }];
-      tl.set(ship, { scaleX: sign, rotation: rot }, t0);
+      const lift = Math.sign(dy) * view.h * 0.07;
+      tl.set(ship, { scaleX: sign, rotation: rot, x: -sign * view.w * 0.07, y: -lift }, t0);
+      tl.to(ship, { x: sign * view.w * 0.07, y: lift, duration: 0.9, ease: "sine.inOut" }, t0 + 0.05);
+      tl.fromTo(ship, { scale: 0.7 }, { keyframes: [{ scale: 1.12, duration: 0.45 }, { scale: 0.85, duration: 0.45 }], ease: "sine.inOut", immediateRender: false }, t0 + 0.05);
+      tl.to(cam, { keyframes: [{ sh: 2.2, duration: 0.45 }, { sh: 0, duration: 0.45 }], ease: "sine.inOut" }, t0 + 0.05);
+      tl.to(tunnel, { keyframes: [{ opacity: 0.55, scale: 1.25, duration: 0.45 }, { opacity: 0, scale: 1.7, duration: 0.45 }], ease: "power1.in" }, t0 + 0.05);
+      tl.set(tunnel, { scale: 0.8 }, t0);
+      const bar = legs.find((l) => l.dataset.leg === String(k))?.querySelector("em");
+      if (bar) tl.fromTo(bar, { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "none", immediateRender: false }, t0 + 0.08);
       tl.to(ship, { keyframes: flight(1), ease: "sine.inOut" }, t0 + 0.05);
       tl.to(warp, { keyframes: flight(0.9), ease: "sine.inOut" }, t0 + 0.05);
       tl.to(cockpit, { keyframes: flight(1), ease: "sine.inOut" }, t0 + 0.05);
@@ -207,7 +220,7 @@ export default function WorldExperience() {
       if (o?.instant) { window.scrollTo(0, y); return; }
       const legs = Math.abs(timeOf(id) - timeOf(currentRef.current));
       flags.travelling = true;
-      gsap.to(window, { scrollTo: { y, autoKill: true }, duration: Math.min(2.6, 0.7 + legs * 0.5), ease: "power2.inOut", overwrite: true, onComplete: () => { flags.travelling = false; }, onInterrupt: () => { flags.travelling = false; } });
+      gsap.to(window, { scrollTo: { y, autoKill: true }, duration: Math.min(3.6, 1.3 + legs * 0.6), ease: "power2.inOut", overwrite: true, onComplete: () => { flags.travelling = false; flags.anchor = timeOf(id); }, onInterrupt: () => { flags.travelling = false; } });
     };
     ctl.current.busy = () => flags.travelling;
 
