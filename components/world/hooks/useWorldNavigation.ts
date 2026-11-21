@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { WORLD_IDS, resolveDestination, type WorldId } from "@/lib/world/destinations";
 import { WORLD_TRAVEL, setWorldHash, type TravelDetail } from "@/lib/world/navigation";
 
-export interface Controller { goTo(id: WorldId, o?: { instant?: boolean }): void; /** true while a scripted camera journey is running */ busy(): boolean }
+export interface Controller { goTo(id: WorldId, o?: { instant?: boolean }): void; enter?(id: WorldId): void; /** true while a scripted camera journey is running */ busy(): boolean }
 
 /**
  * The one place that turns external inputs into travel: Nova/adapter events, URL hash (back/forward/deep link) and scoped keys.

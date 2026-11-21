@@ -1,6 +1,7 @@
 "use client";
 
 import Spaceship from "./environment/Spaceship";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { STOPS, ISLAND_IDS, TOTAL, WORLD_IDS, hashFor, nearestStop, poseFor, resolveDestination, stopById, timeOf, unit, type Viewport, type WorldId } from "@/lib/world/destinations";
 import { WORLD_ARRIVED, setWorldHash, type ArrivedDetail } from "@/lib/world/navigation";
@@ -52,6 +53,8 @@ const writePref = (v: boolean) => { try { localStorage.setItem(PREF_KEY, v ? "1"
 export default function WorldExperience() {
   const root = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
+  const router = useRouter();
+  const routerRef = useRef(router); routerRef.current = router;
   const [simple, setSimple] = useState(false);
   useEffect(() => { setSimple(readPref()); }, []);
   const mode: "pinned" | "stacked" = reduced || simple ? "stacked" : "pinned";
@@ -110,7 +113,7 @@ export default function WorldExperience() {
     /* Direct transform writes (one string per element): no React, no layout, and no dependency on gsap's transform cache. */
     const par = (els: HTMLElement[], k: number) => (cx: number, cy: number) => { const t = `translate3d(${(-cx * u * k).toFixed(1)}px,${(-cy * u * k).toFixed(1)}px,0)`; for (const el of els) el.style.transform = t; };
     const pFar = par(layers.far, 0.035), pNear = par(layers.near, 0.08), pNeb = par(layers.neb, 0.05), pFg = par(layers.fg, 0.2);
-    const labels = q(".wx-island-label");
+    const labels = q(".wx-island-label, .wx-enter-hint");
     const apply = () => {
       const inv = `translateX(-50%) rotate(${(-cam.r).toFixed(2)}deg) scale(${(1 / cam.s).toFixed(3)})`; for (const l of labels) l.style.transform = inv;
       const th = (cam.r * Math.PI) / 180, c = Math.cos(th), s = Math.sin(th), px = cam.cx * u, py = cam.cy * u;
@@ -223,6 +226,21 @@ export default function WorldExperience() {
       gsap.to(window, { scrollTo: { y, autoKill: true }, duration: Math.min(3.6, 1.3 + legs * 0.6), ease: "power2.inOut", overwrite: true, onComplete: () => { flags.travelling = false; flags.anchor = timeOf(id); }, onInterrupt: () => { flags.travelling = false; } });
     };
     ctl.current.busy = () => flags.travelling;
+    /* Fly INTO an island: the camera dives to its centre, the stage floods with the island's light, then the interior route opens. */
+    const portal = scope.querySelector<HTMLElement>(".wx-portal")!;
+    let entering = false;
+    ctl.current.enter = (id) => {
+      const stop = stopById(id); const route = stop?.route; if (!stop || !route || entering) return;
+      entering = true; flags.travelling = true;
+      try { sessionStorage.setItem("wx:portal", stop.glow); } catch { /* ignore */ }
+      document.body.style.overflow = "hidden";
+      portal.style.setProperty("--pg", stop.glow);
+      gsap.timeline({ onComplete: () => routerRef.current.push(route) })
+        .to(panels[id], { autoAlpha: 0, y: -24, duration: 0.3, ease: "power2.in" }, 0)
+        .to(cam, { cx: stop.pos.x, cy: stop.pos.y, s: Math.max(cam.s * 3.6, 2.4), r: 0, duration: 1.25, ease: "power3.in", onUpdate: apply }, 0)
+        .to(ship, { opacity: 0, duration: 0.1 }, 0)
+        .to(portal, { opacity: 1, duration: 0.55, ease: "power2.in" }, 0.75);
+    };
 
     // after layout: restore position (resize) or honour a deep link, without a visible jump
     const restore = gsap.delayedCall(0, () => {
@@ -236,7 +254,7 @@ export default function WorldExperience() {
     return () => {
       progress.current = st.progress;
       restore.kill(); ScrollTrigger.removeEventListener("scrollEnd", onEnd);
-      ctl.current.goTo = () => {}; ctl.current.busy = () => false;
+      document.body.style.overflow = ""; ctl.current.goTo = () => {}; ctl.current.busy = () => false; ctl.current.enter = undefined;
     };
   }, { scope: root, dependencies: [mode, viewKey], revertOnUpdate: true });
 
@@ -261,6 +279,7 @@ export default function WorldExperience() {
     goTo: (id) => { setWorldHash(hashFor(id), "push"); ctl.current.goTo(id); },
     next: () => { if (ctl.current.busy()) return; const i = WORLD_IDS.indexOf(current); if (i < WORLD_IDS.length - 1) api.goTo(WORLD_IDS[i + 1]); },
     prev: () => { if (ctl.current.busy()) return; const i = WORLD_IDS.indexOf(current); if (i > 0) api.goTo(WORLD_IDS[i - 1]); },
+    enter: (id) => { if (mode === "pinned" && !reduced && ctl.current.enter) ctl.current.enter(id); else { const r = stopById(id)?.route; if (r) routerRef.current.push(r); } },
     openMap: () => setMapOpen(true),
     openRequest, consumeOpen: () => setOpenRequest(null),
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -281,6 +300,7 @@ export default function WorldExperience() {
             </div>
             <FloatingParticles /><AtmosphericLayers />
             <Spaceship />
+            <div className="wx-portal" aria-hidden="true" />
             <div className="wx-hud">
               {STOPS.map((s) => { const Scene = SCENES[s.id]; return <div key={s.id} data-panel={s.id} className={`wx-panel wx-panel--${s.id}`}><Scene mode="pinned" /></div>; })}
             </div>

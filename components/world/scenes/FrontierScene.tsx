@@ -3,10 +3,12 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { BUILDING_NOW, EXPLORING_NOW, INTERESTS, JOURNAL } from "@/lib/world/content";
 import SceneHeader from "./SceneHeader";
+import { useWorld } from "../WorldContext";
 
 /** Observatory: what is being explored right now, kept apart from standing interests and from the notes/journal. */
 export default function FrontierScene({ mode }: { mode: "pinned" | "stacked" }) {
   void mode;
+  const w = useWorld();
   return (
     <section aria-labelledby="wx-h-frontier" className="wx-scene wx-frontier">
       <SceneHeader id="frontier" blurb="Where the curiosity is pointed right now — and the field notes that come out of it." />
@@ -25,7 +27,7 @@ export default function FrontierScene({ mode }: { mode: "pinned" | "stacked" }) 
           <h3>{JOURNAL.title}</h3>
           <p className="wx-fr-note">{JOURNAL.note}</p>
           <ul className="wx-plain">{JOURNAL.articles.map((a) => <li key={a.title}>{a.title} <small>· {a.category} · {a.readTime}</small></li>)}</ul>
-          <Link href="/journal" className="wx-link">Open the journal <ArrowRight size={15} aria-hidden="true" /></Link>
+          <Link href="/journal" className="wx-link" onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); w.enter("frontier"); }}>Open the journal <ArrowRight size={15} aria-hidden="true" /></Link>
         </div>
       </div>
     </section>

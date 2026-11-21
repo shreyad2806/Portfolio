@@ -246,3 +246,28 @@ html.wx-active { scroll-behavior: auto !important; }
 .wx-enroute u { display: block; width: 180px; height: 3px; margin: 10px auto 0; border-radius: 3px; background: rgba(255,255,255,.18); text-decoration: none; overflow: hidden; }
 .wx-enroute em { display: block; height: 100%; background: var(--accent); box-shadow: 0 0 10px var(--accent); transform-origin: 0 50%; transform: scaleX(0); }
 @media (prefers-reduced-motion: reduce) { .wx-sparks { display: none; } }
+
+/* V3.3: enter-the-island, click hint, interior sky */
+.wx-island-hit { position: absolute; left: 10%; right: 10%; top: 0; bottom: 8%; border-radius: 40%; background: transparent; border: 0; cursor: pointer; z-index: 2; }
+.wx-island-hit:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.wx-enter-hint { position: absolute; left: 50%; top: -4%; transform-origin: 50% 100%; transform: translateX(-50%); display: none; align-items: center; gap: 8px; white-space: nowrap; pointer-events: none; padding: 8px 14px; border-radius: 999px; font: 700 13px/1 var(--font-sans, system-ui), sans-serif; color: #120a3a; background: linear-gradient(90deg, #fff, rgb(var(--glow))); box-shadow: 0 0 24px rgba(var(--glow), .8); z-index: 3; animation: wx-hintbob 1.4s ease-in-out infinite; }
+.wx-enter-hint svg { animation: wx-tap 1.4s ease-in-out infinite; }
+.wx-stage[data-current="buildlab"] [data-island="buildlab"] .wx-enter-hint, .wx-stage[data-current="journey"] [data-island="journey"] .wx-enter-hint,
+.wx-stage[data-current="frontier"] [data-island="frontier"] .wx-enter-hint, .wx-stage[data-current="connection"] [data-island="connection"] .wx-enter-hint { display: inline-flex; }
+@keyframes wx-hintbob { 0%, 100% { margin-top: 0; } 50% { margin-top: -8px; } }
+@keyframes wx-tap { 0%, 60%, 100% { transform: scale(1); } 75% { transform: scale(.78); } }
+.wx-stage[data-current="buildlab"] [data-island="buildlab"] .wx-island-hit, .wx-stage[data-current="journey"] [data-island="journey"] .wx-island-hit,
+.wx-stage[data-current="frontier"] [data-island="frontier"] .wx-island-hit, .wx-stage[data-current="connection"] [data-island="connection"] .wx-island-hit { box-shadow: 0 0 0 0 rgba(var(--glow), .3); animation: wx-pulse 2.4s ease-out infinite; }
+@keyframes wx-pulse { 0% { box-shadow: 0 0 0 0 rgba(var(--glow), .3); } 100% { box-shadow: 0 0 0 calc(var(--u) * 6) rgba(var(--glow), 0); } }
+.wx-portal { position: absolute; inset: 0; z-index: 30; pointer-events: none; opacity: 0; background: radial-gradient(circle at 50% 50%, #fff 0%, rgba(var(--pg, 255,255,255), .95) 22%, rgba(var(--pg, 150,120,255), .55) 55%, rgba(8,4,32,.96) 100%); }
+.wx-portal--arrive { position: fixed; z-index: 80; }
+.wx-interior-sky { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: radial-gradient(120% 90% at 50% 0%, #1a0d4d 0%, #0a0626 55%, #05031a 100%); }
+.wx-interior-glow { position: absolute; inset: 0; background: radial-gradient(50% 45% at 78% 28%, rgba(var(--glow, 150,120,255), .18), transparent 70%); }
+.th-hero-ship { position: absolute; left: -4%; bottom: 8%; width: 30%; animation: th-ship 6s ease-in-out infinite alternate; filter: drop-shadow(0 0 16px rgba(130,100,255,.6)); }
+.th-hero-ship svg { display: block; width: 100%; height: auto; }
+.th-hero-ship-tag { position: absolute; left: -2%; bottom: -3%; padding: 6px 12px; border-radius: 999px; font: 600 11px/1 ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: rgba(12,7,44,.7); border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent); }
+@keyframes th-ship { from { transform: translate(0, 0) rotate(-3deg); } to { transform: translate(14px, -16px) rotate(2deg); } }
+@media (prefers-reduced-motion: reduce) { .wx-enter-hint, .wx-island-hit, .th-hero-ship { animation: none !important; } }
+/* the body's own background would paint over the fixed sky (z-index -1); the html element already carries the base colour */
+body:has(.wx-interior-sky) { background: transparent; }
+.wx-stage[data-current] .wx-island-hit { border-radius: 50%; }

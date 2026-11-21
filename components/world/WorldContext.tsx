@@ -10,6 +10,8 @@ export interface WorldApi {
   next(): void;
   prev(): void;
   openMap(): void;
+  /** Fly into an island and continue to its interior route (reduced motion: plain navigation). */
+  enter(id: WorldId): void;
   /** Set by Nova/adapter travel; scenes consume it once they are active. */
   openRequest: OpenRequest | null;
   consumeOpen(): void;

@@ -35,7 +35,7 @@ export default function JourneyScene({ mode }: { mode: "pinned" | "stacked" }) {
         <h3>{cur.title} <span>· {cur.subtitle}</span></h3>
         <p>{cur.description}</p>
         {cur.focusAreas && <ul className="wx-chips" aria-label="Focus areas">{cur.focusAreas.map((f) => <li key={f}>{f}</li>)}</ul>}
-        <Link href="/experience" className="wx-link">Full journey <ArrowRight size={15} aria-hidden="true" /></Link>
+        <Link href="/experience" className="wx-link" onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); w.enter("journey"); }}>Full journey <ArrowRight size={15} aria-hidden="true" /></Link>
       </article>
     </section>
   );

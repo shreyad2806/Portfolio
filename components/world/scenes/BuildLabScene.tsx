@@ -31,7 +31,7 @@ export default function BuildLabScene({ mode }: { mode: "pinned" | "stacked" }) 
             ); })}
           </ul>
           <div data-reveal className="wx-row">
-            <Link href="/projects" className="wx-link">All projects <ArrowRight size={15} aria-hidden="true" /></Link>
+            <Link href="/projects" className="wx-link" onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); w.enter("buildlab"); }}>All projects <ArrowRight size={15} aria-hidden="true" /></Link>
             <span className="wx-sep" aria-hidden="true" />
             <ul className="wx-inline" aria-label="More projects">
               {OTHER_PROJECTS.map((o) => <li key={o.id}><a href={o.href} {...(o.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>{o.name}</a></li>)}
