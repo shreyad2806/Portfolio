@@ -3,6 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { ArrowUpRight, FileText, Mail, MapPin } from "lucide-react";
 import type { NavAction } from "@/lib/nova/types";
+import { travelTo, worldTravelFromAction } from "@/lib/world/navigation";
 
 /** Executes a validated navigation action. Same-page anchors scroll smoothly; other routes use client-side routing. */
 export default function NovaNavigationAction({ action, onNavigate }: { action: NavAction; onNavigate?: () => void }) {
@@ -11,6 +12,9 @@ export default function NovaNavigationAction({ action, onNavigate }: { action: N
   const Icon = action.type === "navigate" ? MapPin : action.href.startsWith("mailto:") ? Mail : action.href.endsWith(".pdf") ? FileText : ArrowUpRight;
 
   function go(e: React.MouseEvent) {
+    // On the home page, destinations and featured projects are camera journeys in the world (validated adapter; the model never drives GSAP).
+    const world = worldTravelFromAction(action, pathname);
+    if (world) { e.preventDefault(); onNavigate?.(); travelTo(world); return; }
     if (action.type === "link" && (action.external || action.href.endsWith(".pdf") || action.href.startsWith("mailto:"))) return; // native behaviour
     e.preventDefault();
     onNavigate?.();

@@ -10,6 +10,7 @@ import "./home-lower.css";
 import "./projects-page.css";
 import "./journey-page.css";
 import "./nova.css";
+import "./world.css";
 import NovaWidget from "@/components/nova/NovaWidget";
 import SiteBackdrop from "@/components/theme/SiteBackdrop";
 import InteractionLayer from "@/components/theme/InteractionLayer";

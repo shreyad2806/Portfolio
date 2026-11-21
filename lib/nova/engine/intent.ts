@@ -64,6 +64,11 @@ export function classify(message: string, state: ConversationState = {}): Intent
     return { type: "ambiguous", entity: "lawgpt" };
   }
 
+  // Island-aware context: "what is this?" / "what can I do here?" resolve to the destination the visitor is standing on.
+  const DEST: Record<string, { cats: string[]; name: string }> = { basecamp: { cats: ["skills", "education"], name: "skills and education" }, buildlab: { cats: ["projects"], name: "projects" }, journey: { cats: ["experience", "achievements"], name: "experience and achievements" }, frontier: { cats: ["interests"], name: "current interests and exploration" }, connection: { cats: ["contact"], name: "contact" } };
+  const here = state.destination ? DEST[state.destination] : undefined;
+  if (here && !detectProject(raw) && /\b(here|this (island|place|area|section|destination|chapter)|this one|what (is|are) (this|these)|what('s| is) this (about|for))\b/.test(n)) return { type: "question", followup: false, categories: here.cats, query: `${raw} ${here.name}` };
+
   // Follow-up resolution: an active project (or compared pair) carries over unless the visitor clearly changes topic.
   if (state.projects?.length === 2 && all.length === 0 && /\b(which|both|each|either|the other|first one|second one|compare)\b/.test(n)) return { type: "compare", projects: state.projects };
   let project = detectProject(raw) ?? undefined;

@@ -31,6 +31,16 @@ export const experienceData: ExperienceItem[] = [
     quote: "The only way to do great work is to love what you do."
   },
   {
+    id: "startupcrafters-intern",
+    year: "Aug 2026 – Present",
+    title: "Software Engineer Intern",
+    subtitle: "StartupCrafters",
+    icon: "Briefcase",
+    description: "Investigated software failures, implemented fixes, and contributed to backend development through PRs and testing.",
+    focusAreas: ["Python", "FastAPI", "PostHog", "GitHub"],
+    status: "Active"
+  },
+  {
     id: "lawgpt-intern",
     year: "May 2026 – Jun 2026",
     title: "AI Research Intern",

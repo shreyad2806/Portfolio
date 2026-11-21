@@ -36,13 +36,13 @@ export default function Navbar() {
       }`}
     >
       <nav className="container-px mx-auto max-w-[1720px] flex items-center justify-between h-16">
-        <a
-          href="#home"
+        <Link
+          href="/"
           className="flex items-center gap-2.5 text-xl font-semibold tracking-tight text-text"
         >
           <Sparkles size={26} className="text-violet-300 drop-shadow-[0_0_10px_rgba(167,139,250,.9)]" fill="currentColor" />
           Shreya Dubey
-        </a>
+        </Link>
 
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
