@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { ArrowRight, FileText, Play } from "lucide-react";
-import { STOPS } from "@/lib/world/destinations";
 import { RESUME } from "@/lib/world/content";
 import { useWorld } from "../WorldContext";
 
@@ -29,9 +28,6 @@ export default function EntranceScene({ mode }: { mode: "pinned" | "stacked" }) 
       </aside>
       {mode === "pinned" && (
         <>
-          <ul data-reveal className="wx-dests" aria-label="Destinations">
-            {STOPS.slice(1).map((s) => <li key={s.id}><button type="button" onClick={() => w.goTo(s.id)} style={{ ["--accent" as string]: s.color }}><i />{s.title}</button></li>)}
-          </ul>
           <p className="wx-scrollhint" aria-hidden="true"><span className="wx-mouse"><i /></span> Scroll to travel</p>
         </>
       )}

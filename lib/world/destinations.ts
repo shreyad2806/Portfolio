@@ -23,7 +23,7 @@ export interface WorldStop {
 }
 
 const POS: Record<DestinationId, { x: number; y: number }> = {
-  basecamp: { x: -180, y: 20 }, buildlab: { x: -90, y: -22 }, journey: { x: 0, y: 22 }, frontier: { x: 90, y: -20 }, connection: { x: 180, y: 20 },
+  basecamp: { x: -156, y: 20 }, buildlab: { x: -78, y: -22 }, journey: { x: 0, y: 22 }, frontier: { x: 78, y: -20 }, connection: { x: 156, y: 20 },
 };
 
 export const STOPS: WorldStop[] = [
@@ -51,7 +51,7 @@ export const hashFor = (id: WorldId) => (id === "intro" ? "" : `#${id}`);
 
 /* ---- camera poses -------------------------------------------------------------------------------------------------- */
 export interface Viewport { w: number; h: number }
-export const ISLAND_SIZE = 64; // world units (artwork width)
+export const ISLAND_SIZE = 68; // world units (artwork width)
 /** Pixels per world unit — must match the CSS `--u: min(1vw, 1.72svh)`. */
 export const unit = (v: Viewport) => Math.min(v.w / 100, v.h / 58);
 export const isNarrow = (v: Viewport) => v.w < 820 || v.h > v.w * 1.1;
@@ -60,8 +60,8 @@ export interface Pose { x: number; y: number; scale: number }
 /** Camera centre (world units) + scale that frames a stop: wide → island left of centre, narrow → island in the upper part. */
 export function poseFor(stop: WorldStop, v: Viewport): Pose {
   const narrow = isNarrow(v);
-  if (stop.id === "intro") return narrow ? { x: 0, y: -44, scale: 0.42 } : { x: 0, y: -4, scale: 0.235 };
-  const scale = narrow ? 1.0 : 0.72;
+  if (stop.id === "intro") return narrow ? { x: 0, y: -44, scale: 0.42 } : { x: 0, y: -26, scale: Math.max(0.2, Math.min(0.3, (0.97 * v.w) / (unit(v) * 380))) };
+  const scale = narrow ? 1.0 : 0.68;
   const f = narrow ? { x: 0.5, y: 0.25 } : { x: 0.27, y: 0.5 };
   const u = unit(v);
   const viewW = v.w / (u * scale), viewH = v.h / (u * scale);
